@@ -1,129 +1,141 @@
-track,task,config,status,f1,precision,recall
-v53,T01,C1,success,0.0,0.0,0.0
-v53,T01,C2,success,0.0,0.0,0.0
-v53,T01,C3,success,0.0,0.0,0.0
-v53,T01,C4,success,0.0,0.0,0.0
-v53,T02,C1,success,0.0,0.0,0.0
-v53,T02,C2,success,0.0,0.0,0.0
-v53,T02,C3,success,0.0,0.0,0.0
-v53,T02,C4,success,0.0,0.0,0.0
-v53,T03,C1,failed,0.0,0.0,0.0
-v53,T03,C2,failed,0.0,0.0,0.0
-v53,T03,C3,failed,0.0,0.0,0.0
-v53,T03,C4,failed,0.0,0.0,0.0
-v53,T04,C1,success,0.0,0.0,0.0
-v53,T04,C2,success,0.0,0.0,0.0
-v53,T04,C3,success,0.0,0.0,0.0
-v53,T04,C4,success,0.0,0.0,0.0
-v53,T05,C1,success,0.0,0.0,0.0
-v53,T05,C2,success,0.0,0.0,0.0
-v53,T05,C3,success,0.0,0.0,0.0
-v53,T05,C4,success,0.0,0.0,0.0
-v53,T06,C1,success,0.0,0.0,0.0
-v53,T06,C2,success,0.0,0.0,0.0
-v53,T06,C3,success,0.0,0.0,0.0
-v53,T06,C4,success,0.0,0.0,0.0
-v53,T07,C1,success,0.0,0.0,0.0
-v53,T07,C2,success,0.0,0.0,0.0
-v53,T07,C3,success,0.0,0.0,0.0
-v53,T07,C4,success,0.0,0.0,0.0
-v53,T08,C1,success,0.0,0.0,0.0
-v53,T08,C2,success,0.0,0.0,0.0
-v53,T08,C3,success,0.0,0.0,0.0
-v53,T08,C4,success,0.0,0.0,0.0
-v53,T09,C1,success,0.0,0.0,0.0
-v53,T09,C2,success,0.0,0.0,0.0
-v53,T09,C3,success,0.0,0.0,0.0
-v53,T09,C4,success,0.0,0.0,0.0
-v53,T10,C1,success,0.0,0.0,0.0
-v53,T10,C2,failed,0.0,0.0,0.0
-v53,T10,C3,success,0.0,0.0,0.0
-v53,T10,C4,success,0.0,0.0,0.0
-v53,T11,C1,failed,0.0,0.0,0.0
-v53,T11,C2,success,0.0,0.0,0.0
-v53,T11,C3,success,0.0,0.0,0.0
-v53,T11,C4,failed,0.0,0.0,0.0
-v53,T12,C1,failed,0.0,0.0,0.0
-v53,T12,C2,success,0.0,0.0,0.0
-v53,T12,C3,failed,0.0,0.0,0.0
-v53,T12,C4,failed,0.0,0.0,0.0
-v53,T13,C1,failed,0.0,0.0,0.0
-v53,T13,C2,success,0.0,0.0,0.0
-v53,T13,C3,success,0.0,0.0,0.0
-v53,T13,C4,success,0.0,0.0,0.0
-v53,T14,C1,failed,0.0,0.0,0.0
-v53,T14,C2,failed,0.0,0.0,0.0
-v53,T14,C3,success,0.0,0.0,0.0
-v53,T14,C4,success,0.0,0.0,0.0
-v53,T15,C1,success,0.0,0.0,0.0
-v53,T15,C2,success,0.0,0.0,0.0
-v53,T15,C3,success,0.0,0.0,0.0
-v53,T15,C4,success,0.0,0.0,0.0
-v53,T16,C1,failed,0.0,0.0,0.0
-v53,T16,C2,timeout,0.0,0.0,0.0
-v53,T16,C3,success,0.0,0.0,0.0
-v53,T16,C4,success,0.0,0.0,0.0
-v53,T17,C1,failed,0.0,0.0,0.0
-v53,T17,C2,timeout,0.0,0.0,0.0
-v53,T17,C3,failed,0.0,0.0,0.0
-v53,T17,C4,success,0.0,0.0,0.0
-v53,T18,C1,failed,0.0,0.0,0.0
-v53,T18,C2,success,0.0,0.0,0.0
-v53,T18,C3,failed,0.0,0.0,0.0
-v53,T18,C4,failed,0.0,0.0,0.0
-v53,T19,C1,success,0.0,0.0,0.0
-v53,T19,C2,success,0.0,0.0,0.0
-v53,T19,C3,success,0.0,0.0,0.0
-v53,T19,C4,success,0.0,0.0,0.0
-v53,T20,C1,success,0.0,0.0,0.0
-v53,T20,C2,success,0.0,0.0,0.0
-v53,T20,C3,success,0.0,0.0,0.0
-v53,T20,C4,success,0.0,0.0,0.0
-neuro,N01,C1,success,0.0,0.0,0.0
-neuro,N01,C2,success,0.0,0.0,0.0
-neuro,N01,C3,success,0.0,0.0,0.0
-neuro,N01,C4,success,0.0,0.0,0.0
-neuro,N02,C1,success,0.0,0.0,0.0
-neuro,N02,C2,success,0.0,0.0,0.0
-neuro,N02,C3,success,0.0,0.0,0.0
-neuro,N02,C4,success,0.0,0.0,0.0
-neuro,N03,C1,success,0.0,0.0,0.0
-neuro,N03,C2,success,0.0,0.0,0.0
-neuro,N03,C3,success,0.0,0.0,0.0
-neuro,N03,C4,success,0.0,0.0,0.0
-neuro,N04,C1,success,0.0,0.0,0.0
-neuro,N04,C2,success,0.0,0.0,0.0
-neuro,N04,C3,success,0.0,0.0,0.0
-neuro,N04,C4,success,0.0,0.0,0.0
-neuro,N05,C1,success,0.0,0.0,0.0
-neuro,N05,C2,success,0.0,0.0,0.0
-neuro,N05,C3,success,0.0,0.0,0.0
-neuro,N05,C4,success,0.0,0.0,0.0
-neuro,N06,C1,success,0.0,0.0,0.0
-neuro,N06,C2,success,0.0,0.0,0.0
-neuro,N06,C3,success,0.0,0.0,0.0
-neuro,N06,C4,success,0.0,0.0,0.0
-neuro,N07,C1,success,0.0,0.0,0.0
-neuro,N07,C2,success,0.0,0.0,0.0
-neuro,N07,C3,success,0.0,0.0,0.0
-neuro,N07,C4,success,0.0,0.0,0.0
-neuro,N08,C1,success,0.0,0.0,0.0
-neuro,N08,C2,success,0.0,0.0,0.0
-neuro,N08,C3,success,0.0,0.0,0.0
-neuro,N08,C4,success,0.0,0.0,0.0
-neuro,N09,C1,success,0.0,0.0,0.0
-neuro,N09,C2,success,0.0,0.0,0.0
-neuro,N09,C3,success,0.0,0.0,0.0
-neuro,N09,C4,success,0.0,0.0,0.0
-neuro,N10,C1,success,0.0,0.0,0.0
-neuro,N10,C2,success,0.0,0.0,0.0
-neuro,N10,C3,success,0.0,0.0,0.0
-neuro,N10,C4,success,0.0,0.0,0.0
-neuro,N11,C1,success,0.0,0.0,0.0
-neuro,N11,C2,success,0.0,0.0,0.0
-neuro,N11,C3,success,0.0,0.0,0.0
-neuro,N11,C4,success,0.0,0.0,0.0
-neuro,N12,C1,success,0.0,0.0,0.0
-neuro,N12,C2,timeout,0.0,0.0,0.0
-neuro,N12,C3,success,0.0,0.0,0.0
-neuro,N12,C4,success,0.0,0.0,0.0
+track,task_id,configuration,chosen_report,attempt_paths,status,failure_reason,failure_class,selection_rationale
+v53,T01,C1,results/codex_20261025/runs/official_v53_qwen7b/T01_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T01_C1,success,,none,First attempt selected
+v53,T01,C2,results/codex_20261025/runs/official_v53_qwen7b/T01_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T01_C2,success,,none,First attempt selected
+v53,T01,C3,results/codex_20261025/runs/official_v53_qwen7b/T01_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T01_C3,success,,none,First attempt selected
+v53,T01,C4,results/codex_20261025/runs/official_v53_qwen7b/T01_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T01_C4,success,,none,First attempt selected
+v53,T02,C1,results/codex_20261025/runs/official_v53_qwen7b/T02_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T02_C1,success,,none,First attempt selected
+v53,T02,C2,results/codex_20261025/runs/official_v53_qwen7b/T02_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T02_C2,success,,none,First attempt selected
+v53,T02,C3,results/codex_20261025/runs/official_v53_qwen7b/T02_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T02_C3,success,,none,First attempt selected
+v53,T02,C4,results/codex_20261025/runs/official_v53_qwen7b/T02_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T02_C4,success,,none,First attempt selected
+v53,T03,C1,results/codex_20261025/runs/official_v53_qwen7b/T03_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T03_C1,failed,validator errors persisted after 3 repairs,validator_repair_loop_unconverged,First attempt selected
+v53,T03,C2,results/codex_20261025/runs/official_v53_qwen7b/T03_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T03_C2,failed,bounded finalization failed validation: ERROR domain_mismatch [hypothyroidism] concept 4085189: concept is in domain 'Procedure' but the set declares 'Condition',domain_mismatch,First attempt selected
+v53,T03,C3,results/codex_20261025/runs/official_v53_qwen7b/T03_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T03_C3,failed,"planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec
+  Value error, criterion references unknown concept set 'excluded_hypothyroidism' [type=value_error, input_value={'question': ""Identify pa...atment.', 'items': []}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error",structured_output_schema_error,First attempt selected
+v53,T03,C4,results/codex_20261025/runs/official_v53_qwen7b/T03_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T03_C4,failed,"planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec
+  Value error, criterion references unknown concept set 'excluded_hypothyroidism' [type=value_error, input_value={'question': ""Identify pa...atment.', 'items': []}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error",structured_output_schema_error,First attempt selected
+v53,T04,C1,results/codex_20261025/runs/official_v53_qwen7b/T04_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T04_C1,success,,none,First attempt selected
+v53,T04,C2,results/codex_20261025/runs/official_v53_qwen7b/T04_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T04_C2,success,,none,First attempt selected
+v53,T04,C3,results/codex_20261025/runs/official_v53_qwen7b/T04_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T04_C3,success,,none,First attempt selected
+v53,T04,C4,results/codex_20261025/runs/official_v53_qwen7b/T04_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T04_C4,success,,none,First attempt selected
+v53,T05,C1,results/codex_20261025/runs/official_v53_qwen7b/T05_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T05_C1,failed,RemoteDisconnected: Remote end closed connection without response,infrastructure,First attempt selected
+v53,T05,C2,results/codex_20261025/runs/official_v53_qwen7b/T05_C2_retry1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T05_C2;results/codex_20261025/runs/official_v53_qwen7b/T05_C2_retry1,unknown,,infrastructure,Retry chosen because attempt 1 suffered infrastructure/fatal error
+v53,T05,C3,results/codex_20261025/runs/official_v53_qwen7b/T05_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T05_C3,success,,none,First attempt selected
+v53,T05,C4,results/codex_20261025/runs/official_v53_qwen7b/T05_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T05_C4,success,,none,First attempt selected
+v53,T06,C1,results/codex_20261025/runs/official_v53_qwen7b/T06_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T06_C1,success,,none,First attempt selected
+v53,T06,C2,results/codex_20261025/runs/official_v53_qwen7b/T06_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T06_C2,success,,none,First attempt selected
+v53,T06,C3,results/codex_20261025/runs/official_v53_qwen7b/T06_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T06_C3,success,,none,First attempt selected
+v53,T06,C4,results/codex_20261025/runs/official_v53_qwen7b/T06_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T06_C4,success,,none,First attempt selected
+v53,T07,C1,results/codex_20261025/runs/official_v53_qwen7b/T07_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T07_C1,success,,none,First attempt selected
+v53,T07,C2,results/codex_20261025/runs/official_v53_qwen7b/T07_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T07_C2,success,,none,First attempt selected
+v53,T07,C3,results/codex_20261025/runs/official_v53_qwen7b/T07_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T07_C3,success,,none,First attempt selected
+v53,T07,C4,results/codex_20261025/runs/official_v53_qwen7b/T07_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T07_C4,success,,none,First attempt selected
+v53,T08,C1,results/codex_20261025/runs/official_v53_qwen7b/T08_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T08_C1,success,,none,First attempt selected
+v53,T08,C2,results/codex_20261025/runs/official_v53_qwen7b/T08_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T08_C2,success,,none,First attempt selected
+v53,T08,C3,results/codex_20261025/runs/official_v53_qwen7b/T08_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T08_C3,success,,none,First attempt selected
+v53,T08,C4,results/codex_20261025/runs/official_v53_qwen7b/T08_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T08_C4,success,,none,First attempt selected
+v53,T09,C1,results/codex_20261025/runs/official_v53_qwen7b/T09_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T09_C1,success,,none,First attempt selected
+v53,T09,C2,results/codex_20261025/runs/official_v53_qwen7b/T09_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T09_C2,success,,none,First attempt selected
+v53,T09,C3,results/codex_20261025/runs/official_v53_qwen7b/T09_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T09_C3,success,,none,First attempt selected
+v53,T09,C4,results/codex_20261025/runs/official_v53_qwen7b/T09_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T09_C4,success,,none,First attempt selected
+v53,T10,C1,results/codex_20261025/runs/official_v53_qwen7b/T10_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T10_C1,success,,none,First attempt selected
+v53,T10,C2,results/codex_20261025/runs/official_v53_qwen7b/T10_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T10_C2,failed,budget exceeded: llm_calls limit=30 used=30,llm_budget_exhausted,First attempt selected
+v53,T10,C3,results/codex_20261025/runs/official_v53_qwen7b/T10_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T10_C3,success,,none,First attempt selected
+v53,T10,C4,results/codex_20261025/runs/official_v53_qwen7b/T10_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T10_C4,success,,none,First attempt selected
+v53,T11,C1,results/codex_20261025/runs/official_v53_qwen7b/T11_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T11_C1,failed,concept agent failed: repeated identical vocabulary tool call for new_users_of_dihydropyridine_calcium_channel_blockers,repeated_tool_call_loop,First attempt selected
+v53,T11,C2,results/codex_20261025/runs/official_v53_qwen7b/T11_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T11_C2,success,,none,First attempt selected
+v53,T11,C3,results/codex_20261025/runs/official_v53_qwen7b/T11_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T11_C3,failed,RemoteDisconnected: Remote end closed connection without response,infrastructure,First attempt selected
+v53,T11,C4,results/codex_20261025/runs/official_v53_qwen7b/T11_C4_retry1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T11_C4;results/codex_20261025/runs/official_v53_qwen7b/T11_C4_retry1,success,,none,Retry chosen because attempt 1 suffered infrastructure/fatal error
+v53,T12,C1,results/codex_20261025/runs/official_v53_qwen7b/T12_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T12_C1,failed,validator errors persisted after 3 repairs,validator_repair_loop_unconverged,First attempt selected
+v53,T12,C2,results/codex_20261025/runs/official_v53_qwen7b/T12_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T12_C2,success,,none,First attempt selected
+v53,T12,C3,results/codex_20261025/runs/official_v53_qwen7b/T12_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T12_C3,failed,validator errors persisted after 3 repairs,validator_repair_loop_unconverged,First attempt selected
+v53,T12,C4,results/codex_20261025/runs/official_v53_qwen7b/T12_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T12_C4,failed,budget exceeded: llm_calls limit=30 used=30,llm_budget_exhausted,First attempt selected
+v53,T13,C1,results/codex_20261025/runs/official_v53_qwen7b/T13_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T13_C1,failed,validator errors persisted after 3 repairs,validator_repair_loop_unconverged,First attempt selected
+v53,T13,C2,results/codex_20261025/runs/official_v53_qwen7b/T13_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T13_C2,success,,none,First attempt selected
+v53,T13,C3,results/codex_20261025/runs/official_v53_qwen7b/T13_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T13_C3,success,,none,First attempt selected
+v53,T13,C4,results/codex_20261025/runs/official_v53_qwen7b/T13_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T13_C4,success,,none,First attempt selected
+v53,T14,C1,results/codex_20261025/runs/official_v53_qwen7b/T14_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T14_C1,failed,validator errors persisted after 3 repairs,validator_repair_loop_unconverged,First attempt selected
+v53,T14,C2,results/codex_20261025/runs/official_v53_qwen7b/T14_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T14_C2,failed,bounded finalization failed validation: ERROR domain_mismatch [antiepileptic_drug] concept 45765791: concept is in domain 'Condition' but the set declares 'Drug',domain_mismatch,First attempt selected
+v53,T14,C3,results/codex_20261025/runs/official_v53_qwen7b/T14_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T14_C3,success,,none,First attempt selected
+v53,T14,C4,results/codex_20261025/runs/official_v53_qwen7b/T14_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T14_C4,success,,none,First attempt selected
+v53,T15,C1,results/codex_20261025/runs/official_v53_qwen7b/T15_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T15_C1,success,,none,First attempt selected
+v53,T15,C2,results/codex_20261025/runs/official_v53_qwen7b/T15_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T15_C2,success,,none,First attempt selected
+v53,T15,C3,results/codex_20261025/runs/official_v53_qwen7b/T15_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T15_C3,success,,none,First attempt selected
+v53,T15,C4,results/codex_20261025/runs/official_v53_qwen7b/T15_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T15_C4,success,,none,First attempt selected
+v53,T16,C1,results/codex_20261025/runs/official_v53_qwen7b/T16_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T16_C1,failed,"concept agent failed: concept agent unparseable: response is not a JSON object; reply with JSON only, no prose",infrastructure,First attempt selected
+v53,T16,C2,results/codex_20261025/runs/official_v53_qwen7b/T16_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T16_C2,timeout,JBI_RUN_DEADLINE_S exceeded,timeout,First attempt selected
+v53,T16,C3,results/codex_20261025/runs/official_v53_qwen7b/T16_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T16_C3,success,,none,First attempt selected
+v53,T16,C4,results/codex_20261025/runs/official_v53_qwen7b/T16_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T16_C4,success,,none,First attempt selected
+v53,T17,C1,results/codex_20261025/runs/official_v53_qwen7b/T17_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T17_C1,failed,concept agent failed: repeated identical vocabulary tool call for acute_typical_pneumonia,repeated_tool_call_loop,First attempt selected
+v53,T17,C2,results/codex_20261025/runs/official_v53_qwen7b/T17_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T17_C2,failed,RemoteDisconnected: Remote end closed connection without response,infrastructure,First attempt selected
+v53,T17,C3,results/codex_20261025/runs/official_v53_qwen7b/T17_C3_retry1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T17_C3;results/codex_20261025/runs/official_v53_qwen7b/T17_C3_retry1,failed,"builder failed: builder produced an invalid specification: 1 validation error for CohortSpec
+  Value error, criterion references unknown concept set 'arms: acute_typical_pneumonia (Condition)' [type=value_error, input_value={'spec_version': '1.1', '...umonia.', 'items': []}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error",structured_output_schema_error,Retry chosen because attempt 1 suffered infrastructure/fatal error
+v53,T17,C4,results/codex_20261025/runs/official_v53_qwen7b/T17_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T17_C4,success,,none,First attempt selected
+v53,T18,C1,results/codex_20261025/runs/official_v53_qwen7b/T18_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T18_C1,failed,"planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec
+  Value error, criterion references unknown concept set 'no_asthma' [type=value_error, input_value={'question': 'Identify pa...isease.', 'items': []}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error",structured_output_schema_error,First attempt selected
+v53,T18,C2,results/codex_20261025/runs/official_v53_qwen7b/T18_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T18_C2,success,,none,First attempt selected
+v53,T18,C3,results/codex_20261025/runs/official_v53_qwen7b/T18_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T18_C3,failed,"planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec
+  Value error, criterion references unknown concept set 'asthma_diagnosis' [type=value_error, input_value={'question': 'Identify pa...isease.', 'items': []}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error",structured_output_schema_error,First attempt selected
+v53,T18,C4,results/codex_20261025/runs/official_v53_qwen7b/T18_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T18_C4,failed,"planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec
+  Value error, criterion references unknown concept set 'asthma_diagnosis' [type=value_error, input_value={'question': 'Identify pa...isease.', 'items': []}}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error",structured_output_schema_error,First attempt selected
+v53,T19,C1,results/codex_20261025/runs/official_v53_qwen7b/T19_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T19_C1,success,,none,First attempt selected
+v53,T19,C2,results/codex_20261025/runs/official_v53_qwen7b/T19_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T19_C2,success,,none,First attempt selected
+v53,T19,C3,results/codex_20261025/runs/official_v53_qwen7b/T19_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T19_C3,success,,none,First attempt selected
+v53,T19,C4,results/codex_20261025/runs/official_v53_qwen7b/T19_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T19_C4,success,,none,First attempt selected
+v53,T20,C1,results/codex_20261025/runs/official_v53_qwen7b/T20_C1/report.json,results/codex_20261025/runs/official_v53_qwen7b/T20_C1,success,,none,First attempt selected
+v53,T20,C2,results/codex_20261025/runs/official_v53_qwen7b/T20_C2/report.json,results/codex_20261025/runs/official_v53_qwen7b/T20_C2,success,,none,First attempt selected
+v53,T20,C3,results/codex_20261025/runs/official_v53_qwen7b/T20_C3/report.json,results/codex_20261025/runs/official_v53_qwen7b/T20_C3,success,,none,First attempt selected
+v53,T20,C4,results/codex_20261025/runs/official_v53_qwen7b/T20_C4/report.json,results/codex_20261025/runs/official_v53_qwen7b/T20_C4,success,,none,First attempt selected
+neuro,N01,C1,results/codex_20261025/runs/official_neuro_qwen7b/N01_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N01_C1,success,,none,First attempt selected
+neuro,N01,C2,results/codex_20261025/runs/official_neuro_qwen7b/N01_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N01_C2,success,,none,First attempt selected
+neuro,N01,C3,results/codex_20261025/runs/official_neuro_qwen7b/N01_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N01_C3,success,,none,First attempt selected
+neuro,N01,C4,results/codex_20261025/runs/official_neuro_qwen7b/N01_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N01_C4,success,,none,First attempt selected
+neuro,N02,C1,results/codex_20261025/runs/official_neuro_qwen7b/N02_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N02_C1,success,,none,First attempt selected
+neuro,N02,C2,results/codex_20261025/runs/official_neuro_qwen7b/N02_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N02_C2,success,,none,First attempt selected
+neuro,N02,C3,results/codex_20261025/runs/official_neuro_qwen7b/N02_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N02_C3,success,,none,First attempt selected
+neuro,N02,C4,results/codex_20261025/runs/official_neuro_qwen7b/N02_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N02_C4,success,,none,First attempt selected
+neuro,N03,C1,results/codex_20261025/runs/official_neuro_qwen7b/N03_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N03_C1,success,,none,First attempt selected
+neuro,N03,C2,results/codex_20261025/runs/official_neuro_qwen7b/N03_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N03_C2,success,,none,First attempt selected
+neuro,N03,C3,results/codex_20261025/runs/official_neuro_qwen7b/N03_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N03_C3,success,,none,First attempt selected
+neuro,N03,C4,results/codex_20261025/runs/official_neuro_qwen7b/N03_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N03_C4,success,,none,First attempt selected
+neuro,N04,C1,results/codex_20261025/runs/official_neuro_qwen7b/N04_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N04_C1,success,,none,First attempt selected
+neuro,N04,C2,results/codex_20261025/runs/official_neuro_qwen7b/N04_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N04_C2,success,,none,First attempt selected
+neuro,N04,C3,results/codex_20261025/runs/official_neuro_qwen7b/N04_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N04_C3,success,,none,First attempt selected
+neuro,N04,C4,results/codex_20261025/runs/official_neuro_qwen7b/N04_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N04_C4,success,,none,First attempt selected
+neuro,N05,C1,results/codex_20261025/runs/official_neuro_qwen7b/N05_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N05_C1,success,,none,First attempt selected
+neuro,N05,C2,results/codex_20261025/runs/official_neuro_qwen7b/N05_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N05_C2,success,,none,First attempt selected
+neuro,N05,C3,results/codex_20261025/runs/official_neuro_qwen7b/N05_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N05_C3,success,,none,First attempt selected
+neuro,N05,C4,results/codex_20261025/runs/official_neuro_qwen7b/N05_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N05_C4,success,,none,First attempt selected
+neuro,N06,C1,results/codex_20261025/runs/official_neuro_qwen7b/N06_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N06_C1,success,,none,First attempt selected
+neuro,N06,C2,results/codex_20261025/runs/official_neuro_qwen7b/N06_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N06_C2,success,,none,First attempt selected
+neuro,N06,C3,results/codex_20261025/runs/official_neuro_qwen7b/N06_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N06_C3,success,,none,First attempt selected
+neuro,N06,C4,results/codex_20261025/runs/official_neuro_qwen7b/N06_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N06_C4,success,,none,First attempt selected
+neuro,N07,C1,results/codex_20261025/runs/official_neuro_qwen7b/N07_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N07_C1,success,,none,First attempt selected
+neuro,N07,C2,results/codex_20261025/runs/official_neuro_qwen7b/N07_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N07_C2,success,,none,First attempt selected
+neuro,N07,C3,results/codex_20261025/runs/official_neuro_qwen7b/N07_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N07_C3,success,,none,First attempt selected
+neuro,N07,C4,results/codex_20261025/runs/official_neuro_qwen7b/N07_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N07_C4,success,,none,First attempt selected
+neuro,N08,C1,results/codex_20261025/runs/official_neuro_qwen7b/N08_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N08_C1,success,,none,First attempt selected
+neuro,N08,C2,results/codex_20261025/runs/official_neuro_qwen7b/N08_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N08_C2,success,,none,First attempt selected
+neuro,N08,C3,results/codex_20261025/runs/official_neuro_qwen7b/N08_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N08_C3,success,,none,First attempt selected
+neuro,N08,C4,results/codex_20261025/runs/official_neuro_qwen7b/N08_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N08_C4,success,,none,First attempt selected
+neuro,N09,C1,results/codex_20261025/runs/official_neuro_qwen7b/N09_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N09_C1,success,,none,First attempt selected
+neuro,N09,C2,results/codex_20261025/runs/official_neuro_qwen7b/N09_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N09_C2,success,,none,First attempt selected
+neuro,N09,C3,results/codex_20261025/runs/official_neuro_qwen7b/N09_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N09_C3,success,,none,First attempt selected
+neuro,N09,C4,results/codex_20261025/runs/official_neuro_qwen7b/N09_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N09_C4,success,,none,First attempt selected
+neuro,N10,C1,results/codex_20261025/runs/official_neuro_qwen7b/N10_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N10_C1,success,,none,First attempt selected
+neuro,N10,C2,results/codex_20261025/runs/official_neuro_qwen7b/N10_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N10_C2,success,,none,First attempt selected
+neuro,N10,C3,results/codex_20261025/runs/official_neuro_qwen7b/N10_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N10_C3,success,,none,First attempt selected
+neuro,N10,C4,results/codex_20261025/runs/official_neuro_qwen7b/N10_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N10_C4,success,,none,First attempt selected
+neuro,N11,C1,results/codex_20261025/runs/official_neuro_qwen7b/N11_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N11_C1,success,,none,First attempt selected
+neuro,N11,C2,results/codex_20261025/runs/official_neuro_qwen7b/N11_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N11_C2,success,,none,First attempt selected
+neuro,N11,C3,results/codex_20261025/runs/official_neuro_qwen7b/N11_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N11_C3,success,,none,First attempt selected
+neuro,N11,C4,results/codex_20261025/runs/official_neuro_qwen7b/N11_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N11_C4,success,,none,First attempt selected
+neuro,N12,C1,results/codex_20261025/runs/official_neuro_qwen7b/N12_C1/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N12_C1,success,,none,First attempt selected
+neuro,N12,C2,results/codex_20261025/runs/official_neuro_qwen7b/N12_C2/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N12_C2,timeout,JBI_RUN_DEADLINE_S exceeded,timeout,First attempt selected
+neuro,N12,C3,results/codex_20261025/runs/official_neuro_qwen7b/N12_C3/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N12_C3,success,,none,First attempt selected
+neuro,N12,C4,results/codex_20261025/runs/official_neuro_qwen7b/N12_C4/report.json,results/codex_20261025/runs/official_neuro_qwen7b/N12_C4,success,,none,First attempt selected
