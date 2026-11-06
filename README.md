@@ -2,7 +2,7 @@
 
 Official code, benchmark specifications, and reproducible evaluation manifests for the research manuscript:
 
-**"Do Agentic AI-Generated Cohort Definitions Preserve Real-World Evidence? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping on OMOP"**
+**"How Faithfully Do Agentic AI Systems Generate OMOP Cohort Definitions? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping"**
 
 Submitted to the *Journal of Biomedical Informatics* Special Issue on *Agentic AI for Real-World Evidence Life Cycle Support*.
 

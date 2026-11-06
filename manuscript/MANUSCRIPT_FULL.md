@@ -1,5 +1,5 @@
 <!-- src: manuscript/01_title_abstract.md -->
-# Do Agentic AI-Generated Cohort Definitions Preserve Real-World Evidence? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping on OMOP
+# How Faithfully Do Agentic AI Systems Generate OMOP Cohort Definitions? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping
 
 ## Highlights
 - Controlled evaluation of multi-agent vs. single-agent OMOP cohort extraction.
@@ -140,13 +140,13 @@ Table 2 presents paired statistical comparisons anchored on C1.
 
 *Table 2: Paired Wilcoxon signed-rank comparisons anchored on configuration C1. *Nominally significant at p < 0.05; non-significant following Holm-Bonferroni family-wise error rate correction (p ≈ 0.09).*
 
-Bootstrap 95% confidence intervals (10,000 resamples) strictly excluded zero for all three comparisons in the Neurological track (+0.2651 to +0.3190 mean advantage). While uncorrected paired Wilcoxon tests against C3 and C4 achieved nominal significance ($p = 0.0312$), family-wise error control via Holm-Bonferroni adjustment yields $p \approx 0.09$. The consistent directionality across paired tasks establishes that the cooperative multi-agent architecture substantially enhances concept recall in targeted clinical domains.
+Bootstrap 95% confidence intervals (10,000 resamples) excluded zero for all three comparisons in the Neurological track (mean paired differences +0.2651 to +0.3190; lower 95% CI bounds +0.0614 to +0.0935). While uncorrected paired Wilcoxon tests against C3 and C4 achieved nominal significance ($p = 0.0312$), family-wise error control via Holm-Bonferroni adjustment yields $p \approx 0.09$. The consistent directionality across paired tasks establishes that the cooperative multi-agent architecture substantially enhances concept recall in targeted clinical domains.
 
 ### 5.1.2 V5.3 General Track: Reliability Bottlenecks
 On the 20-cohort V5.3 benchmark, C1 succeeded in execution for 11 of 20 tasks, with 9 successfully parsed into verifiable cohort expressions (45% scored yield). Among scored definitions, C1 produced the highest mean $F_1$ (0.3002 ± 0.353 vs. 0.2385 for C2 and 0.1717 for C4). However, when evaluated under intention-to-evaluate accounting (All=0), monolithic baseline C2 demonstrated superior operational dependability ($F_1 = 0.1550$ vs. $0.1351$ for C1).
 
 ### 5.1.3 Precision Discipline and Concept Grounding
-Across both tracks and all 128 benchmark configurations, precision remained exceptionally high, ranging from 0.9036 to 1.0000. Deterministic vocabulary constraints enforced through DuckDB query bindings prevented hallucination of non-existent OMOP concept identifiers. Recall dropout, rather than spurious concept inclusion, constituted the primary error mode.
+Across both tracks, mean precision remained high in all eight track–configuration arms, ranging from 0.9036 to 1.0000 (computed over scored runs with at least one predicted concept). No out-of-vocabulary concept identifiers were observed in any scored run, consistent with the deterministic vocabulary constraints enforced through DuckDB query bindings. Recall dropout, rather than spurious concept inclusion, constituted the primary error mode.
 
 ---
 
@@ -155,9 +155,9 @@ Across both tracks and all 128 benchmark configurations, precision remained exce
 ## 6.1 Principal Findings & Trade-offs
 This empirical benchmark provides a rigorous, two-sided evaluation of multi-agent LLM systems for automated computable phenotyping on the OMOP Common Data Model:
 
-1. **Domain-Specific Expressivity (Neurological Track):** In targeted clinical domains with rich hierarchical concept spaces, full multi-agent cooperation (C1) doubled concept recall to 0.6082 and achieved a mean $F_1$ of 0.6208 ± 0.410, compared to single-agent C2 (mean $F_1 = 0.3242$, recall 0.2597) and ablated baselines C3–C4 (~0.2700 recall). Bootstrap 95% confidence intervals strictly excluded zero across all pairwise comparisons (+0.2651 to +0.3190). While unadjusted Wilcoxon comparisons vs. C3 and C4 reached nominal significance ($p = 0.0312$), family-wise error control via Holm-Bonferroni correction yields non-significance ($p \approx 0.09$). Thus, the claim of multi-agent benefit rests on the uniform directionality of paired differences and bootstrap stability rather than unadjusted asymptotic significance.
+1. **Domain-Specific Expressivity (Neurological Track):** In targeted clinical domains with rich hierarchical concept spaces, full multi-agent cooperation (C1) raised mean concept recall to 0.6082 and achieved a mean $F_1$ of 0.6208 ± 0.410, compared to single-agent C2 (mean $F_1 = 0.3242$, recall 0.2597) and ablated baselines C3–C4 (~0.2700 recall). Bootstrap 95% confidence intervals excluded zero across all pairwise comparisons (mean paired differences +0.2651 to +0.3190; lower 95% CI bounds +0.0614 to +0.0935). While unadjusted Wilcoxon comparisons vs. C3 and C4 reached nominal significance ($p = 0.0312$), family-wise error control via Holm-Bonferroni correction yields non-significance ($p \approx 0.09$). Thus, the claim of multi-agent benefit rests on the uniform directionality of paired differences and bootstrap stability rather than unadjusted asymptotic significance.
 2. **Operational Dependability (V5.3 General Track):** On complex multi-temporal phenotypes, execution reliability proved to be the primary operational bottleneck. C1 completed execution on 11 of 20 tasks, with 9 successfully parsed into verifiable definitions (mean scored $F_1 = 0.3002$ vs. 0.2385 for C2). However, under intention-to-evaluate accounting (where unparsed runs are scored as 0), monolithic single-agent prompting (C2) proved more dependable overall (mean $F_1 = 0.1550$ vs. $0.1351$ for C1).
-3. **Precision Discipline:** Precision remained strictly bounded between 0.9036 and 1.0000 across all 128 benchmark configurations. Grounding local models with deterministic DuckDB vocabulary queries prevented hallucination of invalid standard concept identifiers; concept recall dropout, rather than false-positive intrusion, constituted the primary error mode.
+3. **Precision Discipline:** Mean precision ranged from 0.9036 to 1.0000 across all eight track–configuration arms, computed over scored runs with at least one predicted concept. No out-of-vocabulary concept identifiers were observed in any scored run, consistent with grounding candidate concepts through deterministic DuckDB vocabulary queries; because C4 (no validator) also reached a mean precision of 1.0000 on V5.3, this is better attributed to grounded retrieval than to the validator.
 
 ## 6.2 Hypothesized Failure Mechanisms
 We identify two distinct behavioral hypotheses to explain performance divergences across architectures:
@@ -178,6 +178,7 @@ Executing agentic AI pipelines on edge hardware (consumer 8-core CPU, 8 GB RAM) 
 3. **Single Local Model Scale:** Experiments were conducted using a single quantized 7B model (`qwen2.5:7b`) due to the 8 GB RAM consumer hardware budget.
 4. **Single Run Allocation:** Primary benchmark tasks were executed as single deterministic passes under fixed seeds rather than multi-run stochastic distributions.
 5. **Development Set Contamination:** System development utilized task T01. The remaining 19 tasks in V5.3 and all 12 tasks in Neuro were evaluated without task-specific optimization.
+- **Conditional paired comparisons (V5.3):** Paired tests in the V5.3 track are restricted to the nine tasks that C1 completed. Because this subset is defined by C1 success, the comparisons are conditional on C1 completion and favour C1; intention-to-evaluate means (All = 0) are reported alongside to offset this.
 
 ---
 

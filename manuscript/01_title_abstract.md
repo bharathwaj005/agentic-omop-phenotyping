@@ -1,5 +1,5 @@
 <!-- src: manuscript/01_title_abstract.md -->
-# Do Agentic AI-Generated Cohort Definitions Preserve Real-World Evidence? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping on OMOP
+# How Faithfully Do Agentic AI Systems Generate OMOP Cohort Definitions? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping
 
 ## Highlights
 - Controlled evaluation of multi-agent vs. single-agent OMOP cohort extraction.
