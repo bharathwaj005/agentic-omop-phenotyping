@@ -1,0 +1,59 @@
+{
+  "v53:T10:C1": {
+    "v2": {
+      "full": {
+        "f1": 0.02276707530647986,
+        "precision": 1.0,
+        "recall": 0.011514614703277236,
+        "jaccard": 0.011514614703277236
+      },
+      "entry": {
+        "f1": 0.02276707530647986,
+        "precision": 1.0,
+        "recall": 0.011514614703277236,
+        "jaccard": 0.011514614703277236
+      }
+    },
+    "reference": "tasks/reference_v2/1025.json",
+    "source_report": "results/codex_20261025/runs/official_v53_qwen7b/T10_C1/report.json",
+    "resolution_reproduced": true
+  },
+  "v53:T10:C3": {
+    "v2": {
+      "full": {
+        "f1": 0.02276707530647986,
+        "precision": 1.0,
+        "recall": 0.011514614703277236,
+        "jaccard": 0.011514614703277236
+      },
+      "entry": {
+        "f1": 0.02276707530647986,
+        "precision": 1.0,
+        "recall": 0.011514614703277236,
+        "jaccard": 0.011514614703277236
+      }
+    },
+    "reference": "tasks/reference_v2/1025.json",
+    "source_report": "results/codex_20261025/runs/official_v53_qwen7b/T10_C3/report.json",
+    "resolution_reproduced": true
+  },
+  "v53:T10:C4": {
+    "v2": {
+      "full": {
+        "f1": 0.02276707530647986,
+        "precision": 1.0,
+        "recall": 0.011514614703277236,
+        "jaccard": 0.011514614703277236
+      },
+      "entry": {
+        "f1": 0.02276707530647986,
+        "precision": 1.0,
+        "recall": 0.011514614703277236,
+        "jaccard": 0.011514614703277236
+      }
+    },
+    "reference": "tasks/reference_v2/1025.json",
+    "source_report": "results/codex_20261025/runs/official_v53_qwen7b/T10_C4/report.json",
+    "resolution_reproduced": true
+  }
+}

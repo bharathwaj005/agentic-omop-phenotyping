@@ -15,7 +15,7 @@ from src.eval.build_reference import build_one
 from src.eval.extract_reference import cohorts_dir, parse_definition
 from src.tools.resolver import open_vocab
 
-V53 = [134, 219, 290, 334, 373, 588, 785, 862, 864, 967, 1048, 1064,
+V53 = [134, 219, 290, 334, 373, 588, 785, 862, 864, 1025, 1048, 1064,
        1073, 1183, 1184, 1188, 1261, 1263, 1285, 1301]
 NEURO = [255, 33, 863, 552, 1026, 287, 535, 1079, 544, 235, 1080, 550,
          229, 1066]

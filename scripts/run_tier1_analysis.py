@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 
 OUT_DIR = "results/analysis_tier1_20261028"
 os.makedirs(OUT_DIR, exist_ok=True)
+_ov = os.path.join(OUT_DIR, "rescore_overrides_T10.json")
+RESCORE = json.load(open(_ov)) if os.path.exists(_ov) else {}
 
 # -------------------------------------------------------------
 # TASK 0: RESULT SELECTION & AUDIT
@@ -114,6 +116,8 @@ for idx, r in df_final.iterrows():
             try:
                 d = json.load(fp)
                 m = d.get("metrics", {}).get("v2", {})
+                _k = f'{r["track"]}:{r["task_id"]}:{r["configuration"]}'
+                if _k in RESCORE: m = RESCORE[_k]["v2"]
                 full = m.get("full", {})
                 f1_val = full.get("f1", m.get("f1"))
                 rec_val = full.get("recall", m.get("recall"))
@@ -124,6 +128,7 @@ for idx, r in df_final.iterrows():
                 if rec_val is not None: rec = float(rec_val)
                 if prec_val is not None: prec = float(prec_val)
                 if jacc_val is not None: jacc = float(jacc_val)
+                if f1 is None and prec == 0.0 and rec == 0.0 and status == "success": f1 = 0.0
             except Exception:
                 pass
 
@@ -197,7 +202,7 @@ for track in ["v53", "neuro"]:
         for tid in tasks_avail:
             v1 = c1_map.get(tid)
             v2 = co_map.get(tid)
-            if v1 is not None and v2 is not None:
+            if pd.notna(v1) and pd.notna(v2):
                 paired.append((v1, v2))
                 
         n = len(paired)
@@ -229,6 +234,11 @@ for track in ["v53", "neuro"]:
             })
 
 df_stats = pd.DataFrame(stat_results)
+df_stats['p_holm'] = np.nan
+for _trk in df_stats['track'].unique():
+    _i = df_stats.index[df_stats['track'] == _trk]; _p = df_stats.loc[_i, 'p_value'].values; _o = np.argsort(_p); _adj = np.empty(len(_p)); _run = 0.0
+    for _k, _j in enumerate(_o): _run = max(_run, min(1.0, (len(_p) - _k) * _p[_j])); _adj[_j] = _run
+    df_stats.loc[_i, 'p_holm'] = _adj
 df_stats.to_csv(f"{OUT_DIR}/paired_statistical_tests.csv", index=False)
 
 # -------------------------------------------------------------

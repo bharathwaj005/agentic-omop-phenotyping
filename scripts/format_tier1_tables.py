@@ -48,6 +48,7 @@ for track in ["v53", "neuro"]:
             
         prev_row = df_stats[(df_stats["track"] == track) & (df_stats["comparison"] == f"C1 vs {c_other}")]
         p_val = prev_row["p_value"].values[0] if len(prev_row) > 0 and pd.notna(prev_row["p_value"].values[0]) else 1.0
+        p_holm = prev_row["p_holm"].values[0] if len(prev_row) > 0 and "p_holm" in prev_row and pd.notna(prev_row["p_holm"].values[0]) else 1.0
         
         clean_stats.append({
             "Track": track.upper(),
@@ -59,7 +60,8 @@ for track in ["v53", "neuro"]:
             "Median Diff": f"{med:.4f}",
             "Mean Diff": f"{mean:.4f}",
             "95% CI": f"[{ci_low:.4f}, {ci_high:.4f}]",
-            "p-value": f"{p_val:.4f}" if p_val < 0.05 else "n.s."
+            "p (raw)": f"{p_val:.4f}",
+            "p (Holm)": f"{p_holm:.4f}"
         })
 
 df_clean_stats = pd.DataFrame(clean_stats)
@@ -79,7 +81,7 @@ for trk in ["v53", "neuro"]:
         summary_rows.append({
             "Track": trk.upper(),
             "Config": c,
-            "Completed": f"{len(sc)} / {len(all_c)}",
+            "Scored": f"{len(sc)} / {len(all_c)}",
             "Mean F1 (Scored)": f"{sc['exact_f1'].mean():.4f} ± {sc['exact_f1'].std():.3f}" if len(sc) > 0 else "-",
             "Mean F1 (All=0)": f"{all_c['exact_f1_zero_imputed'].mean():.4f}",
             "Mean Recall": f"{sc['exact_recall'].mean():.4f}" if len(sc) > 0 else "-",

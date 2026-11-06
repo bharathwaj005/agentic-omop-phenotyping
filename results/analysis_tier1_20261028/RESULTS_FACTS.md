@@ -3,10 +3,10 @@
 All numbers computed from official runs under results/codex_20261025/.
 
 ### Track: V53
-- **C1**: Scored-only F1 = 0.3002 (std = 0.3530, n = 9) | Failures=0 F1 = 0.1351 (n = 20)
-- **C2**: Scored-only F1 = 0.2385 (std = 0.3211, n = 13) | Failures=0 F1 = 0.1550 (n = 20)
-- **C3**: Scored-only F1 = 0.2288 (std = 0.3136, n = 13) | Failures=0 F1 = 0.1487 (n = 20)
-- **C4**: Scored-only F1 = 0.1717 (std = 0.3156, n = 14) | Failures=0 F1 = 0.1202 (n = 20)
+- **C1**: Scored-only F1 = 0.2477 (std = 0.3367, n = 11) | Failures=0 F1 = 0.1362 (n = 20)
+- **C2**: Scored-only F1 = 0.2215 (std = 0.3150, n = 14) | Failures=0 F1 = 0.1550 (n = 20)
+- **C3**: Scored-only F1 = 0.1998 (std = 0.3002, n = 15) | Failures=0 F1 = 0.1498 (n = 20)
+- **C4**: Scored-only F1 = 0.1517 (std = 0.2989, n = 16) | Failures=0 F1 = 0.1213 (n = 20)
 
 ### Track: NEURO
 - **C1**: Scored-only F1 = 0.6208 (std = 0.4095, n = 12) | Failures=0 F1 = 0.6208 (n = 12)

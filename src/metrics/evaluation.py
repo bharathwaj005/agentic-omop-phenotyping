@@ -78,8 +78,10 @@ def set_metrics(predicted: Iterable[int], reference: Iterable[int]) -> ConceptMe
     precision = _safe_div(inter, len(p))
     recall = _safe_div(inter, len(r))
 
-    if precision is None or recall is None or precision + recall == 0:
+    if precision is None or recall is None:
         f1 = None
+    elif precision + recall == 0:
+        f1 = 0.0
     else:
         f1 = 2 * precision * recall / (precision + recall)
 

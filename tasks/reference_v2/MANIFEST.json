@@ -1,5 +1,6 @@
 {
   "cohorts": {
+    "1025": "774ada888067433fdd8f3edcf8cc8d33d7c1678bc46757a16b0ea3cd7d5d4c09",
     "1026": "fb46ef688252efedb0c981b2a0eb43fbe7e59adc83c418732ba47018b0135f74",
     "1048": "b8fb8ea1770c63ef1f0d4cf940eb89eac33c5cbe59fa3601f58f710f800bb442",
     "1064": "72e6b858a46a9ddd9a8e89104f274703a549124b43b9f4e87adbe6326641ad5e",
@@ -32,8 +33,8 @@
     "785": "2660a9b4963bb0025a8d981e174d56cacad1fa46513f240cd9833237cf333ee7",
     "862": "b57045d20f502fa7b568d407c3e355b43ce4d80527fa1eaeaf6ebced79060d22",
     "863": "76dac82bcbf837db8b6acbedc7cc01f61900024544ed347a5425b8056c2f27fc",
-    "864": "652abe7cdeeaa29ce09ebae19666a4a84b69c2a8f172e4ec0d2e5e1d4403c283",
-    "967": "bdff7dbaec63fafe6aad585fcd593f2f69fe1d2dfb475c91cd0dcf9b7cbe070e"
+    "864": "652abe7cdeeaa29ce09ebae19666a4a84b69c2a8f172e4ec0d2e5e1d4403c283"
   },
+  "erratum": "T10 originally built from cohort 967 (4-point MACE) by an ID error; rebuilt from cohort 1025 (ADHD disorder or procedure).",
   "reference_version": "v2"
 }
