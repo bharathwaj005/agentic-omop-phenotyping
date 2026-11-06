@@ -1,30 +1,38 @@
 <!-- src: manuscript/01_title_abstract.md -->
 # How Faithfully Do Agentic AI Systems Generate OMOP Cohort Definitions? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping
 
+**Author:** Bharathwaj^a,\*^
+
+^a^ Department of Biotechnology, [INSTITUTION], [CITY], [COUNTRY]
+
+^\*^ Corresponding author. E-mail: [EMAIL]
+
+**Code and data:** https://github.com/bharathwaj005/agentic-omop-phenotyping (release v1.0-jbi-submission)
+
 ## Highlights
-- Controlled evaluation of multi-agent vs. single-agent OMOP cohort extraction.
-- Fully local execution using quantized 7B LLM on consumer CPU (8 GB RAM).
-- Multi-agent critique significantly outperformed ablated variants in neuro phenotypes.
-- Execution reliability, not semantic hallucination, proved to be the primary failure bottleneck.
-- Multi-arm entry corrections proved essential to prevent false-negative phenotypic scoring.
+- Four local LLM pipeline designs compared on 32 OMOP cohort tasks in 128 runs
+- All runs used a CPU-only laptop with 8 GB RAM; no GPU or cloud model calls
+- Multi-agent pipeline reached mean F1 0.62 on neurological cohorts vs 0.32-0.36
+- Single-agent baseline produced more scorable general-track runs than C1 (14 vs 11)
+- Errors were mostly missed concepts; mean precision was 0.84 or higher in every arm
 
 ## Abstract
-**Objective:** Real-world evidence (RWE) studies rely on computable phenotype definitions across standardized common data models such as the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM). While agentic large language model (LLM) architectures show promise in translating unstructured clinical questions into formal cohort specifications, whether modular multi-agent architectures justify their computational and latency overhead in resource-constrained environments remains unresolved. We sought to determine whether a specialized multi-agent framework improves phenotype fidelity and preserves observational evidence relative to single-agent baselines under strictly local, low-resource compute constraints.
+**Objective:** Real-world evidence (RWE) studies rely on computable phenotype definitions across standardized common data models such as the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM). While agentic large language model (LLM) architectures show promise in translating unstructured clinical questions into formal cohort specifications, whether modular multi-agent architectures justify their computational and latency overhead in resource-constrained environments remains unresolved. We sought to determine whether a specialized multi-agent framework improves phenotype fidelity relative to single-agent baselines under strictly local, low-resource compute constraints.
 
-**Methods:** We established a benchmark derived from the OHDSI Phenotype Library comprising a general phenotype track (V5.3, N=20) and a specialized Neurological track (N=12). Four system configurations were systematically ablated: C1 (full multi-agent with planner, concept resolver, critic, and schema validator), C2 (single agent with validator), C3 (multi-agent lacking critic), and C4 (multi-agent lacking validator). All systems executed locally via an 8-thread CPU without GPU acceleration (Intel Core i3-N305, 8 GB RAM) running quantized `qwen2.5:7b`. Phenotype fidelity was measured using dual-denominator concept metrics (F1, precision, recall vs. multi-arm corrected ground-truth specifications) alongside paired Wilcoxon signed-rank hypothesis tests with 10,000 bootstrap resamples.
+**Methods:** We established a benchmark derived from the OHDSI Phenotype Library comprising a general phenotype track (V5.3, N=20) and a specialized Neurological track (N=12). Four system configurations were systematically ablated: C1 (full multi-agent with planner, concept resolver, critic, and schema validator), C2 (single agent with validator), C3 (multi-agent lacking critic), and C4 (multi-agent lacking validator). All systems executed locally via an 8-thread CPU without GPU acceleration (Intel Core i3-N305, 8 GB RAM) running quantized `qwen2.5:7b`. Phenotype fidelity was measured using dual-denominator concept metrics (F1, precision, recall vs. multi-arm corrected ground-truth specifications) with paired Wilcoxon signed-rank tests (Holm–Bonferroni adjusted) and percentile bootstrap 95% CIs (10,000 resamples).
 
-**Results:** In the Neurological track, full multi-agent orchestration (C1) completed 12/12 tasks, achieving a scored-only mean F1 of 0.6208 ± 0.410 (recall 0.6082, precision 0.9295), achieving substantial improvements over ablated pipelines with 95% bootstrap CIs strictly above zero (C1 vs C3 mean diff +0.2651, 95% CI [0.0881, 0.4535], uncorrected p = 0.0312; C1 vs C4 mean diff +0.2735, 95% CI [0.0935, 0.4615], uncorrected p = 0.0312; non-significant after Holm-Bonferroni correction). In the broader V5.3 general track, C1 led scored tasks (F1 = 0.3002 ± 0.353, 9/20 complete), but multi-stage inter-agent repair deadlocks reduced its full-denominator completion score (F1 = 0.1351). Under an intention-to-evaluate denominator (failures = 0), single-agent baseline C2 proved most reliable (F1 = 0.1550, 13/20 complete). Precision remained high across all configurations (0.9036 to 1.0000), confirming that standard concept hallucination was rare.
+**Results:** In the Neurological track, full multi-agent orchestration (C1) completed 12/12 tasks, achieving a scored-only mean F1 of 0.6208 ± 0.410 (recall 0.6082, precision 0.9295), with higher F1 than every alternative and bootstrap 95% CIs excluding zero for all three comparisons (vs C2 +0.3190 [0.0638, 0.5777]; vs C3 +0.2651 [0.0888, 0.4514]; vs C4 +0.2735 [0.0971, 0.4597]; uncorrected p = 0.039, 0.031 and 0.031; Holm-adjusted p = 0.094 for each). In the broader V5.3 general track, C1 led on scored runs (F1 = 0.2477 ± 0.337, 11/20 scored), but unconverged validator-repair loops and other failures lowered its intention-to-evaluate score (F1 = 0.1362). Under the intention-to-evaluate denominator (failures = 0), single-agent baseline C2 was most dependable (F1 = 0.1550, 14/20 scored). Mean precision was 0.8390 to 1.0000 across track–configuration arms, and every selected concept identifier exists in the OMOP vocabulary.
 
-**Conclusion:** Local multi-agent LLM systems can effectively generate complex observational cohort definitions without cloud data leakage, but their utility depends heavily on clinical domain density. While multi-agent critique significantly elevates concept recall in specialized therapeutic domains, compounding inter-agent repair loops represent the primary vulnerability in broad, multi-criteria cohort construction.
+**Conclusion:** Local multi-agent LLM systems can effectively generate complex observational cohort definitions without cloud data leakage, but their utility depends heavily on clinical domain density. While multi-agent critique was associated with higher concept recall in specialized therapeutic domains, compounding inter-agent repair loops represent the primary vulnerability in broad, multi-criteria cohort construction.
 
 **Keywords:** Real-World Evidence; Observational Health Data Sciences and Informatics; OMOP Common Data Model; Computable Phenotyping; Agentic AI; Natural Language Processing.
 
 ---
 
 <!-- src: manuscript/02_introduction.md -->
-# Introduction
+# 1. Introduction
 
-Real-World Evidence (RWE) derived from observational electronic health record (EHR) and administrative claims databases plays an increasingly critical role in evaluating post-market drug safety, comparative effectiveness, and clinical outcomes [1]. Central to the validity of any observational study is computable phenotyping: the systematic identification of patient cohorts satisfying clinical inclusion, exclusion, and temporal criteria [2]. Within international consortia such as the Observational Health Data Sciences and Informatics (OHDSI) collaborative, phenotype definitions are operationalized against the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [CITATION NEEDED: OMOP CDM]. Despite standardization, constructing cohort definitions manually remains a major bottleneck in the clinical research life cycle, often requiring weeks of iterative manual concept mapping across standardized vocabularies (e.g., SNOMED-CT, RxNorm, ICD-10) and complex relational rule engineering [2, 10].
+Real-World Evidence (RWE) derived from observational electronic health record (EHR) and administrative claims databases plays an increasingly critical role in evaluating post-market drug safety, comparative effectiveness, and clinical outcomes [1]. Central to the validity of any observational study is computable phenotyping: the systematic identification of patient cohorts satisfying clinical inclusion, exclusion, and temporal criteria [2]. Within international consortia such as the Observational Health Data Sciences and Informatics (OHDSI) collaborative, phenotype definitions are operationalized against the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [11, 12]. Despite standardization, constructing cohort definitions manually remains a major bottleneck in the clinical research life cycle, often requiring weeks of iterative manual concept mapping across standardized vocabularies (e.g., SNOMED-CT, RxNorm, ICD-10) and complex relational rule engineering [2, 10].
 
 Recent advances in large language models (LLMs) and agentic workflow orchestration have catalyzed interest in automating observational study pipelines [3, 4, 5, 9]. Unlike passive text generation, agentic architectures incorporate autonomous planning, iterative tool execution (such as SQL querying and vocabulary database lookup), self-reflection, and programmatic validation [2, 9]. However, as recently highlighted in open questions raised by clinical bioinformatics researchers, a fundamental gap persists: *Does the operational complexity and resource consumption of multi-agent modular architectures translate into demonstrable, trustworthy improvements in observational cohort fidelity?* [7].
 
@@ -39,17 +47,17 @@ To resolve these challenges, this study provides a controlled, fully reproducibl
 ### Contributions
 1. **Controlled Multi-Agent vs. Single-Agent Benchmark:** Four systematically ablated configurations (C1: full multi-agent; C2: single-agent; C3: multi-agent without critic; C4: multi-agent without validator) under identical resource ceilings.
 2. **Full-Pipeline Cohort Execution:** Scored complete, machine-executable JSON cohort specifications capturing index dates, inclusion/exclusion criteria, and domain assignments.
-3. **Multi-Arm Ground-Truth Correction:** Demonstrated that 11 of 20 core OHDSI tasks feature alternative entry criteria, proving that single-arm evaluation artifacts artificially suppress valid phenotypic discovery.
+3. **Multi-Arm Ground-Truth Correction:** Demonstrated that 11 of 20 core OHDSI tasks feature alternative entry criteria, showing that single-arm references can artificially penalize valid alternative entry paths.
 4. **Local Low-Resource Feasibility:** Documented the operational envelope of executing agentic clinical workflows entirely on edge hardware without external data leakage.
 5. **Failure Taxonomy and Dual-Denominator Accounting:** Documented every non-success through a rigorous taxonomy, reporting outcomes under both scored-only and full-intent denominators.
 
 ---
 
 <!-- src: manuscript/03_related_work.md -->
-# Related Work
+# 2. Related Work
 
 ### Computable Phenotyping and Common Data Models
-Computable phenotyping bridges the semantic divide between raw electronic health record entries and epidemiological research definitions [1, 2]. Standardized vocabularies within the OMOP CDM map disparate institutional coding systems into unified concept identifiers across clinical domains [CITATION NEEDED: OMOP CDM]. While formal phenotype libraries provide peer-reviewed definitions, developing new phenotypes requires extensive manual curation [2, 10].
+Computable phenotyping bridges the semantic divide between raw electronic health record entries and epidemiological research definitions [1, 2]. Standardized vocabularies within the OMOP CDM map disparate institutional coding systems into unified concept identifiers across clinical domains [11, 12]. While formal phenotype libraries provide peer-reviewed definitions, developing new phenotypes requires extensive manual curation [2, 10].
 
 ### Agentic AI in Clinical Research Workflows
 The evolution of LLMs from passive sequence predictors into autonomous, goal-directed agentic systems has introduced new paradigms for health data science [2, 9]. Agentic systems leverage external tool invocation, multi-step memory, and deterministic validation guards [9]. Frameworks such as Causal-Copilot [3], TrialGenie [4], EHRFlow [5], and FastOMOP [6] have applied agentic loops to causal inference, clinical trial design, and script generation. 
@@ -66,7 +74,7 @@ The closest contemporary investigation to our work is that of Chen et al. (2026)
 ---
 
 <!-- src: manuscript/04_methods.md -->
-# Methods
+# 3. Methods
 
 ## System Architecture and Multi-Agent Orchestration
 The multi-agent phenotyping pipeline decomposes cohort construction into specialized functional roles (`src/agents/`, `src/tools/`):
@@ -95,97 +103,112 @@ Defined in `src/runner/experiment.py`:
 - **Neurological Phenotype Track:** 12 targeted cohorts (N01–N12) covering neurodegenerative and neuroinflammatory conditions (`results/benchmark_design/NEURO_FREEZE/`).
 - **Reference v2:** 11 of 20 core V5.3 tasks feature disjunctive multi-arm entry criteria. Reference v2 (`tasks/reference_v2/`) establishes the ground-truth concept set as the union of all valid entry arms, reducing artificial pairwise entry overlap from 0.722 in v1 to 0.139 in v2.
 
+## Reference Correction for Task T10
+During the final audit we found that task T10 (attention-deficit hyperactivity disorder based on condition or procedure evidence) had been linked to OHDSI Phenotype Library cohort 967 (4-point MACE) instead of cohort 1025 (first event of ADHD disorder or procedure) because of a cohort-identifier transcription error. The T10 reference was rebuilt from cohort 1025 and the stored T10 outputs were re-scored with the same resolver and metric code, without re-running any model; re-resolution reproduced every stored concept-set size exactly. The superseded reference and the re-scoring record (`results/analysis_tier1_20261028/rescore_overrides_T10.json`) are retained in the repository.
+
 ## Quantitative Evaluation Metrics
-- Exact concept precision, recall, and F1 computed against Reference v2 (`results/analysis_tier1_20261028/METRICS_DEFINITIONS.md`).
-- Dual-denominator reporting: Scored-only and Intention-to-evaluate (All=0).
-- Paired Wilcoxon signed-rank tests against C1 with Holm-Bonferroni correction and 10,000 bootstrap resamples (seed `20261028`).
+- **Concept matching:** exact OMOP `concept_id` agreement between the union of all resolved predicted concept sets and the Reference v2 concept set (`results/analysis_tier1_20261028/METRICS_DEFINITIONS.md`).
+- **Scored runs:** a run is scored when it produced a resolvable concept specification. Scored runs whose predictions share no concept with the reference receive precision = recall = F1 = 0. Failed, timed-out or unparsable runs are unscored.
+- **Dual-denominator reporting:** mean F1 over scored runs, and intention-to-evaluate mean F1 over all tasks with unscored runs set to 0 (All=0).
+- **Retries:** runs stopped by an infrastructure fault (memory preflight stop) were re-executed once (T05, T11 and T17); all other runs use the first attempt. Remaining infrastructure failures are counted as failures.
+- **Paired comparisons:** C1 versus each alternative on tasks scored by both configurations; two-sided Wilcoxon signed-rank tests with zero differences dropped; Holm–Bonferroni adjustment across the three comparisons within each track; percentile bootstrap 95% CIs of the mean paired difference (10,000 resamples of paired differences, seed `20261028`).
 
 ## Hardware and Local Inference
-Acer One Z14-55N (Intel Core i3-N305, 8 cores / 8 threads, 8 GB DDR5 RAM, CPU only, Linux Mint). Model: quantized `qwen2.5:7b` (Q4_K_M GGUF format via Ollama).
+Acer One Z14-55N (Intel Core i3-N305, 8 cores / 8 threads, 8 GB DDR5 RAM, CPU only, Linux Mint). Model: quantized `qwen2.5:7b` [13] (Q4_K_M GGUF format via Ollama).
 
 ---
 
-# 5. Results
+<!-- src: manuscript/05_results.md -->
+# 4. Results
 
-## 5.1 Primary Performance Across Tracks
+## 4.1 Primary Performance Across Tracks
 
-Table 1 summarizes computable phenotype extraction performance across the V5.3 General ($N=20$) and Neurological ($N=12$) benchmark tracks under dual-denominator accounting.
+Table 1 summarizes computable phenotype extraction performance across the V5.3 General (N = 20) and Neurological (N = 12) benchmark tracks under dual-denominator accounting.
 
-| Track | Config | Completed | Mean F1 (Scored) | Mean F1 (All=0) | Mean Recall | Mean Precision |
+| Track | Config | Scored | Mean F1 (Scored) | Mean F1 (All=0) | Mean Recall | Mean Precision |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **V5.3 General** | C1 | 9 / 20 | 0.3002 ± 0.353 | 0.1351 | 0.2374 | 0.9903 |
-| **V5.3 General** | C2 | 13 / 20 | 0.2385 ± 0.321 | 0.1550 | 0.1842 | 0.9036 |
-| **V5.3 General** | C3 | 13 / 20 | 0.2288 ± 0.314 | 0.1487 | 0.2024 | 0.9385 |
-| **V5.3 General** | C4 | 14 / 20 | 0.1717 ± 0.316 | 0.1202 | 0.1398 | 1.0000 |
+| **V5.3 General** | C1 | 11 / 20 | 0.2477 ± 0.337 | 0.1362 | 0.1953 | 0.9012 |
+| **V5.3 General** | C2 | 14 / 20 | 0.2215 ± 0.315 | 0.1550 | 0.1711 | 0.8390 |
+| **V5.3 General** | C3 | 15 / 20 | 0.1998 ± 0.300 | 0.1498 | 0.1762 | 0.8800 |
+| **V5.3 General** | C4 | 16 / 20 | 0.1517 ± 0.299 | 0.1213 | 0.1231 | 0.9375 |
 | **NEURO Track** | C1 | 12 / 12 | 0.6208 ± 0.410 | 0.6208 | 0.6082 | 0.9295 |
 | **NEURO Track** | C2 | 11 / 12 | 0.3242 ± 0.362 | 0.2972 | 0.2597 | 1.0000 |
 | **NEURO Track** | C3 | 12 / 12 | 0.3556 ± 0.311 | 0.3556 | 0.2700 | 1.0000 |
 | **NEURO Track** | C4 | 12 / 12 | 0.3473 ± 0.308 | 0.3473 | 0.2700 | 0.9583 |
 
-*Table 1: Dual-denominator benchmarking results. Scored reflects successful parses evaluated against Reference v2; All=0 assigns zero to unparsed outputs, schema rejections, and timeouts.*
+*Table 1: Dual-denominator benchmarking results. Scored = runs that produced a resolvable concept specification, evaluated against Reference v2 (runs with no overlap count as F1 = 0); All=0 additionally assigns zero to failed, unparsable and timed-out runs. Recall and precision are means over scored runs.*
 
-### 5.1.1 Neurological Track: Domain-Specific Agentic Advantage
-In the Neurological track, the full multi-agent pipeline (C1) completed all 12 tasks (100% completion) and achieved a mean $F_1$ of 0.6208 ± 0.410, doubling concept recall (0.6082) compared to single-agent C2 (0.2597), critic-ablated C3 (0.2700), and validator-ablated C4 (0.2700).
+Figure 1 shows the distribution of exact F1 on scored tasks for each configuration and track.
+
+![Figure 1. Exact F1 on scored tasks by configuration for the V5.3 general track (left) and the Neurological track (right). Boxes show the interquartile range, the orange line the median, whiskers 1.5 × IQR; circles are outlying tasks.](results/analysis_tier1_20261028/f1_boxplots.png)
+
+### 4.1.1 Neurological Track: Domain-Specific Agentic Advantage
+In the Neurological track, the full multi-agent pipeline (C1) completed all 12 tasks (100% completion) and achieved a mean F1 of 0.6208 ± 0.410, with a mean concept recall of 0.6082 compared with 0.2597 for single-agent C2 and 0.2700 for both critic-ablated C3 and validator-ablated C4 (Figure 1).
 
 Table 2 presents paired statistical comparisons anchored on C1.
 
-| Track | Comparison | N (Paired) | Wins | Ties | Losses | Median Diff | Mean Diff | 95% Bootstrap CI | p-value |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| V5.3 | C1 vs C2 | 9 | 3 | 3 | 3 | 0.0000 | +0.0442 | [-0.0600, 0.1707] | n.s. |
-| V5.3 | C1 vs C3 | 9 | 3 | 6 | 0 | 0.0000 | +0.0514 | [0.0000, 0.1267] | n.s. |
-| V5.3 | C1 vs C4 | 9 | 4 | 5 | 0 | 0.0000 | +0.0571 | [0.0006, 0.1267] | n.s. |
-| **NEURO** | **C1 vs C2** | 11 | 7 | 3 | 1 | +0.0288 | +0.3190 | [0.0614, 0.5778] | n.s. |
-| **NEURO** | **C1 vs C3** | 12 | 6 | 5 | 1 | +0.1500 | +0.2651 | [0.0881, 0.4535] | 0.0312* |
-| **NEURO** | **C1 vs C4** | 12 | 6 | 5 | 1 | +0.1517 | +0.2735 | [0.0935, 0.4615] | 0.0312* |
+| Track | Comparison | n | W / T / L | Median Δ | Mean Δ | 95% bootstrap CI | p | p (Holm) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| V5.3 | C1 vs C2 | 10 | 3 / 4 / 3 | 0.0000 | +0.0398 | [-0.0551, 0.1547] | 0.8438 | 0.8438 |
+| V5.3 | C1 vs C3 | 11 | 3 / 8 / 0 | 0.0000 | +0.0421 | [0.0000, 0.1037] | 0.2500 | 0.5000 |
+| V5.3 | C1 vs C4 | 11 | 4 / 7 / 0 | 0.0000 | +0.0467 | [0.0003, 0.1059] | 0.1250 | 0.3750 |
+| **NEURO** | **C1 vs C2** | 11 | 7 / 3 / 1 | +0.0288 | +0.3190 | [0.0638, 0.5777] | 0.0391 | 0.0938 |
+| **NEURO** | **C1 vs C3** | 12 | 6 / 5 / 1 | +0.1500 | +0.2651 | [0.0888, 0.4514] | 0.0312 | 0.0938 |
+| **NEURO** | **C1 vs C4** | 12 | 6 / 5 / 1 | +0.1517 | +0.2735 | [0.0971, 0.4597] | 0.0312 | 0.0938 |
 
-*Table 2: Paired Wilcoxon signed-rank comparisons anchored on configuration C1. *Nominally significant at p < 0.05; non-significant following Holm-Bonferroni family-wise error rate correction (p ≈ 0.09).*
+*Table 2: Paired comparisons anchored on configuration C1 over tasks scored by both configurations (W / T / L = wins / ties / losses for C1; Δ = C1 minus comparator F1). p = two-sided Wilcoxon signed-rank test; p (Holm) = Holm–Bonferroni adjustment within each track.*
 
-Bootstrap 95% confidence intervals (10,000 resamples) excluded zero for all three comparisons in the Neurological track (mean paired differences +0.2651 to +0.3190; lower 95% CI bounds +0.0614 to +0.0935). While uncorrected paired Wilcoxon tests against C3 and C4 achieved nominal significance ($p = 0.0312$), family-wise error control via Holm-Bonferroni adjustment yields $p \approx 0.09$. The consistent directionality across paired tasks establishes that the cooperative multi-agent architecture substantially enhances concept recall in targeted clinical domains.
+Bootstrap 95% confidence intervals (10,000 resamples) excluded zero for all three comparisons in the Neurological track (mean paired differences +0.2651 to +0.3190; lower 95% CI bounds +0.0638 to +0.0971). Uncorrected Wilcoxon tests were nominally significant for all three comparisons (p = 0.0391 versus C2 and p = 0.0312 versus C3 and C4), but Holm–Bonferroni adjustment yields p = 0.0938 for each. The consistent direction of the paired differences suggests that the cooperative multi-agent architecture improves concept recall in targeted clinical domains, although this effect does not survive family-wise correction and should be confirmed on larger task sets.
 
-### 5.1.2 V5.3 General Track: Reliability Bottlenecks
-On the 20-cohort V5.3 benchmark, C1 succeeded in execution for 11 of 20 tasks, with 9 successfully parsed into verifiable cohort expressions (45% scored yield). Among scored definitions, C1 produced the highest mean $F_1$ (0.3002 ± 0.353 vs. 0.2385 for C2 and 0.1717 for C4). However, when evaluated under intention-to-evaluate accounting (All=0), monolithic baseline C2 demonstrated superior operational dependability ($F_1 = 0.1550$ vs. $0.1351$ for C1).
+### 4.1.2 V5.3 General Track: Reliability Bottlenecks
+On the 20-cohort V5.3 benchmark, C1 produced a scored concept specification for 11 of 20 tasks (55%), compared with 14, 15 and 16 for C2, C3 and C4. C1's nine failures comprised four unconverged validator-repair loops, two repeated tool-call loops, two infrastructure failures and one structured-output schema error. Among scored runs, C1 produced the highest mean F1 (0.2477 ± 0.337 vs. 0.2215 for C2, 0.1998 for C3 and 0.1517 for C4). Under intention-to-evaluate accounting (All=0), however, monolithic baseline C2 was more dependable (F1 = 0.1550 vs. 0.1362 for C1). No V5.3 paired comparison was significant (Holm-adjusted p ≥ 0.375), although the bootstrap CI for C1 versus C4 marginally excluded zero ([0.0003, 0.1059]).
 
-### 5.1.3 Precision Discipline and Concept Grounding
-Across both tracks, mean precision remained high in all eight track–configuration arms, ranging from 0.9036 to 1.0000 (computed over scored runs with at least one predicted concept). No out-of-vocabulary concept identifiers were observed in any scored run, consistent with the deterministic vocabulary constraints enforced through DuckDB query bindings. Recall dropout, rather than spurious concept inclusion, constituted the primary error mode.
+Figure 2 relates per-task F1 to wall-clock runtime. Most runs completed in roughly 100–350 seconds per task, well inside the 1,200-second deadline; high-F1 runs occurred across the runtime range, so longer runtime did not reliably buy higher quality.
+
+![Figure 2. Cost–quality view of every scored run: exact F1 against wall-clock seconds per task, by configuration, for the V5.3 general track (left) and the Neurological track (right).](results/analysis_tier1_20261028/pareto_cost_quality.png)
+
+### 4.1.3 Precision Discipline and Concept Grounding
+Across both tracks, mean precision remained high in all eight track–configuration arms, ranging from 0.8390 to 1.0000 (computed over scored runs). All 47 distinct concept identifiers selected in scored runs exist in the installed OMOP vocabulary (47 standard), consistent with the deterministic vocabulary constraints enforced through DuckDB query bindings. Recall dropout, rather than spurious concept inclusion, constituted the primary error mode.
 
 ---
 
-# 6. Discussion
+<!-- src: manuscript/06_discussion.md -->
+# 5. Discussion
 
-## 6.1 Principal Findings & Trade-offs
+## 5.1 Principal Findings & Trade-offs
 This empirical benchmark provides a rigorous, two-sided evaluation of multi-agent LLM systems for automated computable phenotyping on the OMOP Common Data Model:
 
-1. **Domain-Specific Expressivity (Neurological Track):** In targeted clinical domains with rich hierarchical concept spaces, full multi-agent cooperation (C1) raised mean concept recall to 0.6082 and achieved a mean $F_1$ of 0.6208 ± 0.410, compared to single-agent C2 (mean $F_1 = 0.3242$, recall 0.2597) and ablated baselines C3–C4 (~0.2700 recall). Bootstrap 95% confidence intervals excluded zero across all pairwise comparisons (mean paired differences +0.2651 to +0.3190; lower 95% CI bounds +0.0614 to +0.0935). While unadjusted Wilcoxon comparisons vs. C3 and C4 reached nominal significance ($p = 0.0312$), family-wise error control via Holm-Bonferroni correction yields non-significance ($p \approx 0.09$). Thus, the claim of multi-agent benefit rests on the uniform directionality of paired differences and bootstrap stability rather than unadjusted asymptotic significance.
-2. **Operational Dependability (V5.3 General Track):** On complex multi-temporal phenotypes, execution reliability proved to be the primary operational bottleneck. C1 completed execution on 11 of 20 tasks, with 9 successfully parsed into verifiable definitions (mean scored $F_1 = 0.3002$ vs. 0.2385 for C2). However, under intention-to-evaluate accounting (where unparsed runs are scored as 0), monolithic single-agent prompting (C2) proved more dependable overall (mean $F_1 = 0.1550$ vs. $0.1351$ for C1).
-3. **Precision Discipline:** Mean precision ranged from 0.9036 to 1.0000 across all eight track–configuration arms, computed over scored runs with at least one predicted concept. No out-of-vocabulary concept identifiers were observed in any scored run, consistent with grounding candidate concepts through deterministic DuckDB vocabulary queries; because C4 (no validator) also reached a mean precision of 1.0000 on V5.3, this is better attributed to grounded retrieval than to the validator.
+1. **Domain-Specific Expressivity (Neurological Track):** In targeted clinical domains with rich hierarchical concept spaces, full multi-agent cooperation (C1) raised mean concept recall to 0.6082 and achieved a mean F1 of 0.6208 ± 0.410, compared to single-agent C2 (mean F1 = 0.3242, recall 0.2597) and ablated baselines C3–C4 (~0.2700 recall). Bootstrap 95% confidence intervals excluded zero across all pairwise comparisons (mean paired differences +0.2651 to +0.3190; lower 95% CI bounds +0.0638 to +0.0971). While unadjusted Wilcoxon comparisons reached nominal significance for all three comparisons (p = 0.0312–0.0391), Holm–Bonferroni correction yields non-significance (p = 0.0938). Thus, the claim of multi-agent benefit rests on the uniform directionality of paired differences and bootstrap stability rather than unadjusted asymptotic significance.
+2. **Operational Dependability (V5.3 General Track):** On complex multi-temporal phenotypes, execution reliability proved to be the primary operational bottleneck. C1 produced scored definitions for 11 of 20 tasks (mean scored F1 = 0.2477 vs. 0.2215 for C2). However, under intention-to-evaluate accounting (where unscored runs count as 0), monolithic single-agent prompting (C2) was more dependable overall (mean F1 = 0.1550 vs. 0.1362 for C1); this difference was not tested formally and should be read as descriptive.
+3. **Precision Discipline:** Mean precision ranged from 0.8390 to 1.0000 across all eight track–configuration arms, computed over scored runs. None of the 47 selected concept identifiers was absent from the vocabulary, consistent with grounding candidate concepts through deterministic DuckDB vocabulary queries. Because C4 (no validator) had the highest V5.3 mean precision (0.9375), high precision is better attributed to grounded retrieval than to the validator.
 
-## 6.2 Hypothesized Failure Mechanisms
+## 5.2 Hypothesized Failure Mechanisms
 We identify two distinct behavioral hypotheses to explain performance divergences across architectures:
 
 - **Handoff Friction (Hypothesis):** In multi-agent pipelines, dividing responsibility across Planner, Concept Resolver, Builder, and Critic roles introduces intermediate communication boundaries. When clinical criteria involve nested disjunctive branches (such as Task T01: ADHD diagnosis vs. drug exposure criteria), semantic omissions in early planning cascade into incomplete cohort specifications downstream.
 - **Premature Pruning (Hypothesis):** We hypothesize that single-agent baselines often experience premature cognitive closure, retrieving a narrow cluster of initial concepts while terminating search prior to exploring descendant hierarchies. Conversely, multi-agent pipelines explore deeper concept sets but face structural JSON formatting friction that risks premature pruning before the deterministic validator, discarding valid candidate concepts prior to evaluation.
 
-## 6.3 Methodological Implications for Low-Resource RWE
-Executing agentic AI pipelines on edge hardware (consumer 8-core CPU, 8 GB RAM) without external cloud leakage is technically viable for observational health research. However, realizing multi-agent expressivity requires strict grammar-guided decoding and robust schema constraints to prevent formatting attrition from nullifying semantic gains.
+## 5.3 Methodological Implications for Low-Resource RWE
+Executing agentic AI pipelines on edge hardware (consumer 8-core CPU, 8 GB RAM) without external cloud leakage is technically viable for observational health research. However, we expect that realizing multi-agent expressivity will require grammar-guided decoding and robust schema constraints (not tested here) to prevent formatting attrition from nullifying semantic gains.
 
 ---
 
 <!-- src: manuscript/07_limitations.md -->
-# Limitations
+# 6. Limitations
 
-1. **Synthetic Patient Population:** Patient-level execution was evaluated against synthetic OMOP Eunomia data (2,694 patients), which lacks the full noise and missingness of real-world EHR repositories.
-2. **Patient Overlap in Neurological Track:** Within Eunomia, Alzheimer's disease and broader dementia definitions shared an identical sub-cohort of 136 patients. Consequently, 10 of 12 Neurological tasks were scored at concept level only.
-3. **Single Local Model Scale:** Experiments were conducted using a single quantized 7B model (`qwen2.5:7b`) due to the 8 GB RAM consumer hardware budget.
-4. **Single Run Allocation:** Primary benchmark tasks were executed as single deterministic passes under fixed seeds rather than multi-run stochastic distributions.
-5. **Development Set Contamination:** System development utilized task T01. The remaining 19 tasks in V5.3 and all 12 tasks in Neuro were evaluated without task-specific optimization.
-- **Conditional paired comparisons (V5.3):** Paired tests in the V5.3 track are restricted to the nine tasks that C1 completed. Because this subset is defined by C1 success, the comparisons are conditional on C1 completion and favour C1; intention-to-evaluate means (All = 0) are reported alongside to offset this.
+1. **Concept-level evaluation only:** Fidelity was assessed at the concept-set level against Reference v2. Patient-level agreement of the generated cohorts was not evaluated and remains future work.
+2. **Single Local Model Scale:** Experiments were conducted using a single quantized 7B model (`qwen2.5:7b`) due to the 8 GB RAM consumer hardware budget.
+3. **Single Run Allocation:** Primary benchmark tasks were executed as single deterministic passes under fixed seeds rather than multi-run stochastic distributions.
+4. **Development Set Contamination:** System development utilized task T01. The remaining 19 tasks in V5.3 and all 12 tasks in Neuro were evaluated without task-specific optimization.
+5. **Conditional paired comparisons (V5.3):** Paired tests are restricted to tasks scored by both configurations (10–11 of 20 in V5.3), a subset defined partly by C1 success; the comparisons therefore favour C1, and intention-to-evaluate means (All = 0) are reported alongside.
+6. **Benchmark redundancy and reference error:** Three V5.3 tasks (T01, T06 and T10) target ADHD under different definitions, so the effective diversity of the general track is lower than its task count. One reference (T10) was built from the wrong cohort and was corrected after the runs (Section 3); other reference errors of this kind cannot be fully excluded.
 
 ---
 
 <!-- src: manuscript/08_conclusion.md -->
-# Conclusion
+# 7. Conclusion
 
-This investigation evaluated the evidence fidelity and operational limits of multi-agent versus single-agent phenotyping using a locally executed 7B large language model on consumer hardware. Multi-agent planning with iterative critique significantly enhances concept recall in specialized clinical domains, doubling retrieval coverage relative to single-agent baselines. However, multi-agent architectures introduce substantial coordination overhead that reduces completion reliability in complex, multi-criteria general cohorts. For clinical bioinformaticians deploying local AI systems for RWE life cycle support, single-agent architectures with deterministic schema validators provide the most robust baseline, while multi-agent critique should be targeted to dense clinical domains.
+This investigation evaluated the evidence fidelity and operational limits of multi-agent versus single-agent phenotyping using a locally executed 7B large language model on consumer hardware. Multi-agent planning with iterative critique was associated with substantially higher concept recall in specialized clinical domains (mean recall 0.61 versus 0.26–0.27 for the alternatives), although the paired differences did not remain significant after Holm–Bonferroni correction. However, multi-agent architectures introduce substantial coordination overhead that reduces completion reliability in complex, multi-criteria general cohorts. For clinical bioinformaticians deploying local AI systems for RWE life cycle support, single-agent architectures with deterministic schema validators provide the most robust baseline, while multi-agent critique should be targeted to dense clinical domains.
 
 ---
 
@@ -193,18 +216,21 @@ This investigation evaluated the evidence fidelity and operational limits of mul
 # Declarations
 
 ### Data and Code Availability
-All experimental pipelines, prompts, schema validators, task definitions, and evaluation scripts are open-source and version-controlled. The complete benchmark suite, blinded clinical questions (`tasks/benchmark_questions.jsonl`), frozen manifests (`results/codex_20261025/freeze_manifest_OFFICIAL.json`), and run logs are available at: https://github.com/bharathwaj005/agentic-omop-phenotyping. The OMOP vocabulary tables are accessible via OHDSI Athena (https://athena.ohdsi.org). Synthetic patient evaluation leverages the public OMOP Eunomia dataset.
+All experimental pipelines, prompts, schema validators, task definitions, and evaluation scripts are open-source and version-controlled. The complete benchmark suite, blinded clinical questions (`tasks/benchmark_questions.jsonl`), frozen manifests (`results/codex_20261025/freeze_manifest_OFFICIAL.json`), and run logs are available at: https://github.com/bharathwaj005/agentic-omop-phenotyping. The OMOP vocabulary tables are accessible via OHDSI Athena (https://athena.ohdsi.org). Pipeline execution checks use the public synthetic OMOP Eunomia dataset.
 
 ### Funding
 This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
 
 ### Competing Interests
-The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 ### Author Contributions
 Bharathwaj: Conceptualization, Methodology, Software, Formal analysis, Investigation, Data Curation, Writing - Original Draft, Writing - Review & Editing, Visualization.
 
-### Use of Generative AI Statement
+### Ethics Statement
+This study used only public vocabulary resources and synthetic data; no human participants or identifiable patient data were involved, so ethical approval was not required.
+
+### Declaration of generative AI and AI-assisted technologies in the writing process
 During the preparation of this work the author(s) used Claude, Gemini and OpenAI Codex in order to assist with code development, debugging, analysis scripts and drafting text. After using these tools, the author(s) reviewed and edited the content as needed and take(s) full responsibility for the content of the publication.
 
 ---
@@ -222,3 +248,6 @@ During the preparation of this work the author(s) used Claude, Gemini and OpenAI
 8. Jiang Y, et al. MedAgentBench: a virtual EHR environment to benchmark medical LLM agents. *NEJM AI*. 2025;2(9). doi:10.1056/AIdbp2500144.
 9. Bandi A, et al. The rise of agentic AI: a review of definitions, frameworks, architectures, applications, evaluation metrics, and challenges. *Future Internet*. 2025;17(9):404.
 10. Chen H, He X, Dai H, Huang Y, Liu M, Bian J. Agentic authoring of OMOP concept sets from natural language. *medRxiv*. 2026. doi:10.64898/2026.06.02.26354704.
+11. Overhage JM, Ryan PB, Reich CG, Hartzema AG, Stang PE. Validation of a common data model for active safety surveillance research. *Journal of the American Medical Informatics Association*. 2012;19(1):54-60. doi:10.1136/amiajnl-2011-000376.
+12. Hripcsak G, Duke JD, Shah NH, et al. Observational Health Data Sciences and Informatics (OHDSI): opportunities for observational researchers. *Studies in Health Technology and Informatics*. 2015;216:574-578.
+13. Qwen Team. Qwen2.5 technical report. *arXiv preprint arXiv:2412.15115*. 2024.

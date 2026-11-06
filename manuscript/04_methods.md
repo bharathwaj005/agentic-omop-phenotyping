@@ -1,5 +1,4 @@
-<!-- src: manuscript/04_methods.md -->
-# Methods
+# 3. Methods
 
 ## System Architecture and Multi-Agent Orchestration
 The multi-agent phenotyping pipeline decomposes cohort construction into specialized functional roles (`src/agents/`, `src/tools/`):
@@ -28,10 +27,15 @@ Defined in `src/runner/experiment.py`:
 - **Neurological Phenotype Track:** 12 targeted cohorts (N01–N12) covering neurodegenerative and neuroinflammatory conditions (`results/benchmark_design/NEURO_FREEZE/`).
 - **Reference v2:** 11 of 20 core V5.3 tasks feature disjunctive multi-arm entry criteria. Reference v2 (`tasks/reference_v2/`) establishes the ground-truth concept set as the union of all valid entry arms, reducing artificial pairwise entry overlap from 0.722 in v1 to 0.139 in v2.
 
+## Reference Correction for Task T10
+During the final audit we found that task T10 (attention-deficit hyperactivity disorder based on condition or procedure evidence) had been linked to OHDSI Phenotype Library cohort 967 (4-point MACE) instead of cohort 1025 (first event of ADHD disorder or procedure) because of a cohort-identifier transcription error. The T10 reference was rebuilt from cohort 1025 and the stored T10 outputs were re-scored with the same resolver and metric code, without re-running any model; re-resolution reproduced every stored concept-set size exactly. The superseded reference and the re-scoring record (`results/analysis_tier1_20261028/rescore_overrides_T10.json`) are retained in the repository.
+
 ## Quantitative Evaluation Metrics
-- Exact concept precision, recall, and F1 computed against Reference v2 (`results/analysis_tier1_20261028/METRICS_DEFINITIONS.md`).
-- Dual-denominator reporting: Scored-only and Intention-to-evaluate (All=0).
-- Paired Wilcoxon signed-rank tests against C1 with Holm-Bonferroni correction and 10,000 bootstrap resamples (seed `20261028`).
+- **Concept matching:** exact OMOP `concept_id` agreement between the union of all resolved predicted concept sets and the Reference v2 concept set (`results/analysis_tier1_20261028/METRICS_DEFINITIONS.md`).
+- **Scored runs:** a run is scored when it produced a resolvable concept specification. Scored runs whose predictions share no concept with the reference receive precision = recall = F1 = 0. Failed, timed-out or unparsable runs are unscored.
+- **Dual-denominator reporting:** mean F1 over scored runs, and intention-to-evaluate mean F1 over all tasks with unscored runs set to 0 (All=0).
+- **Retries:** runs stopped by an infrastructure fault (memory preflight stop) were re-executed once (T05, T11 and T17); all other runs use the first attempt. Remaining infrastructure failures are counted as failures.
+- **Paired comparisons:** C1 versus each alternative on tasks scored by both configurations; two-sided Wilcoxon signed-rank tests with zero differences dropped; Holm–Bonferroni adjustment across the three comparisons within each track; percentile bootstrap 95% CIs of the mean paired difference (10,000 resamples of paired differences, seed `20261028`).
 
 ## Hardware and Local Inference
-Acer One Z14-55N (Intel Core i3-N305, 8 cores / 8 threads, 8 GB DDR5 RAM, CPU only, Linux Mint). Model: quantized `qwen2.5:7b` (Q4_K_M GGUF format via Ollama).
+Acer One Z14-55N (Intel Core i3-N305, 8 cores / 8 threads, 8 GB DDR5 RAM, CPU only, Linux Mint). Model: quantized `qwen2.5:7b` [13] (Q4_K_M GGUF format via Ollama).

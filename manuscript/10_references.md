@@ -1,4 +1,3 @@
-<!-- src: manuscript/10_references.md -->
 # References
 
 1. Friedman C, Rubin J, Brown J, et al. Toward a science of learning systems: a research agenda for the high-functioning Learning Health System. *Journal of the American Medical Informatics Association*. 2015;22(1):43-50. doi:10.1136/amiajnl-2014-002977.
@@ -11,3 +10,6 @@
 8. Jiang Y, et al. MedAgentBench: a virtual EHR environment to benchmark medical LLM agents. *NEJM AI*. 2025;2(9). doi:10.1056/AIdbp2500144.
 9. Bandi A, et al. The rise of agentic AI: a review of definitions, frameworks, architectures, applications, evaluation metrics, and challenges. *Future Internet*. 2025;17(9):404.
 10. Chen H, He X, Dai H, Huang Y, Liu M, Bian J. Agentic authoring of OMOP concept sets from natural language. *medRxiv*. 2026. doi:10.64898/2026.06.02.26354704.
+11. Overhage JM, Ryan PB, Reich CG, Hartzema AG, Stang PE. Validation of a common data model for active safety surveillance research. *Journal of the American Medical Informatics Association*. 2012;19(1):54-60. doi:10.1136/amiajnl-2011-000376.
+12. Hripcsak G, Duke JD, Shah NH, et al. Observational Health Data Sciences and Informatics (OHDSI): opportunities for observational researchers. *Studies in Health Technology and Informatics*. 2015;216:574-578.
+13. Qwen Team. Qwen2.5 technical report. *arXiv preprint arXiv:2412.15115*. 2024.
