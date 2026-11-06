@@ -2,7 +2,7 @@
 # Declarations
 
 ### Data and Code Availability
-All experimental pipelines, prompts, schema validators, task definitions, and evaluation scripts are open-source and version-controlled. The complete benchmark suite, blinded clinical questions (`tasks/benchmark_questions.jsonl`), frozen manifests (`results/codex_20261025/freeze_manifest_OFFICIAL.json`), and run logs are available at: https://github.com/indhrabiotech-art/agentic-omop-phenotyping. The OMOP vocabulary tables are accessible via OHDSI Athena (https://athena.ohdsi.org). Synthetic patient evaluation leverages the public OMOP Eunomia dataset.
+All experimental pipelines, prompts, schema validators, task definitions, and evaluation scripts are open-source and version-controlled. The complete benchmark suite, blinded clinical questions (`tasks/benchmark_questions.jsonl`), frozen manifests (`results/codex_20261025/freeze_manifest_OFFICIAL.json`), and run logs are available at: https://github.com/bharathwaj005/agentic-omop-phenotyping. The OMOP vocabulary tables are accessible via OHDSI Athena (https://athena.ohdsi.org). Synthetic patient evaluation leverages the public OMOP Eunomia dataset.
 
 ### Funding
 This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
