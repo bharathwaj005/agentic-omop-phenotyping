@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C3"
+  ],
+  "freeze_manifest_sha256": "3d6efbe811c1e6a6e16432ec59f473c4dca0d8a6d4246fb818574da7c7aca4f8",
+  "model": "qwen2.5:7b",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C3",
+      "finished_at": "2026-10-30T11:46:50.123773+00:00",
+      "reason": "",
+      "report_path": "results/codex_20261025/runs/retry_T11/T11_C3/report.json",
+      "report_sha256": "1566acec9bce94db7e8c8b41f47e8358328b906af1dbaed7a3af638ccb980a6f",
+      "retry_log": [],
+      "started_at": "2026-10-30T11:39:00.009142+00:00",
+      "status": "success",
+      "task_id": "T11",
+      "trace_sha256": "1491bc85c437cea1e1df1bdde4fa6f96be7b8a1289111e8351f3649aa58148ee",
+      "wall_seconds": 470.0196477110003
+    }
+  ],
+  "task_ids": [
+    "T11"
+  ],
+  "track": "v53"
+}

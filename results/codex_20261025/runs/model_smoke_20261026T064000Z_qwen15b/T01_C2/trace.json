@@ -1,0 +1,233 @@
+{
+ "run_id": "v53_T01_C2_attempt1",
+ "config": "C2",
+ "task_id": "T01",
+ "repeat": 1,
+ "status": "failed",
+ "error": "repeated identical vocabulary tool call after 2 corrective retries",
+ "models": {
+  "model": "qwen2.5:1.5b"
+ },
+ "prompt_hashes": {
+  "single_agent": "5a80507b35df"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": null
+ },
+ "final_spec": null,
+ "totals": {
+  "llm_calls": 6,
+  "tool_calls": 3,
+  "input_tokens": 9303,
+  "output_tokens": 229,
+  "total_tokens": 9532,
+  "wall_time_s": 35.44,
+  "llm_time_s": 34.86,
+  "peak_ram_mb": 185.2,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792995885.418823,
+   "latency_s": 21.165,
+   "model": "qwen2.5:1.5b",
+   "input_tokens": 1348,
+   "output_tokens": 65,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"Clinical\"}}\n\n{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792995906.5842304,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792995906.5842419,
+   "latency_s": 2.741,
+   "model": "qwen2.5:1.5b",
+   "input_tokens": 1454,
+   "output_tokens": 32,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"Clinical\"}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792995909.3255634,
+   "latency_s": 0.34,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Condition",
+     "vocabulary": "Clinical"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792995909.6659818,
+   "latency_s": 2.63,
+   "model": "qwen2.5:1.5b",
+   "input_tokens": 1521,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD diagnosis\", \"domain\": \"Condition\", \"vocabulary\": \"Clinical\"}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792995912.2961273,
+   "latency_s": 0.142,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD diagnosis",
+     "domain": "Condition",
+     "vocabulary": "Clinical"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792995912.4384053,
+   "latency_s": 2.682,
+   "model": "qwen2.5:1.5b",
+   "input_tokens": 1589,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792995915.120399,
+   "latency_s": 0.097,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD treatment",
+     "domain": "Drug",
+     "vocabulary": "Clinical"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792995915.2171443,
+   "latency_s": 2.709,
+   "model": "qwen2.5:1.5b",
+   "input_tokens": 1657,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792995917.9263291,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "duplicate_tool_call": "search_concepts",
+    "duplicate_retries": 1
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792995917.9263368,
+   "latency_s": 2.931,
+   "model": "qwen2.5:1.5b",
+   "input_tokens": 1734,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792995920.8576407,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "duplicate_tool_call": "search_concepts",
+    "duplicate_retries": 2
+   }
+  },
+  {
+   "step": 13,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792995920.8576472,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "failed": "repeated identical vocabulary tool call after 2 corrective retries"
+   }
+  }
+ ]
+}

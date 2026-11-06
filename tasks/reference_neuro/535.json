@@ -1,0 +1,36 @@
+{
+ "task_id": "535",
+ "cohort_id": "535",
+ "entry_codeset_id": "0",
+ "entry_domain": "Condition",
+ "entry_concept_ids": [
+  374021,
+  761989,
+  765827,
+  4249574,
+  43530701
+ ],
+ "all_concept_ids": [
+  374021,
+  761989,
+  765827,
+  4249574,
+  43530701
+ ],
+ "concept_sets": {
+  "0": {
+   "name": "Acute disseminated encephalomyelitis",
+   "concept_ids": [
+    374021,
+    761989,
+    765827,
+    4249574,
+    43530701
+   ]
+  }
+ },
+ "counts": {
+  "entry": 5,
+  "all": 5
+ }
+}

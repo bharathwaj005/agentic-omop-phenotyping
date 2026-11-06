@@ -1,0 +1,159 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T20_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1301",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "acute_urinary_tract_infection",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_urinary_tract_infection": {
+        "description": "Patients with a diagnosis of acute urinary tract infection.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4331815,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 'Acute urinary tract infection' (4331815) accurately represents the clinical description of acute urinary tract infection, as it is a direct match for the specified condition."
+          }
+        ],
+        "name": "acute_urinary_tract_infection"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_urinary_tract_infection",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_urinary_tract_infection",
+    "entry_concept_sets": [
+      "acute_urinary_tract_infection"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with qualifying acute urinary tract infection events.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 4841,
+  "llm_calls": 4,
+  "logical_run_id": "v53_T20_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.0125,
+        "jaccard": 0.006289308176100629,
+        "precision": 1.0,
+        "recall": 0.006289308176100629
+      },
+      "full": {
+        "f1": 0.0125,
+        "jaccard": 0.006289308176100629,
+        "precision": 1.0,
+        "recall": 0.006289308176100629
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.0125,
+        "jaccard": 0.006289308176100629,
+        "precision": 1.0,
+        "recall": 0.006289308176100629
+      },
+      "full": {
+        "f1": 0.0125,
+        "jaccard": 0.006289308176100629,
+        "precision": 1.0,
+        "recall": 0.006289308176100629
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute urinary tract infection"
+        },
+        "concept_set": "acute_urinary_tract_infection",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4331815\tAcute urinary tract infection\tSNOMED\tDisorder\t22\n4329106\tAcute upper urinary tract infection\tSNOMED\tDisorder\t15\n4330644\tAcute lower urinary tract infection\tSNOMED\tDisorder\t5",
+        "rows": 3
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4331815
+        },
+        "concept_set": "acute_urinary_tract_infection",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4331815\tAcute urinary tract infection\tCondition\tSNOMED\tDisorder\tS\tTrue\t22",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 367,
+  "per_set": {
+    "acute_urinary_tract_infection": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4331815,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 'Acute urinary tract infection' (4331815) accurately represents the clinical description of acute urinary tract infection, as it is a direct match for the specified condition."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "99ef68483e1d364350b9df00b851d0a6e52620fe67ed1a763efb04e984a7e175",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T20_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T20",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 4841,
+    "llm_calls": 4,
+    "llm_time_s": 91.28,
+    "output_tokens": 367,
+    "peak_ram_mb": 276.8,
+    "tool_calls": 2,
+    "total_tokens": 5208,
+    "validator_retries": 0,
+    "wall_seconds": 91.44439259399951,
+    "wall_time_s": 91.45
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T20_C3/trace.json",
+  "track": "v53",
+  "wall_seconds": 91.44439259399951
+}

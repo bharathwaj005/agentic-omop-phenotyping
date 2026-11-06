@@ -1,0 +1,56 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Guillain-Barre\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4164770}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4164770, \"max_levels\": 1}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4164770}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"inpatient stay\", \"domain\": \"Visit\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"hospitalization\", \"domain\": \"Visit\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"inpatient\", \"domain\": \"Visit\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 9201}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"inpatient_visit\",\n  \"entry_concept_sets\": [\"inpatient_visit\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"inpatient_visit\", \"event_domain\": \"Visit\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"inpatient_visit\": {\n      \"name\": \"inpatient_visit\",\n      \"domain\": \"Visit\",\n      \"description\": \"Inpatient visit\",\n      \"items\": [\n        {\"concept_id\": 9201, \"include_descendants\": false, \"is_excluded\": false, \"rationale\": \"Standard concept for inpatient visit\"}\n      ]\n    }\n  },\n  \"criteria\": [\n    {\n      \"concept_set\": \"inpatient_visit\",\n      \"window_start_days\": -365,\n      \"window_end_days\": 0,\n      \"rule\": \"at_least_one\",\n      \"first_occurrence_only\": false\n    }\n  ]\n}}"
+  }
+]

@@ -1,0 +1,246 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N05_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "287",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "transverse_myelitis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "transverse_myelitis": {
+        "description": "Patients with transverse myelitis, unspecified myelitis, or neuromyelitis optica based on diagnosis evidence.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 443904,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The standard concept 'Transverse myelopathy syndrome' (443904) in SNOMED represents the clinical description of transverse myelitis, including its descendants such as 'Acute transverse myelitis', 'Complete transverse myelitis', 'Varicella transverse myelitis', and 'Idiopathic transverse myelitis'. This concept set comprehensively covers the specified conditions."
+          }
+        ],
+        "name": "transverse_myelitis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "transverse_myelitis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "transverse_myelitis",
+    "entry_concept_sets": [
+      "transverse_myelitis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with transverse myelitis, unspecified myelitis, or neuromyelitis optica based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 21682,
+  "llm_calls": 15,
+  "logical_run_id": "neuro_N05_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 0.011666666666666667,
+        "jaccard": 0.00586756077116513,
+        "precision": 1.0,
+        "recall": 0.00586756077116513
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.011814345991561183,
+        "jaccard": 0.005942275042444821,
+        "precision": 1.0,
+        "recall": 0.005942275042444821
+      },
+      "full": {
+        "f1": 0.011666666666666667,
+        "jaccard": 0.00586756077116513,
+        "precision": 1.0,
+        "recall": 0.00586756077116513
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "transverse myelitis"
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n139803\tAcute transverse myelitis\tSNOMED\tDisorder\t2\n37166428\tComplete transverse myelitis\tSNOMED\tDisorder\t0\n4042204\tVaricella transverse myelitis\tSNOMED\tDisorder\t0\n134330\tIdiopathic transverse myelitis\tSNOMED\tDisorder\t0\n443904\tTransverse myelopathy syndrome\tSNOMED\tDisorder\t6\n4047628\tAcute viral transverse myelitis\tSNOMED\tDisorder\t0\n4044077\tAcute non-infective transverse myelitis\tSNOMED\tDisorder\t0",
+        "rows": 7
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 139803
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n139803\tAcute transverse myelitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t2",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 139803
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tdomain\tvocab\n139803\tAcute transverse myelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "transverse myelitis"
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n139803\tAcute transverse myelitis\tSNOMED\tDisorder\t2\n37166428\tComplete transverse myelitis\tSNOMED\tDisorder\t0\n4042204\tVaricella transverse myelitis\tSNOMED\tDisorder\t0\n134330\tIdiopathic transverse myelitis\tSNOMED\tDisorder\t0\n443904\tTransverse myelopathy syndrome\tSNOMED\tDisorder\t6\n4047628\tAcute viral transverse myelitis\tSNOMED\tDisorder\t0\n4044077\tAcute non-infective transverse myelitis\tSNOMED\tDisorder\t0",
+        "rows": 7
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 443904
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n443904\tTransverse myelopathy syndrome\tCondition\tSNOMED\tDisorder\tS\tTrue\t6",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 443904
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "total_descendants=6\nid\tname\tclass\tlevels\n139803\tAcute transverse myelitis\tDisorder\t1\n37166428\tComplete transverse myelitis\tDisorder\t1\n4042204\tVaricella transverse myelitis\tDisorder\t1\n134330\tIdiopathic transverse myelitis\tDisorder\t1\n4047628\tAcute viral transverse myelitis\tDisorder\t2\n4044077\tAcute non-infective transverse myelitis\tDisorder\t2",
+        "rows": 7
+      },
+      "step": 18,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 139803
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tdomain\tvocab\n139803\tAcute transverse myelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 37166428
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tdomain\tvocab\n37166428\tComplete transverse myelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 22,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4042204
+        },
+        "concept_set": "transverse_myelitis",
+        "output": "id\tname\tdomain\tvocab\n4042204\tVaricella transverse myelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 24,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 994,
+  "per_set": {
+    "transverse_myelitis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 443904,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The standard concept 'Transverse myelopathy syndrome' (443904) in SNOMED represents the clinical description of transverse myelitis, including its descendants such as 'Acute transverse myelitis', 'Complete transverse myelitis', 'Varicella transverse myelitis', and 'Idiopathic transverse myelitis'. This concept set comprehensively covers the specified conditions."
+        }
+      ],
+      "resolved_count": 7
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "68a6c7f30f356173a26cc30d756616bce515bfcba47076dad28e53b29c340891",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N05_C1/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N05",
+  "timings": {
+    "critic_rounds": 4,
+    "input_tokens": 21682,
+    "llm_calls": 15,
+    "llm_time_s": 296.19,
+    "output_tokens": 994,
+    "peak_ram_mb": 362.2,
+    "tool_calls": 9,
+    "total_tokens": 22676,
+    "validator_retries": 0,
+    "wall_seconds": 300.035800269,
+    "wall_time_s": 300.04
+  },
+  "tool_calls": 9,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N05_C1/trace.json",
+  "track": "neuro",
+  "wall_seconds": 300.035800269
+}

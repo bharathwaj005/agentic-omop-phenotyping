@@ -1,0 +1,193 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T16_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1188",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "anemia_or_reticulocytopenia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "anemia_or_reticulocytopenia": {
+        "description": "Patients with a diagnosis of anemia or reticulocytopenia.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 439777,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 439777 'Anemia' accurately represents the clinical description of patients with a diagnosis of anemia."
+          }
+        ],
+        "name": "anemia_or_reticulocytopenia"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "anemia_or_reticulocytopenia",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "anemia_or_reticulocytopenia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "anemia_or_reticulocytopenia",
+    "entry_concept_sets": [
+      "anemia_or_reticulocytopenia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with anemia or reticulocytopenia while distinguishing the target condition from polycythemia using the relevant hematologic evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 14789,
+  "llm_calls": 11,
+  "logical_run_id": "v53_T16_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "anemia reticulocytopenia"
+        },
+        "concept_set": "anemia_or_reticulocytopenia",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "anemia"
+        },
+        "concept_set": "anemia_or_reticulocytopenia",
+        "output": "id\tname\tvocab\tclass\tn_desc\n439777\tAnemia\tSNOMED\tDisorder\t578\n43022052\tFetal anemia\tSNOMED\tDisorder\t3\n1075863\tAMeD syndrome\tSNOMED\tDisorder\t0\n4217370\tAase syndrome\tSNOMED\tDisorder\t0\n4307469\tSports anemia\tSNOMED\tDisorder\t0\n4030371\tTryptophanemia\tSNOMED\tDisorder\t1\n4101001\tChronic anemia\tSNOMED\tDisorder\t14\n4125493\tVegan's anemia\tSNOMED\tDisorder\t0\n137829\tAplastic anemia\tSNOMED\tDisorder\t28\n1075924\tCIMDAG syndrome\tSNOMED\tDisorder\t0\n4018378\tRelative anemia\tSNOMED\tDisorder\t0\n4339722\tNeonatal anemia\tSNOMED\tDisorder\t7\n37117164\tRevesz syndrome\tSNOMED\tDisorder\t0\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n435503\tHemolytic anemia\tSNOMED\tDisorder\t182",
+        "rows": 15
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 439777
+        },
+        "concept_set": "anemia_or_reticulocytopenia",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n439777\tAnemia\tCondition\tSNOMED\tDisorder\tS\tTrue\t578",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 439777
+        },
+        "concept_set": "anemia_or_reticulocytopenia",
+        "output": "id\tname\tdomain\tvocab\n439777\tAnemia\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 1146,
+  "per_set": {
+    "anemia_or_reticulocytopenia": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 439777,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 439777 'Anemia' accurately represents the clinical description of patients with a diagnosis of anemia."
+        }
+      ],
+      "resolved_count": 0
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "0179ed9dc79bb1f088e4097422a4e2d38dcbdfbb4d40809614f12a6dee17cc56",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T16_C1/raw_replies.json",
+  "reason": "concept agent failed: concept agent unparseable: response is not a JSON object; reply with JSON only, no prose",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T16",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 14789,
+    "llm_calls": 11,
+    "llm_time_s": 313.47,
+    "output_tokens": 1146,
+    "peak_ram_mb": 250.3,
+    "tool_calls": 4,
+    "total_tokens": 15935,
+    "validator_retries": 0,
+    "wall_seconds": 315.86442382899986,
+    "wall_time_s": 315.87
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T16_C1/trace.json",
+  "track": "v53",
+  "wall_seconds": 315.86442382899986
+}

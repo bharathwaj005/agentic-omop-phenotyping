@@ -1,0 +1,86 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"thyroiditis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"hypothyroidism\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"levothyroxine\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Hashimoto\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Hashimoto's\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"levothyroxine treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"levothyroxine\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"thyroid treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"thyroid\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"hypothyroidism treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"hypothyroidism\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 25,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"hypothyroidism\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 27,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"hypothyroidism\", \"domain\": \"Condition\"}}"
+  }
+]

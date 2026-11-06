@@ -1,0 +1,153 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T13_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1073",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": null,
+  "input_tokens": 30820,
+  "llm_calls": 14,
+  "logical_run_id": "v53_T13_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9201\tInpatient Visit\tVisit\tVisit\t3\n32760\tIsolation in inpatient setting\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 3
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "serious infection"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "infection"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n436333\tOrf\tSNOMED\tDisorder\t0\n432829\tYaws\tSNOMED\tDisorder\t41\n4267414\tAIDS\tSNOMED\tDisorder\t70\n433966\tPinta\tSNOMED\tDisorder\t14\n132797\tSepsis\tSNOMED\tDisorder\t154\n377793\tRabies\tSNOMED\tDisorder\t9\n434271\tPlague\tSNOMED\tDisorder\t9\n198677\tCholera\tSNOMED\tDisorder\t4\n432821\tLeprosy\tSNOMED\tDisorder\t29\n433701\tMycosis\tSNOMED\tDisorder\t797\n434567\tQ fever\tSNOMED\tDisorder\t11\n438960\tAnthrax\tSNOMED\tDisorder\t6\n133547\tPyoderma\tSNOMED\tDisorder\t230\n195588\tCystitis\tSNOMED\tDisorder\t69\n436033\tSyphilis\tSNOMED\tDisorder\t216",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "opportunistic infection"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n37468826\tRecurrent opportunistic infection\tSNOMED\tDisorder\t0\n4296069\tOnychomycosis due to opportunistic infection\tSNOMED\tDisorder\t0\n37204545\tHyperimmunoglobulin M syndrome with susceptibility to opportunistic infection\tSNOMED\tDisorder\t2\n37017579\tOpportunistic mycosis co-occurrent with human immunodeficiency virus infection\tSNOMED\tDisorder\t0\n37204546\tHyperimmunoglobulin M syndrome without susceptibility to opportunistic infection\tSNOMED\tDisorder\t3",
+        "rows": 5
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "other infection"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4218022\tTORCH syndrome\tSNOMED\tDisorder\t0\n76504\tInfection of bone associated with another disease\tSNOMED\tDisorder\t0\n45757108\tChlamydia trachomatis infection in mother complicating childbirth\tSNOMED\tDisorder\t0\n45757134\tGroup B streptococcus infection in mother complicating childbirth\tSNOMED\tDisorder\t0\n4082365\tAlopecia, nail dystrophy, ophthalmic complications, thyroid dysfunction, hypohidrosis, ephelides, enteropathy and respiratory tract infections\tSNOMED\tDisorder\t0",
+        "rows": 5
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient or emergency room"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "emergency"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9203\tEmergency Room Visit\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 2
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient or emergency"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 757,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "1a49e530165dca93ba50687ea614db551441b1fb3f2d569eff244701124a8b0d",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T13_C2/raw_replies.json",
+  "reason": "APIError: request timed out",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T13",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 30820,
+    "llm_calls": 14,
+    "llm_time_s": 491.72,
+    "output_tokens": 757,
+    "peak_ram_mb": 255.2,
+    "tool_calls": 8,
+    "total_tokens": 31577,
+    "validator_retries": 0,
+    "wall_seconds": 492.59416225699897,
+    "wall_time_s": 492.6
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T13_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 492.59416225699897
+}

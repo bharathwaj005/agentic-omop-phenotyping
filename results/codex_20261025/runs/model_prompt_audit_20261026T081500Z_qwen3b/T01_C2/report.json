@@ -1,0 +1,183 @@
+{
+  "attempt_id": "model_prompt_audit_20261026T081500Z_qwen3b_v53_T01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "134",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "model_prompt_audit_20261026T081500Z_qwen3b",
+  "final_spec": null,
+  "input_tokens": 27466,
+  "llm_calls": 13,
+  "logical_run_id": "v53_T01_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:3b"
+  ],
+  "model_requested": "qwen2.5:3b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "attention deficit hyperactivity disorder"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12\n40480225\tAdult attention deficit hyperactivity disorder\tSNOMED\tDisorder\t0\n4149904\tAttention deficit hyperactivity disorder, combined type\tSNOMED\tDisorder\t0\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tSNOMED\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tSNOMED\tDisorder\t0\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tSNOMED\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tSNOMED\tDisorder\t0\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tSNOMED\tDisorder\t0",
+        "rows": 8
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "attention deficit hyperactivity disorder treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "adhd treatment",
+          "vocabulary": "SNOMED"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "adhd medication",
+          "vocabulary": "SNOMED"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "adhd drug",
+          "vocabulary": "SNOMED"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "adhd",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "output": "id\tname\tdomain\tvocab\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 14,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "attention deficit hyperactivity disorder",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12\n40480225\tAdult attention deficit hyperactivity disorder\tSNOMED\tDisorder\t0\n4149904\tAttention deficit hyperactivity disorder, combined type\tSNOMED\tDisorder\t0\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tSNOMED\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tSNOMED\tDisorder\t0\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tSNOMED\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tSNOMED\tDisorder\t0\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tSNOMED\tDisorder\t0",
+        "rows": 8
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "adhd treatment stimulant",
+          "vocabulary": "SNOMED"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "adhd stimulant",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0",
+        "rows": 2
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 1320,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "6836071c0313680c9e818ff96e9b50b91ecb66d6e78342d5f4e61e87f64da734",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_prompt_audit_20261026T081500Z_qwen3b/T01_C2/raw_replies.json",
+  "reason": "Ctrl+C received",
+  "schema_version": 1,
+  "status": "interrupted",
+  "task_id": "T01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 27466,
+    "llm_calls": 13,
+    "llm_time_s": 255.25,
+    "output_tokens": 1320,
+    "peak_ram_mb": 281.6,
+    "tool_calls": 10,
+    "total_tokens": 28786,
+    "validator_retries": 0,
+    "wall_seconds": 256.78202361700096,
+    "wall_time_s": 256.79
+  },
+  "tool_calls": 10,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_prompt_audit_20261026T081500Z_qwen3b/T01_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 256.78202361700096
+}

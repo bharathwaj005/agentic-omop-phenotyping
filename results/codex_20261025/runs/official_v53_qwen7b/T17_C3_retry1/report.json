@@ -1,0 +1,145 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T17_C3_attempt2",
+  "attempt_number": 2,
+  "cohort_id": "1261",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "acute_typical_pneumonia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_typical_pneumonia": {
+        "description": "Patients with a diagnosis of acute typical pneumonia.",
+        "domain": "Condition",
+        "items": [],
+        "name": "acute_typical_pneumonia"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_typical_pneumonia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_typical_pneumonia",
+    "entry_concept_sets": [
+      "acute_typical_pneumonia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute typical pneumonia while distinguishing it from non-acute typical pneumonia.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 6811,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T17_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute typical pneumonia"
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "typical pneumonia"
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n440431\tPneumonia caused by Mycoplasma pneumoniae\tSNOMED\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 419,
+  "per_set": {
+    "acute_typical_pneumonia": {
+      "domain": "Condition",
+      "include_descendants": [],
+      "items": [],
+      "resolved_count": 0
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "72d2dca80aab9c7d7470e5eb1548c994b80323957ed4edd86c5d7abdb95bc9e8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T17_C3_retry1/raw_replies.json",
+  "reason": "builder failed: builder produced an invalid specification: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'arms: acute_typical_pneumonia (Condition)' [type=value_error, input_value={'spec_version': '1.1', '...umonia.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T17",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 6811,
+    "llm_calls": 6,
+    "llm_time_s": 261.86,
+    "output_tokens": 419,
+    "peak_ram_mb": 193.8,
+    "tool_calls": 2,
+    "total_tokens": 7230,
+    "validator_retries": 1,
+    "wall_seconds": 262.6870237860003,
+    "wall_time_s": 262.7
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T17_C3_retry1/trace.json",
+  "track": "v53",
+  "wall_seconds": 262.6870237860003
+}

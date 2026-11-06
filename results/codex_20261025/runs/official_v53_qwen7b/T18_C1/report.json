@@ -1,0 +1,59 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T18_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1263",
+  "configuration": "C1",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 2345,
+  "llm_calls": 2,
+  "logical_run_id": "v53_T18_C1",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [],
+  "output_tokens": 384,
+  "per_set": {},
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "078de1a301a96b61eb934027c9aedf60706da874692a8a20c71a58428312f2a5",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T18_C1/raw_replies.json",
+  "reason": "planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'no_asthma' [type=value_error, input_value={'question': 'Identify pa...isease.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T18",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 2345,
+    "llm_calls": 2,
+    "llm_time_s": 93.38,
+    "output_tokens": 384,
+    "peak_ram_mb": 203.6,
+    "tool_calls": 0,
+    "total_tokens": 2729,
+    "validator_retries": 0,
+    "wall_seconds": 93.38428986100007,
+    "wall_time_s": 93.39
+  },
+  "tool_calls": 0,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T18_C1/trace.json",
+  "track": "v53",
+  "wall_seconds": 93.38428986100007
+}

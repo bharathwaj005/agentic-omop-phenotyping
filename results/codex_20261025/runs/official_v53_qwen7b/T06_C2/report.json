@@ -1,0 +1,188 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T06_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "588",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "adhd_concept_set",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "adhd_concept_set": {
+        "description": "Attention deficit hyperactivity disorder",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 438409,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of attention deficit hyperactivity disorder"
+          }
+        ],
+        "name": "adhd_concept_set"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "adhd_concept_set",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "adhd_concept_set",
+    "entry_concept_sets": [
+      "adhd_concept_set"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with attention deficit hyperactivity disorder.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 12026,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T06_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "attention deficit hyperactivity disorder"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12\n40480225\tAdult attention deficit hyperactivity disorder\tSNOMED\tDisorder\t0\n4149904\tAttention deficit hyperactivity disorder, combined type\tSNOMED\tDisorder\t0\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tSNOMED\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tSNOMED\tDisorder\t0\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tSNOMED\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tSNOMED\tDisorder\t0\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tSNOMED\tDisorder\t0",
+        "rows": 8
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t12",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "output": "total_descendants=12\nid\tname\tclass\tlevels\n438132\tHyperkinetic conduct disorder\tDisorder\t1\n440086\tChild attention deficit disorder\tDisorder\t1\n4049391\tUndifferentiated attention deficit disorder\tDisorder\t1\n4262921\tHyperkinetic syndrome with developmental delay\tDisorder\t1\n40480225\tAdult attention deficit hyperactivity disorder\tDisorder\t1\n4041692\tDeficits in attention motor control and perception\tDisorder\t1\n4149904\tAttention deficit hyperactivity disorder, combined type\tDisorder\t1\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tDisorder\t1\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tDisorder\t2\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tDisorder\t2",
+        "rows": 13
+      },
+      "step": 6,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n4043545\tDevelopmental mental disorder\tDisorder\t1\n4047120\tDisorders of attention and motor control\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 8,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "output": "id\tname\tdomain\tvocab\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 336,
+  "per_set": {
+    "adhd_concept_set": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 438409,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of attention deficit hyperactivity disorder"
+        }
+      ],
+      "resolved_count": 13
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "40448ba2585d06a1461679623f460569e6f902b363223f55b9cd2bfcfc324304",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T06_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T06",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 12026,
+    "llm_calls": 6,
+    "llm_time_s": 208.67,
+    "output_tokens": 336,
+    "peak_ram_mb": 337.6,
+    "tool_calls": 5,
+    "total_tokens": 12362,
+    "validator_retries": 0,
+    "wall_seconds": 212.6479908020001,
+    "wall_time_s": 212.65
+  },
+  "tool_calls": 5,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T06_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 212.6479908020001
+}

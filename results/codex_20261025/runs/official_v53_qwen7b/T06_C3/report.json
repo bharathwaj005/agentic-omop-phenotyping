@@ -1,0 +1,159 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T06_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "588",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "adhd_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "adhd_diagnosis": {
+        "description": "Patients with a diagnosis of attention deficit hyperactivity disorder.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 438409,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The OMOP concept ID 438409 represents 'Attention deficit hyperactivity disorder' in SNOMED, which matches the clinical description of the Planner's concept set."
+          }
+        ],
+        "name": "adhd_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "adhd_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "adhd_diagnosis",
+    "entry_concept_sets": [
+      "adhd_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with attention deficit hyperactivity disorder.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5157,
+  "llm_calls": 4,
+  "logical_run_id": "v53_T06_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "attention deficit hyperactivity disorder"
+        },
+        "concept_set": "adhd_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12\n40480225\tAdult attention deficit hyperactivity disorder\tSNOMED\tDisorder\t0\n4149904\tAttention deficit hyperactivity disorder, combined type\tSNOMED\tDisorder\t0\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tSNOMED\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tSNOMED\tDisorder\t0\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tSNOMED\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tSNOMED\tDisorder\t0\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tSNOMED\tDisorder\t0",
+        "rows": 8
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "concept_set": "adhd_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t12",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 346,
+  "per_set": {
+    "adhd_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 438409,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The OMOP concept ID 438409 represents 'Attention deficit hyperactivity disorder' in SNOMED, which matches the clinical description of the Planner's concept set."
+        }
+      ],
+      "resolved_count": 13
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "40448ba2585d06a1461679623f460569e6f902b363223f55b9cd2bfcfc324304",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T06_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T06",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5157,
+    "llm_calls": 4,
+    "llm_time_s": 98.41,
+    "output_tokens": 346,
+    "peak_ram_mb": 352.0,
+    "tool_calls": 2,
+    "total_tokens": 5503,
+    "validator_retries": 0,
+    "wall_seconds": 98.59496367099996,
+    "wall_time_s": 98.6
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T06_C3/trace.json",
+  "track": "v53",
+  "wall_seconds": 98.59496367099996
+}

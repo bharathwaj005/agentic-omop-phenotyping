@@ -1,0 +1,2 @@
+task_id,configuration,status,attempts,reason,retry_log,wall_seconds,started_at,finished_at,report_path,report_sha256,trace_sha256
+T01,C2,failed,1,repeated identical vocabulary tool call after 2 corrective retries,[],177.90637824799978,2026-10-26T06:52:26.548510+00:00,2026-10-26T06:55:24.476459+00:00,results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen7b_ctx4096/T01_C2/report.json,4bd8b736a32b1120b8cfe1cc5895f3cd2ec065ae35902fb9b1d95ee87f8c4be7,58ce2407dca8c5c8a18a9d9dd5440a5f267aa497135b0da4f46754e518f11cb5

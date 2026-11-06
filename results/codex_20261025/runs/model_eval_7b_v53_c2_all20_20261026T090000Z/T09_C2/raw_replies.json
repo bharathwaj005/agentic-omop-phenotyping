@@ -1,0 +1,32 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"dementia\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4182210}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4182210, \"max_levels\": 2}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4182210}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"dementia_concept_set\",\n  \"entry_concept_sets\": [\"dementia_concept_set\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"dementia_concept_set\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"dementia_concept_set\": {\n      \"name\": \"dementia_concept_set\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with any form of dementia\",\n      \"items\": [\n        {\"concept_id\": 4182210, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Primary concept for dementia\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

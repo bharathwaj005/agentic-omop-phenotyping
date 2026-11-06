@@ -1,0 +1,330 @@
+{
+ "run_id": "official_v53_qwen7b_v53_T01_C1_attempt1",
+ "config": "C1",
+ "task_id": "T01",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with attention deficit hyperactivity disorder based on qualifying ADHD diagnosis or ADHD treatment evidence.",
+  "entry_concept_set": "adhd_diagnosis_or_treatment",
+  "entry_concept_sets": [
+   "adhd_diagnosis_or_treatment"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "event_domain": "Condition"
+   },
+   {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "event_domain": "Drug"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "adhd_diagnosis_or_treatment": {
+    "name": "adhd_diagnosis_or_treatment",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of attention deficit hyperactivity disorder or a prescription for ADHD treatment.",
+    "items": [
+     {
+      "concept_id": 438409,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "The OMOP standard concept 438409 (Attention deficit hyperactivity disorder) directly matches the clinical description of ADHD diagnosis."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 7,
+  "tool_calls": 4,
+  "input_tokens": 8289,
+  "output_tokens": 543,
+  "total_tokens": 8832,
+  "wall_time_s": 326.37,
+  "llm_time_s": 321.07,
+  "peak_ram_mb": 242.6,
+  "critic_rounds": 3,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793107110.118459,
+   "latency_s": 124.263,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1026,
+   "output_tokens": 216,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"adhd_diagnosis_or_treatment\",\n    \"entry_concept_sets\": [\"adhd_diagnosis_or_treatment\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"adhd_diagnosis_or_treatment\",\n        \"event_domain\": \"Condition\"\n      },\n      {\n        \"concept_set\": \"adhd_diagnosis_or_treatment\",\n        \"event_domain\": \"Drug\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"adhd_diagnosis_or_treatment\": {\n        \"name\": \"adhd_diagnosis_or_treatment\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of attention deficit hyperactivity disorder or a prescription for ADHD treatment.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793107234.38414,
+   "latency_s": 84.411,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1173,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"ADHD diagnosis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793107318.7951624,
+   "latency_s": 3.1,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD diagnosis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793107321.898703,
+   "latency_s": 13.918,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1251,
+   "output_tokens": 42,
+   "detail": {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"ADHD\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793107335.817681,
+   "latency_s": 0.548,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "rows": 1,
+    "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793107336.365738,
+   "latency_s": 12.371,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1332,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793107348.7371209,
+   "latency_s": 0.375,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 438409
+    },
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t12"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793107349.1122184,
+   "latency_s": 10.703,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1413,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "raw_text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1793107359.815411,
+   "latency_s": 1.223,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 438409
+    },
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793107361.0388176,
+   "latency_s": 24.967,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1479,
+   "output_tokens": 91,
+   "detail": {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 438409,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The OMOP standard concept 438409 (Attention deficit hyperactivity disorder) directly matches the clinical description of ADHD diagnosis.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793107386.0082932,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "adhd_diagnosis_or_treatment",
+    "items": 1,
+    "tool_calls": 4
+   }
+  },
+  {
+   "step": 12,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793107386.0198536,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": [
+     {
+      "level": "warning",
+      "code": "possibly_too_narrow",
+      "message": "only one concept resolved and descendants were not requested; check whether the entry set is too narrow",
+      "concept_set": "adhd_diagnosis_or_treatment",
+      "concept_id": null
+     },
+     {
+      "level": "warning",
+      "code": "entry_single_concept_no_descendants",
+      "message": "entry set resolves to one concept without descendants; check get_descendants to confirm whether broader coverage is intended",
+      "concept_set": "adhd_diagnosis_or_treatment",
+      "concept_id": null
+     }
+    ]
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1793107386.0211022,
+   "latency_s": 50.438,
+   "model": "qwen2.5:7b",
+   "input_tokens": 615,
+   "output_tokens": 87,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"revise\", \"issues\": [\n  {\"target\": \"adhd_diagnosis_or_treatment (Condition)\",\n   \"problem\": \"The concept set is too narrow as it only includes the exact concept without its descendants.\",\n   \"suggestion\": \"Use get_descendants to include all sub-concepts of 'attention deficit hyperactivity disorder'.\"}\n]}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "note",
+   "actor": "critic",
+   "started_at": 1793107436.461133,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "dropped_unroutable_issues": 1
+   }
+  },
+  {
+   "step": 15,
+   "kind": "note",
+   "actor": "critic",
+   "started_at": 1793107436.4612164,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "unusable": "critic returned revise, but none of its issues targeted an existing concept set or the builder"
+   }
+  }
+ ]
+}

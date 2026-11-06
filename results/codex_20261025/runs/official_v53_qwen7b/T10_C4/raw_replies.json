@@ -1,0 +1,44 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"adhd_condition_or_procedure\",\n    \"entry_concept_sets\": [\"adhd_condition_or_procedure\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"adhd_condition_or_procedure\",\n        \"event_domain\": \"Condition\"\n      },\n      {\n        \"concept_set\": \"adhd_condition_or_procedure\",\n        \"event_domain\": \"Procedure\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"adhd_condition_or_procedure\": {\n        \"name\": \"adhd_condition_or_procedure\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a qualifying ADHD-related condition or procedure\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"adhd_condition_or_procedure\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0,\n        \"rule\": \"at_least_one\"\n      },\n      {\n        \"concept_set\": \"adhd_medication\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0,\n        \"rule\": \"at_least_one\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 3,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"adhd_condition_or_procedure\",\n    \"entry_concept_sets\": [\"adhd_condition_or_procedure\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"adhd_condition_or_procedure\",\n        \"event_domain\": \"Condition\"\n      },\n      {\n        \"concept_set\": \"adhd_condition_or_procedure\",\n        \"event_domain\": \"Procedure\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"adhd_condition_or_procedure\": {\n        \"name\": \"adhd_condition_or_procedure\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a qualifying ADHD-related condition or procedure\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"adhd_condition_or_procedure\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0,\n        \"rule\": \"at_least_one\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 5,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"ADHD\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 7,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+  },
+  {
+    "step": 9,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+  },
+  {
+    "step": 11,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 438409,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The OMOP standard concept 438409 (Attention deficit hyperactivity disorder) directly matches the clinical description of ADHD-related conditions.\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 13,
+    "actor": "critic",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+  }
+]

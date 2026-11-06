@@ -1,0 +1,160 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T14_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1183",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "qualifying_antiepileptic_medication",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "qualifying_antiepileptic_medication": {
+        "description": "Patients receiving antiepileptic medications represented by the qualifying antiepileptic ingredient group.",
+        "domain": "Drug",
+        "items": [],
+        "name": "qualifying_antiepileptic_medication"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "qualifying_antiepileptic_medication",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "qualifying_antiepileptic_medication",
+    "entry_concept_sets": [
+      "qualifying_antiepileptic_medication"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients receiving antiepileptic medications represented by the qualifying antiepileptic ingredient group.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 10209,
+  "llm_calls": 9,
+  "logical_run_id": "v53_T14_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "antiepileptic"
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "anticonvulsant"
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "epilepsy"
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n380378\tEpilepsy\tSNOMED\tDisorder\t216\n3657974\tScar epilepsy\tSNOMED\tDisorder\t0\n36715417\tDEND syndrome\tSNOMED\tDisorder\t0\n374915\tFocal epilepsy\tSNOMED\tDisorder\t48\n4194366\tReflex epilepsy\tSNOMED\tDisorder\t14\n4213017\tVisual epilepsy\tSNOMED\tDisorder\t0\n1448874\tInsular epilepsy\tSNOMED\tDisorder\t0\n4286178\tEpileptic vertigo\tSNOMED\tDisorder\t0\n45771339\tNorthern epilepsy\tSNOMED\tDisorder\t0\n4047903\tMenstrual epilepsy\tSNOMED\tDisorder\t0\n4233042\tEpilepsy confirmed\tSNOMED\tContext-dependent\t0\n44801879\tPetit-mal epilepsy\tSNOMED\tDisorder\t0\n4055361\tGeneralized epilepsy\tSNOMED\tDisorder\t14\n4043554\tDrug-induced epilepsy\tSNOMED\tDisorder\t1\n4047888\tFrontal lobe epilepsy\tSNOMED\tDisorder\t10",
+        "rows": 15
+      },
+      "step": 7,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 686,
+  "per_set": {
+    "qualifying_antiepileptic_medication": {
+      "domain": "Drug",
+      "include_descendants": [],
+      "items": [],
+      "resolved_count": 0
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "a2099ac9ecba81b1e383b6d8285c7de3bc2824adaf7dbb87125248bef26f60ea",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T14_C1/raw_replies.json",
+  "reason": "validator errors persisted after 3 repairs",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T14",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 10209,
+    "llm_calls": 9,
+    "llm_time_s": 200.05,
+    "output_tokens": 686,
+    "peak_ram_mb": 222.5,
+    "tool_calls": 3,
+    "total_tokens": 10895,
+    "validator_retries": 4,
+    "wall_seconds": 200.56923615599953,
+    "wall_time_s": 200.58
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T14_C1/trace.json",
+  "track": "v53",
+  "wall_seconds": 200.56923615599953
+}

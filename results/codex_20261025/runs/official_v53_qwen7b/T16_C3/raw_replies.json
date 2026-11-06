@@ -1,0 +1,38 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"anemia_or_reticulocytopenia\",\n    \"entry_concept_sets\": [\"anemia_or_reticulocytopenia\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"anemia_or_reticulocytopenia\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"anemia_or_reticulocytopenia\": {\n        \"name\": \"anemia_or_reticulocytopenia\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with anemia or reticulocytopenia\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"anemia_or_reticulocytopenia\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0,\n        \"rule\": \"at_least_one\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"anemia reticulocytopenia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"anemia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 439777\n  }\n}"
+  },
+  {
+    "step": 8,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 439777\n  }\n}"
+  },
+  {
+    "step": 10,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 439777,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 439777 'Anemia' accurately represents the clinical description of patients with anemia, which is a key component of the concept set.\"\n      }\n    ]\n  }\n}"
+  }
+]

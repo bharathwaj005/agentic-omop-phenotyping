@@ -1,0 +1,581 @@
+{
+ "run_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T17_C2_attempt1",
+ "config": "C2",
+ "task_id": "T17",
+ "repeat": 1,
+ "status": "timeout",
+ "error": "JBI_RUN_DEADLINE_S exceeded",
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": null
+ },
+ "final_spec": null,
+ "totals": {
+  "llm_calls": 18,
+  "tool_calls": 17,
+  "input_tokens": 56625,
+  "output_tokens": 478,
+  "total_tokens": 57103,
+  "wall_time_s": 1200.12,
+  "llm_time_s": 1186.27,
+  "peak_ram_mb": 184.3,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017148.8087869,
+   "latency_s": 95.431,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1527,
+   "output_tokens": 27,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"pneumonia\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017244.2404156,
+   "latency_s": 4.742,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "pneumonia",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n255848\tPneumonia\tSNOMED\tDisorder\t186\n261326\tViral pneumonia\tSNOMED\tDisorder\t28\n4046011\tFocal pneumonia\tSNOMED\tDisorder\t0\n4116487\tBasal pneumonia\tSNOMED\tDisorder\t3\n4133224\tLobar pneumonia\tSNOMED\tDisorder\t10\n256722\tBronchopneumonia\tSNOMED\tDisorder\t31\n4049965\tFungal pneumonia\tSNOMED\tDisorder\t12\n252548\tAnthrax pneumonia\tSNOMED\tDisorder\t0\n4112655\tProteus pneumonia\tSNOMED\tDisorder\t2\n45770900\tRubella pneumonia\tSNOMED\tDisorder\t1\n46269693\tChronic pneumonia\tSNOMED\tDisorder\t2\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n4051337\tNeonatal pneumonia\tSNOMED\tDisorder\t2\n4145369\tLingular pneumonia\tSNOMED\tDisorder\t0\n43020558\tCavitary pneumonia\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017248.98251,
+   "latency_s": 24.38,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1891,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017273.362196,
+   "latency_s": 0.185,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "acute",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017273.5470462,
+   "latency_s": 26.597,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2259,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017300.144222,
+   "latency_s": 0.159,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "typical",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4324893\tTypical angina\tSNOMED\tDisorder\t0\n4155963\tAtypical angina\tSNOMED\tDisorder\t0\n4338037\tAtypical autism\tSNOMED\tDisorder\t0\n4292105\tMorquio syndrome\tSNOMED\tDisorder\t2\n4345463\tAtypical measles\tSNOMED\tDisorder\t0\n440740\tTakayasu's disease\tSNOMED\tDisorder\t0\n4008244\tAtypical neuralgia\tSNOMED\tClinical Finding\t0\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n43022060\tAtypical psychosis\tSNOMED\tDisorder\t0\n4010017\tAtypical chest pain\tSNOMED\tClinical Finding\t0\n37017588\tAtypical odontalgia\tSNOMED\tClinical Finding\t0\n137856\tAtypical facial pain\tSNOMED\tClinical Finding\t0\n434890\tStereotyped routines\tSNOMED\tClinical Finding\t6\n378735\tMigraine without aura\tSNOMED\tDisorder\t5\n1244835\tAtypical neurofibroma\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017300.3033063,
+   "latency_s": 28.585,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2632,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"non-acute\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017328.8879461,
+   "latency_s": 0.15,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "non-acute",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n374049\tAcute mucoid otitis media\tSNOMED\tDisorder\t4\n4145721\tAcute non-Q wave infarction\tSNOMED\tDisorder\t6\n374948\tAcute secretory otitis media\tSNOMED\tDisorder\t26\n4060942\tAcute non-puerperal mastitis\tSNOMED\tDisorder\t0\n315293\tAcute idiopathic pericarditis\tSNOMED\tDisorder\t0\n42536540\tAcute noninfective bronchitis\tSNOMED\tDisorder\t0\n378768\tAcute sanguineous otitis media\tSNOMED\tDisorder\t4\n762300\tAcute nonbacterial endocarditis\tSNOMED\tDisorder\t0\n4055207\tAcute hepatitis - non-infective\tSNOMED\tDisorder\t0\n4056197\tSubacute non-puerperal mastitis\tSNOMED\tDisorder\t0\n4219115\tSubacute noninfective hepatitis\tSNOMED\tDisorder\t0\n136330\tAcute nonparalytic poliomyelitis\tSNOMED\tDisorder\t1\n45757442\tAcute nontraumatic kidney injury\tSNOMED\tDisorder\t0\n4095916\tAcute non-suppurative thyroiditis\tSNOMED\tDisorder\t0\n4056198\tAcute non-puerperal breast abscess\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017329.0374885,
+   "latency_s": 36.038,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3066,
+   "output_tokens": 36,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"pneumonia\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017365.0751946,
+   "latency_s": 0.13,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "pneumonia",
+     "domain": "Condition",
+     "vocabulary": "SNOMED"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n255848\tPneumonia\tSNOMED\tDisorder\t186\n261326\tViral pneumonia\tSNOMED\tDisorder\t28\n4046011\tFocal pneumonia\tSNOMED\tDisorder\t0\n4116487\tBasal pneumonia\tSNOMED\tDisorder\t3\n4133224\tLobar pneumonia\tSNOMED\tDisorder\t10\n256722\tBronchopneumonia\tSNOMED\tDisorder\t31\n4049965\tFungal pneumonia\tSNOMED\tDisorder\t12\n252548\tAnthrax pneumonia\tSNOMED\tDisorder\t0\n4112655\tProteus pneumonia\tSNOMED\tDisorder\t2\n45770900\tRubella pneumonia\tSNOMED\tDisorder\t1\n46269693\tChronic pneumonia\tSNOMED\tDisorder\t2\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n4051337\tNeonatal pneumonia\tSNOMED\tDisorder\t2\n4145369\tLingular pneumonia\tSNOMED\tDisorder\t0\n43020558\tCavitary pneumonia\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017365.2056,
+   "latency_s": 29.181,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3439,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 4050869}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793017394.3870983,
+   "latency_s": 0.376,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4050869
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4050869\tAtypical pneumonia\tCondition\tSNOMED\tDisorder\tS\tTrue\t0"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017394.7633111,
+   "latency_s": 13.052,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3511,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4050869}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1793017407.8151252,
+   "latency_s": 2.117,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4050869
+    },
+    "rows": 1,
+    "output": "total_descendants=0\n(none)"
+   }
+  },
+  {
+   "step": 15,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017409.9322615,
+   "latency_s": 12.336,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3554,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4050869, \"max_levels\": 2}}"
+   }
+  },
+  {
+   "step": 16,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1793017422.2681513,
+   "latency_s": 0.471,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4050869,
+     "max_levels": 2
+    },
+    "rows": 5,
+    "output": "id\tname\tclass\tlevels\n4318404\tLung consolidation\tDisorder\t1\n257315\tBacterial pneumonia\tDisorder\t1\n255848\tPneumonia\tDisorder\t2\n257907\tDisorder of lung\tDisorder\t2\n4208662\tBacterial lower respiratory infection\tDisorder\t2"
+   }
+  },
+  {
+   "step": 17,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017422.7391136,
+   "latency_s": 13.98,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3684,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 255848}}"
+   }
+  },
+  {
+   "step": 18,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1793017436.7193856,
+   "latency_s": 1.172,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 255848
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n255848\tPneumonia\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 19,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017437.891752,
+   "latency_s": 13.346,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3740,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+   }
+  },
+  {
+   "step": 20,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017451.2380283,
+   "latency_s": 0.189,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "acute",
+     "domain": "Condition",
+     "vocabulary": "SNOMED"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1"
+   }
+  },
+  {
+   "step": 21,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017451.426868,
+   "latency_s": 171.237,
+   "model": "qwen2.5:7b",
+   "input_tokens": 4095,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 433456}}"
+   }
+  },
+  {
+   "step": 22,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793017622.6643622,
+   "latency_s": 0.343,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 433456
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n433456\tAcute pain\tCondition\tSNOMED\tClinical Finding\tS\tTrue\t28"
+   }
+  },
+  {
+   "step": 23,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017623.007127,
+   "latency_s": 150.393,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3803,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 433456}}"
+   }
+  },
+  {
+   "step": 24,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1793017773.4001226,
+   "latency_s": 0.838,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 433456
+    },
+    "rows": 16,
+    "output": "total_descendants=28\nid\tname\tclass\tlevels\n42539583\tAcute headache\tClinical Finding\t1\n4009385\tAcute chest pain\tClinical Finding\t1\n45771676\tAcute ankle pain\tClinical Finding\t1\n4196137\tAcute pelvic pain\tClinical Finding\t1\n37476751\tAcute sore throat\tClinical Finding\t1\n42536910\tAcute pain in face\tClinical Finding\t1\n4132892\tAcute low back pain\tClinical Finding\t1\n4023573\tAcute abdominal pain\tClinical Finding\t1\n36716679\tAcute pain of scrotum\tClinical Finding\t1\n4133037\tAcute thoracic back pain\tClinical Finding\t1\n4333227\tAcute pain due to injury\tClinical Finding\t1\n43530621\tAcute postoperative pain\tClinical Finding\t1\n45757286\tAcute pain of joint of knee\tClinical Finding\t1\n4083769\tAcute back pain with sciatica\tClinical Finding\t1\n4105016\tAcute painful diabetic neuropathy\tDisorder\t1"
+   }
+  },
+  {
+   "step": 25,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017774.2385776,
+   "latency_s": 154.802,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3788,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 433456, \"max_levels\": 2}}"
+   }
+  },
+  {
+   "step": 26,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1793017929.0401607,
+   "latency_s": 0.38,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 433456,
+     "max_levels": 2
+    },
+    "rows": 2,
+    "output": "id\tname\tclass\tlevels\n4329041\tPain\tClinical Finding\t1\n4170962\tPain / sensation finding\tClinical Finding\t2"
+   }
+  },
+  {
+   "step": 27,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017929.4200165,
+   "latency_s": 17.516,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3870,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"diabetes\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+   }
+  },
+  {
+   "step": 28,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793017946.9361186,
+   "latency_s": 0.159,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "diabetes",
+     "domain": "Condition",
+     "vocabulary": "SNOMED"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n37018196\tPrediabetes\tSNOMED\tDisorder\t1\n36715417\tDEND syndrome\tSNOMED\tDisorder\t0\n4220821\tBronze diabetes\tSNOMED\tDisorder\t0\n4322638\tWolfram syndrome\tSNOMED\tDisorder\t2\n201820\tDiabetes mellitus\tSNOMED\tDisorder\t127\n37116379\tStimmler syndrome\tSNOMED\tDisorder\t0\n4162239\tSomogyi phenomenon\tSNOMED\tDisorder\t0\n4216214\tMauriac's syndrome\tSNOMED\tDisorder\t0\n4221532\tPrimary polydipsia\tSNOMED\tDisorder\t2\n4311553\tRenal phosphaturia\tSNOMED\tDisorder\t0\n4033942\tDiabetic dermopathy\tSNOMED\tDisorder\t4\n4159742\tDiabetic foot ulcer\tSNOMED\tDisorder\t30\n37110068\tDiabetic mastopathy\tSNOMED\tDisorder\t0\n443727\tDiabetic ketoacidosis\tSNOMED\tDisorder\t7\n4131907\tLipoatrophic diabetes\tSNOMED\tDisorder\t1"
+   }
+  },
+  {
+   "step": 29,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793017947.0954278,
+   "latency_s": 158.508,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3880,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 201820}}"
+   }
+  },
+  {
+   "step": 30,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793018105.603177,
+   "latency_s": 0.013,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 201820
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n201820\tDiabetes mellitus\tCondition\tSNOMED\tDisorder\tS\tTrue\t127"
+   }
+  },
+  {
+   "step": 31,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793018105.6159883,
+   "latency_s": 17.553,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3953,
+   "output_tokens": 35,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"peptic ulcer\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+   }
+  },
+  {
+   "step": 32,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793018123.1691682,
+   "latency_s": 0.209,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "peptic ulcer",
+     "domain": "Condition",
+     "vocabulary": "SNOMED"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4027663\tPeptic ulcer\tSNOMED\tDisorder\t290\n4265600\tGastric ulcer\tSNOMED\tDisorder\t143\n25844\tUlcer of esophagus\tSNOMED\tDisorder\t23\n4057060\tAcute peptic ulcer\tSNOMED\tDisorder\t76\n4319441\tAcute gastric ulcer\tSNOMED\tDisorder\t37\n4057053\tAcute duodenal ulcer\tSNOMED\tDisorder\t17\n4134146\tChronic peptic ulcer\tSNOMED\tDisorder\t57\n4172869\tNeonatal peptic ulcer\tSNOMED\tDisorder\t0\n4318534\tChronic gastric ulcer\tSNOMED\tDisorder\t31\n4028242\tChronic duodenal ulcer\tSNOMED\tDisorder\t12\n36713503\tPeptic anastomotic ulcer\tSNOMED\tDisorder\t44\n4003018\tDrug-induced peptic ulcer\tSNOMED\tDisorder\t17\n3655488\tExacerbation of peptic ulcer\tSNOMED\tDisorder\t0\n4271696\tPeptic ulcer with hemorrhage\tSNOMED\tDisorder\t76\n4338225\tPeptic ulcer with perforation\tSNOMED\tDisorder\t71"
+   }
+  },
+  {
+   "step": 33,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793018123.3784883,
+   "latency_s": 165.105,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3933,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4027663}}"
+   }
+  },
+  {
+   "step": 34,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1793018288.4833145,
+   "latency_s": 2.161,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4027663
+    },
+    "rows": 16,
+    "output": "total_descendants=290\nid\tname\tclass\tlevels\n4265600\tGastric ulcer\tDisorder\t1\n4198381\tUlcer of duodenum\tDisorder\t1\n4057060\tAcute peptic ulcer\tDisorder\t1\n25844\tUlcer of esophagus\tDisorder\t1\n4134146\tChronic peptic ulcer\tDisorder\t1\n4172869\tNeonatal peptic ulcer\tDisorder\t1\n36713503\tPeptic anastomotic ulcer\tDisorder\t1\n4003018\tDrug-induced peptic ulcer\tDisorder\t1\n3655488\tExacerbation of peptic ulcer\tDisorder\t1\n4271696\tPeptic ulcer with hemorrhage\tDisorder\t1\n37203956\tPeptic ulcer with obstruction\tDisorder\t1\n4338225\tPeptic ulcer with perforation\tDisorder\t1\n4291028\tPeptic ulcer without hemorrhage AND without perforation\tDisorder\t1\n45763550\tAntral ulcer\tDisorder\t2\n4215084\tStress ulcer\tDisorder\t2"
+   }
+  },
+  {
+   "step": 35,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793018290.6444485,
+   "latency_s": 58.233,
+   "model": "qwen2.5:7b",
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "error": "RunDeadlineExceeded: JBI_RUN_DEADLINE_S exceeded"
+   }
+  }
+ ]
+}

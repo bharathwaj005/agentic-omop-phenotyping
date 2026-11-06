@@ -1,0 +1,250 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N07_C3_attempt1",
+ "config": "C3",
+ "task_id": "N07",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with acute disseminated encephalomyelitis or myelitis based on diagnosis evidence with a qualifying inpatient or inpatient/emergency visit.",
+  "entry_concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+  "entry_concept_sets": [
+   "acute_disseminated_encephalomyelitis_or_myelitis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "acute_disseminated_encephalomyelitis_or_myelitis": {
+    "name": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of acute disseminated encephalomyelitis or myelitis.",
+    "items": [
+     {
+      "concept_id": 374021,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "The SNOMED concept 374021, 'Acute disseminated encephalomyelitis', accurately represents the Planner's clinical description of patients with a diagnosis of acute disseminated encephalomyelitis."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 3,
+  "input_tokens": 6612,
+  "output_tokens": 456,
+  "total_tokens": 7068,
+  "wall_time_s": 116.87,
+  "llm_time_s": 116.69,
+  "peak_ram_mb": 382.4,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793169325.2439203,
+   "latency_s": 51.804,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1040,
+   "output_tokens": 232,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"acute_disseminated_encephalomyelitis_or_myelitis\",\n    \"entry_concept_sets\": [\"acute_disseminated_encephalomyelitis_or_myelitis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"acute_disseminated_encephalomyelitis_or_myelitis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"acute_disseminated_encephalomyelitis_or_myelitis\": {\n        \"name\": \"acute_disseminated_encephalomyelitis_or_myelitis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of acute disseminated encephalomyelitis or myelitis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793169377.0485363,
+   "latency_s": 11.344,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1197,
+   "output_tokens": 49,
+   "detail": {
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"acute disseminated encephalomyelitis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793169388.392255,
+   "latency_s": 0.148,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "acute disseminated encephalomyelitis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "rows": 4,
+    "output": "id\tname\tvocab\tclass\tn_desc\n374021\tAcute disseminated encephalomyelitis\tSNOMED\tDisorder\t4\n761989\tRecurrent acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n765827\tMultiphasic acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793169388.5400646,
+   "latency_s": 14.816,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1378,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 374021\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793169403.3566039,
+   "latency_s": 0.006,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 374021
+    },
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t4"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793169403.3622816,
+   "latency_s": 10.657,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1463,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "raw_text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 374021\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1793169414.0191941,
+   "latency_s": 0.022,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 374021
+    },
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793169414.0416598,
+   "latency_s": 28.066,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1534,
+   "output_tokens": 111,
+   "detail": {
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 374021,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 374021, 'Acute disseminated encephalomyelitis', accurately represents the Planner's clinical description of patients with a diagnosis of acute disseminated encephalomyelitis.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793169442.1073976,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "items": 1,
+    "tool_calls": 3
+   }
+  },
+  {
+   "step": 10,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793169442.1158934,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": [
+     {
+      "level": "warning",
+      "code": "possibly_too_narrow",
+      "message": "only one concept resolved and descendants were not requested; check whether the entry set is too narrow",
+      "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+      "concept_id": null
+     },
+     {
+      "level": "warning",
+      "code": "entry_single_concept_no_descendants",
+      "message": "entry set resolves to one concept without descendants; check get_descendants to confirm whether broader coverage is intended",
+      "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+      "concept_id": null
+     }
+    ]
+   }
+  }
+ ]
+}

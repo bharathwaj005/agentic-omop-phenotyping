@@ -1,0 +1,326 @@
+{
+  "configuration_sha256": "6d2dab0859e8ad5d681b5ff978bbe401d6df68d04939ce9ed90069c9ae3ed2a7",
+  "configurations": [
+    "C2"
+  ],
+  "created_at_utc": "2026-10-26T09:00:37.092275+00:00",
+  "design_freeze_input": {
+    "path": "/home/bharathwaj/jbi/results/benchmark_design/V5_3_FREEZE/BENCHMARK_FINAL20_V5_3_FINAL.csv",
+    "sha256": "205e4f69c4d43b89719c4291446d11b760b939b2610999e43c2a11dc4377e0f2"
+  },
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "freeze_manifest": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/freeze_manifest.json",
+    "sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06"
+  },
+  "model_identity": {
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "endpoint_kind": "local_ollama",
+    "modified_at": "2026-10-26T10:25:38.292373069+05:30",
+    "requested_model": "qwen2.5:7b",
+    "resolved_tag": "qwen2.5:7b",
+    "size_bytes": 4683087332
+  },
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "reference_inputs": [
+    {
+      "cohort_id": "134",
+      "path": "/home/bharathwaj/jbi/tasks/reference/134.json",
+      "sha256": "a9ded2583ada1e552702595e3a80b132ce5a1d4dbebaf3ceef972492a4248c2c",
+      "task_id": "T01",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "134",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/134.json",
+      "sha256": "953f51e696194ae97284929013ba17fb851d982a185ff5dacb7f280dba67c7b2",
+      "task_id": "T01",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "219",
+      "path": "/home/bharathwaj/jbi/tasks/reference/219.json",
+      "sha256": "975d95b9f8f6b4b9d42c879218e9ffc6cd5d9a9bf3a66d84bb4255fc657d78de",
+      "task_id": "T02",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "219",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/219.json",
+      "sha256": "84d3653779433a592fcbf4e599aba041882cf6cd4db7f3c61e528cf2edd334c1",
+      "task_id": "T02",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "290",
+      "path": "/home/bharathwaj/jbi/tasks/reference/290.json",
+      "sha256": "3db8934a25bd005b88a32247de9726d3b70e452f865891fe2cff3093487a511f",
+      "task_id": "T03",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "290",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/290.json",
+      "sha256": "93f60abf3b7825439835b80a7598960508c952eb603292fc1dd460536fd9ba50",
+      "task_id": "T03",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "334",
+      "path": "/home/bharathwaj/jbi/tasks/reference/334.json",
+      "sha256": "50e6a15ca40030f906803e3a094f66198647d115ca64997500115fcd5c4a0da4",
+      "task_id": "T04",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "334",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/334.json",
+      "sha256": "bef081506b7700fc5a9fbee441161ffa6eca9ddb714ffa3ec7f8d795c334f0ea",
+      "task_id": "T04",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "373",
+      "path": "/home/bharathwaj/jbi/tasks/reference/373.json",
+      "sha256": "eeed76ee8b46afd1f2f22a9bd0150eec3ff5a318f0c1236b298b82706348131c",
+      "task_id": "T05",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "373",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/373.json",
+      "sha256": "3850123582a6f10ffe4212dd56abe3454def154991bc941fe16198acbc68083c",
+      "task_id": "T05",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "588",
+      "path": "/home/bharathwaj/jbi/tasks/reference/588.json",
+      "sha256": "1a192b36ea5ffc842e43b39186422dec7003ed2c849bd474124deed9213e5b91",
+      "task_id": "T06",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "588",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/588.json",
+      "sha256": "54ff3e6e34c334e6f159267c7f3ef251d0b84cb2e390da9a5a4cf96e2e7a7094",
+      "task_id": "T06",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "785",
+      "path": "/home/bharathwaj/jbi/tasks/reference/785.json",
+      "sha256": "0c0999d0ab58dffcbe42749ed84315ad616243cb8feec1f5762ab87bddfc71e0",
+      "task_id": "T07",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "785",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/785.json",
+      "sha256": "2660a9b4963bb0025a8d981e174d56cacad1fa46513f240cd9833237cf333ee7",
+      "task_id": "T07",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "862",
+      "path": "/home/bharathwaj/jbi/tasks/reference/862.json",
+      "sha256": "dcdec02fc1147b5cd501cdd3590f93ca27acafea34c7176ec9a2b3cb41f97df8",
+      "task_id": "T08",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "862",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/862.json",
+      "sha256": "b57045d20f502fa7b568d407c3e355b43ce4d80527fa1eaeaf6ebced79060d22",
+      "task_id": "T08",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "864",
+      "path": "/home/bharathwaj/jbi/tasks/reference/864.json",
+      "sha256": "4848376c2076b4c6c2eefbe7c65a8efe0b1cbf45327cecae7f213252188a967b",
+      "task_id": "T09",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "864",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/864.json",
+      "sha256": "652abe7cdeeaa29ce09ebae19666a4a84b69c2a8f172e4ec0d2e5e1d4403c283",
+      "task_id": "T09",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "967",
+      "path": "/home/bharathwaj/jbi/tasks/reference/967.json",
+      "sha256": "cdcf8b5df80495636f40abe09909eb06e82ed16931f563f8bab5086701032e56",
+      "task_id": "T10",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "967",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/967.json",
+      "sha256": "bdff7dbaec63fafe6aad585fcd593f2f69fe1d2dfb475c91cd0dcf9b7cbe070e",
+      "task_id": "T10",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1048",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1048.json",
+      "sha256": "ce2141d9142f9545727753df6ab9741c64c20cce454b1115697be493fadb3df4",
+      "task_id": "T11",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1048",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1048.json",
+      "sha256": "b8fb8ea1770c63ef1f0d4cf940eb89eac33c5cbe59fa3601f58f710f800bb442",
+      "task_id": "T11",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1064",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1064.json",
+      "sha256": "de6bd2ac8809343bab055d6ffe29152bbbdc3895ca47a6a95b1d5c31ea3831a3",
+      "task_id": "T12",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1064",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1064.json",
+      "sha256": "72e6b858a46a9ddd9a8e89104f274703a549124b43b9f4e87adbe6326641ad5e",
+      "task_id": "T12",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1073",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1073.json",
+      "sha256": "48c4567123911bfc7a096007d48ca5e8162240af8ab8afe77faeea327a9ae3e6",
+      "task_id": "T13",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1073",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1073.json",
+      "sha256": "301df843d846d4c6cb797adaceb75e443f644d9abf42fe256f4a82c6a2897b2f",
+      "task_id": "T13",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1183",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1183.json",
+      "sha256": "c3ece2e3afd86895c9ebac57ffad063ba4afa3ce1bad7fb33c349ba60ca765f4",
+      "task_id": "T14",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1183",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1183.json",
+      "sha256": "489bc618f1ac3d522bda3f92577edb0d77f37528ec9ca2227de3bf8a14e38ccc",
+      "task_id": "T14",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1184",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1184.json",
+      "sha256": "4672a52f6f10b2865c410a987de0b73020122b3a2efd0a2a560ff946678b25db",
+      "task_id": "T15",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1184",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1184.json",
+      "sha256": "993e64f20a9fe6aaa17fcb5e645b001e04d2e1e3548b5f12081373e3e7329b2d",
+      "task_id": "T15",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1188",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1188.json",
+      "sha256": "6ec1d4755fe58c5b88f8e735fc75ec633765352ac8d3c78080b1538acc5ee036",
+      "task_id": "T16",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1188",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1188.json",
+      "sha256": "5e0a9051be325e037c88265861bb2fda92820c131ea6f444ae80495376c7261f",
+      "task_id": "T16",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1261",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1261.json",
+      "sha256": "4725ef9feddb8fa69ae84789cd0edf882a7e8d8e5eaf2058b5ff3ea7ce738a1b",
+      "task_id": "T17",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1261",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1261.json",
+      "sha256": "540bb6026b462c61b1a7631f951ccdcdeb39fd068c5aa102d46beb5215ed724c",
+      "task_id": "T17",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1263",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1263.json",
+      "sha256": "1c04655f5ae59b938aede46d8f77bdebf40ede8c95b1ce2d8aa84e366dc48d48",
+      "task_id": "T18",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1263",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1263.json",
+      "sha256": "5d98cd29498d9ce46bce391652b6aa59ee1d53b8f0b3e2e69f9cab5db112ecf3",
+      "task_id": "T18",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1285",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1285.json",
+      "sha256": "ec01a2a1c17b418df7c4cf07fdd65cc1b8de480fb942cb816a8b694c7cfa42ea",
+      "task_id": "T19",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1285",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1285.json",
+      "sha256": "da1486a1684b81b1488f1f09573075d8986eec18f99999c22f2c8690dd17cc44",
+      "task_id": "T19",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1301",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1301.json",
+      "sha256": "05bf367a1da924d81dd8b28ca1a356d52b3e0a567a8dfdb6eff10b867eab5b18",
+      "task_id": "T20",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1301",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1301.json",
+      "sha256": "491c94dde094de9556cd7540e1acbaa062c89d4ad380e16f1acea30f1832ad51",
+      "task_id": "T20",
+      "version": "v2"
+    }
+  ],
+  "runtime_queue_initial": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/RUN_QUEUE.csv",
+    "sha256": "6eb974e7a6c8dd183a49a17ed4c208295ad1590145b61ff853355b836252705b"
+  },
+  "schema_version": 1,
+  "semantics": {
+    "design_freeze_input": "design CSV hash; never interpreted as runtime queue hash",
+    "runtime_queue_initial": "exact initial runtime queue bytes; queue changes as statuses are checkpointed"
+  },
+  "task_file": {
+    "path": "/home/bharathwaj/jbi/tasks/benchmark_questions.jsonl",
+    "sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df"
+  },
+  "track": "v53",
+  "vocabulary_source": {
+    "path": "/media/bharathwaj/HDD_Storage/project_jbi/data/vocab.duckdb",
+    "sha256": "34167ed891e1ff159ddc3ccb73f1bbad3c5364b9412e598a854f46cf11eae138"
+  }
+}

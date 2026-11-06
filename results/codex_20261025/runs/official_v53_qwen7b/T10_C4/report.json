@@ -1,0 +1,187 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T10_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "967",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "adhd_condition_or_procedure",
+      "event_domain": "Condition"
+    },
+    {
+      "concept_set": "adhd_condition_or_procedure",
+      "event_domain": "Procedure"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "adhd_condition_or_procedure": {
+        "description": "Patients with a qualifying ADHD-related condition or procedure",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 438409,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The OMOP standard concept 438409 (Attention deficit hyperactivity disorder) directly matches the clinical description of ADHD-related conditions."
+          }
+        ],
+        "name": "adhd_condition_or_procedure"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "adhd_condition_or_procedure",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "adhd_condition_or_procedure",
+        "event_domain": "Condition"
+      },
+      {
+        "concept_set": "adhd_condition_or_procedure",
+        "event_domain": "Procedure"
+      }
+    ],
+    "entry_concept_set": "adhd_condition_or_procedure",
+    "entry_concept_sets": [
+      "adhd_condition_or_procedure"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with attention-deficit hyperactivity disorder based on qualifying ADHD-related condition or procedure evidence and ADHD medication use.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 8154,
+  "llm_calls": 7,
+  "logical_run_id": "v53_T10_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "ADHD"
+        },
+        "concept_set": "adhd_condition_or_procedure",
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "concept_set": "adhd_condition_or_procedure",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t12",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409
+        },
+        "concept_set": "adhd_condition_or_procedure",
+        "output": "id\tname\tdomain\tvocab\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 766,
+  "per_set": {
+    "adhd_condition_or_procedure": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 438409,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The OMOP standard concept 438409 (Attention deficit hyperactivity disorder) directly matches the clinical description of ADHD-related conditions."
+        }
+      ],
+      "resolved_count": 13
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "ea7efdf73a6a7b3479f15b80280eb126e331e9d6c551caf1af8d19ca6a9fb03b",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T10_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T10",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 8154,
+    "llm_calls": 7,
+    "llm_time_s": 199.89,
+    "output_tokens": 766,
+    "peak_ram_mb": 182.4,
+    "tool_calls": 3,
+    "total_tokens": 8920,
+    "validator_retries": 0,
+    "wall_seconds": 200.14605631599989,
+    "wall_time_s": 200.16
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T10_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 200.14605631599989
+}

@@ -1,0 +1,273 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N05_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "287",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "neuromyelitis_optica",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "neuromyelitis_optica": {
+        "description": "Neuromyelitis optica",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 380995,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Specific concept for neuromyelitis optica"
+          }
+        ],
+        "name": "neuromyelitis_optica"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "neuromyelitis_optica",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "neuromyelitis_optica",
+    "entry_concept_sets": [
+      "neuromyelitis_optica"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with transverse myelitis, unspecified myelitis, or neuromyelitis optica based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 53309,
+  "llm_calls": 17,
+  "logical_run_id": "neuro_N05_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.001675041876046901,
+        "jaccard": 0.0008382229673093043,
+        "precision": 1.0,
+        "recall": 0.0008382229673093043
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.0016963528413910093,
+        "jaccard": 0.0008488964346349745,
+        "precision": 1.0,
+        "recall": 0.0008488964346349745
+      },
+      "full": {
+        "f1": 0.001675041876046901,
+        "jaccard": 0.0008382229673093043,
+        "precision": 1.0,
+        "recall": 0.0008382229673093043
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "transverse myelitis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n139803\tAcute transverse myelitis\tSNOMED\tDisorder\t2\n37166428\tComplete transverse myelitis\tSNOMED\tDisorder\t0\n4042204\tVaricella transverse myelitis\tSNOMED\tDisorder\t0\n134330\tIdiopathic transverse myelitis\tSNOMED\tDisorder\t0\n443904\tTransverse myelopathy syndrome\tSNOMED\tDisorder\t6\n4047628\tAcute viral transverse myelitis\tSNOMED\tDisorder\t0\n4044077\tAcute non-infective transverse myelitis\tSNOMED\tDisorder\t0",
+        "rows": 7
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "myelitis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n138965\tMyelitis\tSNOMED\tDisorder\t117\n141663\tOsteomyelitis\tSNOMED\tDisorder\t271\n4245526\tSAPHO syndrome\tSNOMED\tDisorder\t0\n4254268\tMeningomyelitis\tSNOMED\tDisorder\t9\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n373189\tEncephalomyelitis\tSNOMED\tDisorder\t25\n4003304\tInfection of ulna\tSNOMED\tDisorder\t11\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n4048488\tPott's puffy tumor\tSNOMED\tDisorder\t0\n4266366\tProtozoal myelitis\tSNOMED\tDisorder\t2\n35622395\tRadiation myelitis\tSNOMED\tDisorder\t0\n75920\tOsteitis condensans\tSNOMED\tDisorder\t2\n133002\tAcute osteomyelitis\tSNOMED\tDisorder\t75\n378679\tAcute poliomyelitis\tSNOMED\tDisorder\t14\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "neuromyelitis optica"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 1
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "unspecified"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n72404\tJoint stiffness\tSNOMED\tClinical Finding\t45\n4148734\tCervical smear - viral inflammation unspecified\tSNOMED\tClinical Finding\t0\n44811706\tSurveillance of Cerebral Palsy in Europe classification - predominant pattern D - unspecified\tSNOMED\tClinical Finding\t0\n44811758\tSurveillance of Cerebral Palsy in Europe classification - predominant pattern A.2 - unspecified maldevelopment\tSNOMED\tClinical Finding\t0",
+        "rows": 4
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 10,
+          "query": "transverse myelitis",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n139803\tAcute transverse myelitis\tSNOMED\tDisorder\t2\n37166428\tComplete transverse myelitis\tSNOMED\tDisorder\t0\n4042204\tVaricella transverse myelitis\tSNOMED\tDisorder\t0\n134330\tIdiopathic transverse myelitis\tSNOMED\tDisorder\t0\n443904\tTransverse myelopathy syndrome\tSNOMED\tDisorder\t6\n4047628\tAcute viral transverse myelitis\tSNOMED\tDisorder\t0\n4044077\tAcute non-infective transverse myelitis\tSNOMED\tDisorder\t0",
+        "rows": 7
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 10,
+          "query": "myelitis",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n138965\tMyelitis\tSNOMED\tDisorder\t117\n141663\tOsteomyelitis\tSNOMED\tDisorder\t271\n4245526\tSAPHO syndrome\tSNOMED\tDisorder\t0\n4254268\tMeningomyelitis\tSNOMED\tDisorder\t9\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n373189\tEncephalomyelitis\tSNOMED\tDisorder\t25\n4003304\tInfection of ulna\tSNOMED\tDisorder\t11\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n4048488\tPott's puffy tumor\tSNOMED\tDisorder\t0\n4266366\tProtozoal myelitis\tSNOMED\tDisorder\t2",
+        "rows": 10
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 10,
+          "query": "unspecified",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n72404\tJoint stiffness\tSNOMED\tClinical Finding\t45\n4148734\tCervical smear - viral inflammation unspecified\tSNOMED\tClinical Finding\t0\n44811706\tSurveillance of Cerebral Palsy in Europe classification - predominant pattern D - unspecified\tSNOMED\tClinical Finding\t0\n44811758\tSurveillance of Cerebral Palsy in Europe classification - predominant pattern A.2 - unspecified maldevelopment\tSNOMED\tClinical Finding\t0",
+        "rows": 4
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "transverse myelitis",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n139803\tAcute transverse myelitis\tSNOMED\tDisorder\t2\n37166428\tComplete transverse myelitis\tSNOMED\tDisorder\t0\n4042204\tVaricella transverse myelitis\tSNOMED\tDisorder\t0\n134330\tIdiopathic transverse myelitis\tSNOMED\tDisorder\t0\n443904\tTransverse myelopathy syndrome\tSNOMED\tDisorder\t6\n4047628\tAcute viral transverse myelitis\tSNOMED\tDisorder\t0\n4044077\tAcute non-infective transverse myelitis\tSNOMED\tDisorder\t0",
+        "rows": 7
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "myelitis",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n138965\tMyelitis\tSNOMED\tDisorder\t117\n141663\tOsteomyelitis\tSNOMED\tDisorder\t271\n4245526\tSAPHO syndrome\tSNOMED\tDisorder\t0\n4254268\tMeningomyelitis\tSNOMED\tDisorder\t9\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n373189\tEncephalomyelitis\tSNOMED\tDisorder\t25\n4003304\tInfection of ulna\tSNOMED\tDisorder\t11\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n4048488\tPott's puffy tumor\tSNOMED\tDisorder\t0\n4266366\tProtozoal myelitis\tSNOMED\tDisorder\t2\n35622395\tRadiation myelitis\tSNOMED\tDisorder\t0\n75920\tOsteitis condensans\tSNOMED\tDisorder\t2\n133002\tAcute osteomyelitis\tSNOMED\tDisorder\t75\n378679\tAcute poliomyelitis\tSNOMED\tDisorder\t14\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "neuromyelitis optica",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "unspecified",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n72404\tJoint stiffness\tSNOMED\tClinical Finding\t45\n4148734\tCervical smear - viral inflammation unspecified\tSNOMED\tClinical Finding\t0\n44811706\tSurveillance of Cerebral Palsy in Europe classification - predominant pattern D - unspecified\tSNOMED\tClinical Finding\t0\n44811758\tSurveillance of Cerebral Palsy in Europe classification - predominant pattern A.2 - unspecified maldevelopment\tSNOMED\tClinical Finding\t0",
+        "rows": 4
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 798,
+  "per_set": {
+    "neuromyelitis_optica": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 380995,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Specific concept for neuromyelitis optica"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "68a6c7f30f356173a26cc30d756616bce515bfcba47076dad28e53b29c340891",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N05_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N05",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 53309,
+    "llm_calls": 17,
+    "llm_time_s": 810.79,
+    "output_tokens": 798,
+    "peak_ram_mb": 368.2,
+    "tool_calls": 11,
+    "total_tokens": 54107,
+    "validator_retries": 0,
+    "wall_seconds": 812.3762818659998,
+    "wall_time_s": 812.38
+  },
+  "tool_calls": 11,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N05_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 812.3762818659998
+}

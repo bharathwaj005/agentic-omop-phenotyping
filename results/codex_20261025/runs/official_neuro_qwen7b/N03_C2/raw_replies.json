@@ -1,0 +1,20 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Parkinson\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 381270}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"parkinsons_disease\",\n  \"entry_concept_sets\": [\"parkinsons_disease\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"parkinsons_disease\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"parkinsons_disease\": {\n      \"name\": \"parkinsons_disease\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients diagnosed with Parkinson's disease.\",\n      \"items\": [\n        {\"concept_id\": 381270, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Specific concept for Parkinson's disease\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

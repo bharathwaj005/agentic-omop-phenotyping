@@ -1,0 +1,217 @@
+{
+  "attempt_id": "retry_T05_v53_T05_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "373",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "iron_deficiency_anemia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "retry_T05",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "iron_deficiency_anemia": {
+        "description": "Patients with iron deficiency anemia, excluding polycythemia.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 436659,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary concept for iron deficiency anemia"
+          }
+        ],
+        "name": "iron_deficiency_anemia"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "iron_deficiency_anemia",
+        "rule": "none",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "iron_deficiency_anemia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "iron_deficiency_anemia",
+    "entry_concept_sets": [
+      "iron_deficiency_anemia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with iron deficiency anemia while distinguishing the target condition from polycythemia.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 19692,
+  "llm_calls": 8,
+  "logical_run_id": "v53_T05_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.41379310344827586,
+        "jaccard": 0.2608695652173913,
+        "precision": 1.0,
+        "recall": 0.2608695652173913
+      },
+      "full": {
+        "f1": 0.2589928057553957,
+        "jaccard": 0.1487603305785124,
+        "precision": 1.0,
+        "recall": 0.1487603305785124
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.41379310344827586,
+        "jaccard": 0.2608695652173913,
+        "precision": 1.0,
+        "recall": 0.2608695652173913
+      },
+      "full": {
+        "f1": 0.2589928057553957,
+        "jaccard": 0.1487603305785124,
+        "precision": 1.0,
+        "recall": 0.1487603305785124
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "iron deficiency anemia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n436659\tIron deficiency anemia\tSNOMED\tDisorder\t17\n4120446\tIron deficiency without anemia\tSNOMED\tDisorder\t0\n432875\tAnemia due to chronic blood loss\tSNOMED\tDisorder\t1\n607422\tHereditary iron deficiency anemia\tSNOMED\tDisorder\t0\n1244157\tPostpartum iron deficiency anemia\tSNOMED\tDisorder\t0\n4122079\tDeficiency anemias, excluding iron\tSNOMED\tDisorder\t0\n37474561\tUnexplained iron deficiency anemia\tSNOMED\tDisorder\t0\n4058246\tIron deficiency anemia of pregnancy\tSNOMED\tDisorder\t1\n36716126\tIron-refractory iron deficiency anemia\tSNOMED\tDisorder\t0\n606921\tPost gastrectomy iron deficiency anemia\tSNOMED\tDisorder\t0\n37119138\tIron deficiency anemia due to blood loss\tSNOMED\tDisorder\t0\n606928\tIron deficiency anemia due to celiac disease\tSNOMED\tDisorder\t0\n4100985\tIron deficiency anemia due to dietary causes\tSNOMED\tDisorder\t0\n605330\tRestless leg syndrome due to iron deficiency anemia\tSNOMED\tDisorder\t0\n1244473\tIron deficiency anemia during maternal intrapartum period\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "polycythemia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4130681\tErythrocytosis\tSNOMED\tDisorder\t46\n4167506\tGaisbock's syndrome\tSNOMED\tDisorder\t0\n4285372\tStress polycythemia\tSNOMED\tDisorder\t0\n4308045\tPseudo-polycythemia\tSNOMED\tDisorder\t2\n439140\tNeonatal polycythemia\tSNOMED\tDisorder\t6\n4308044\tRelative polycythemia\tSNOMED\tDisorder\t5\n435790\tSecondary polycythemia\tSNOMED\tDisorder\t29\n36674691\tChuvash erythrocytosis\tSNOMED\tDisorder\t0\n433741\tFamilial erythrocytosis\tSNOMED\tDisorder\t5\n4131920\tFamilial polycythemia vera\tSNOMED\tDisorder\t0\n135214\tPolycythemia vera (clinical)\tSNOMED\tDisorder\t1\n607388\tPolycythemia due to HIF2A mutation\tSNOMED\tDisorder\t0\n3656046\tPost-polycythemia vera myelofibrosis\tSNOMED\tDisorder\t0\n1075374\tFetal twin anemia-polycythemia sequence\tSNOMED\tDisorder\t0\n37204525\tAutosomal dominant secondary polycythemia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 436659
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n436659\tIron deficiency anemia\tCondition\tSNOMED\tDisorder\tS\tTrue\t17",
+        "rows": 1
+      },
+      "step": 6,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 135214
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n135214\tPolycythemia vera (clinical)\tCondition\tSNOMED\tDisorder\tS\tTrue\t1",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 436659
+        },
+        "output": "total_descendants=17\nid\tname\tclass\tlevels\n4198185\tPlummer-Vinson syndrome\tDisorder\t1\n1244157\tPostpartum iron deficiency anemia\tDisorder\t1\n607422\tHereditary iron deficiency anemia\tDisorder\t1\n37474561\tUnexplained iron deficiency anemia\tDisorder\t1\n4058246\tIron deficiency anemia of pregnancy\tDisorder\t1\n36716126\tIron-refractory iron deficiency anemia\tDisorder\t1\n606921\tPost gastrectomy iron deficiency anemia\tDisorder\t1\n37119138\tIron deficiency anemia due to blood loss\tDisorder\t1\n606928\tIron deficiency anemia due to celiac disease\tDisorder\t1\n4100985\tIron deficiency anemia due to dietary causes\tDisorder\t1\n4157495\tSideropenic anemia with reticuloendothelial siderosis\tDisorder\t1\n37110336\tAcquired iron deficiency anemia due to decreased absorption\tDisorder\t1\n606924\tIron deficiency anemia due to increased requirement in infancy\tDisorder\t1\n36713573\tAcquired iron deficiency anemia due to increased iron requirement\tDisorder\t1\n433168\tIron deficiency anemia secondary to inadequate dietary iron intake\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 10,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 135214
+        },
+        "output": "total_descendants=1\nid\tname\tclass\tlevels\n4131920\tFamilial polycythemia vera\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 12,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4131920
+        },
+        "output": "id\tname\tdomain\tvocab\n4131920\tFamilial polycythemia vera\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 14,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 417,
+  "per_set": {
+    "iron_deficiency_anemia": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 436659,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary concept for iron deficiency anemia"
+        }
+      ],
+      "resolved_count": 18
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "bf8277af11d6f388612e0fb302f89bdb46444591909e8929ae1ac7bc3fa0b220",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T05/T05_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T05",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 19692,
+    "llm_calls": 8,
+    "llm_time_s": 339.32,
+    "output_tokens": 417,
+    "peak_ram_mb": 158.3,
+    "tool_calls": 7,
+    "total_tokens": 20109,
+    "validator_retries": 0,
+    "wall_seconds": 343.55019917000027,
+    "wall_time_s": 343.6
+  },
+  "tool_calls": 7,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T05/T05_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 343.55019917000027
+}

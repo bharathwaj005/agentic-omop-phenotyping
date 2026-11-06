@@ -1,0 +1,227 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T16_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1188",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "anemia_reticulocytopenia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "anemia_reticulocytopenia": {
+        "description": "Patients with anemia or reticulocytopenia, excluding polycythemia.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 439777,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary anemia diagnosis"
+          },
+          {
+            "concept_id": 4051681,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Reticulocytopenia diagnosis, no descendants"
+          }
+        ],
+        "name": "anemia_reticulocytopenia"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "anemia_reticulocytopenia",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      },
+      {
+        "concept_set": "anemia_reticulocytopenia",
+        "rule": "none",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "anemia_reticulocytopenia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "anemia_reticulocytopenia",
+    "entry_concept_sets": [
+      "anemia_reticulocytopenia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with anemia or reticulocytopenia while distinguishing the target condition from polycythemia using the relevant hematologic evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 16216,
+  "llm_calls": 7,
+  "logical_run_id": "v53_T16_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.312,
+        "jaccard": 0.1848341232227488,
+        "precision": 0.20172413793103447,
+        "recall": 0.6882352941176471
+      },
+      "full": {
+        "f1": 0.29032258064516125,
+        "jaccard": 0.16981132075471697,
+        "precision": 0.20172413793103447,
+        "recall": 0.5176991150442478
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.3103448275862069,
+        "jaccard": 0.1836734693877551,
+        "precision": 0.20172413793103447,
+        "recall": 0.6724137931034483
+      },
+      "full": {
+        "f1": 0.29032258064516125,
+        "jaccard": 0.16981132075471697,
+        "precision": 0.20172413793103447,
+        "recall": 0.5176991150442478
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "anemia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n439777\tAnemia\tSNOMED\tDisorder\t578\n43022052\tFetal anemia\tSNOMED\tDisorder\t3\n1075863\tAMeD syndrome\tSNOMED\tDisorder\t0\n4217370\tAase syndrome\tSNOMED\tDisorder\t0\n4307469\tSports anemia\tSNOMED\tDisorder\t0\n4030371\tTryptophanemia\tSNOMED\tDisorder\t1\n4101001\tChronic anemia\tSNOMED\tDisorder\t14\n4125493\tVegan's anemia\tSNOMED\tDisorder\t0\n137829\tAplastic anemia\tSNOMED\tDisorder\t28\n1075924\tCIMDAG syndrome\tSNOMED\tDisorder\t0\n4018378\tRelative anemia\tSNOMED\tDisorder\t0\n4339722\tNeonatal anemia\tSNOMED\tDisorder\t7\n37117164\tRevesz syndrome\tSNOMED\tDisorder\t0\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n435503\tHemolytic anemia\tSNOMED\tDisorder\t182",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "reticulocytopenia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4051681\tReticulocytopenia\tSNOMED\tClinical Finding\t0",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "polycythemia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4130681\tErythrocytosis\tSNOMED\tDisorder\t46\n4167506\tGaisbock's syndrome\tSNOMED\tDisorder\t0\n4285372\tStress polycythemia\tSNOMED\tDisorder\t0\n4308045\tPseudo-polycythemia\tSNOMED\tDisorder\t2\n439140\tNeonatal polycythemia\tSNOMED\tDisorder\t6\n4308044\tRelative polycythemia\tSNOMED\tDisorder\t5\n435790\tSecondary polycythemia\tSNOMED\tDisorder\t29\n36674691\tChuvash erythrocytosis\tSNOMED\tDisorder\t0\n433741\tFamilial erythrocytosis\tSNOMED\tDisorder\t5\n4131920\tFamilial polycythemia vera\tSNOMED\tDisorder\t0\n135214\tPolycythemia vera (clinical)\tSNOMED\tDisorder\t1\n607388\tPolycythemia due to HIF2A mutation\tSNOMED\tDisorder\t0\n3656046\tPost-polycythemia vera myelofibrosis\tSNOMED\tDisorder\t0\n1075374\tFetal twin anemia-polycythemia sequence\tSNOMED\tDisorder\t0\n37204525\tAutosomal dominant secondary polycythemia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 439777
+        },
+        "output": "total_descendants=578\nid\tname\tclass\tlevels\n43022052\tFetal anemia\tDisorder\t1\n432881\tPancytopenia\tDisorder\t1\n4307469\tSports anemia\tDisorder\t1\n4101001\tChronic anemia\tDisorder\t1\n4018378\tRelative anemia\tDisorder\t1\n4339722\tNeonatal anemia\tDisorder\t1\n4306199\tPerinatal anemia\tDisorder\t1\n435503\tHemolytic anemia\tDisorder\t1\n4114026\tNormocytic anemia\tDisorder\t1\n4308125\tMacrocytic anemia\tDisorder\t1\n4122923\tDilutional anemia\tDisorder\t1\n4121106\tMicrocytic anemia\tDisorder\t1\n44810002\tRecurrent anaemia\tDisorder\t1\n434156\tCongenital anemia\tDisorder\t1\n4280354\tNutritional anemia\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 8,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4051681
+        },
+        "output": "total_descendants=0\n(none)",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4051681,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4306588\tReticulocyte count outside reference range\tClinical Finding\t1\n4013842\tRed blood cell count below reference range\tClinical Finding\t1\n4179922\tCytopenia\tClinical Finding\t2\n4013518\tRed blood cell count outside reference range\tClinical Finding\t2",
+        "rows": 4
+      },
+      "step": 12,
+      "tool": "get_ancestors"
+    }
+  ],
+  "output_tokens": 559,
+  "per_set": {
+    "anemia_reticulocytopenia": {
+      "domain": "Condition",
+      "include_descendants": [
+        true,
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 439777,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary anemia diagnosis"
+        },
+        {
+          "concept_id": 4051681,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Reticulocytopenia diagnosis, no descendants"
+        }
+      ],
+      "resolved_count": 580
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "0179ed9dc79bb1f088e4097422a4e2d38dcbdfbb4d40809614f12a6dee17cc56",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T16_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T16",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 16216,
+    "llm_calls": 7,
+    "llm_time_s": 209.83,
+    "output_tokens": 559,
+    "peak_ram_mb": 301.8,
+    "tool_calls": 6,
+    "total_tokens": 16775,
+    "validator_retries": 0,
+    "wall_seconds": 210.8027135500015,
+    "wall_time_s": 210.81
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T16_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 210.8027135500015
+}

@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C2"
+  ],
+  "freeze_manifest_sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06",
+  "model": "qwen2.5:7b",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-10-26T07:26:13.144411+00:00",
+      "reason": "bounded finalization returned an unparseable response: missing \"action\" field",
+      "report_path": "results/codex_20261025/runs/model_smoke_20261026T071000Z_qwen7b_finalization/T01_C2/report.json",
+      "report_sha256": "d25ed5ec135b808c9fe891cffbfa2dacc10de426bff49bd95865e458c006f80d",
+      "retry_log": [],
+      "started_at": "2026-10-26T07:22:03.357836+00:00",
+      "status": "failed",
+      "task_id": "T01",
+      "trace_sha256": "60e477a2e2901c5d0c9e027ef3bf89033114041f339ee55d97bcda991b97cccf",
+      "wall_seconds": 249.71555262600123
+    }
+  ],
+  "task_ids": [
+    "T01"
+  ],
+  "track": "v53"
+}

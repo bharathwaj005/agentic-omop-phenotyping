@@ -1,0 +1,59 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T11_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1048",
+  "configuration": "C4",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 0,
+  "llm_calls": 1,
+  "logical_run_id": "v53_T11_C4",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [],
+  "output_tokens": 0,
+  "per_set": {},
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "20d8498c04ac54b19fd13d15de5c699c19b8bf00b80470f25c2143ac38ac74f9",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T11_C4/raw_replies.json",
+  "reason": "APIError: network error: [Errno 111] Connection refused",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T11",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 0,
+    "llm_calls": 1,
+    "llm_time_s": 2.56,
+    "output_tokens": 0,
+    "peak_ram_mb": 187.5,
+    "tool_calls": 0,
+    "total_tokens": 0,
+    "validator_retries": 0,
+    "wall_seconds": 2.559863721000511,
+    "wall_time_s": 2.6
+  },
+  "tool_calls": 0,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T11_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 2.559863721000511
+}

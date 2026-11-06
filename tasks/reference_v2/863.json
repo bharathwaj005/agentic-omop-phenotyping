@@ -1,0 +1,51 @@
+{
+ "reference_version": "v2",
+ "task_id": "N863",
+ "cohort_id": "863",
+ "entry_codeset_id": "3",
+ "entry_codeset_ids": [
+  "3"
+ ],
+ "entry_domains": [
+  "Condition"
+ ],
+ "entry_arms": [
+  {
+   "codeset_id": "3",
+   "domain_key": "ConditionOccurrence",
+   "domain": "Condition"
+  }
+ ],
+ "entry_domain": "Condition",
+ "entry_concept_ids": [
+  439795,
+  3654469,
+  4297400
+ ],
+ "entry_concept_ids_by_codeset": {
+  "3": [
+   439795,
+   3654469,
+   4297400
+  ]
+ },
+ "all_concept_ids": [
+  439795,
+  3654469,
+  4297400
+ ],
+ "concept_sets": {
+  "3": {
+   "name": "Mild cognitive impairment (REWARD update)",
+   "concept_ids": [
+    439795,
+    3654469,
+    4297400
+   ]
+  }
+ },
+ "counts": {
+  "entry": 3,
+  "all": 3
+ }
+}

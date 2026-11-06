@@ -1,0 +1,203 @@
+{
+ "run_id": "official_v53_qwen7b_v53_T06_C3_attempt1",
+ "config": "C3",
+ "task_id": "T06",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with attention deficit hyperactivity disorder.",
+  "entry_concept_set": "adhd_diagnosis",
+  "entry_concept_sets": [
+   "adhd_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "adhd_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "adhd_diagnosis": {
+    "name": "adhd_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of attention deficit hyperactivity disorder.",
+    "items": [
+     {
+      "concept_id": 438409,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The OMOP concept ID 438409 represents 'Attention deficit hyperactivity disorder' in SNOMED, which matches the clinical description of the Planner's concept set."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 4,
+  "tool_calls": 2,
+  "input_tokens": 5157,
+  "output_tokens": 346,
+  "total_tokens": 5503,
+  "wall_time_s": 98.61,
+  "llm_time_s": 98.41,
+  "peak_ram_mb": 352.0,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793118904.3204744,
+   "latency_s": 38.924,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1017,
+   "output_tokens": 169,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"adhd_diagnosis\",\n    \"entry_concept_sets\": [\"adhd_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"adhd_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"adhd_diagnosis\": {\n        \"name\": \"adhd_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of attention deficit hyperactivity disorder.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793118943.2447164,
+   "latency_s": 10.284,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1155,
+   "output_tokens": 45,
+   "detail": {
+    "concept_set": "adhd_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"attention deficit hyperactivity disorder\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793118953.5286045,
+   "latency_s": 0.142,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "attention deficit hyperactivity disorder",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "adhd_diagnosis",
+    "rows": 8,
+    "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12\n40480225\tAdult attention deficit hyperactivity disorder\tSNOMED\tDisorder\t0\n4149904\tAttention deficit hyperactivity disorder, combined type\tSNOMED\tDisorder\t0\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tSNOMED\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tSNOMED\tDisorder\t0\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tSNOMED\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tSNOMED\tDisorder\t0\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793118953.6702409,
+   "latency_s": 21.985,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1452,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "adhd_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793118975.6556027,
+   "latency_s": 0.007,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 438409
+    },
+    "concept_set": "adhd_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n438409\tAttention deficit hyperactivity disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t12"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793118975.6625547,
+   "latency_s": 27.221,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1533,
+   "output_tokens": 100,
+   "detail": {
+    "concept_set": "adhd_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 438409,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The OMOP concept ID 438409 represents 'Attention deficit hyperactivity disorder' in SNOMED, which matches the clinical description of the Planner's concept set.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793119002.8836238,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "adhd_diagnosis",
+    "items": 1,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 8,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793119002.9153965,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T07_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "785",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "entry_set_1",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "entry_set_1": {
+        "description": "Patients with skin burns",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4108467,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Includes various types of skin burns"
+          }
+        ],
+        "name": "entry_set_1"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "entry_set_1",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "entry_set_1",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "entry_set_1",
+    "entry_concept_sets": [
+      "entry_set_1"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with qualifying skin burns and associated burn treatment involving relevant drugs or procedures.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 19624,
+  "llm_calls": 9,
+  "logical_run_id": "v53_T07_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.5635593220338982,
+        "jaccard": 0.39233038348082594,
+        "precision": 1.0,
+        "recall": 0.39233038348082594
+      },
+      "full": {
+        "f1": 0.5341365461847389,
+        "jaccard": 0.3643835616438356,
+        "precision": 1.0,
+        "recall": 0.3643835616438356
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.5635593220338982,
+        "jaccard": 0.39233038348082594,
+        "precision": 1.0,
+        "recall": 0.39233038348082594
+      },
+      "full": {
+        "f1": 0.5341365461847389,
+        "jaccard": 0.3643835616438356,
+        "precision": 1.0,
+        "recall": 0.3643835616438356
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "skin burn"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4108467\tBurn of skin\tSNOMED\tDisorder\t398\n4294192\tFat burn of skin\tSNOMED\tDisorder\t0\n4266801\tAcid burn of skin\tSNOMED\tDisorder\t0\n4300259\tFood burn of skin\tSNOMED\tDisorder\t0\n4294187\tFlash burn of skin\tSNOMED\tDisorder\t0\n4300257\tSteam burn of skin\tSNOMED\tDisorder\t0\n4270999\tCement burn of skin\tSNOMED\tDisorder\t0\n4290847\tAlkali burn of skin\tSNOMED\tDisorder\t1\n4294186\tBleach burn of skin\tSNOMED\tDisorder\t0\n4294188\tContact burn of skin\tSNOMED\tDisorder\t53\n4295790\tHot tar burn of skin\tSNOMED\tDisorder\t0\n4300258\tHot oil burn of skin\tSNOMED\tDisorder\t0\n4295791\tFirework burn of skin\tSNOMED\tDisorder\t0\n37311233\tChemical burn of skin\tSNOMED\tDisorder\t13\n4295794\tHot drink burn of skin\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "burn treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "burn treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "burn dressing"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "burn ointment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "burn cream"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "burn gel"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1718818\tlidocaine Topical Gel [BurnX]\tRxNorm\tBranded Drug Form\t1\n43525567\tlidocaine Topical Gel [Unburn]\tRxNorm\tBranded Drug Form\t1\n35200607\tlidocaine Topical Gel [Burn Jel]\tRxNorm\tBranded Drug Form\t1\n40236389\tlidocaine Topical Gel [Burn Jel Plus]\tRxNorm\tBranded Drug Form\t1\n40229167\tallantoin Topical Gel [Burn-B Gone OTC]\tRxNorm\tBranded Drug Form\t1\n40229164\tallantoin 0.01 MG/MG Topical Gel [Burn-B Gone OTC]\tRxNorm\tBranded Drug\t0\n1718820\tlidocaine hydrochloride 0.025 MG/MG Topical Gel [BurnX]\tRxNorm\tBranded Drug\t0\n43525721\tlidocaine hydrochloride 0.025 MG/MG Topical Gel [Unburn]\tRxNorm\tBranded Drug\t0\n35200609\tlidocaine hydrochloride 0.02 MG/MG Topical Gel [Burn Jel]\tRxNorm\tBranded Drug\t0\n40226964\tlidocaine hydrochloride 0.005 MG/MG Topical Gel [Solarcaine]\tRxNorm\tBranded Drug\t0\n40233499\tbenzalkonium / lidocaine Topical Gel [Scar Zone Burn Relief]\tRxNorm\tBranded Drug Form\t1\n40236371\tlidocaine hydrochloride 0.025 MG/MG Topical Gel [Burn Jel Plus]\tRxNorm\tBranded Drug\t0\n40233508\tbenzalkonium chloride 0.0013 MG/MG / lidocaine 0.02 MG/MG Topical Gel [Scar Zone Burn Relief]\tRxNorm\tBranded Drug\t0",
+        "rows": 13
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "burn dressing"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4233678\tApplication of dressing for burn\tSNOMED\tProcedure\t6\n4120996\tAttention to dressing of burnt skin\tSNOMED\tProcedure\t1\n4075598\tDressing of burnt skin of head or neck\tSNOMED\tProcedure\t1\n4040653\tApplication of dressing for third degree burn\tSNOMED\tProcedure\t0\n4075616\tAttention to dressing of burn of head or neck\tSNOMED\tProcedure\t0\n4242547\tApplication of dressing for second degree burn\tSNOMED\tProcedure\t0\n42872641\tApplication of vacuum assisted closure device to burnt skin\tSNOMED\tProcedure\t0\n44791474\tDressing of burnt skin of head or neck using vacuum assisted closure device\tSNOMED\tProcedure\t0",
+        "rows": 8
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 522,
+  "per_set": {
+    "entry_set_1": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 4108467,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Includes various types of skin burns"
+        }
+      ],
+      "resolved_count": 399
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "6c91fc11390db4ff47d6a1716646978b816ed9bb755e6e44315eb701f7640205",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T07_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T07",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 19624,
+    "llm_calls": 9,
+    "llm_time_s": 221.31,
+    "output_tokens": 522,
+    "peak_ram_mb": 378.0,
+    "tool_calls": 8,
+    "total_tokens": 20146,
+    "validator_retries": 0,
+    "wall_seconds": 222.6971937979979,
+    "wall_time_s": 222.71
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T07_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 222.6971937979979
+}

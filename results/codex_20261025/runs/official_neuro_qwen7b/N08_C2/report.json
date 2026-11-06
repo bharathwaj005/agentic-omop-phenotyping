@@ -1,0 +1,188 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N08_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "544",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "encephalitis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "encephalitis": {
+        "description": "Patients diagnosed with encephalitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378143,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Primary concept for encephalitis diagnosis"
+          }
+        ],
+        "name": "encephalitis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "encephalitis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "encephalitis",
+    "entry_concept_sets": [
+      "encephalitis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with encephalitis based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 12661,
+  "llm_calls": 6,
+  "logical_run_id": "neuro_N08_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.008333333333333333,
+        "jaccard": 0.0041841004184100415,
+        "precision": 1.0,
+        "recall": 0.0041841004184100415
+      },
+      "full": {
+        "f1": 0.008333333333333333,
+        "jaccard": 0.0041841004184100415,
+        "precision": 1.0,
+        "recall": 0.0041841004184100415
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.008333333333333333,
+        "jaccard": 0.0041841004184100415,
+        "precision": 1.0,
+        "recall": 0.0041841004184100415
+      },
+      "full": {
+        "f1": 0.008333333333333333,
+        "jaccard": 0.0041841004184100415,
+        "precision": 1.0,
+        "recall": 0.0041841004184100415
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "encephalitis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n378143\tEncephalitis\tSNOMED\tDisorder\t238\n444373\tKuru\tSNOMED\tDisorder\t0\n377793\tRabies\tSNOMED\tDisorder\t9\n4046826\tRio Bravo fever\tSNOMED\tDisorder\t1\n35622356\tMorvan syndrome\tSNOMED\tDisorder\t0\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n372547\tViral encephalitis\tSNOMED\tDisorder\t122\n376970\tSchilder's disease\tSNOMED\tDisorder\t0\n378065\tMumps encephalitis\tSNOMED\tDisorder\t1\n378136\tToxic encephalitis\tSNOMED\tDisorder\t2\n4041672\tRasmussen syndrome\tSNOMED\tDisorder\t1\n4047626\tFocal encephalitis\tSNOMED\tDisorder\t2\n44806551\tAcute encephalitis\tSNOMED\tDisorder\t6\n4041673\tLimbic encephalitis\tSNOMED\tDisorder\t9\n4044936\tTensaw encephalitis\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378143
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378143\tEncephalitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t238",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378143
+        },
+        "output": "total_descendants=238\nid\tname\tclass\tlevels\n373189\tEncephalomyelitis\tDisorder\t1\n4047626\tFocal encephalitis\tDisorder\t1\n44806551\tAcute encephalitis\tDisorder\t1\n378136\tToxic encephalitis\tDisorder\t1\n4322814\tMeningoencephalitis\tDisorder\t1\n4324289\tAllergic encephalitis\tDisorder\t1\n4041671\tBrainstem encephalitis\tDisorder\t1\n374020\tInfective encephalitis\tDisorder\t1\n4318558\tAutoimmune encephalitis\tDisorder\t1\n372615\tPost-infectious encephalitis\tDisorder\t1\n37470429\tEncephalitis caused by vaccine\tDisorder\t1\n4174766\tLymphocytic meningoencephalitis\tDisorder\t1\n4310021\tParaneoplastic encephalomyelitis\tDisorder\t1\n4104577\tInflammatory disorder of visual cortex\tDisorder\t1\n4044251\tInflammatory disorder of optic radiation\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 6,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378143,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n372887\tDisorder of brain\tDisorder\t1\n4181187\tInflammatory disorder of head\tDisorder\t1\n4181063\tInflammation of specific body organs\tDisorder\t1\n4190307\tInflammatory disease of the central nervous system\tDisorder\t1",
+        "rows": 4
+      },
+      "step": 8,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378143
+        },
+        "output": "id\tname\tdomain\tvocab\n378143\tEncephalitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 332,
+  "per_set": {
+    "encephalitis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 378143,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Primary concept for encephalitis diagnosis"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "d5a0d7c2dd240ad65da015ccb1cbc48a65e3f6d5d2153a701a5cd4789ece3b29",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N08_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N08",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 12661,
+    "llm_calls": 6,
+    "llm_time_s": 131.87,
+    "output_tokens": 332,
+    "peak_ram_mb": 372.6,
+    "tool_calls": 5,
+    "total_tokens": 12993,
+    "validator_retries": 0,
+    "wall_seconds": 134.1454883339993,
+    "wall_time_s": 134.15
+  },
+  "tool_calls": 5,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N08_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 134.1454883339993
+}

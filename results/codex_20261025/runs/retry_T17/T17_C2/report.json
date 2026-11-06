@@ -1,0 +1,221 @@
+{
+  "attempt_id": "retry_T17_v53_T17_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1261",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "retry_T17",
+  "final_spec": null,
+  "input_tokens": 52734,
+  "llm_calls": 17,
+  "logical_run_id": "v53_T17_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "pneumonia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n255848\tPneumonia\tSNOMED\tDisorder\t186\n261326\tViral pneumonia\tSNOMED\tDisorder\t28\n4046011\tFocal pneumonia\tSNOMED\tDisorder\t0\n4116487\tBasal pneumonia\tSNOMED\tDisorder\t3\n4133224\tLobar pneumonia\tSNOMED\tDisorder\t10\n256722\tBronchopneumonia\tSNOMED\tDisorder\t31\n4049965\tFungal pneumonia\tSNOMED\tDisorder\t12\n252548\tAnthrax pneumonia\tSNOMED\tDisorder\t0\n4112655\tProteus pneumonia\tSNOMED\tDisorder\t2\n45770900\tRubella pneumonia\tSNOMED\tDisorder\t1\n46269693\tChronic pneumonia\tSNOMED\tDisorder\t2\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n4051337\tNeonatal pneumonia\tSNOMED\tDisorder\t2\n4145369\tLingular pneumonia\tSNOMED\tDisorder\t0\n43020558\tCavitary pneumonia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "typical"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4324893\tTypical angina\tSNOMED\tDisorder\t0\n4155963\tAtypical angina\tSNOMED\tDisorder\t0\n4338037\tAtypical autism\tSNOMED\tDisorder\t0\n4292105\tMorquio syndrome\tSNOMED\tDisorder\t2\n4345463\tAtypical measles\tSNOMED\tDisorder\t0\n440740\tTakayasu's disease\tSNOMED\tDisorder\t0\n4008244\tAtypical neuralgia\tSNOMED\tClinical Finding\t0\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n43022060\tAtypical psychosis\tSNOMED\tDisorder\t0\n4010017\tAtypical chest pain\tSNOMED\tClinical Finding\t0\n37017588\tAtypical odontalgia\tSNOMED\tClinical Finding\t0\n137856\tAtypical facial pain\tSNOMED\tClinical Finding\t0\n434890\tStereotyped routines\tSNOMED\tClinical Finding\t6\n378735\tMigraine without aura\tSNOMED\tDisorder\t5\n1244835\tAtypical neurofibroma\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "non-acute"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n374049\tAcute mucoid otitis media\tSNOMED\tDisorder\t4\n4145721\tAcute non-Q wave infarction\tSNOMED\tDisorder\t6\n374948\tAcute secretory otitis media\tSNOMED\tDisorder\t26\n4060942\tAcute non-puerperal mastitis\tSNOMED\tDisorder\t0\n315293\tAcute idiopathic pericarditis\tSNOMED\tDisorder\t0\n42536540\tAcute noninfective bronchitis\tSNOMED\tDisorder\t0\n378768\tAcute sanguineous otitis media\tSNOMED\tDisorder\t4\n762300\tAcute nonbacterial endocarditis\tSNOMED\tDisorder\t0\n4055207\tAcute hepatitis - non-infective\tSNOMED\tDisorder\t0\n4056197\tSubacute non-puerperal mastitis\tSNOMED\tDisorder\t0\n4219115\tSubacute noninfective hepatitis\tSNOMED\tDisorder\t0\n136330\tAcute nonparalytic poliomyelitis\tSNOMED\tDisorder\t1\n45757442\tAcute nontraumatic kidney injury\tSNOMED\tDisorder\t0\n4095916\tAcute non-suppurative thyroiditis\tSNOMED\tDisorder\t0\n4056198\tAcute non-puerperal breast abscess\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "pneumonia",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n255848\tPneumonia\tSNOMED\tDisorder\t186\n261326\tViral pneumonia\tSNOMED\tDisorder\t28\n4046011\tFocal pneumonia\tSNOMED\tDisorder\t0\n4116487\tBasal pneumonia\tSNOMED\tDisorder\t3\n4133224\tLobar pneumonia\tSNOMED\tDisorder\t10\n256722\tBronchopneumonia\tSNOMED\tDisorder\t31\n4049965\tFungal pneumonia\tSNOMED\tDisorder\t12\n252548\tAnthrax pneumonia\tSNOMED\tDisorder\t0\n4112655\tProteus pneumonia\tSNOMED\tDisorder\t2\n45770900\tRubella pneumonia\tSNOMED\tDisorder\t1\n46269693\tChronic pneumonia\tSNOMED\tDisorder\t2\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n4051337\tNeonatal pneumonia\tSNOMED\tDisorder\t2\n4145369\tLingular pneumonia\tSNOMED\tDisorder\t0\n43020558\tCavitary pneumonia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4050869
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4050869\tAtypical pneumonia\tCondition\tSNOMED\tDisorder\tS\tTrue\t0",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4050869
+        },
+        "output": "total_descendants=0\n(none)",
+        "rows": 1
+      },
+      "step": 14,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4050869,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4318404\tLung consolidation\tDisorder\t1\n257315\tBacterial pneumonia\tDisorder\t1\n255848\tPneumonia\tDisorder\t2\n257907\tDisorder of lung\tDisorder\t2\n4208662\tBacterial lower respiratory infection\tDisorder\t2",
+        "rows": 5
+      },
+      "step": 16,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 255848
+        },
+        "output": "id\tname\tdomain\tvocab\n255848\tPneumonia\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 18,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433456
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n433456\tAcute pain\tCondition\tSNOMED\tClinical Finding\tS\tTrue\t28",
+        "rows": 1
+      },
+      "step": 22,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433456
+        },
+        "output": "total_descendants=28\nid\tname\tclass\tlevels\n42539583\tAcute headache\tClinical Finding\t1\n4009385\tAcute chest pain\tClinical Finding\t1\n45771676\tAcute ankle pain\tClinical Finding\t1\n37476751\tAcute sore throat\tClinical Finding\t1\n4196137\tAcute pelvic pain\tClinical Finding\t1\n42536910\tAcute pain in face\tClinical Finding\t1\n4132892\tAcute low back pain\tClinical Finding\t1\n4023573\tAcute abdominal pain\tClinical Finding\t1\n36716679\tAcute pain of scrotum\tClinical Finding\t1\n43530621\tAcute postoperative pain\tClinical Finding\t1\n4133037\tAcute thoracic back pain\tClinical Finding\t1\n4333227\tAcute pain due to injury\tClinical Finding\t1\n45757286\tAcute pain of joint of knee\tClinical Finding\t1\n4083769\tAcute back pain with sciatica\tClinical Finding\t1\n4105016\tAcute painful diabetic neuropathy\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 24,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433456,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4329041\tPain\tClinical Finding\t1\n4170962\tPain / sensation finding\tClinical Finding\t2",
+        "rows": 2
+      },
+      "step": 26,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4329041
+        },
+        "output": "id\tname\tdomain\tvocab\n4329041\tPain\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 28,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 919,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "72d2dca80aab9c7d7470e5eb1548c994b80323957ed4edd86c5d7abdb95bc9e8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T17/T17_C2/raw_replies.json",
+  "reason": "JBI_RUN_DEADLINE_S exceeded",
+  "schema_version": 1,
+  "status": "timeout",
+  "task_id": "T17",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 52734,
+    "llm_calls": 17,
+    "llm_time_s": 1189.46,
+    "output_tokens": 919,
+    "peak_ram_mb": 38.5,
+    "tool_calls": 14,
+    "total_tokens": 53653,
+    "validator_retries": 0,
+    "wall_seconds": 1200.1384312219998,
+    "wall_time_s": 1200.2
+  },
+  "tool_calls": 14,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T17/T17_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 1200.1384312219998
+}

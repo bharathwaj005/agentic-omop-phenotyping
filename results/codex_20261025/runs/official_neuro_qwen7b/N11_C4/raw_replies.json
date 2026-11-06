@@ -1,0 +1,38 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"pml_diagnosis\",\n    \"entry_concept_sets\": [\"pml_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"pml_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": true,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"pml_diagnosis\": {\n        \"name\": \"pml_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"First diagnosis of progressive multifocal leukoencephalopathy.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"progressive multifocal leukoencephalopathy\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 433957\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 433957\n  }\n}"
+  },
+  {
+    "step": 8,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 433957,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 433957, 'Progressive multifocal leukoencephalopathy', accurately represents the clinical description of the first diagnosis of progressive multifocal leukoencephalopathy.\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 10,
+    "actor": "critic",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+  }
+]

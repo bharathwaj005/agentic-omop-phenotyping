@@ -1,0 +1,275 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N12_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1066",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "rheumatoid_arthritis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "rheumatoid_arthritis": {
+        "description": "Patients with a diagnosis of rheumatoid arthritis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 80809,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The concept ID 80809 represents 'Rheumatoid arthritis' in SNOMED, which matches the clinical description of patients with a diagnosis of rheumatoid arthritis."
+          }
+        ],
+        "name": "rheumatoid_arthritis"
+      },
+      "tumor_necrosis_factor_alpha_inhibitors": {
+        "description": "Patients who have been exposed to tumor necrosis factor alpha inhibitors.",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 1151789,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'etanercept' in RxNorm represents tumor necrosis factor alpha inhibitors, which is clinically appropriate for identifying patients exposed to these medications."
+          }
+        ],
+        "name": "tumor_necrosis_factor_alpha_inhibitors"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "rheumatoid_arthritis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "rheumatoid_arthritis",
+    "entry_concept_sets": [
+      "rheumatoid_arthritis"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 365,
+    "question": "Identify patients with rheumatoid arthritis who are new users of tumor necrosis factor alpha inhibitors, based on medication exposure.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 20731,
+  "llm_calls": 14,
+  "logical_run_id": "neuro_N12_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.37447988904299584,
+        "jaccard": 0.23037542662116042,
+        "precision": 1.0,
+        "recall": 0.23037542662116042
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.37447988904299584,
+        "jaccard": 0.23037542662116042,
+        "precision": 1.0,
+        "recall": 0.23037542662116042
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "rheumatoid arthritis"
+        },
+        "concept_set": "rheumatoid_arthritis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n80809\tRheumatoid arthritis\tSNOMED\tDisorder\t133\n81097\tFelty's syndrome\tSNOMED\tDisorder\t2\n4103516\tRheumatoid carditis\tSNOMED\tDisorder\t0\n4306357\tRheumatoid aortitis\tSNOMED\tDisorder\t0\n4243509\tRheumatoid scleritis\tSNOMED\tDisorder\t1\n4269880\tRheumatoid arteritis\tSNOMED\tDisorder\t1\n4296152\tRheumatoid pericarditis\tSNOMED\tDisorder\t0\n4300202\tRheumatoid episcleritis\tSNOMED\tDisorder\t0\n4030424\tRheumatoid osteoperiostitis\tSNOMED\tDisorder\t0\n4116150\tRheumatoid arthritis of hip\tSNOMED\tDisorder\t9\n4116151\tRheumatoid arthritis of knee\tSNOMED\tDisorder\t9\n4179378\tRheumatoid arthritis of foot\tSNOMED\tDisorder\t12\n4114444\tFlare of rheumatoid arthritis\tSNOMED\tDisorder\t0\n4116440\tRheumatoid arthritis of elbow\tSNOMED\tDisorder\t10\n4116441\tRheumatoid arthritis of wrist\tSNOMED\tDisorder\t10",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 80809
+        },
+        "concept_set": "rheumatoid_arthritis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n80809\tRheumatoid arthritis\tCondition\tSNOMED\tDisorder\tS\tTrue\t133",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "tumor necrosis factor alpha inhibitors"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF alpha inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "etanercept"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "id\tname\tvocab\tclass\tn_desc\n1151789\tetanercept\tRxNorm\tIngredient\t47\n1151882\tetanercept 25 MG/ML\tRxNorm\tClinical Drug Comp\t3\n19121852\tetanercept 50 MG/ML\tRxNorm\tClinical Drug Comp\t20\n1361411\tetanercept Cartridge\tRxNorm\tClinical Drug Form\t5\n37002663\tetanercept Injection\tRxNorm\tClinical Drug Form\t5\n37003185\tetanercept-ykro 50 MG/ML\tRxNorm\tClinical Drug Comp\t7\n46234060\tetanercept Auto-Injector\tRxNorm\tClinical Drug Form\t5\n19064171\tetanercept 25 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t1\n19064172\tetanercept 50 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t9\n40141784\tetanercept Prefilled Syringe\tRxNorm\tClinical Drug Form\t14\n1361412\tetanercept Cartridge [Enbrel]\tRxNorm\tBranded Drug Form\t2\n1361413\tetanercept 50 MG/ML Cartridge\tRxNorm\tClinical Drug\t3\n37002664\tetanercept Injection [Enbrel]\tRxNorm\tBranded Drug Form\t2\n37002665\tetanercept 50 MG/ML Injection\tRxNorm\tClinical Drug\t3\n40038979\tetanercept Injectable Solution\tRxNorm\tClinical Drug Form\t4",
+        "rows": 15
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1151789
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n1151789\tetanercept\tDrug\tRxNorm\tIngredient\tS\tTrue\t47",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1151789
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "id\tname\tdomain\tvocab\n1151789\tetanercept\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 22,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 1114,
+  "per_set": {
+    "rheumatoid_arthritis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 80809,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The concept ID 80809 represents 'Rheumatoid arthritis' in SNOMED, which matches the clinical description of patients with a diagnosis of rheumatoid arthritis."
+        }
+      ],
+      "resolved_count": 134
+    },
+    "tumor_necrosis_factor_alpha_inhibitors": {
+      "domain": "Drug",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 1151789,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'etanercept' in RxNorm represents tumor necrosis factor alpha inhibitors, which is clinically appropriate for identifying patients exposed to these medications."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "7242b256334c139f1fa54cec9e4995568fde33be145efc3f666a9cb8dc3168d9",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N12_C1/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N12",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 20731,
+    "llm_calls": 14,
+    "llm_time_s": 342.47,
+    "output_tokens": 1114,
+    "peak_ram_mb": 365.4,
+    "tool_calls": 8,
+    "total_tokens": 21845,
+    "validator_retries": 0,
+    "wall_seconds": 345.85061905800103,
+    "wall_time_s": 345.86
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N12_C1/trace.json",
+  "track": "neuro",
+  "wall_seconds": 345.85061905800103
+}

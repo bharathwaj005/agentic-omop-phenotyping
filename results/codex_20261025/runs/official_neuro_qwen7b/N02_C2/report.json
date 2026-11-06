@@ -1,0 +1,249 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N02_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "863",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "cognitive_impairment",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "cognitive_impairment": {
+        "description": "Incident cognitive impairment based on a first qualifying diagnosis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4297400,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Mild neurocognitive disorder is the most specific concept that covers the clinical meaning of cognitive impairment"
+          }
+        ],
+        "name": "cognitive_impairment"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "cognitive_impairment",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "cognitive_impairment",
+    "entry_concept_sets": [
+      "cognitive_impairment"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 0,
+    "question": "Identify patients with incident cognitive impairment based on a first qualifying diagnosis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 28097,
+  "llm_calls": 12,
+  "logical_run_id": "neuro_N02_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.8,
+        "jaccard": 0.6666666666666666,
+        "precision": 1.0,
+        "recall": 0.6666666666666666
+      },
+      "full": {
+        "f1": 0.8,
+        "jaccard": 0.6666666666666666,
+        "precision": 1.0,
+        "recall": 0.6666666666666666
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.8,
+        "jaccard": 0.6666666666666666,
+        "precision": 1.0,
+        "recall": 0.6666666666666666
+      },
+      "full": {
+        "f1": 0.8,
+        "jaccard": 0.6666666666666666,
+        "precision": 1.0,
+        "recall": 0.6666666666666666
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "cognitive impairment"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n443432\tImpaired cognition\tSNOMED\tClinical Finding\t882\n45765900\tSevere cognitive impairment\tSNOMED\tClinical Finding\t0\n439795\tMinimal cognitive impairment\tSNOMED\tClinical Finding\t0\n4297400\tMild neurocognitive disorder\tSNOMED\tDisorder\t1\n45765899\tModerate cognitive impairment\tSNOMED\tClinical Finding\t0\n3654469\tAmnestic mild cognitive disorder\tSNOMED\tDisorder\t0\n37164785\tCognitive impairment caused by ethanol\tSNOMED\tDisorder\t0\n37162140\tCognitive impairment due to lead toxicity\tSNOMED\tDisorder\t0\n761978\tCognitive impairment due to multiple sclerosis\tSNOMED\tClinical Finding\t1\n42538566\tCognitive impairment due to toxicity of substance\tSNOMED\tClinical Finding\t1\n35622315\tHypotonia, speech impairment, severe cognitive delay syndrome\tSNOMED\tDisorder\t0\n37166422\tCognitive impairment due to late-delayed irradiation of brain\tSNOMED\tDisorder\t0\n37168522\tFocal onset cognitive epileptic seizure with memory impairment\tSNOMED\tClinical Finding\t0\n36687122\tHuman immunodeficiency virus infection with cognitive impairment\tSNOMED\tDisorder\t0\n37110498\tCognitive impairment co-occurrent and due to primary psychotic disorder\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4297400
+        },
+        "output": "total_descendants=1\nid\tname\tclass\tlevels\n3654469\tAmnestic mild cognitive disorder\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 3654469,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4297400\tMild neurocognitive disorder\tDisorder\t1\n46271045\tNeurocognitive disorder\tDisorder\t2",
+        "rows": 2
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4297400
+        },
+        "output": "id\tname\tdomain\tvocab\n4297400\tMild neurocognitive disorder\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Metadata",
+          "query": "incident"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Metadata",
+          "query": "new"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Metadata",
+          "query": "first occurrence"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "incident"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n45773691\tAdrenal incidentaloma\tSNOMED\tDisorder\t0\n37018614\tIncidentaloma of thyroid gland\tSNOMED\tDisorder\t0\n45770021\tBowel scope (flexible sigmoidoscopy) screen: incidental findings\tSNOMED\tClinical Finding\t0\n4164339\tProstate tumor incidental histologic finding in 5 percent or less of tissue resected\tSNOMED\tClinical Finding\t0\n4161553\tProstate tumor incidental histologic finding in more than 5 percent of tissue resected\tSNOMED\tClinical Finding\t0",
+        "rows": 5
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "new"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n372444\tNeonatal coma\tSNOMED\tDisorder\t0\n318247\tNeonatal apnea\tSNOMED\tClinical Finding\t14\n441412\tNeonatal edema\tSNOMED\tDisorder\t1\n4190518\tJaneway lesion\tSNOMED\tDisorder\t0\n440098\tRubeosis iridis\tSNOMED\tDisorder\t7\n4071063\tNeonatal sepsis\tSNOMED\tDisorder\t13\n4120264\tNew Guinea lung\tSNOMED\tDisorder\t0\n439156\tNeonatal finding\tSNOMED\tClinical Finding\t974\n4119455\tNew onset angina\tSNOMED\tDisorder\t0\n4172664\tAssumes new role\tSNOMED\tClinical Finding\t0\n4173346\tNeonatal choking\tSNOMED\tClinical Finding\t1\n4318555\tFever of newborn\tSNOMED\tClinical Finding\t2\n607946\tWischnewski spots\tSNOMED\tDisorder\t0\n4150640\tNeonatal sniffles\tSNOMED\tClinical Finding\t0\n438112\tNeoplastic disease\tSNOMED\tDisorder\t9547",
+        "rows": 15
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "first occurrence"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4305815\tLate menarche\tSNOMED\tClinical Finding\t0",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 500,
+  "per_set": {
+    "cognitive_impairment": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 4297400,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Mild neurocognitive disorder is the most specific concept that covers the clinical meaning of cognitive impairment"
+        }
+      ],
+      "resolved_count": 2
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "0f6762e11fb21128f6dace95bb6dc5e63566815af9f5cb31f67cd22867d6da7c",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N02_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N02",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 28097,
+    "llm_calls": 12,
+    "llm_time_s": 205.69,
+    "output_tokens": 500,
+    "peak_ram_mb": 374.1,
+    "tool_calls": 10,
+    "total_tokens": 28597,
+    "validator_retries": 0,
+    "wall_seconds": 207.70784521199994,
+    "wall_time_s": 207.71
+  },
+  "tool_calls": 10,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N02_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 207.70784521199994
+}

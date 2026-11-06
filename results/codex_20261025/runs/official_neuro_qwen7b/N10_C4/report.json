@@ -1,0 +1,172 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N10_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "550",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "cidp_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "cidp_diagnosis": {
+        "description": "Patients with a diagnosis of chronic inflammatory demyelinating polyradiculoneuropathy.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 381009,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 381009, 'Chronic inflammatory demyelinating polyradiculoneuropathy', accurately represents the clinical description of patients with CIDP based on diagnosis evidence."
+          }
+        ],
+        "name": "cidp_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "cidp_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "cidp_diagnosis",
+    "entry_concept_sets": [
+      "cidp_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with chronic inflammatory demyelinating polyradiculoneuropathy based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 6977,
+  "llm_calls": 6,
+  "logical_run_id": "neuro_N10_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      },
+      "full": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      },
+      "full": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "chronic inflammatory demyelinating polyradiculoneuropathy"
+        },
+        "concept_set": "cidp_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tSNOMED\tDisorder\t4\n4048024\tChronic inflammatory demyelinating polyradiculoneuropathy with central nervous system demyelination\tSNOMED\tDisorder\t0",
+        "rows": 2
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 381009
+        },
+        "concept_set": "cidp_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tCondition\tSNOMED\tDisorder\tS\tTrue\t4",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 381009
+        },
+        "concept_set": "cidp_diagnosis",
+        "output": "id\tname\tdomain\tvocab\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 427,
+  "per_set": {
+    "cidp_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 381009,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 381009, 'Chronic inflammatory demyelinating polyradiculoneuropathy', accurately represents the clinical description of patients with CIDP based on diagnosis evidence."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "36e9ba5b2ebcae490dfb8f41bbc9c07f4f6eda0aff307ac6a7bbd972f92909a8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N10_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N10",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 6977,
+    "llm_calls": 6,
+    "llm_time_s": 107.84,
+    "output_tokens": 427,
+    "peak_ram_mb": 350.0,
+    "tool_calls": 3,
+    "total_tokens": 7404,
+    "validator_retries": 0,
+    "wall_seconds": 108.0528720659986,
+    "wall_time_s": 108.05
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N10_C4/trace.json",
+  "track": "neuro",
+  "wall_seconds": 108.0528720659986
+}

@@ -1,0 +1,385 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "134",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "adhd_diagnosis",
+      "event_domain": "Condition"
+    },
+    {
+      "concept_set": "adhd_treatment",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "adhd_diagnosis": {
+        "description": "Diagnosis of Attention Deficit Hyperactivity Disorder",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 438409,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of ADHD"
+          }
+        ],
+        "name": "adhd_diagnosis"
+      },
+      "adhd_treatment": {
+        "description": "ADHD treatment medications",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 705944,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Methylphenidate, a common ADHD treatment"
+          }
+        ],
+        "name": "adhd_treatment"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "adhd_diagnosis",
+        "event_domain": "Condition"
+      },
+      {
+        "concept_set": "adhd_treatment",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "adhd_diagnosis",
+    "entry_concept_sets": [
+      "adhd_diagnosis",
+      "adhd_treatment"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with attention deficit hyperactivity disorder based on qualifying ADHD diagnosis or ADHD treatment evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 50178,
+  "llm_calls": 19,
+  "logical_run_id": "v53_T01_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.08125,
+        "jaccard": 0.04234527687296417,
+        "precision": 0.04304635761589404,
+        "recall": 0.7222222222222222
+      },
+      "full": {
+        "f1": 0.507136859781696,
+        "jaccard": 0.33970753655793023,
+        "precision": 1.0,
+        "recall": 0.33970753655793023
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.507136859781696,
+        "jaccard": 0.33970753655793023,
+        "precision": 1.0,
+        "recall": 0.33970753655793023
+      },
+      "full": {
+        "f1": 0.507136859781696,
+        "jaccard": 0.33970753655793023,
+        "precision": 1.0,
+        "recall": 0.33970753655793023
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD medication"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD drug"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "stimulant"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "methylphenidate"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n705944\tmethylphenidate\tRxNorm\tIngredient\t323\n731533\tdexmethylphenidate\tRxNorm\tIngredient\t87\n1537411\tserdexmethylphenidate\tRxNorm\tIngredient\t18\n1592737\tmethylphenidate 8.6 MG\tRxNorm\tClinical Drug Comp\t3\n1592616\tmethylphenidate 17.3 MG\tRxNorm\tClinical Drug Comp\t3\n1592733\tmethylphenidate 25.9 MG\tRxNorm\tClinical Drug Comp\t3\n1537416\tdexmethylphenidate 5.2 MG\tRxNorm\tClinical Drug Comp\t3\n1537426\tdexmethylphenidate 7.8 MG\tRxNorm\tClinical Drug Comp\t3\n706182\tmethylphenidate 1.67 MG/HR\tRxNorm\tClinical Drug Comp\t5\n706183\tmethylphenidate 2.22 MG/HR\tRxNorm\tClinical Drug Comp\t5\n1537424\tdexmethylphenidate 10.4 MG\tRxNorm\tClinical Drug Comp\t3\n19123926\tmethylphenidate 3.33 MG/HR\tRxNorm\tClinical Drug Comp\t5\n19123961\tmethylphenidate 1.11 MG/HR\tRxNorm\tClinical Drug Comp\t5\n40066578\tmethylphenidate Oral Tablet\tRxNorm\tClinical Drug Form\t12\n1537417\tserdexmethylphenidate 52.3 MG\tRxNorm\tClinical Drug Comp\t3",
+        "rows": 15
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD diagnosis"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n44813054\tAttention deficit hyperactivity disorder annual review\tSNOMED\tProcedure\t0\n45765570\tDrug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t2\n1243931\tDiagnostic assessment for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n1448142\tSignposting to ADHD (attention deficit hyperactivity disorder) resource\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0",
+        "rows": 6
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Measurement",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n46273366\tVanderbilt Assessment Scale\tSNOMED\tStaging / Scales\t0\n37477247\tAttention Deficit Hyperactivity Disorder TOM (Therapy Outcome Measure) activity score\tSNOMED\tObservable Entity\t0\n37477249\tAttention Deficit Hyperactivity Disorder TOM (Therapy Outcome Measure) wellbeing score\tSNOMED\tObservable Entity\t0\n37477248\tAttention Deficit Hyperactivity Disorder TOM (Therapy Outcome Measure) impairment score\tSNOMED\tObservable Entity\t0\n35626185\tWorld Health Organization Adult Attention-Deficit Hyperactivity Disorder Self-Report Scale\tSNOMED\tStaging / Scales\t0\n37477250\tAttention Deficit Hyperactivity Disorder TOM (Therapy Outcome Measure) participation score\tSNOMED\tObservable Entity\t0\n37477251\tAttention Deficit Hyperactivity Disorder TOM (Therapy Outcome Measure) carer wellbeing score\tSNOMED\tObservable Entity\t0\n37477096\tWorld Health Organization Adult Attention-Deficit Hyperactivity Disorder Self-Report Scale total score\tSNOMED\tObservable Entity\t0",
+        "rows": 8
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Observation",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n37468570\tAttention deficit hyperactivity disorder suspected\tSNOMED\tContext-dependent\t0\n44810172\tOn drug therapy for ADHD (attention deficit hyperactivity disorder)\tSNOMED\tContext-dependent\t2\n44802726\tAttention deficit hyperactivity disorder monitoring invitation first letter\tSNOMED\tProcedure\t0\n44810173\tOn stimulant drug therapy for ADHD (attention deficit hyperactivity disorder)\tSNOMED\tContext-dependent\t0\n1450404\tReferral for diagnostic assessment for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n44810175\tOn non-stimulant drug therapy for ADHD (attention deficit hyperactivity disorder)\tSNOMED\tContext-dependent\t0\n37108722\tLong term current use of drug therapy for attention deficit hyperactivity disorder\tSNOMED\tContext-dependent\t0",
+        "rows": 7
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 24,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Device",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 26,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Metadata",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 28,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Specimen",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 30,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Episode",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 32,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Provider",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 34,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Location",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 36,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 778,
+  "per_set": {
+    "adhd_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 438409,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of ADHD"
+        }
+      ],
+      "resolved_count": 13
+    },
+    "adhd_treatment": {
+      "domain": "Drug",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 705944,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Methylphenidate, a common ADHD treatment"
+        }
+      ],
+      "resolved_count": 289
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "6836071c0313680c9e818ff96e9b50b91ecb66d6e78342d5f4e61e87f64da734",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T01_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 50178,
+    "llm_calls": 19,
+    "llm_time_s": 422.18,
+    "output_tokens": 778,
+    "peak_ram_mb": 261.4,
+    "tool_calls": 18,
+    "total_tokens": 50956,
+    "validator_retries": 0,
+    "wall_seconds": 427.63778484299837,
+    "wall_time_s": 427.65
+  },
+  "tool_calls": 18,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T01_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 427.63778484299837
+}

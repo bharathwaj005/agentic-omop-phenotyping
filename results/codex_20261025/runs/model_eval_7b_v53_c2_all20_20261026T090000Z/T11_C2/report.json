@@ -1,0 +1,208 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T11_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1048",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "calcium_channel_blocker_drug",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "calcium_channel_blocker_drug": {
+        "description": "Users of dihydropyridine calcium-channel blockers",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 1318853,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Nifedipine is a dihydropyridine calcium-channel blocker"
+          }
+        ],
+        "name": "calcium_channel_blocker_drug"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "calcium_channel_blocker_drug",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "calcium_channel_blocker_drug",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "calcium_channel_blocker_drug",
+    "entry_concept_sets": [
+      "calcium_channel_blocker_drug"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify new users of dihydropyridine calcium-channel blockers.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 13839,
+  "llm_calls": 7,
+  "logical_run_id": "v53_T11_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.5533262935586061,
+        "jaccard": 0.38248175182481753,
+        "precision": 1.0,
+        "recall": 0.38248175182481753
+      },
+      "full": {
+        "f1": 0.5533262935586061,
+        "jaccard": 0.38248175182481753,
+        "precision": 1.0,
+        "recall": 0.38248175182481753
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.5533262935586061,
+        "jaccard": 0.38248175182481753,
+        "precision": 1.0,
+        "recall": 0.38248175182481753
+      },
+      "full": {
+        "f1": 0.5533262935586061,
+        "jaccard": 0.38248175182481753,
+        "precision": 1.0,
+        "recall": 0.38248175182481753
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "dihydropyridine"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "calcium channel blocker"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "nifedipine"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1318853\tnifedipine\tRxNorm\tIngredient\t345\n1318919\tnifedipine 5 MG\tRxNorm\tClinical Drug Comp\t11\n1318915\tnifedipine 10 MG\tRxNorm\tClinical Drug Comp\t53\n1318916\tnifedipine 20 MG\tRxNorm\tClinical Drug Comp\t66\n1318917\tnifedipine 60 MG\tRxNorm\tClinical Drug Comp\t24\n1318918\tnifedipine 30 MG\tRxNorm\tClinical Drug Comp\t21\n1318921\tnifedipine 40 MG\tRxNorm\tClinical Drug Comp\t9\n1318952\tnifedipine 90 MG\tRxNorm\tClinical Drug Comp\t12\n19093207\tnifedipine 33 MG\tRxNorm\tClinical Drug Comp\t1\n19110976\tnifedipine 50 MG\tRxNorm\tClinical Drug Comp\t1\n19110980\tnifedipine 15 MG\tRxNorm\tClinical Drug Comp\t1\n19110972\tnifedipine 0.1 MG/ML\tRxNorm\tClinical Drug Comp\t1\n40069156\tnifedipine Oral Tablet\tRxNorm\tClinical Drug Form\t5\n19117299\tnifedipine 5 MG [Vasad]\tRxNorm\tBranded Drug Comp\t1\n40069147\tnifedipine Oral Capsule\tRxNorm\tClinical Drug Form\t26",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1318853
+        },
+        "output": "id\tname\tdomain\tvocab\n1318853\tnifedipine\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "calcium channel blocker"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4176243\tOverdose of calcium-channel blockers\tSNOMED\tDisorder\t5\n4020442\tPoisoning by calcium-channel blockers\tSNOMED\tDisorder\t11\n4174938\tAccidental overdose by calcium channel blocker\tSNOMED\tDisorder\t1\n4162320\tAccidental poisoning by calcium channel blocker\tSNOMED\tDisorder\t3\n4178866\tIntentional overdose by calcium-channel blocker\tSNOMED\tDisorder\t1\n4159892\tIntentional poisoning by calcium-channel blocker\tSNOMED\tDisorder\t3",
+        "rows": 6
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4020442
+        },
+        "output": "id\tname\tdomain\tvocab\n4020442\tPoisoning by calcium-channel blockers\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 414,
+  "per_set": {
+    "calcium_channel_blocker_drug": {
+      "domain": "Drug",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 1318853,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Nifedipine is a dihydropyridine calcium-channel blocker"
+        }
+      ],
+      "resolved_count": 262
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "20d8498c04ac54b19fd13d15de5c699c19b8bf00b80470f25c2143ac38ac74f9",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T11_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T11",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 13839,
+    "llm_calls": 7,
+    "llm_time_s": 138.17,
+    "output_tokens": 414,
+    "peak_ram_mb": 276.4,
+    "tool_calls": 6,
+    "total_tokens": 14253,
+    "validator_retries": 0,
+    "wall_seconds": 141.66010566399927,
+    "wall_time_s": 141.67
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T11_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 141.66010566399927
+}

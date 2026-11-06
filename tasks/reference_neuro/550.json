@@ -1,0 +1,36 @@
+{
+ "task_id": "550",
+ "cohort_id": "550",
+ "entry_codeset_id": "0",
+ "entry_domain": "Condition",
+ "entry_concept_ids": [
+  381009,
+  4048024,
+  37166061,
+  37166489,
+  37399460
+ ],
+ "all_concept_ids": [
+  381009,
+  4048024,
+  37166061,
+  37166489,
+  37399460
+ ],
+ "concept_sets": {
+  "0": {
+   "name": "Chronic inflammatory demyelinating polyradiculoneuropathy",
+   "concept_ids": [
+    381009,
+    4048024,
+    37166061,
+    37166489,
+    37399460
+   ]
+  }
+ },
+ "counts": {
+  "entry": 5,
+  "all": 5
+ }
+}

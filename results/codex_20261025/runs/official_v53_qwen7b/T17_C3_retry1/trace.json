@@ -1,0 +1,270 @@
+{
+ "run_id": "official_v53_qwen7b_v53_T17_C3_attempt2",
+ "config": "C3",
+ "task_id": "T17",
+ "repeat": 2,
+ "status": "failed",
+ "error": "builder failed: builder produced an invalid specification: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'arms: acute_typical_pneumonia (Condition)' [type=value_error, input_value={'spec_version': '1.1', '...umonia.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with acute typical pneumonia while distinguishing it from non-acute typical pneumonia.",
+  "entry_concept_set": "acute_typical_pneumonia",
+  "entry_concept_sets": [
+   "acute_typical_pneumonia"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "acute_typical_pneumonia",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "acute_typical_pneumonia": {
+    "name": "acute_typical_pneumonia",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of acute typical pneumonia.",
+    "items": []
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 6,
+  "tool_calls": 2,
+  "input_tokens": 6811,
+  "output_tokens": 419,
+  "total_tokens": 7230,
+  "wall_time_s": 262.71,
+  "llm_time_s": 261.86,
+  "peak_ram_mb": 194.1,
+  "critic_rounds": 0,
+  "validator_retries": 1
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793132270.3365157,
+   "latency_s": 109.978,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1024,
+   "output_tokens": 182,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"acute_typical_pneumonia\",\n    \"entry_concept_sets\": [\"acute_typical_pneumonia\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"acute_typical_pneumonia\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"acute_typical_pneumonia\": {\n        \"name\": \"acute_typical_pneumonia\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of acute typical pneumonia.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793132380.3727298,
+   "latency_s": 69.81,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1163,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "acute_typical_pneumonia",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"acute typical pneumonia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793132450.1830802,
+   "latency_s": 0.582,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "acute typical pneumonia",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "acute_typical_pneumonia",
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793132450.7649379,
+   "latency_s": 11.771,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1241,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "acute_typical_pneumonia",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"typical pneumonia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793132462.5359354,
+   "latency_s": 0.172,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "typical pneumonia",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "acute_typical_pneumonia",
+    "rows": 2,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n440431\tPneumonia caused by Mycoplasma pneumoniae\tSNOMED\tDisorder\t1"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793132462.708184,
+   "latency_s": 13.603,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1349,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "acute_typical_pneumonia",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"typical pneumonia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793132476.3116903,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "acute_typical_pneumonia",
+    "duplicate_tool_call": "search_concepts",
+    "duplicate_retries": 1
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793132476.3117735,
+   "latency_s": 7.147,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1427,
+   "output_tokens": 22,
+   "detail": {
+    "concept_set": "acute_typical_pneumonia",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793132483.458753,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "acute_typical_pneumonia",
+    "items": 0,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 10,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793132483.4620533,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": false,
+    "issues": [
+     {
+      "level": "error",
+      "code": "empty_concept_set",
+      "message": "concept set has no concepts",
+      "concept_set": "acute_typical_pneumonia",
+      "concept_id": null
+     },
+     {
+      "level": "error",
+      "code": "entry_set_resolves_empty",
+      "message": "entry concept set resolves to no concepts",
+      "concept_set": "acute_typical_pneumonia",
+      "concept_id": null
+     }
+    ]
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "builder",
+   "started_at": 1793132483.462729,
+   "latency_s": 49.554,
+   "model": "qwen2.5:7b",
+   "input_tokens": 607,
+   "output_tokens": 86,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"concept_sets\": {},\n    \"criteria\": [\n      {\n        \"concept_set\": \"arms: acute_typical_pneumonia (Condition)\",\n        \"first_occurrence_only\": false,\n        \"age\": \"None-None\",\n        \"prior_observation_days\": 0\n      }\n    ],\n    \"unresolved\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "note",
+   "actor": "orchestrator",
+   "started_at": 1793132533.023494,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "failed": "builder failed: builder produced an invalid specification: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'arms: acute_typical_pneumonia (Condition)' [type=value_error, input_value={'spec_version': '1.1', '...umonia.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+   }
+  }
+ ]
+}

@@ -1,0 +1,171 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N11_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "229",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "pml_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "pml_diagnosis": {
+        "description": "First diagnosis of progressive multifocal leukoencephalopathy.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 433957,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 433957, 'Progressive multifocal leukoencephalopathy', accurately represents the clinical description of the first diagnosis of progressive multifocal leukoencephalopathy."
+          }
+        ],
+        "name": "pml_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "pml_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "pml_diagnosis",
+    "entry_concept_sets": [
+      "pml_diagnosis"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 0,
+    "question": "Identify patients with progressive multifocal leukoencephalopathy based on their first qualifying diagnosis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 6638,
+  "llm_calls": 5,
+  "logical_run_id": "neuro_N11_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      },
+      "full": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      },
+      "full": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "progressive multifocal leukoencephalopathy"
+        },
+        "concept_set": "pml_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n433957\tProgressive multifocal leukoencephalopathy\tSNOMED\tDisorder\t4\n37116468\tDementia with progressive multifocal leukoencephalopathy\tSNOMED\tDisorder\t0\n4100234\tCerebral degeneration due to progressive multifocal leukoencephalopathy\tSNOMED\tDisorder\t1\n4226631\tProgressive multifocal leukoencephalopathy with AIDS (acquired immunodeficiency syndrome)\tSNOMED\tDisorder\t0\n37017246\tProgressive multifocal leukoencephalopathy co-occurrent with human immunodeficiency virus infection\tSNOMED\tDisorder\t1",
+        "rows": 5
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433957
+        },
+        "concept_set": "pml_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n433957\tProgressive multifocal leukoencephalopathy\tCondition\tSNOMED\tDisorder\tS\tTrue\t4",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433957
+        },
+        "concept_set": "pml_diagnosis",
+        "output": "id\tname\tdomain\tvocab\n433957\tProgressive multifocal leukoencephalopathy\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 393,
+  "per_set": {
+    "pml_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 433957,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 433957, 'Progressive multifocal leukoencephalopathy', accurately represents the clinical description of the first diagnosis of progressive multifocal leukoencephalopathy."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "8ea9cd8c25dbc4a0954abc185fc74cc78078311e51d71409ea014e257136ffc8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N11_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N11",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 6638,
+    "llm_calls": 5,
+    "llm_time_s": 105.53,
+    "output_tokens": 393,
+    "peak_ram_mb": 362.0,
+    "tool_calls": 3,
+    "total_tokens": 7031,
+    "validator_retries": 0,
+    "wall_seconds": 105.70674066100037,
+    "wall_time_s": 105.71
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N11_C3/trace.json",
+  "track": "neuro",
+  "wall_seconds": 105.70674066100037
+}

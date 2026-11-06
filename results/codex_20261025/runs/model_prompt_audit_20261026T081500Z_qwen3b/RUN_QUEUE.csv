@@ -1,0 +1,2 @@
+task_id,configuration,status,attempts,reason,retry_log,wall_seconds,started_at,finished_at,report_path,report_sha256,trace_sha256
+T01,C2,interrupted,1,Ctrl+C received,[],256.78202361700096,2026-10-26T08:14:22.814899+00:00,2026-10-26T08:18:39.621017+00:00,results/codex_20261025/runs/model_prompt_audit_20261026T081500Z_qwen3b/T01_C2/report.json,8f5c22538d262e783bdc67872844673bf6f3b113e660164ded44af12d6b3d8a4,3dcc8f24d3d8efffa10685073f0c6b156c9fc36f95bd76aa5c69b66d341c96aa

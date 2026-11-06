@@ -1,0 +1,329 @@
+{
+ "run_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T19_C2_attempt1",
+ "config": "C2",
+ "task_id": "T19",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with acute bronchitis.",
+  "entry_concept_set": "acute_bronchitis",
+  "entry_concept_sets": [
+   "acute_bronchitis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "acute_bronchitis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "acute_bronchitis": {
+    "name": "acute_bronchitis",
+    "domain": "Condition",
+    "description": "Patients with acute bronchitis",
+    "items": [
+     {
+      "concept_id": 260139,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "Specific concept for acute bronchitis"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 8,
+  "tool_calls": 6,
+  "input_tokens": 18400,
+  "output_tokens": 393,
+  "total_tokens": 18793,
+  "wall_time_s": 180.33,
+  "llm_time_s": 178.73,
+  "peak_ram_mb": 353.3,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015119.1091926,
+   "latency_s": 7.275,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1519,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"bronchitis\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793015126.3841293,
+   "latency_s": 0.142,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "bronchitis",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n256451\tBronchitis\tSNOMED\tDisorder\t122\n260139\tAcute bronchitis\tSNOMED\tDisorder\t31\n4058712\tViral bronchitis\tSNOMED\tDisorder\t20\n4028970\tTracheobronchitis\tSNOMED\tDisorder\t17\n4279922\tSeptic bronchitis\tSNOMED\tDisorder\t0\n255841\tChronic bronchitis\tSNOMED\tDisorder\t15\n4204998\tPlastic bronchitis\tSNOMED\tDisorder\t1\n4105601\tPurulent bronchitis\tSNOMED\tDisorder\t4\n4233477\tAllergic bronchitis\tSNOMED\tDisorder\t2\n4270139\tSubacute bronchitis\tSNOMED\tDisorder\t0\n4232302\tCatarrhal bronchitis\tSNOMED\tDisorder\t0\n4233784\tAsthmatic bronchitis\tSNOMED\tDisorder\t2\n37469007\tRecurrent bronchitis\tSNOMED\tDisorder\t2\n4008725\tAdenoviral bronchitis\tSNOMED\tDisorder\t2\n4052543\tAcute viral bronchitis\tSNOMED\tDisorder\t6"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015126.526008,
+   "latency_s": 26.377,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1912,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 260139}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793015152.9034042,
+   "latency_s": 0.009,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 260139
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n260139\tAcute bronchitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t31"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015152.912847,
+   "latency_s": 9.12,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1985,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 260139}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1793015162.0331428,
+   "latency_s": 0.376,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 260139
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n260139\tAcute bronchitis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015162.4095001,
+   "latency_s": 8.164,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2043,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 260139}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1793015170.5740356,
+   "latency_s": 0.068,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 260139
+    },
+    "rows": 16,
+    "output": "total_descendants=31\nid\tname\tclass\tlevels\n4148204\tAcute tracheobronchitis\tDisorder\t1\n4148242\tAcute chemical bronchitis\tDisorder\t1\n4208807\tAcute infective bronchitis\tDisorder\t1\n42536540\tAcute noninfective bronchitis\tDisorder\t1\n4243199\tAcute bronchitis with obstruction\tDisorder\t1\n4197404\tAcute bronchitis with bronchospasm\tDisorder\t1\n37206139\tAcute bronchitis co-occurrent with wheeze\tDisorder\t1\n4112677\tAcute bronchitis caused by chemical fumes\tDisorder\t1\n37017852\tAcute bronchitis co-occurrent with bronchiectasis\tDisorder\t1\n46269701\tChronic obstructive pulmonary disease with acute bronchitis\tDisorder\t1\n4052543\tAcute viral bronchitis\tDisorder\t2\n4112357\tAcute purulent bronchitis\tDisorder\t2\n4049964\tAcute bacterial bronchitis\tDisorder\t2\n4121456\tAcute toxic tracheobronchitis\tDisorder\t2\n4208810\tAcute infective tracheobronchitis\tDisorder\t2"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015170.641979,
+   "latency_s": 30.201,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2435,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4052543, \"max_levels\": 2}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1793015200.843136,
+   "latency_s": 0.598,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4052543,
+     "max_levels": 2
+    },
+    "rows": 10,
+    "output": "id\tname\tclass\tlevels\n4058712\tViral bronchitis\tDisorder\t1\n4252853\tAcute viral disease\tDisorder\t1\n4208807\tAcute infective bronchitis\tDisorder\t1\n256451\tBronchitis\tDisorder\t2\n440029\tViral disease\tDisorder\t2\n260139\tAcute bronchitis\tDisorder\t2\n4271450\tAcute infectious disease\tDisorder\t2\n4124677\tInfectious disorder of bronchus\tDisorder\t2\n4207187\tViral lower respiratory infection\tDisorder\t2\n4307774\tAcute lower respiratory tract infection\tDisorder\t2"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015201.440813,
+   "latency_s": 20.8,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2666,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4058712, \"max_levels\": 2}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1793015222.2411208,
+   "latency_s": 0.391,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4058712,
+     "max_levels": 2
+    },
+    "rows": 9,
+    "output": "id\tname\tclass\tlevels\n256451\tBronchitis\tDisorder\t1\n4124677\tInfectious disorder of bronchus\tDisorder\t1\n4207187\tViral lower respiratory infection\tDisorder\t1\n260131\tDisorder of bronchus\tDisorder\t2\n4193169\tViral respiratory infection\tDisorder\t2\n4175297\tLower respiratory tract infection\tDisorder\t2\n37476300\tStructural abnormality of bronchus\tDisorder\t2\n4181063\tInflammation of specific body organs\tDisorder\t2\n4028876\tInflammatory disorder of lower respiratory tract\tDisorder\t2"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015222.6320038,
+   "latency_s": 18.301,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2886,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 260139}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793015240.933316,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "duplicate_tool_call": "get_concept",
+    "duplicate_retries": 1
+   }
+  },
+  {
+   "step": 15,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793015240.9333227,
+   "latency_s": 58.49,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2954,
+   "output_tokens": 203,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"acute_bronchitis\",\n  \"entry_concept_sets\": [\"acute_bronchitis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"acute_bronchitis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"acute_bronchitis\": {\n      \"name\": \"acute_bronchitis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with acute bronchitis\",\n      \"items\": [\n        {\"concept_id\": 260139, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Specific concept for acute bronchitis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 16,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793015299.4274764,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": [
+     {
+      "level": "warning",
+      "code": "possibly_too_narrow",
+      "message": "only one concept resolved and descendants were not requested; check whether the entry set is too narrow",
+      "concept_set": "acute_bronchitis",
+      "concept_id": null
+     },
+     {
+      "level": "warning",
+      "code": "entry_single_concept_no_descendants",
+      "message": "entry set resolves to one concept without descendants; check get_descendants to confirm whether broader coverage is intended",
+      "concept_set": "acute_bronchitis",
+      "concept_id": null
+     }
+    ]
+   }
+  }
+ ]
+}

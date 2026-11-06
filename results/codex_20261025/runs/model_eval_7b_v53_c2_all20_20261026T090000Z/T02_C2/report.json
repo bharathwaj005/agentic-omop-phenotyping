@@ -1,0 +1,318 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T02_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "219",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "cardiac_arrest",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "cardiac_arrest": {
+        "description": "Patients with a diagnosis of cardiac arrest",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 321042,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Specific concept for cardiac arrest"
+          }
+        ],
+        "name": "cardiac_arrest"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "cardiac_arrest",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "cardiac_arrest",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "cardiac_arrest",
+    "entry_concept_sets": [
+      "cardiac_arrest"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with cardiac arrest or cardiac death associated with a qualifying inpatient or emergency-room encounter.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 49237,
+  "llm_calls": 19,
+  "logical_run_id": "v53_T02_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.7289719626168224,
+        "jaccard": 0.5735294117647058,
+        "precision": 1.0,
+        "recall": 0.5735294117647058
+      },
+      "full": {
+        "f1": 0.6902654867256637,
+        "jaccard": 0.527027027027027,
+        "precision": 1.0,
+        "recall": 0.527027027027027
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.7289719626168224,
+        "jaccard": 0.5735294117647058,
+        "precision": 1.0,
+        "recall": 0.5735294117647058
+      },
+      "full": {
+        "f1": 0.6902654867256637,
+        "jaccard": 0.527027027027027,
+        "precision": 1.0,
+        "recall": 0.527027027027027
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "cardiac arrest"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n321042\tCardiac arrest\tSNOMED\tDisorder\t38\n37169854\tFetal cardiac arrest\tSNOMED\tDisorder\t0\n4106274\tNeonatal cardiac arrest\tSNOMED\tDisorder\t1\n437894\tVentricular fibrillation\tSNOMED\tDisorder\t4\n764719\tIdiopathic cardiac arrest\tSNOMED\tDisorder\t0\n37472185\tIn-hospital cardiac arrest\tSNOMED\tDisorder\t0\n45766074\tBradycardic cardiac arrest\tSNOMED\tDisorder\t0\n4306984\tCardiac arrest due to trauma\tSNOMED\tDisorder\t0\n4122762\tPulseless electrical activity\tSNOMED\tDisorder\t1\n37398951\tCardiac arrest during surgery\tSNOMED\tDisorder\t2\n3663210\tCollapse due to cardiac arrest\tSNOMED\tClinical Finding\t0\n4173792\tCardiac arrest due to drowning\tSNOMED\tDisorder\t0\n37472184\tOut-of-hospital cardiac arrest\tSNOMED\tDisorder\t0\n607219\tCardiac arrest due to procedure\tSNOMED\tDisorder\t2\n607220\tCardiac arrest during procedure\tSNOMED\tDisorder\t5",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "cardiac death"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4317150\tSudden cardiac death\tSNOMED\tDisorder\t1\n42536727\tSudden arrhythmic death syndrome\tSNOMED\tDisorder\t0",
+        "rows": 2
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient encounter"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9201\tInpatient Visit\tVisit\tVisit\t3\n32760\tIsolation in inpatient setting\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 3
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "emergency room"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9203\tEmergency Room Visit\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 2
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "qualifying encounter"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "qualifying"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "encounter"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "encounter"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "encounter"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n37150983\tEmail encounter\tSNOMED\tProcedure\t4\n4203434\tLetter encounter\tSNOMED\tProcedure\t10\n4088561\tIndirect encounter\tSNOMED\tProcedure\t52\n4089036\tTelephone encounter\tSNOMED\tProcedure\t9\n44791969\tVideo-link encounter\tSNOMED\tProcedure\t0\n4083438\tThird party encounter\tSNOMED\tProcedure\t4\n4148765\tEncounter group therapy\tSNOMED\tProcedure\t0\n44791910\tTwo way radio encounter\tSNOMED\tProcedure\t0\n764295\tVideotelephony encounter\tSNOMED\tProcedure\t3\n4085788\tEncounter by computer link\tSNOMED\tProcedure\t5\n4293864\tTelephone triage encounter\tSNOMED\tProcedure\t1\n4235224\tEmail encounter to caregiver\tSNOMED\tProcedure\t0\n4207282\tEmail encounter from caregiver\tSNOMED\tProcedure\t0\n1448094\tThird party telephone encounter\tSNOMED\tProcedure\t0\n37019076\tEmail encounter from third party\tSNOMED\tProcedure\t0",
+        "rows": 15
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient or emergency-room"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient or emergency"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 24,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "emergency"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9203\tEmergency Room Visit\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 2
+      },
+      "step": 28,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "qualifying"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 30,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "qualifying"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 32,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 704,
+  "per_set": {
+    "cardiac_arrest": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 321042,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Specific concept for cardiac arrest"
+        }
+      ],
+      "resolved_count": 39
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "185b94088b22a0543c24fb34bd416b64369162abec9ed40bd223da92799552b1",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T02_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T02",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 49237,
+    "llm_calls": 19,
+    "llm_time_s": 295.07,
+    "output_tokens": 704,
+    "peak_ram_mb": 274.6,
+    "tool_calls": 15,
+    "total_tokens": 49941,
+    "validator_retries": 0,
+    "wall_seconds": 297.25908114900085,
+    "wall_time_s": 297.27
+  },
+  "tool_calls": 15,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T02_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 297.25908114900085
+}

@@ -1,0 +1,221 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N12_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1066",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": null,
+  "input_tokens": 59199,
+  "llm_calls": 20,
+  "logical_run_id": "neuro_N12_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "rheumatoid arthritis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n80809\tRheumatoid arthritis\tSNOMED\tDisorder\t133\n81097\tFelty's syndrome\tSNOMED\tDisorder\t2\n4103516\tRheumatoid carditis\tSNOMED\tDisorder\t0\n4306357\tRheumatoid aortitis\tSNOMED\tDisorder\t0\n4243509\tRheumatoid scleritis\tSNOMED\tDisorder\t1\n4269880\tRheumatoid arteritis\tSNOMED\tDisorder\t1\n4296152\tRheumatoid pericarditis\tSNOMED\tDisorder\t0\n4300202\tRheumatoid episcleritis\tSNOMED\tDisorder\t0\n4030424\tRheumatoid osteoperiostitis\tSNOMED\tDisorder\t0\n4116150\tRheumatoid arthritis of hip\tSNOMED\tDisorder\t9\n4116151\tRheumatoid arthritis of knee\tSNOMED\tDisorder\t9\n4179378\tRheumatoid arthritis of foot\tSNOMED\tDisorder\t12\n4114444\tFlare of rheumatoid arthritis\tSNOMED\tDisorder\t0\n4116440\tRheumatoid arthritis of elbow\tSNOMED\tDisorder\t10\n4116441\tRheumatoid arthritis of wrist\tSNOMED\tDisorder\t10",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "tumor necrosis factor alpha inhibitor"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "TNF inhibitor"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "TNF"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "etanercept"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1151789\tetanercept\tRxNorm\tIngredient\t47\n1151882\tetanercept 25 MG/ML\tRxNorm\tClinical Drug Comp\t3\n19121852\tetanercept 50 MG/ML\tRxNorm\tClinical Drug Comp\t20\n1361411\tetanercept Cartridge\tRxNorm\tClinical Drug Form\t5\n37002663\tetanercept Injection\tRxNorm\tClinical Drug Form\t5\n37003185\tetanercept-ykro 50 MG/ML\tRxNorm\tClinical Drug Comp\t7\n46234060\tetanercept Auto-Injector\tRxNorm\tClinical Drug Form\t5\n19064171\tetanercept 25 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t1\n19064172\tetanercept 50 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t9\n40141784\tetanercept Prefilled Syringe\tRxNorm\tClinical Drug Form\t14\n1361412\tetanercept Cartridge [Enbrel]\tRxNorm\tBranded Drug Form\t2\n1361413\tetanercept 50 MG/ML Cartridge\tRxNorm\tClinical Drug\t3\n37002664\tetanercept Injection [Enbrel]\tRxNorm\tBranded Drug Form\t2\n37002665\tetanercept 50 MG/ML Injection\tRxNorm\tClinical Drug\t3\n40038979\tetanercept Injectable Solution\tRxNorm\tClinical Drug Form\t4",
+        "rows": 15
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1151789
+        },
+        "output": "id\tname\tdomain\tvocab\n1151789\tetanercept\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "adalimumab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1119119\tadalimumab\tRxNorm\tIngredient\t325\n1119121\tadalimumab 50 MG/ML\tRxNorm\tClinical Drug Comp\t25\n35604489\tadalimumab 100 MG/ML\tRxNorm\tClinical Drug Comp\t31\n46275866\tadalimumab Injection\tRxNorm\tClinical Drug Form\t20\n745879\tadalimumab-bwwd 50 MG/ML\tRxNorm\tClinical Drug Comp\t13\n745892\tadalimumab-aqvh 50 MG/ML\tRxNorm\tClinical Drug Comp\t9\n745903\tadalimumab-fkjp 50 MG/ML\tRxNorm\tClinical Drug Comp\t11\n745924\tadalimumab-aacf 50 MG/ML\tRxNorm\tClinical Drug Comp\t17\n745948\tadalimumab-adbm 50 MG/ML\tRxNorm\tClinical Drug Comp\t17\n746661\tadalimumab-adaz 50 MG/ML\tRxNorm\tClinical Drug Comp\t9\n746915\tadalimumab-afzb 50 MG/ML\tRxNorm\tClinical Drug Comp\t17\n1301574\tadalimumab-atto 50 MG/ML\tRxNorm\tClinical Drug Comp\t13\n46275564\tadalimumab Auto-Injector\tRxNorm\tClinical Drug Form\t123\n745917\tadalimumab-bwwd 100 MG/ML\tRxNorm\tClinical Drug Comp\t9\n746013\tadalimumab-adaz 100 MG/ML\tRxNorm\tClinical Drug Comp\t25",
+        "rows": 15
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1119119
+        },
+        "output": "id\tname\tdomain\tvocab\n1119119\tadalimumab\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 18,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "infliximab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n937368\tinfliximab\tRxNorm\tIngredient\t41\n46275592\tinfliximab 100 MG\tRxNorm\tClinical Drug Comp\t3\n46275593\tinfliximab Injection\tRxNorm\tClinical Drug Form\t12\n1592761\tinfliximab-abda 100 MG\tRxNorm\tClinical Drug Comp\t3\n37498064\tinfliximab-axxq 100 MG\tRxNorm\tClinical Drug Comp\t3\n42629514\tinfliximab-dyyb 100 MG\tRxNorm\tClinical Drug Comp\t3\n42609234\tinfliximab Pen Injector\tRxNorm\tClinical Drug Form\t5\n42609233\tinfliximab-dyyb 120 MG/ML\tRxNorm\tClinical Drug Comp\t9\n19078524\tinfliximab 100 MG Injection\tRxNorm\tClinical Drug\t1\n42609241\tinfliximab Prefilled Syringe\tRxNorm\tClinical Drug Form\t5\n46275594\tinfliximab 100 MG [Remicade]\tRxNorm\tBranded Drug Comp\t1\n37498068\tinfliximab Injection [Avsola]\tRxNorm\tBranded Drug Form\t1\n37498067\tinfliximab-axxq 100 MG [Avsola]\tRxNorm\tBranded Drug Comp\t1\n46275595\tinfliximab Injection [Remicade]\tRxNorm\tBranded Drug Form\t1\n1592762\tinfliximab-abda 100 MG Injection\tRxNorm\tClinical Drug\t1",
+        "rows": 15
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 937368
+        },
+        "output": "id\tname\tdomain\tvocab\n937368\tinfliximab\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 24,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "certolizumab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n912263\tcertolizumab pegol\tRxNorm\tIngredient\t20\n46234123\tcertolizumab pegol 200 MG\tRxNorm\tClinical Drug Comp\t3\n19129992\tcertolizumab pegol 200 MG/ML\tRxNorm\tClinical Drug Comp\t9\n46234124\tcertolizumab pegol Injection\tRxNorm\tClinical Drug Form\t3\n46234125\tcertolizumab pegol 200 MG [Cimzia]\tRxNorm\tBranded Drug Comp\t1\n19129993\tcertolizumab pegol 200 MG Injection\tRxNorm\tClinical Drug\t1\n40160746\tcertolizumab pegol Prefilled Syringe\tRxNorm\tClinical Drug Form\t9\n19129994\tcertolizumab pegol 200 MG/ML [Cimzia]\tRxNorm\tBranded Drug Comp\t4\n46234126\tcertolizumab pegol Injection [Cimzia]\tRxNorm\tBranded Drug Form\t1\n19129995\tcertolizumab pegol 200 MG Injection [Cimzia]\tRxNorm\tBranded Drug\t0\n40160747\tcertolizumab pegol Prefilled Syringe [Cimzia]\tRxNorm\tBranded Drug Form\t4\n42902968\tcertolizumab pegol 200 MG/ML Prefilled Syringe\tRxNorm\tClinical Drug\t7\n912267\t1 ML certolizumab pegol 200 MG/ML Prefilled Syringe\tRxNorm\tQuant Clinical Drug\t5\n42902822\tcertolizumab pegol 200 MG/ML Prefilled Syringe [Cimzia]\tRxNorm\tBranded Drug\t3\n912268\t1 ML certolizumab pegol 200 MG/ML Prefilled Syringe [Cimzia]\tRxNorm\tQuant Branded Drug\t2",
+        "rows": 15
+      },
+      "step": 28,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 912263
+        },
+        "output": "id\tname\tdomain\tvocab\n912263\tcertolizumab pegol\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 30,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "\u6f70\u6027\u6f70\u760d"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 36,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "peptic ulcer"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4027663\tPeptic ulcer\tSNOMED\tDisorder\t290\n4265600\tGastric ulcer\tSNOMED\tDisorder\t143\n25844\tUlcer of esophagus\tSNOMED\tDisorder\t23\n4057060\tAcute peptic ulcer\tSNOMED\tDisorder\t76\n4319441\tAcute gastric ulcer\tSNOMED\tDisorder\t37\n4057053\tAcute duodenal ulcer\tSNOMED\tDisorder\t17\n4134146\tChronic peptic ulcer\tSNOMED\tDisorder\t57\n4172869\tNeonatal peptic ulcer\tSNOMED\tDisorder\t0\n4318534\tChronic gastric ulcer\tSNOMED\tDisorder\t31\n4028242\tChronic duodenal ulcer\tSNOMED\tDisorder\t12\n36713503\tPeptic anastomotic ulcer\tSNOMED\tDisorder\t44\n4003018\tDrug-induced peptic ulcer\tSNOMED\tDisorder\t17\n3655488\tExacerbation of peptic ulcer\tSNOMED\tDisorder\t0\n4271696\tPeptic ulcer with hemorrhage\tSNOMED\tDisorder\t76\n4338225\tPeptic ulcer with perforation\tSNOMED\tDisorder\t71",
+        "rows": 15
+      },
+      "step": 38,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 689,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "7242b256334c139f1fa54cec9e4995568fde33be145efc3f666a9cb8dc3168d9",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N12_C2/raw_replies.json",
+  "reason": "JBI_RUN_DEADLINE_S exceeded",
+  "schema_version": 1,
+  "status": "timeout",
+  "task_id": "N12",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 59199,
+    "llm_calls": 20,
+    "llm_time_s": 1198.1,
+    "output_tokens": 689,
+    "peak_ram_mb": 204.9,
+    "tool_calls": 14,
+    "total_tokens": 59888,
+    "validator_retries": 0,
+    "wall_seconds": 1200.120099669999,
+    "wall_time_s": 1200.13
+  },
+  "tool_calls": 14,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N12_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 1200.120099669999
+}

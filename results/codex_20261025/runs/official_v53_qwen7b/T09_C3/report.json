@@ -1,0 +1,159 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T09_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "864",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "qualifying_dementia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "qualifying_dementia": {
+        "description": "Patients with a diagnosis of dementia.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378419,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'Alzheimer's disease' (378419) is the most specific and clinically relevant standard concept that matches the Planner's description of patients with a diagnosis of dementia. It is a well-established term in the SNOMED vocabulary and covers the primary form of dementia, which aligns with the study question."
+          }
+        ],
+        "name": "qualifying_dementia"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "qualifying_dementia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "qualifying_dementia",
+    "entry_concept_sets": [
+      "qualifying_dementia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with qualifying dementia.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5291,
+  "llm_calls": 4,
+  "logical_run_id": "v53_T09_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.00816326530612245,
+        "jaccard": 0.004098360655737705,
+        "precision": 1.0,
+        "recall": 0.004098360655737705
+      },
+      "full": {
+        "f1": 0.00816326530612245,
+        "jaccard": 0.004098360655737705,
+        "precision": 1.0,
+        "recall": 0.004098360655737705
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.00816326530612245,
+        "jaccard": 0.004098360655737705,
+        "precision": 1.0,
+        "recall": 0.004098360655737705
+      },
+      "full": {
+        "f1": 0.00816326530612245,
+        "jaccard": 0.004098360655737705,
+        "precision": 1.0,
+        "recall": 0.004098360655737705
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "dementia"
+        },
+        "concept_set": "qualifying_dementia",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4182210\tDementia\tSNOMED\tDisorder\t215\n762497\tMild dementia\tSNOMED\tDisorder\t0\n36717598\tToxic dementia\tSNOMED\tDisorder\t6\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n765653\tSevere dementia\tSNOMED\tDisorder\t0\n4047748\tPatchy dementia\tSNOMED\tDisorder\t0\n4048875\tSenile dementia\tSNOMED\tDisorder\t18\n37204495\tABri amyloidosis\tSNOMED\tDisorder\t0\n37204554\tADan amyloidosis\tSNOMED\tDisorder\t0\n443605\tVascular dementia\tSNOMED\tDisorder\t24\n762704\tModerate dementia\tSNOMED\tDisorder\t0\n4046091\tSemantic dementia\tSNOMED\tDisorder\t0\n4244346\tDialysis dementia\tSNOMED\tDisorder\t0\n378125\tPresenile dementia\tSNOMED\tDisorder\t21\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "concept_set": "qualifying_dementia",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378419\tAlzheimer's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t34",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 369,
+  "per_set": {
+    "qualifying_dementia": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 378419,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'Alzheimer's disease' (378419) is the most specific and clinically relevant standard concept that matches the Planner's description of patients with a diagnosis of dementia. It is a well-established term in the SNOMED vocabulary and covers the primary form of dementia, which aligns with the study question."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "667c4dedc2c6ab06ac4ad5296aac481b7055ad7e2c04e7f418a0a9cb548d11f9",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T09_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T09",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5291,
+    "llm_calls": 4,
+    "llm_time_s": 123.54,
+    "output_tokens": 369,
+    "peak_ram_mb": 204.4,
+    "tool_calls": 2,
+    "total_tokens": 5660,
+    "validator_retries": 0,
+    "wall_seconds": 123.74267587099985,
+    "wall_time_s": 123.75
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T09_C3/trace.json",
+  "track": "v53",
+  "wall_seconds": 123.74267587099985
+}

@@ -1,0 +1,205 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N08_C4_attempt1",
+ "config": "C4",
+ "task_id": "N08",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with encephalitis based on diagnosis evidence.",
+  "entry_concept_set": "encephalitis_diagnosis",
+  "entry_concept_sets": [
+   "encephalitis_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "encephalitis_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "encephalitis_diagnosis": {
+    "name": "encephalitis_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of encephalitis.",
+    "items": [
+     {
+      "concept_id": 378143,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The SNOMED concept 'Encephalitis' (378143) accurately represents the clinical description of patients with encephalitis. It is a valid standard concept in the Condition domain."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 2,
+  "input_tokens": 5897,
+  "output_tokens": 382,
+  "total_tokens": 6279,
+  "wall_time_s": 108.33,
+  "llm_time_s": 108.13,
+  "peak_ram_mb": 373.8,
+  "critic_rounds": 1,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793169924.6463203,
+   "latency_s": 39.526,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1020,
+   "output_tokens": 178,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"encephalitis_diagnosis\",\n    \"entry_concept_sets\": [\"encephalitis_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"encephalitis_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"encephalitis_diagnosis\": {\n        \"name\": \"encephalitis_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of encephalitis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793169964.172323,
+   "latency_s": 9.919,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1159,
+   "output_tokens": 44,
+   "detail": {
+    "concept_set": "encephalitis_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"encephalitis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793169974.0912275,
+   "latency_s": 0.154,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "encephalitis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "encephalitis_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n378143\tEncephalitis\tSNOMED\tDisorder\t238\n444373\tKuru\tSNOMED\tDisorder\t0\n377793\tRabies\tSNOMED\tDisorder\t9\n4046826\tRio Bravo fever\tSNOMED\tDisorder\t1\n35622356\tMorvan syndrome\tSNOMED\tDisorder\t0\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n372547\tViral encephalitis\tSNOMED\tDisorder\t122\n376970\tSchilder's disease\tSNOMED\tDisorder\t0\n378065\tMumps encephalitis\tSNOMED\tDisorder\t1\n378136\tToxic encephalitis\tSNOMED\tDisorder\t2\n4041672\tRasmussen syndrome\tSNOMED\tDisorder\t1\n4047626\tFocal encephalitis\tSNOMED\tDisorder\t2\n44806551\tAcute encephalitis\tSNOMED\tDisorder\t6\n4041673\tLimbic encephalitis\tSNOMED\tDisorder\t9\n4044936\tTensaw encephalitis\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793169974.245685,
+   "latency_s": 26.506,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1551,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "encephalitis_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 378143\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793170000.7522178,
+   "latency_s": 0.007,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 378143
+    },
+    "concept_set": "encephalitis_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378143\tEncephalitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t238"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793170000.7587893,
+   "latency_s": 27.282,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1632,
+   "output_tokens": 106,
+   "detail": {
+    "concept_set": "encephalitis_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 378143,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 'Encephalitis' (378143) accurately represents the clinical description of patients with encephalitis. It is a valid standard concept in the Condition domain.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793170028.0412347,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "encephalitis_diagnosis",
+    "items": 1,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1793170028.0771835,
+   "latency_s": 4.894,
+   "model": "qwen2.5:7b",
+   "input_tokens": 535,
+   "output_tokens": 22,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+   }
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"rheumatoid arthritis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"tumor necrosis factor alpha inhibitor\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"TNF inhibitor\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"TNF\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"etanercept\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 1151789}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 1151789}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"adalimumab\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 1119119}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 1119119}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"infliximab\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 937368}}"
+  },
+  {
+    "step": 25,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 937368}}"
+  },
+  {
+    "step": 27,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"certolizumab\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 29,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 912263}}"
+  },
+  {
+    "step": 31,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 912263}}"
+  },
+  {
+    "step": 33,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n    \"specification\": {\n        \"queries\": [\n            {\"concept_id\": 1151789, \"name\": \"etanercept\"},\n            {\"concept_id\": 912263, \"name\": \"certolizumab pegol\"},\n            {\"concept_id\": 937368, \"name\": \"infliximab\"},\n            {\"concept_id\": 1119119, \"name\": \"adalimumab\"}\n        ],\n        \"final_concepts\": [\n            {\"concept_id\": 1151789, \"name\": \"etanercept\"},\n            {\"concept_id\": 912263, \"name\": \"certolizumab pegol\"},\n            {\"concept_id\": 937368, \"name\": \"infliximab\"},\n            {\"concept_id\": 1119119, \"name\": \"adalimumab\"}\n        ]\n    }\n}}"
+  },
+  {
+    "step": 35,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"\u6f70\u6027\u6f70\u760d\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 37,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"peptic ulcer\", \"domain\": \"Condition\"}}"
+  }
+]

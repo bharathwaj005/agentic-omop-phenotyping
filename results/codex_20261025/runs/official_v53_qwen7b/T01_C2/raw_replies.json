@@ -1,0 +1,92 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD medication\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD drug\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"stimulant\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD medication\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD therapy\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 45765570, \"max_levels\": 1}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4216752}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 438409, \"limit\": 10}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 438409, \"max_levels\": 1}}"
+  },
+  {
+    "step": 25,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4043545}}"
+  },
+  {
+    "step": 27,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4047120}}"
+  },
+  {
+    "step": 29,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"adhd_diagnosis\",\n  \"entry_concept_sets\": [\"adhd_diagnosis\", \"adhd_treatment\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"adhd_diagnosis\", \"event_domain\": \"Condition\"},\n    {\"concept_set\": \"adhd_treatment\", \"event_domain\": \"Procedure\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"adhd_diagnosis\": {\n      \"name\": \"adhd_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Attention deficit hyperactivity disorder diagnosis\",\n      \"items\": [\n        {\"concept_id\": 438409, \"include_descendants\": true, \"is_excluded\": false, \"rationale\": \"Primary diagnosis of ADHD\"}\n      ]\n    },\n    \"adhd_treatment\": {\n      \"name\": \"adhd_treatment\",\n      \"domain\": \"Procedure\",\n      \"description\": \"ADHD treatment procedures\",\n      \"items\": [\n        {\"concept_id\": 45765570, \"include_descendants\": true, \"is_excluded\": false, \"rationale\": \"General ADHD therapy procedure\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

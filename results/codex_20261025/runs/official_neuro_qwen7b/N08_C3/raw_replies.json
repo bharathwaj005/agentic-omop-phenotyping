@@ -1,0 +1,26 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"encephalitis_diagnosis\",\n    \"entry_concept_sets\": [\"encephalitis_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"encephalitis_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"encephalitis_diagnosis\": {\n        \"name\": \"encephalitis_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of encephalitis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"encephalitis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 378143\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 378143,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 'Encephalitis' (378143) accurately represents the clinical description of patients with encephalitis. It is a valid standard concept in the Condition domain.\"\n      }\n    ]\n  }\n}"
+  }
+]

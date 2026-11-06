@@ -1,0 +1,44 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"new_users_of_dihydropyridine_calcium_channel_blockers\",\n    \"entry_concept_sets\": [\"new_users_of_dihydropyridine_calcium_channel_blockers\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"new_users_of_dihydropyridine_calcium_channel_blockers\",\n        \"event_domain\": \"Drug\"\n      }\n    ],\n    \"first_occurrence_only\": true,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"new_users_of_dihydropyridine_calcium_channel_blockers\": {\n        \"name\": \"new_users_of_dihydropyridine_calcium_channel_blockers\",\n        \"domain\": \"Drug\",\n        \"description\": \"New users of dihydropyridine calcium-channel blockers.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"new_users_of_dihydropyridine_calcium_channel_blockers\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0,\n        \"rule\": \"at_least_one\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"dihydropyridine calcium-channel blocker\",\n    \"domain\": \"Drug\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"dihydropyridine\",\n    \"domain\": \"Drug\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"calcium channel blocker\",\n    \"domain\": \"Drug\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 8,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"nifedipine\",\n    \"domain\": \"Drug\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 10,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 1318853\n  }\n}"
+  },
+  {
+    "step": 12,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 1318853\n  }\n}"
+  }
+]

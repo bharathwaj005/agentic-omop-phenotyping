@@ -1,0 +1,177 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N06_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "535",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "acute_disseminated_encephalomyelitis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_disseminated_encephalomyelitis": {
+        "description": "Patients diagnosed with acute disseminated encephalomyelitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 374021,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The specific concept for acute disseminated encephalomyelitis is used to ensure accurate identification of the condition."
+          }
+        ],
+        "name": "acute_disseminated_encephalomyelitis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_disseminated_encephalomyelitis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_disseminated_encephalomyelitis",
+    "entry_concept_sets": [
+      "acute_disseminated_encephalomyelitis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute disseminated encephalomyelitis based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 9420,
+  "llm_calls": 5,
+  "logical_run_id": "neuro_N06_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      },
+      "full": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      },
+      "full": {
+        "f1": 0.33333333333333337,
+        "jaccard": 0.2,
+        "precision": 1.0,
+        "recall": 0.2
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute disseminated encephalomyelitis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n374021\tAcute disseminated encephalomyelitis\tSNOMED\tDisorder\t4\n761989\tRecurrent acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n765827\tMultiphasic acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "output": "total_descendants=4\nid\tname\tclass\tlevels\n4249574\tAcute hemorrhagic leukoencephalitis\tDisorder\t1\n761989\tRecurrent acute disseminated encephalomyelitis\tDisorder\t1\n765827\tMultiphasic acute disseminated encephalomyelitis\tDisorder\t1\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tDisorder\t1",
+        "rows": 5
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4200516\tLesion of brain\tDisorder\t1\n764204\tAcute myelopathy\tDisorder\t1\n373189\tEncephalomyelitis\tDisorder\t1\n4318558\tAutoimmune encephalitis\tDisorder\t1\n4134294\tAcute inflammatory disease\tDisorder\t1\n375239\tDegenerative brain disorder\tDisorder\t1\n4202314\tDemyelination of spinal cord\tDisorder\t1\n138965\tMyelitis\tDisorder\t2\n378143\tEncephalitis\tDisorder\t2\n443883\tAcute disease\tDisorder\t2\n372887\tDisorder of brain\tDisorder\t2\n434621\tAutoimmune disease\tDisorder\t2\n135526\tSpinal cord disease\tDisorder\t2\n4103662\tNeurological lesion\tClinical Finding\t2\n4157036\tEncephalomyelopathy\tDisorder\t2",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "output": "id\tname\tdomain\tvocab\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 367,
+  "per_set": {
+    "acute_disseminated_encephalomyelitis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 374021,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The specific concept for acute disseminated encephalomyelitis is used to ensure accurate identification of the condition."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "a5e1e6e92c3415c3c8d991a87b447ea314a3abefbf27f55ab0cb977f8b1d87e3",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N06_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N06",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 9420,
+    "llm_calls": 5,
+    "llm_time_s": 123.22,
+    "output_tokens": 367,
+    "peak_ram_mb": 375.7,
+    "tool_calls": 4,
+    "total_tokens": 9787,
+    "validator_retries": 0,
+    "wall_seconds": 123.82468699200035,
+    "wall_time_s": 123.83
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N06_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 123.82468699200035
+}

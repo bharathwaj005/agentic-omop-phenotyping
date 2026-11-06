@@ -1,0 +1,39 @@
+{
+ "task_id": "229",
+ "cohort_id": "229",
+ "entry_codeset_id": "0",
+ "entry_domain": "Condition",
+ "entry_concept_ids": [
+  433957,
+  4100234,
+  4226631,
+  37017246,
+  37116468,
+  45766390
+ ],
+ "all_concept_ids": [
+  433957,
+  4100234,
+  4226631,
+  37017246,
+  37116468,
+  45766390
+ ],
+ "concept_sets": {
+  "0": {
+   "name": "Progressive Multifocal Leukoencephalopathy (PML)",
+   "concept_ids": [
+    433957,
+    4100234,
+    4226631,
+    37017246,
+    37116468,
+    45766390
+   ]
+  }
+ },
+ "counts": {
+  "entry": 6,
+  "all": 6
+ }
+}

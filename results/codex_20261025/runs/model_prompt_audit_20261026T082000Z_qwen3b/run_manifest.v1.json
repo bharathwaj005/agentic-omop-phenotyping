@@ -1,0 +1,60 @@
+{
+  "configuration_sha256": "1a75a659e3a0aebdab13cbb35622e37dc67ff89fa6e4a3c9b302321282c97186",
+  "configurations": [
+    "C2"
+  ],
+  "created_at_utc": "2026-10-26T08:47:27.823289+00:00",
+  "design_freeze_input": {
+    "path": "/home/bharathwaj/jbi/results/benchmark_design/V5_3_FREEZE/BENCHMARK_FINAL20_V5_3_FINAL.csv",
+    "sha256": "205e4f69c4d43b89719c4291446d11b760b939b2610999e43c2a11dc4377e0f2"
+  },
+  "experiment_id": "model_prompt_audit_20261026T082000Z_qwen3b",
+  "freeze_manifest": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_prompt_audit_20261026T082000Z_qwen3b/freeze_manifest.json",
+    "sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06"
+  },
+  "model_identity": {
+    "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "endpoint_kind": "local_ollama",
+    "modified_at": "2026-10-05T02:00:27.960567808+05:30",
+    "requested_model": "qwen2.5:3b",
+    "resolved_tag": "qwen2.5:3b",
+    "size_bytes": 1929912432
+  },
+  "model_requested": "qwen2.5:3b",
+  "ollama_num_ctx": 4096,
+  "reference_inputs": [
+    {
+      "cohort_id": "134",
+      "path": "/home/bharathwaj/jbi/tasks/reference/134.json",
+      "sha256": "a9ded2583ada1e552702595e3a80b132ce5a1d4dbebaf3ceef972492a4248c2c",
+      "task_id": "T01",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "134",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/134.json",
+      "sha256": "953f51e696194ae97284929013ba17fb851d982a185ff5dacb7f280dba67c7b2",
+      "task_id": "T01",
+      "version": "v2"
+    }
+  ],
+  "runtime_queue_initial": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_prompt_audit_20261026T082000Z_qwen3b/RUN_QUEUE.csv",
+    "sha256": "a7760e228de9977d97e8783bd8ce91172a88594d51a25cc2ad812e823ef7f6e2"
+  },
+  "schema_version": 1,
+  "semantics": {
+    "design_freeze_input": "design CSV hash; never interpreted as runtime queue hash",
+    "runtime_queue_initial": "exact initial runtime queue bytes; queue changes as statuses are checkpointed"
+  },
+  "task_file": {
+    "path": "/home/bharathwaj/jbi/tasks/benchmark_questions.jsonl",
+    "sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df"
+  },
+  "track": "v53",
+  "vocabulary_source": {
+    "path": "/media/bharathwaj/HDD_Storage/project_jbi/data/vocab.duckdb",
+    "sha256": "34167ed891e1ff159ddc3ccb73f1bbad3c5364b9412e598a854f46cf11eae138"
+  }
+}

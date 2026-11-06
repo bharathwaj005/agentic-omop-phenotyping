@@ -1,0 +1,44 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"adhd_diagnosis_or_treatment\",\n    \"entry_concept_sets\": [\"adhd_diagnosis_or_treatment\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"adhd_diagnosis_or_treatment\",\n        \"event_domain\": \"Condition\"\n      },\n      {\n        \"concept_set\": \"adhd_diagnosis_or_treatment\",\n        \"event_domain\": \"Drug\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"adhd_diagnosis_or_treatment\": {\n        \"name\": \"adhd_diagnosis_or_treatment\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of attention deficit hyperactivity disorder or a prescription for ADHD treatment.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"ADHD diagnosis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"ADHD\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+  },
+  {
+    "step": 8,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 438409\n  }\n}"
+  },
+  {
+    "step": 10,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 438409,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The OMOP standard concept 438409 (Attention deficit hyperactivity disorder) directly matches the Planner's clinical description of a diagnosis of ADHD.\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 12,
+    "actor": "critic",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+  }
+]

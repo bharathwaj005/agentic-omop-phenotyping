@@ -1,0 +1,203 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N04_C3_attempt1",
+ "config": "C3",
+ "task_id": "N04",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with multiple sclerosis based on their earliest qualifying diagnosis.",
+  "entry_concept_set": "ms_diagnosis",
+  "entry_concept_sets": [
+   "ms_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "ms_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": true,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 365,
+  "criteria": [],
+  "concept_sets": {
+   "ms_diagnosis": {
+    "name": "ms_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of multiple sclerosis.",
+    "items": [
+     {
+      "concept_id": 374919,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The OMOP concept ID 374919 represents 'Multiple sclerosis' in SNOMED, which is the primary diagnosis of interest for identifying patients with multiple sclerosis. Including descendants ensures that all specific types of multiple sclerosis are captured."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 4,
+  "tool_calls": 2,
+  "input_tokens": 5384,
+  "output_tokens": 349,
+  "total_tokens": 5733,
+  "wall_time_s": 103.35,
+  "llm_time_s": 103.15,
+  "peak_ram_mb": 373.2,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793166217.0846474,
+   "latency_s": 36.119,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1020,
+   "output_tokens": 163,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"ms_diagnosis\",\n    \"entry_concept_sets\": [\"ms_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"ms_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": true,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"ms_diagnosis\": {\n        \"name\": \"ms_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of multiple sclerosis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793166253.2033036,
+   "latency_s": 9.313,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1154,
+   "output_tokens": 42,
+   "detail": {
+    "concept_set": "ms_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"multiple sclerosis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793166262.5164278,
+   "latency_s": 0.159,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "multiple sclerosis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "ms_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n374919\tMultiple sclerosis\tSNOMED\tDisorder\t17\n4231948\tBenign multiple sclerosis\tSNOMED\tDisorder\t0\n4258676\tMalignant multiple sclerosis\tSNOMED\tDisorder\t0\n37162102\tPediatric multiple sclerosis\tSNOMED\tDisorder\t0\n37311816\tProgressive multiple sclerosis\tSNOMED\tDisorder\t3\n35623817\tMarburg acute multiple sclerosis\tSNOMED\tDisorder\t0\n4046108\tAcute relapsing multiple sclerosis\tSNOMED\tDisorder\t0\n4102337\tExacerbation of multiple sclerosis\tSNOMED\tDisorder\t1\n37167005\tMyelitis due to multiple sclerosis\tSNOMED\tDisorder\t0\n4105353\tMultiple sclerosis of the brainstem\tSNOMED\tDisorder\t0\n37166929\tHemichorea due to multiple sclerosis\tSNOMED\tDisorder\t0\n4101729\tMultiple sclerosis of the spinal cord\tSNOMED\tDisorder\t1\n4145049\tRelapsing remitting multiple sclerosis\tSNOMED\tDisorder\t0\n4178929\tPrimary progressive multiple sclerosis\tSNOMED\tDisorder\t0\n37163450\tSclerosis of multiple endocrine glands\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793166262.67572,
+   "latency_s": 28.984,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1566,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "ms_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 374919\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793166291.6602066,
+   "latency_s": 0.007,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 374919
+    },
+    "concept_set": "ms_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n374919\tMultiple sclerosis\tCondition\tSNOMED\tDisorder\tS\tTrue\t17"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793166291.667073,
+   "latency_s": 28.735,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1644,
+   "output_tokens": 112,
+   "detail": {
+    "concept_set": "ms_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 374919,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The OMOP concept ID 374919 represents 'Multiple sclerosis' in SNOMED, which is the primary diagnosis of interest for identifying patients with multiple sclerosis. Including descendants ensures that all specific types of multiple sclerosis are captured.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793166320.4019425,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "ms_diagnosis",
+    "items": 1,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 8,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793166320.4347897,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}

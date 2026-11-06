@@ -1,0 +1,38 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"acute_typical_pneumonia\",\n    \"entry_concept_sets\": [\"acute_typical_pneumonia\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"acute_typical_pneumonia\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"acute_typical_pneumonia\": {\n        \"name\": \"acute_typical_pneumonia\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of acute typical pneumonia.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"acute typical pneumonia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"typical pneumonia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"typical pneumonia\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 8,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": []\n  }\n}"
+  },
+  {
+    "step": 11,
+    "actor": "builder",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"concept_sets\": {},\n    \"criteria\": [\n      {\n        \"concept_set\": \"arms: acute_typical_pneumonia (Condition)\",\n        \"first_occurrence_only\": false,\n        \"age\": \"None-None\",\n        \"prior_observation_days\": 0\n      }\n    ],\n    \"unresolved\": []\n  }\n}"
+  }
+]

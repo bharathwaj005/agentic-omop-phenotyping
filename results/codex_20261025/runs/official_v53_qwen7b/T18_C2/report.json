@@ -1,0 +1,206 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T18_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1263",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "copd",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "copd": {
+        "description": "Chronic obstructive pulmonary disease",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 255573,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary COPD diagnosis"
+          }
+        ],
+        "name": "copd"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "copd",
+        "rule": "none",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "copd",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "copd",
+    "entry_concept_sets": [
+      "copd"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with chronic obstructive pulmonary disease while excluding patients with asthma.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 17802,
+  "llm_calls": 7,
+  "logical_run_id": "v53_T18_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.9791666666666666,
+        "jaccard": 0.9591836734693877,
+        "precision": 1.0,
+        "recall": 0.9591836734693877
+      },
+      "full": {
+        "f1": 0.23979591836734693,
+        "jaccard": 0.13623188405797101,
+        "precision": 1.0,
+        "recall": 0.13623188405797101
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.3657587548638132,
+        "jaccard": 0.22380952380952382,
+        "precision": 1.0,
+        "recall": 0.22380952380952382
+      },
+      "full": {
+        "f1": 0.23979591836734693,
+        "jaccard": 0.13623188405797101,
+        "precision": 1.0,
+        "recall": 0.13623188405797101
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "chronic obstructive pulmonary disease"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n255573\tChronic obstructive pulmonary disease\tSNOMED\tDisorder\t46\n4196712\tMild chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n4209097\tSevere chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n4193588\tModerate chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n4046986\tEnd stage chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n44791725\tVery severe chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n37473073\tChronic obstructive pulmonary disease of unknown cause\tSNOMED\tDisorder\t0\n257004\tAcute exacerbation of chronic obstructive pulmonary disease\tSNOMED\tDisorder\t5\n46269701\tChronic obstructive pulmonary disease with acute bronchitis\tSNOMED\tDisorder\t0\n46274062\tAsthma-chronic obstructive pulmonary disease overlap syndrome\tSNOMED\tDisorder\t0\n44782563\tPulmonary hypertension due to chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n4115044\tAcute infective exacerbation of chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n43530693\tAcute exacerbation of chronic obstructive pulmonary disease with asthma\tSNOMED\tDisorder\t0\n44807895\tAcute non-infective exacerbation of chronic obstructive pulmonary disease\tSNOMED\tDisorder\t0\n4110056\tChronic obstructive pulmonary disease with acute lower respiratory infection\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "asthma"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n317009\tAsthma\tSNOMED\tDisorder\t131\n314754\tWheezing\tSNOMED\tClinical Finding\t14\n4050564\tSequoiosis\tSNOMED\tDisorder\t0\n4311814\tByssinosis\tSNOMED\tDisorder\t2\n4155468\tMild asthma\tSNOMED\tDisorder\t15\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n4110051\tMixed asthma\tSNOMED\tDisorder\t0\n4152913\tSevere asthma\tSNOMED\tDisorder\t18\n4075237\tBrittle asthma\tSNOMED\tDisorder\t0\n4143474\tBakers' asthma\tSNOMED\tDisorder\t0\n4215802\tCardiac asthma\tSNOMED\tDisorder\t0\n4308356\tAsthma finding\tSNOMED\tClinical Finding\t36\n4022592\tMillers' asthma\tSNOMED\tDisorder\t0\n4155469\tModerate asthma\tSNOMED\tDisorder\t15\n4191479\tAllergic asthma\tSNOMED\tDisorder\t48",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 255573
+        },
+        "output": "total_descendants=46\nid\tname\tclass\tlevels\n261325\tPulmonary emphysema\tDisorder\t1\n4166517\tChronic obliterative bronchiolitis\tDisorder\t1\n4196712\tMild chronic obstructive pulmonary disease\tDisorder\t1\n4209097\tSevere chronic obstructive pulmonary disease\tDisorder\t1\n4193588\tModerate chronic obstructive pulmonary disease\tDisorder\t1\n4046986\tEnd stage chronic obstructive pulmonary disease\tDisorder\t1\n44791725\tVery severe chronic obstructive pulmonary disease\tDisorder\t1\n37473073\tChronic obstructive pulmonary disease of unknown cause\tDisorder\t1\n257004\tAcute exacerbation of chronic obstructive pulmonary disease\tDisorder\t1\n46274062\tAsthma-chronic obstructive pulmonary disease overlap syndrome\tDisorder\t1\n4050734\tScar emphysema\tDisorder\t2\n4050733\tToxic emphysema\tDisorder\t2\n4177944\tPanacinar emphysema\tDisorder\t2\n4136683\tParaseptal emphysema\tDisorder\t2\n4166508\tCongenital emphysema\tDisorder\t2",
+        "rows": 16
+      },
+      "step": 6,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 317009
+        },
+        "output": "total_descendants=131\nid\tname\tclass\tlevels\n4155468\tMild asthma\tDisorder\t1\n257581\tAcute asthma\tDisorder\t1\n4110051\tMixed asthma\tDisorder\t1\n4152913\tSevere asthma\tDisorder\t1\n4075237\tBrittle asthma\tDisorder\t1\n4191479\tAllergic asthma\tDisorder\t1\n40483397\tSeasonal asthma\tDisorder\t1\n4155469\tModerate asthma\tDisorder\t1\n4051466\tChildhood asthma\tDisorder\t1\n4145497\tIntrinsic asthma\tDisorder\t1\n4119298\tLate onset asthma\tDisorder\t1\n764677\tPersistent asthma\tDisorder\t1\n4155470\tOccasional asthma\tDisorder\t1\n1244553\tUncontrolled asthma\tDisorder\t1\n37473064\tNeutrophilic asthma\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 8,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 257004
+        },
+        "output": "id\tname\tdomain\tvocab\n257004\tAcute exacerbation of chronic obstructive pulmonary disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 317009
+        },
+        "output": "id\tname\tdomain\tvocab\n317009\tAsthma\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 361,
+  "per_set": {
+    "copd": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 255573,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary COPD diagnosis"
+        }
+      ],
+      "resolved_count": 47
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "078de1a301a96b61eb934027c9aedf60706da874692a8a20c71a58428312f2a5",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T18_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T18",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 17802,
+    "llm_calls": 7,
+    "llm_time_s": 258.66,
+    "output_tokens": 361,
+    "peak_ram_mb": 259.4,
+    "tool_calls": 6,
+    "total_tokens": 18163,
+    "validator_retries": 0,
+    "wall_seconds": 261.47000214199943,
+    "wall_time_s": 261.47
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T18_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 261.47000214199943
+}

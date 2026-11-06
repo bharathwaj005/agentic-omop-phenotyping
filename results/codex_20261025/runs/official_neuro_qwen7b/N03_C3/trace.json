@@ -1,0 +1,218 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N03_C3_attempt1",
+ "config": "C3",
+ "task_id": "N03",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with Parkinson disease based on diagnosis evidence.",
+  "entry_concept_set": "parkinson_diagnosis",
+  "entry_concept_sets": [
+   "parkinson_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "parkinson_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "parkinson_diagnosis": {
+    "name": "parkinson_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of Parkinson disease.",
+    "items": [
+     {
+      "concept_id": 381270,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "The SNOMED concept 'Parkinson's disease' (381270) accurately represents the clinical description of patients with a diagnosis of Parkinson disease."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 4,
+  "tool_calls": 2,
+  "input_tokens": 5375,
+  "output_tokens": 336,
+  "total_tokens": 5711,
+  "wall_time_s": 100.41,
+  "llm_time_s": 100.26,
+  "peak_ram_mb": 378.3,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793165759.8008597,
+   "latency_s": 36.729,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1018,
+   "output_tokens": 166,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"parkinson_diagnosis\",\n    \"entry_concept_sets\": [\"parkinson_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"parkinson_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"parkinson_diagnosis\": {\n        \"name\": \"parkinson_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of Parkinson disease.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793165796.5304801,
+   "latency_s": 9.653,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1153,
+   "output_tokens": 42,
+   "detail": {
+    "concept_set": "parkinson_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"Parkinson\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793165806.1830778,
+   "latency_s": 0.132,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "Parkinson",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "parkinson_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n36716432\tDystonia 16\tSNOMED\tDisorder\t0\n4140090\tParkinsonism\tSNOMED\tDisorder\t70\n44783137\tPerry syndrome\tSNOMED\tDisorder\t0\n381270\tParkinson's disease\tSNOMED\tDisorder\t10\n4086836\tParkinsonian facies\tSNOMED\tClinical Finding\t0\n4092871\tExtrapyramidal gait\tSNOMED\tClinical Finding\t0\n4095182\tParkinsonian ataxia\tSNOMED\tClinical Finding\t0\n4204820\tParkinsonian tremor\tSNOMED\tClinical Finding\t0\n37117179\tKufor Rakeb syndrome\tSNOMED\tDisorder\t0\n4046093\tVascular parkinsonism\tSNOMED\tDisorder\t0\n36716783\tAtypical Parkinsonism\tSNOMED\tDisorder\t1\n374013\tSecondary parkinsonism\tSNOMED\tDisorder\t28\n373139\tSyphilitic parkinsonism\tSNOMED\tDisorder\t0\n37110549\tFunctional parkinsonism\tSNOMED\tDisorder\t0\n4140881\tSymptomatic parkinsonism\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793165806.315452,
+   "latency_s": 28.767,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1562,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "parkinson_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 381270\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793165835.0825152,
+   "latency_s": 0.007,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 381270
+    },
+    "concept_set": "parkinson_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n381270\tParkinson's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t10"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793165835.089317,
+   "latency_s": 25.107,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1642,
+   "output_tokens": 96,
+   "detail": {
+    "concept_set": "parkinson_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 381270,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 'Parkinson's disease' (381270) accurately represents the clinical description of patients with a diagnosis of Parkinson disease.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793165860.1962075,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "parkinson_diagnosis",
+    "items": 1,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 8,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793165860.2041483,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": [
+     {
+      "level": "warning",
+      "code": "possibly_too_narrow",
+      "message": "only one concept resolved and descendants were not requested; check whether the entry set is too narrow",
+      "concept_set": "parkinson_diagnosis",
+      "concept_id": null
+     },
+     {
+      "level": "warning",
+      "code": "entry_single_concept_no_descendants",
+      "message": "entry set resolves to one concept without descendants; check get_descendants to confirm whether broader coverage is intended",
+      "concept_set": "parkinson_diagnosis",
+      "concept_id": null
+     }
+    ]
+   }
+  }
+ ]
+}

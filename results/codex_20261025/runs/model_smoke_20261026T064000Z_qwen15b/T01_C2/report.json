@@ -1,0 +1,94 @@
+{
+  "attempt_id": "v53_T01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "134",
+  "configuration": "C2",
+  "entry_arms": [],
+  "final_spec": null,
+  "input_tokens": 9303,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T01_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:1.5b"
+  ],
+  "model_requested": "qwen2.5:1.5b",
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD",
+          "vocabulary": "Clinical"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD diagnosis",
+          "vocabulary": "Clinical"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD treatment",
+          "vocabulary": "Clinical"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 229,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "5a80507b35df"
+  },
+  "question_sha256": "6836071c0313680c9e818ff96e9b50b91ecb66d6e78342d5f4e61e87f64da734",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen15b/T01_C2/raw_replies.json",
+  "reason": "repeated identical vocabulary tool call after 2 corrective retries",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 9303,
+    "llm_calls": 6,
+    "llm_time_s": 34.86,
+    "output_tokens": 229,
+    "peak_ram_mb": 185.2,
+    "tool_calls": 3,
+    "total_tokens": 9532,
+    "validator_retries": 0,
+    "wall_seconds": 35.43887443899985,
+    "wall_time_s": 35.44
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen15b/T01_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 35.43887443899985
+}

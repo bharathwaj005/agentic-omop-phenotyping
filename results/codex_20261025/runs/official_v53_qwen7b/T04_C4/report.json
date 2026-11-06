@@ -1,0 +1,172 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T04_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "334",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "asthma_treatment",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "asthma_treatment": {
+        "description": "Patients receiving treatment for asthma",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 1300154,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'racepinephrine 22.5 MG/ML Inhalation Solution [Asthmanefrin]' is a specific branded drug used for asthma treatment, matching the clinical description of patients receiving treatment for asthma."
+          }
+        ],
+        "name": "asthma_treatment"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "asthma_treatment",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "asthma_treatment",
+    "entry_concept_sets": [
+      "asthma_treatment"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients receiving treatment for asthma.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 7253,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T04_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "asthma"
+        },
+        "concept_set": "asthma_treatment",
+        "output": "id\tname\tvocab\tclass\tn_desc\n19120089\tepinephrine 0.3 MG/ACTUAT [Asthmahaler]\tRxNorm\tBranded Drug Comp\t1\n19055325\tracepinephrine 22.5 MG/ML [Asthmanefrin]\tRxNorm\tBranded Drug Comp\t1\n1356177\tepinephrine Metered Dose Inhaler [Asthmahaler]\tRxNorm\tBranded Drug Form\t1\n1356163\tracepinephrine Inhalation Solution [Asthmanefrin]\tRxNorm\tBranded Drug Form\t1\n1300154\tracepinephrine 22.5 MG/ML Inhalation Solution [Asthmanefrin]\tRxNorm\tBranded Drug\t0\n1343985\tepinephrine 0.3 MG/ACTUAT Metered Dose Inhaler [Asthmahaler]\tRxNorm\tBranded Drug\t0",
+        "rows": 6
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1300154
+        },
+        "concept_set": "asthma_treatment",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n1300154\tracepinephrine 22.5 MG/ML Inhalation Solution [Asthmanefrin]\tDrug\tRxNorm\tBranded Drug\tS\tTrue\t0",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1300154
+        },
+        "concept_set": "asthma_treatment",
+        "output": "id\tname\tdomain\tvocab\n1300154\tracepinephrine 22.5 MG/ML Inhalation Solution [Asthmanefrin]\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 404,
+  "per_set": {
+    "asthma_treatment": {
+      "domain": "Drug",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 1300154,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'racepinephrine 22.5 MG/ML Inhalation Solution [Asthmanefrin]' is a specific branded drug used for asthma treatment, matching the clinical description of patients receiving treatment for asthma."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "14b79b1115f6041c3d5c5480fd2c44add88223ad25fdc31987a6b24cf27e61c7",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T04_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T04",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 7253,
+    "llm_calls": 6,
+    "llm_time_s": 108.83,
+    "output_tokens": 404,
+    "peak_ram_mb": 375.3,
+    "tool_calls": 3,
+    "total_tokens": 7657,
+    "validator_retries": 0,
+    "wall_seconds": 109.03608859699943,
+    "wall_time_s": 109.04
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T04_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 109.03608859699943
+}

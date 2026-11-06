@@ -1,0 +1,238 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T17_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1261",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "acute_typical_pneumonia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_typical_pneumonia": {
+        "description": "Patients with a diagnosis of typical pneumonia that is acute in nature.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4048517,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'Acute bronchopneumonia' in SNOMED best matches the clinical description of acute typical pneumonia, as it captures the acute nature and is a specific type of pneumonia."
+          }
+        ],
+        "name": "acute_typical_pneumonia"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_typical_pneumonia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_typical_pneumonia",
+    "entry_concept_sets": [
+      "acute_typical_pneumonia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute typical pneumonia while distinguishing it from non-acute typical pneumonia.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 18642,
+  "llm_calls": 13,
+  "logical_run_id": "v53_T17_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute typical pneumonia"
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute pneumonia"
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4048517\tAcute bronchopneumonia\tSNOMED\tDisorder\t0\n46270510\tAcute aspiration pneumonia\tSNOMED\tDisorder\t0\n4051332\tAcute mycoplasmal bronchitis\tSNOMED\tDisorder\t0\n3661408\tPneumonia caused by SARS-CoV-2\tSNOMED\tDisorder\t0\n4341520\tAcute interstitial pneumonitis\tSNOMED\tDisorder\t0\n45768997\tAcute exogenous lipoid pneumonitis\tSNOMED\tDisorder\t0\n605225\tAcute endogenous lipoid pneumonitis\tSNOMED\tDisorder\t0\n45770911\tAcute pneumonia caused by coccidioidomycosis\tSNOMED\tDisorder\t0\n4001167\tAcute ulcerative gastroenteritis complicating pneumonia\tSNOMED\tDisorder\t0\n40479642\tPneumonia caused by Severe acute respiratory syndrome coronavirus\tSNOMED\tDisorder\t0\n760984\tSepsis without acute organ dysfunction caused by Streptococcus pneumoniae\tSNOMED\tDisorder\t0",
+        "rows": 11
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4048517
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4048517\tAcute bronchopneumonia\tCondition\tSNOMED\tDisorder\tS\tTrue\t0",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4048517
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tdomain\tvocab\n4048517\tAcute bronchopneumonia\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 9,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute typical pneumonia"
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute pneumonia"
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4048517\tAcute bronchopneumonia\tSNOMED\tDisorder\t0\n46270510\tAcute aspiration pneumonia\tSNOMED\tDisorder\t0\n4051332\tAcute mycoplasmal bronchitis\tSNOMED\tDisorder\t0\n3661408\tPneumonia caused by SARS-CoV-2\tSNOMED\tDisorder\t0\n4341520\tAcute interstitial pneumonitis\tSNOMED\tDisorder\t0\n45768997\tAcute exogenous lipoid pneumonitis\tSNOMED\tDisorder\t0\n605225\tAcute endogenous lipoid pneumonitis\tSNOMED\tDisorder\t0\n45770911\tAcute pneumonia caused by coccidioidomycosis\tSNOMED\tDisorder\t0\n4001167\tAcute ulcerative gastroenteritis complicating pneumonia\tSNOMED\tDisorder\t0\n40479642\tPneumonia caused by Severe acute respiratory syndrome coronavirus\tSNOMED\tDisorder\t0\n760984\tSepsis without acute organ dysfunction caused by Streptococcus pneumoniae\tSNOMED\tDisorder\t0",
+        "rows": 11
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4048517
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4048517\tAcute bronchopneumonia\tCondition\tSNOMED\tDisorder\tS\tTrue\t0",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4048517
+        },
+        "concept_set": "acute_typical_pneumonia",
+        "output": "id\tname\tdomain\tvocab\n4048517\tAcute bronchopneumonia\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 22,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 736,
+  "per_set": {
+    "acute_typical_pneumonia": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4048517,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'Acute bronchopneumonia' in SNOMED best matches the clinical description of acute typical pneumonia, as it captures the acute nature and is a specific type of pneumonia."
+        }
+      ],
+      "resolved_count": 0
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "72d2dca80aab9c7d7470e5eb1548c994b80323957ed4edd86c5d7abdb95bc9e8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T17_C1/raw_replies.json",
+  "reason": "concept agent failed: repeated identical vocabulary tool call for acute_typical_pneumonia",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T17",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 18642,
+    "llm_calls": 13,
+    "llm_time_s": 237.21,
+    "output_tokens": 736,
+    "peak_ram_mb": 193.5,
+    "tool_calls": 8,
+    "total_tokens": 19378,
+    "validator_retries": 0,
+    "wall_seconds": 237.90744055100004,
+    "wall_time_s": 237.92
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T17_C1/trace.json",
+  "track": "v53",
+  "wall_seconds": 237.90744055100004
+}

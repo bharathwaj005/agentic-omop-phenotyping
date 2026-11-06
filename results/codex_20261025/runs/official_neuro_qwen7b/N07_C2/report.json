@@ -1,0 +1,251 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N07_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1079",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "entry_set_1",
+      "event_domain": "Condition"
+    },
+    {
+      "concept_set": "entry_set_1",
+      "event_domain": "Visit"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "entry_set_1": {
+        "description": "Acute disseminated encephalomyelitis or myelitis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 373189,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Specific concept for encephalomyelitis"
+          }
+        ],
+        "name": "entry_set_1"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "entry_set_1",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "entry_set_1",
+        "event_domain": "Condition"
+      },
+      {
+        "concept_set": "entry_set_1",
+        "event_domain": "Visit"
+      }
+    ],
+    "entry_concept_set": "entry_set_1",
+    "entry_concept_sets": [
+      "entry_set_1"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute disseminated encephalomyelitis or myelitis based on diagnosis evidence with a qualifying inpatient or inpatient/emergency visit.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 28528,
+  "llm_calls": 11,
+  "logical_run_id": "neuro_N07_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.8253968253968255,
+        "jaccard": 0.7027027027027027,
+        "precision": 1.0,
+        "recall": 0.7027027027027027
+      },
+      "full": {
+        "f1": 0.7647058823529412,
+        "jaccard": 0.6190476190476191,
+        "precision": 1.0,
+        "recall": 0.6190476190476191
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.8253968253968255,
+        "jaccard": 0.7027027027027027,
+        "precision": 1.0,
+        "recall": 0.7027027027027027
+      },
+      "full": {
+        "f1": 0.7647058823529412,
+        "jaccard": 0.6190476190476191,
+        "precision": 1.0,
+        "recall": 0.6190476190476191
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute disseminated encephalomyelitis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n374021\tAcute disseminated encephalomyelitis\tSNOMED\tDisorder\t4\n761989\tRecurrent acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n765827\tMultiphasic acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "myelitis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n138965\tMyelitis\tSNOMED\tDisorder\t117\n141663\tOsteomyelitis\tSNOMED\tDisorder\t271\n4245526\tSAPHO syndrome\tSNOMED\tDisorder\t0\n4254268\tMeningomyelitis\tSNOMED\tDisorder\t9\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n373189\tEncephalomyelitis\tSNOMED\tDisorder\t25\n4003304\tInfection of ulna\tSNOMED\tDisorder\t11\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n4048488\tPott's puffy tumor\tSNOMED\tDisorder\t0\n4266366\tProtozoal myelitis\tSNOMED\tDisorder\t2\n35622395\tRadiation myelitis\tSNOMED\tDisorder\t0\n75920\tOsteitis condensans\tSNOMED\tDisorder\t2\n133002\tAcute osteomyelitis\tSNOMED\tDisorder\t75\n378679\tAcute poliomyelitis\tSNOMED\tDisorder\t14\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "output": "total_descendants=4\nid\tname\tclass\tlevels\n4249574\tAcute hemorrhagic leukoencephalitis\tDisorder\t1\n761989\tRecurrent acute disseminated encephalomyelitis\tDisorder\t1\n765827\tMultiphasic acute disseminated encephalomyelitis\tDisorder\t1\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tDisorder\t1",
+        "rows": 5
+      },
+      "step": 6,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 138965
+        },
+        "output": "total_descendants=117\nid\tname\tclass\tlevels\n4254268\tMeningomyelitis\tDisorder\t1\n373189\tEncephalomyelitis\tDisorder\t1\n4266366\tProtozoal myelitis\tDisorder\t1\n35622395\tRadiation myelitis\tDisorder\t1\n380995\tNeuromyelitis optica\tDisorder\t1\n43530723\tIntraspinal granuloma\tDisorder\t1\n604439\tAcute flaccid myelitis\tDisorder\t1\n443536\tPost-infective myelitis\tDisorder\t1\n4310824\tAcute ascending myelitis\tDisorder\t1\n37167002\tMyelitis due to vasculitis\tDisorder\t1\n36715536\tInfection causing myelitis\tDisorder\t1\n4286030\tAcute necrotizing myelitis\tDisorder\t1\n37470430\tMyelitis caused by vaccine\tDisorder\t1\n37167067\tMyelitis due to sarcoidosis\tDisorder\t1\n45757236\tDiphtheria radiculomyelitis\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 8,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 373189,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n138965\tMyelitis\tDisorder\t1\n378143\tEncephalitis\tDisorder\t1\n4157036\tEncephalomyelopathy\tDisorder\t1\n372887\tDisorder of brain\tDisorder\t2\n135526\tSpinal cord disease\tDisorder\t2\n4181187\tInflammatory disorder of head\tDisorder\t2\n4181063\tInflammation of specific body organs\tDisorder\t2\n4190307\tInflammatory disease of the central nervous system\tDisorder\t2",
+        "rows": 8
+      },
+      "step": 10,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 373189
+        },
+        "output": "id\tname\tdomain\tvocab\n373189\tEncephalomyelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "acute inpatient"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9201\tInpatient Visit\tVisit\tVisit\t3\n32760\tIsolation in inpatient setting\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 3
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 536,
+  "per_set": {
+    "entry_set_1": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 373189,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Specific concept for encephalomyelitis"
+        }
+      ],
+      "resolved_count": 26
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "c1df8bf52400623dc5e0611271fe841382f60143477696d9f1535a8608d422f2",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N07_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N07",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 28528,
+    "llm_calls": 11,
+    "llm_time_s": 355.41,
+    "output_tokens": 536,
+    "peak_ram_mb": 377.9,
+    "tool_calls": 9,
+    "total_tokens": 29064,
+    "validator_retries": 0,
+    "wall_seconds": 357.24979495800017,
+    "wall_time_s": 357.25
+  },
+  "tool_calls": 9,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N07_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 357.24979495800017
+}

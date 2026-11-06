@@ -1,0 +1,179 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T02_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "219",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "cardiac_event",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "cardiac_event": {
+        "description": "Patients with a diagnosis of cardiac arrest or cardiac death.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 321042,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 321042 'Cardiac arrest' accurately represents the clinical description of patients with a diagnosis of cardiac arrest."
+          }
+        ],
+        "name": "cardiac_event"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "cardiac_event",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "cardiac_event",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "cardiac_event",
+    "entry_concept_sets": [
+      "cardiac_event"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with cardiac arrest or cardiac death associated with a qualifying inpatient or emergency-room encounter.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 7659,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T02_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.7289719626168224,
+        "jaccard": 0.5735294117647058,
+        "precision": 1.0,
+        "recall": 0.5735294117647058
+      },
+      "full": {
+        "f1": 0.6902654867256637,
+        "jaccard": 0.527027027027027,
+        "precision": 1.0,
+        "recall": 0.527027027027027
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.7289719626168224,
+        "jaccard": 0.5735294117647058,
+        "precision": 1.0,
+        "recall": 0.5735294117647058
+      },
+      "full": {
+        "f1": 0.6902654867256637,
+        "jaccard": 0.527027027027027,
+        "precision": 1.0,
+        "recall": 0.527027027027027
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "cardiac arrest"
+        },
+        "concept_set": "cardiac_event",
+        "output": "id\tname\tvocab\tclass\tn_desc\n321042\tCardiac arrest\tSNOMED\tDisorder\t38\n37169854\tFetal cardiac arrest\tSNOMED\tDisorder\t0\n4106274\tNeonatal cardiac arrest\tSNOMED\tDisorder\t1\n437894\tVentricular fibrillation\tSNOMED\tDisorder\t4\n764719\tIdiopathic cardiac arrest\tSNOMED\tDisorder\t0\n37472185\tIn-hospital cardiac arrest\tSNOMED\tDisorder\t0\n45766074\tBradycardic cardiac arrest\tSNOMED\tDisorder\t0\n4306984\tCardiac arrest due to trauma\tSNOMED\tDisorder\t0\n4122762\tPulseless electrical activity\tSNOMED\tDisorder\t1\n37398951\tCardiac arrest during surgery\tSNOMED\tDisorder\t2\n3663210\tCollapse due to cardiac arrest\tSNOMED\tClinical Finding\t0\n4173792\tCardiac arrest due to drowning\tSNOMED\tDisorder\t0\n37472184\tOut-of-hospital cardiac arrest\tSNOMED\tDisorder\t0\n607219\tCardiac arrest due to procedure\tSNOMED\tDisorder\t2\n607220\tCardiac arrest during procedure\tSNOMED\tDisorder\t5",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 321042
+        },
+        "concept_set": "cardiac_event",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n321042\tCardiac arrest\tCondition\tSNOMED\tDisorder\tS\tTrue\t38",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 321042
+        },
+        "concept_set": "cardiac_event",
+        "output": "id\tname\tdomain\tvocab\n321042\tCardiac arrest\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 432,
+  "per_set": {
+    "cardiac_event": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 321042,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 321042 'Cardiac arrest' accurately represents the clinical description of patients with a diagnosis of cardiac arrest."
+        }
+      ],
+      "resolved_count": 39
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "185b94088b22a0543c24fb34bd416b64369162abec9ed40bd223da92799552b1",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T02_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T02",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 7659,
+    "llm_calls": 6,
+    "llm_time_s": 119.15,
+    "output_tokens": 432,
+    "peak_ram_mb": 369.9,
+    "tool_calls": 3,
+    "total_tokens": 8091,
+    "validator_retries": 0,
+    "wall_seconds": 119.37974557400003,
+    "wall_time_s": 119.38
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T02_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 119.37974557400003
+}

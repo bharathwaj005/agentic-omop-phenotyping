@@ -1,0 +1,256 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N10_C2_attempt1",
+ "config": "C2",
+ "task_id": "N10",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with chronic inflammatory demyelinating polyradiculoneuropathy based on diagnosis evidence.",
+  "entry_concept_set": "cdi_pn",
+  "entry_concept_sets": [
+   "cdi_pn"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "cdi_pn",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "cdi_pn": {
+    "name": "cdi_pn",
+    "domain": "Condition",
+    "description": "Patients with chronic inflammatory demyelinating polyradiculoneuropathy based on diagnosis evidence",
+    "items": [
+     {
+      "concept_id": 381009,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The standard concept for chronic inflammatory demyelinating polyradiculoneuropathy"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 6,
+  "tool_calls": 5,
+  "input_tokens": 10918,
+  "output_tokens": 367,
+  "total_tokens": 11285,
+  "wall_time_s": 112.36,
+  "llm_time_s": 112.02,
+  "peak_ram_mb": 352.3,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793170757.345885,
+   "latency_s": 10.167,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1533,
+   "output_tokens": 38,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"chronic inflammatory demyelinating polyradiculoneuropathy\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793170767.5132113,
+   "latency_s": 0.123,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "chronic inflammatory demyelinating polyradiculoneuropathy",
+     "domain": "Condition"
+    },
+    "rows": 2,
+    "output": "id\tname\tvocab\tclass\tn_desc\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tSNOMED\tDisorder\t4\n4048024\tChronic inflammatory demyelinating polyradiculoneuropathy with central nervous system demyelination\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793170767.6362305,
+   "latency_s": 11.041,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1660,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 381009}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793170778.6772006,
+   "latency_s": 0.006,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 381009
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tCondition\tSNOMED\tDisorder\tS\tTrue\t4"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793170778.6829817,
+   "latency_s": 9.407,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1742,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 381009}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1793170788.0900712,
+   "latency_s": 0.059,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 381009
+    },
+    "rows": 5,
+    "output": "total_descendants=4\nid\tname\tclass\tlevels\n37399460\tCANOMAD syndrome\tDisorder\t1\n37166061\tBrachial variant of chronic immune demyelinating polyradiculoneuropathy\tDisorder\t1\n37166489\tChronic inflammatory demyelinating disease of peripheral nervous system and central nervous system\tDisorder\t1\n4048024\tChronic inflammatory demyelinating polyradiculoneuropathy with central nervous system demyelination\tDisorder\t1"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793170788.1490424,
+   "latency_s": 16.488,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1907,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4048024, \"max_levels\": 1}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1793170804.6372023,
+   "latency_s": 0.051,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4048024,
+     "max_levels": 1
+    },
+    "rows": 2,
+    "output": "id\tname\tclass\tlevels\n375801\tDemyelinating disease of central nervous system\tDisorder\t1\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tDisorder\t1"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793170804.688373,
+   "latency_s": 9.518,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2004,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 381009}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1793170814.2061985,
+   "latency_s": 0.04,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 381009
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n381009\tChronic inflammatory demyelinating polyradiculoneuropathy\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793170814.2459986,
+   "latency_s": 55.398,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2072,
+   "output_tokens": 223,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"cdi_pn\",\n  \"entry_concept_sets\": [\"cdi_pn\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"cdi_pn\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"cdi_pn\": {\n      \"name\": \"cdi_pn\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with chronic inflammatory demyelinating polyradiculoneuropathy based on diagnosis evidence\",\n      \"items\": [\n        {\"concept_id\": 381009, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"The standard concept for chronic inflammatory demyelinating polyradiculoneuropathy\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793170869.698846,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}

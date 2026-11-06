@@ -1,0 +1,159 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N02_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "863",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "cognitive_impairment_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "cognitive_impairment_diagnosis": {
+        "description": "First diagnosis of cognitive impairment",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4297400,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'Mild neurocognitive disorder' (4297400) in the SNOMED vocabulary best matches the clinical description of cognitive impairment, as it is a specific type of cognitive impairment that fits the context of the first diagnosis in the study question."
+          }
+        ],
+        "name": "cognitive_impairment_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "cognitive_impairment_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "cognitive_impairment_diagnosis",
+    "entry_concept_sets": [
+      "cognitive_impairment_diagnosis"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 365,
+    "question": "Identify patients with incident cognitive impairment based on a first qualifying diagnosis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5460,
+  "llm_calls": 4,
+  "logical_run_id": "neuro_N02_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.5,
+        "jaccard": 0.3333333333333333,
+        "precision": 1.0,
+        "recall": 0.3333333333333333
+      },
+      "full": {
+        "f1": 0.5,
+        "jaccard": 0.3333333333333333,
+        "precision": 1.0,
+        "recall": 0.3333333333333333
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.5,
+        "jaccard": 0.3333333333333333,
+        "precision": 1.0,
+        "recall": 0.3333333333333333
+      },
+      "full": {
+        "f1": 0.5,
+        "jaccard": 0.3333333333333333,
+        "precision": 1.0,
+        "recall": 0.3333333333333333
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "cognitive impairment"
+        },
+        "concept_set": "cognitive_impairment_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n443432\tImpaired cognition\tSNOMED\tClinical Finding\t882\n45765900\tSevere cognitive impairment\tSNOMED\tClinical Finding\t0\n439795\tMinimal cognitive impairment\tSNOMED\tClinical Finding\t0\n4297400\tMild neurocognitive disorder\tSNOMED\tDisorder\t1\n45765899\tModerate cognitive impairment\tSNOMED\tClinical Finding\t0\n3654469\tAmnestic mild cognitive disorder\tSNOMED\tDisorder\t0\n37164785\tCognitive impairment caused by ethanol\tSNOMED\tDisorder\t0\n37162140\tCognitive impairment due to lead toxicity\tSNOMED\tDisorder\t0\n761978\tCognitive impairment due to multiple sclerosis\tSNOMED\tClinical Finding\t1\n42538566\tCognitive impairment due to toxicity of substance\tSNOMED\tClinical Finding\t1\n35622315\tHypotonia, speech impairment, severe cognitive delay syndrome\tSNOMED\tDisorder\t0\n37166422\tCognitive impairment due to late-delayed irradiation of brain\tSNOMED\tDisorder\t0\n37168522\tFocal onset cognitive epileptic seizure with memory impairment\tSNOMED\tClinical Finding\t0\n36687122\tHuman immunodeficiency virus infection with cognitive impairment\tSNOMED\tDisorder\t0\n37110498\tCognitive impairment co-occurrent and due to primary psychotic disorder\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4297400
+        },
+        "concept_set": "cognitive_impairment_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4297400\tMild neurocognitive disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t1",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 377,
+  "per_set": {
+    "cognitive_impairment_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4297400,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'Mild neurocognitive disorder' (4297400) in the SNOMED vocabulary best matches the clinical description of cognitive impairment, as it is a specific type of cognitive impairment that fits the context of the first diagnosis in the study question."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "0f6762e11fb21128f6dace95bb6dc5e63566815af9f5cb31f67cd22867d6da7c",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N02_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N02",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5460,
+    "llm_calls": 4,
+    "llm_time_s": 111.47,
+    "output_tokens": 377,
+    "peak_ram_mb": 373.5,
+    "tool_calls": 2,
+    "total_tokens": 5837,
+    "validator_retries": 0,
+    "wall_seconds": 111.64381980200005,
+    "wall_time_s": 111.65
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N02_C3/trace.json",
+  "track": "neuro",
+  "wall_seconds": 111.64381980200005
+}

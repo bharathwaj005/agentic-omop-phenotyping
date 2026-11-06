@@ -1,0 +1,172 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T19_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1285",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "acute_bronchitis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_bronchitis": {
+        "description": "Patients with a diagnosis of acute bronchitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 260139,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 260139 'Acute bronchitis' accurately represents the clinical description of patients with a diagnosis of acute bronchitis."
+          }
+        ],
+        "name": "acute_bronchitis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_bronchitis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_bronchitis",
+    "entry_concept_sets": [
+      "acute_bronchitis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute bronchitis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 7727,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T19_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.46043165467625896,
+        "jaccard": 0.29906542056074764,
+        "precision": 1.0,
+        "recall": 0.29906542056074764
+      },
+      "full": {
+        "f1": 0.46043165467625896,
+        "jaccard": 0.29906542056074764,
+        "precision": 1.0,
+        "recall": 0.29906542056074764
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.46043165467625896,
+        "jaccard": 0.29906542056074764,
+        "precision": 1.0,
+        "recall": 0.29906542056074764
+      },
+      "full": {
+        "f1": 0.46043165467625896,
+        "jaccard": 0.29906542056074764,
+        "precision": 1.0,
+        "recall": 0.29906542056074764
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute bronchitis"
+        },
+        "concept_set": "acute_bronchitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n260139\tAcute bronchitis\tSNOMED\tDisorder\t31\n4270139\tSubacute bronchitis\tSNOMED\tDisorder\t0\n4052543\tAcute viral bronchitis\tSNOMED\tDisorder\t6\n4148204\tAcute tracheobronchitis\tSNOMED\tDisorder\t3\n4112357\tAcute purulent bronchitis\tSNOMED\tDisorder\t0\n4148242\tAcute chemical bronchitis\tSNOMED\tDisorder\t0\n4049964\tAcute bacterial bronchitis\tSNOMED\tDisorder\t8\n4110485\tAcute echovirus bronchitis\tSNOMED\tDisorder\t0\n4208807\tAcute infective bronchitis\tSNOMED\tDisorder\t18\n4052542\tAcute chlamydial bronchitis\tSNOMED\tDisorder\t0\n4051332\tAcute mycoplasmal bronchitis\tSNOMED\tDisorder\t0\n4112358\tAcute pneumococcal bronchitis\tSNOMED\tDisorder\t0\n4121456\tAcute toxic tracheobronchitis\tSNOMED\tDisorder\t0\n42536540\tAcute noninfective bronchitis\tSNOMED\tDisorder\t0\n4112015\tAcute streptococcal bronchitis\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 260139
+        },
+        "concept_set": "acute_bronchitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n260139\tAcute bronchitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t31",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 260139
+        },
+        "concept_set": "acute_bronchitis",
+        "output": "id\tname\tdomain\tvocab\n260139\tAcute bronchitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 401,
+  "per_set": {
+    "acute_bronchitis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 260139,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 260139 'Acute bronchitis' accurately represents the clinical description of patients with a diagnosis of acute bronchitis."
+        }
+      ],
+      "resolved_count": 32
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "473062b5ddce78ed3fcf14c434c5a2dac54edd3b3f0b2d966e6c4d4a7991f618",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T19_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T19",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 7727,
+    "llm_calls": 6,
+    "llm_time_s": 118.36,
+    "output_tokens": 401,
+    "peak_ram_mb": 269.7,
+    "tool_calls": 3,
+    "total_tokens": 8128,
+    "validator_retries": 0,
+    "wall_seconds": 118.54967557800046,
+    "wall_time_s": 118.55
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T19_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 118.54967557800046
+}

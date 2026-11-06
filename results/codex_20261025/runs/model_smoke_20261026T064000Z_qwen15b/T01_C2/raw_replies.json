@@ -1,0 +1,38 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:1.5b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"Clinical\"}}\n\n{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:1.5b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"Clinical\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:1.5b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD diagnosis\", \"domain\": \"Condition\", \"vocabulary\": \"Clinical\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:1.5b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:1.5b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:1.5b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\", \"vocabulary\": \"Clinical\"}}"
+  }
+]

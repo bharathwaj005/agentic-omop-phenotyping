@@ -1,0 +1,178 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T07_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "785",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "qualifying_skin_burn",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "qualifying_skin_burn": {
+        "description": "Patients with a diagnosis of skin burns.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4176093,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 'Electrical burn of skin' accurately represents the clinical description of skin burns."
+          }
+        ],
+        "name": "qualifying_skin_burn"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "qualifying_skin_burn",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "qualifying_skin_burn",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "qualifying_skin_burn",
+    "entry_concept_sets": [
+      "qualifying_skin_burn"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with qualifying skin burns and associated burn treatment involving relevant drugs or procedures.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 6135,
+  "llm_calls": 5,
+  "logical_run_id": "v53_T07_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.001964636542239686,
+        "jaccard": 0.0009832841691248771,
+        "precision": 1.0,
+        "recall": 0.0009832841691248771
+      },
+      "full": {
+        "f1": 0.0018248175182481751,
+        "jaccard": 0.0009132420091324201,
+        "precision": 1.0,
+        "recall": 0.0009132420091324201
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.001964636542239686,
+        "jaccard": 0.0009832841691248771,
+        "precision": 1.0,
+        "recall": 0.0009832841691248771
+      },
+      "full": {
+        "f1": 0.0018248175182481751,
+        "jaccard": 0.0009132420091324201,
+        "precision": 1.0,
+        "recall": 0.0009132420091324201
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "skin burns"
+        },
+        "concept_set": "qualifying_skin_burn",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4176093\tElectrical burn of skin\tSNOMED\tDisorder\t0",
+        "rows": 1
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4176093
+        },
+        "concept_set": "qualifying_skin_burn",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4176093\tElectrical burn of skin\tCondition\tSNOMED\tDisorder\tS\tTrue\t0",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4176093
+        },
+        "concept_set": "qualifying_skin_burn",
+        "output": "id\tname\tdomain\tvocab\n4176093\tElectrical burn of skin\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 391,
+  "per_set": {
+    "qualifying_skin_burn": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4176093,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 'Electrical burn of skin' accurately represents the clinical description of skin burns."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "6c91fc11390db4ff47d6a1716646978b816ed9bb755e6e44315eb701f7640205",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T07_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T07",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 6135,
+    "llm_calls": 5,
+    "llm_time_s": 98.43,
+    "output_tokens": 391,
+    "peak_ram_mb": 373.6,
+    "tool_calls": 3,
+    "total_tokens": 6526,
+    "validator_retries": 0,
+    "wall_seconds": 98.58763120099957,
+    "wall_time_s": 98.6
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T07_C3/trace.json",
+  "track": "v53",
+  "wall_seconds": 98.58763120099957
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"thyroiditis_or_hypothyroidism\",\n    \"entry_concept_sets\": [\"thyroiditis_or_hypothyroidism\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"thyroiditis_or_hypothyroidism\": {\n        \"name\": \"thyroiditis_or_hypothyroidism\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with thyroiditis or relevant hypothyroidism based on qualifying diagnosis or levothyroxine treatment.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"rule\": \"at_least_one\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      },\n      {\n        \"concept_set\": \"hashimotos_hypothyroidism\",\n        \"rule\": \"none\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 3,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"thyroiditis_or_hypothyroidism\",\n    \"entry_concept_sets\": [\"thyroiditis_or_hypothyroidism\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"thyroiditis_or_hypothyroidism\": {\n        \"name\": \"thyroiditis_or_hypothyroidism\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with thyroiditis or relevant hypothyroidism based on qualifying diagnosis or levothyroxine treatment.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"rule\": \"at_least_one\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      },\n      {\n        \"concept_set\": \"excluded_hypothyroidism\",\n        \"rule\": \"none\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      }\n    ]\n  }\n}"
+  }
+]

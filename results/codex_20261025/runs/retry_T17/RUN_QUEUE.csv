@@ -1,0 +1,2 @@
+task_id,configuration,status,attempts,reason,retry_log,wall_seconds,started_at,finished_at,report_path,report_sha256,trace_sha256
+T17,C2,timeout,1,JBI_RUN_DEADLINE_S exceeded,[],1200.1384312219998,2026-10-30T13:46:06.525574+00:00,2026-10-30T14:06:06.783063+00:00,results/codex_20261025/runs/retry_T17/T17_C2/report.json,0795b4413eeed02a1bbb254b55987f37beb7382f7d3b61710ae014379f1610a7,25777bc65b7503dbb554ed0cea80a3748ebc46b6f590c21718d3255967a3f942

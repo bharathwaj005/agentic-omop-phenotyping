@@ -1,0 +1,20 @@
+{"task_id":"T01","question":"Identify patients with attention deficit hyperactivity disorder based on qualifying ADHD diagnosis or ADHD treatment evidence.","entry_domain_hint":"Condition","target_term":"attention deficit hyperactivity disorder"}
+{"task_id":"T02","question":"Identify patients with cardiac arrest or cardiac death associated with a qualifying inpatient or emergency-room encounter.","entry_domain_hint":"Condition","target_term":"cardiac arrest"}
+{"task_id":"T03","question":"Identify patients with thyroiditis or relevant hypothyroidism based on qualifying diagnosis or levothyroxine treatment, while excluding hypothyroidism attributable to Hashimoto's disease or other alternative causes.","entry_domain_hint":"Condition","target_term":"thyroiditis"}
+{"task_id":"T04","question":"Identify patients receiving treatment for asthma.","entry_domain_hint":"Drug","target_term":"asthma therapy"}
+{"task_id":"T05","question":"Identify patients with iron deficiency anemia while distinguishing the target condition from polycythemia.","entry_domain_hint":"Condition","target_term":"iron deficiency anemia"}
+{"task_id":"T06","question":"Identify patients with attention deficit hyperactivity disorder.","entry_domain_hint":"Condition","target_term":"attention deficit hyperactivity disorder"}
+{"task_id":"T07","question":"Identify patients with qualifying skin burns and associated burn treatment involving relevant drugs or procedures.","entry_domain_hint":"Condition","target_term":"skin burns"}
+{"task_id":"T08","question":"Identify patients with Alzheimer's disease while distinguishing it from other dementias and neurological conditions such as stroke or Parkinson's disease.","entry_domain_hint":"Condition","target_term":"Alzheimer's disease"}
+{"task_id":"T09","question":"Identify patients with qualifying dementia.","entry_domain_hint":"Condition","target_term":"dementia"}
+{"task_id":"T10","question":"Identify patients with attention-deficit hyperactivity disorder based on qualifying ADHD-related condition or procedure evidence and ADHD medication use.","entry_domain_hint":"Condition","target_term":"ADHD"}
+{"task_id":"T11","question":"Identify new users of dihydropyridine calcium-channel blockers.","entry_domain_hint":"Drug","target_term":"dihydropyridine calcium-channel blockers"}
+{"task_id":"T12","question":"Identify new users of systemic cephalosporins among patients with acute typical pneumonia, while distinguishing acute typical pneumonia from non-acute typical pneumonia.","entry_domain_hint":"Drug","target_term":"systemic cephalosporins"}
+{"task_id":"T13","question":"Identify patients with serious, opportunistic, or other infections of interest associated with a qualifying inpatient or emergency-room encounter.","entry_domain_hint":"Condition","target_term":"serious infections"}
+{"task_id":"T14","question":"Identify patients receiving antiepileptic medications represented by the qualifying antiepileptic ingredient group.","entry_domain_hint":"Drug","target_term":"antiepileptic medications"}
+{"task_id":"T15","question":"Identify patients with osteoarthritis.","entry_domain_hint":"Condition","target_term":"osteoarthritis"}
+{"task_id":"T16","question":"Identify patients with anemia or reticulocytopenia while distinguishing the target condition from polycythemia using the relevant hematologic evidence.","entry_domain_hint":"Condition","target_term":"anemia"}
+{"task_id":"T17","question":"Identify patients with acute typical pneumonia while distinguishing it from non-acute typical pneumonia.","entry_domain_hint":"Condition","target_term":"acute typical pneumonia"}
+{"task_id":"T18","question":"Identify patients with chronic obstructive pulmonary disease while excluding patients with asthma.","entry_domain_hint":"Condition","target_term":"chronic obstructive pulmonary disease"}
+{"task_id":"T19","question":"Identify patients with acute bronchitis.","entry_domain_hint":"Condition","target_term":"acute bronchitis"}
+{"task_id":"T20","question":"Identify patients with qualifying acute urinary tract infection events.","entry_domain_hint":"Condition","target_term":"acute urinary tract infection"}

@@ -1,0 +1,271 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N08_C2_attempt1",
+ "config": "C2",
+ "task_id": "N08",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with encephalitis based on diagnosis evidence.",
+  "entry_concept_set": "encephalitis",
+  "entry_concept_sets": [
+   "encephalitis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "encephalitis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "encephalitis": {
+    "name": "encephalitis",
+    "domain": "Condition",
+    "description": "Patients diagnosed with encephalitis.",
+    "items": [
+     {
+      "concept_id": 378143,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "Primary concept for encephalitis diagnosis"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 6,
+  "tool_calls": 5,
+  "input_tokens": 12661,
+  "output_tokens": 332,
+  "total_tokens": 12993,
+  "wall_time_s": 134.15,
+  "llm_time_s": 131.87,
+  "peak_ram_mb": 372.6,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793169686.7885914,
+   "latency_s": 7.103,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1523,
+   "output_tokens": 27,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"encephalitis\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793169693.891292,
+   "latency_s": 0.143,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "encephalitis",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n378143\tEncephalitis\tSNOMED\tDisorder\t238\n444373\tKuru\tSNOMED\tDisorder\t0\n377793\tRabies\tSNOMED\tDisorder\t9\n4046826\tRio Bravo fever\tSNOMED\tDisorder\t1\n35622356\tMorvan syndrome\tSNOMED\tDisorder\t0\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n372547\tViral encephalitis\tSNOMED\tDisorder\t122\n376970\tSchilder's disease\tSNOMED\tDisorder\t0\n378065\tMumps encephalitis\tSNOMED\tDisorder\t1\n378136\tToxic encephalitis\tSNOMED\tDisorder\t2\n4041672\tRasmussen syndrome\tSNOMED\tDisorder\t1\n4047626\tFocal encephalitis\tSNOMED\tDisorder\t2\n44806551\tAcute encephalitis\tSNOMED\tDisorder\t6\n4041673\tLimbic encephalitis\tSNOMED\tDisorder\t9\n4044936\tTensaw encephalitis\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793169694.0339282,
+   "latency_s": 25.805,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1898,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 378143}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1793169719.8392117,
+   "latency_s": 0.009,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 378143
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378143\tEncephalitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t238"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793169719.848582,
+   "latency_s": 9.101,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1971,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 378143}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1793169728.9495873,
+   "latency_s": 0.065,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 378143
+    },
+    "rows": 16,
+    "output": "total_descendants=238\nid\tname\tclass\tlevels\n373189\tEncephalomyelitis\tDisorder\t1\n4047626\tFocal encephalitis\tDisorder\t1\n44806551\tAcute encephalitis\tDisorder\t1\n378136\tToxic encephalitis\tDisorder\t1\n4322814\tMeningoencephalitis\tDisorder\t1\n4324289\tAllergic encephalitis\tDisorder\t1\n4041671\tBrainstem encephalitis\tDisorder\t1\n374020\tInfective encephalitis\tDisorder\t1\n4318558\tAutoimmune encephalitis\tDisorder\t1\n372615\tPost-infectious encephalitis\tDisorder\t1\n37470429\tEncephalitis caused by vaccine\tDisorder\t1\n4174766\tLymphocytic meningoencephalitis\tDisorder\t1\n4310021\tParaneoplastic encephalomyelitis\tDisorder\t1\n4104577\tInflammatory disorder of visual cortex\tDisorder\t1\n4044251\tInflammatory disorder of optic radiation\tDisorder\t1"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793169729.0150685,
+   "latency_s": 27.533,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2322,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 378143, \"max_levels\": 1}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1793169756.5482352,
+   "latency_s": 0.046,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 378143,
+     "max_levels": 1
+    },
+    "rows": 4,
+    "output": "id\tname\tclass\tlevels\n372887\tDisorder of brain\tDisorder\t1\n4181187\tInflammatory disorder of head\tDisorder\t1\n4181063\tInflammation of specific body organs\tDisorder\t1\n4190307\tInflammatory disease of the central nervous system\tDisorder\t1"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793169756.5945835,
+   "latency_s": 11.813,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2445,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 378143}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1793169768.40799,
+   "latency_s": 2.012,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 378143
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n378143\tEncephalitis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793169770.4203572,
+   "latency_s": 50.51,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2502,
+   "output_tokens": 200,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"encephalitis\",\n  \"entry_concept_sets\": [\"encephalitis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"encephalitis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"encephalitis\": {\n      \"name\": \"encephalitis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients diagnosed with encephalitis.\",\n      \"items\": [\n        {\"concept_id\": 378143, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Primary concept for encephalitis diagnosis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793169820.934047,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": [
+     {
+      "level": "warning",
+      "code": "possibly_too_narrow",
+      "message": "only one concept resolved and descendants were not requested; check whether the entry set is too narrow",
+      "concept_set": "encephalitis",
+      "concept_id": null
+     },
+     {
+      "level": "warning",
+      "code": "entry_single_concept_no_descendants",
+      "message": "entry set resolves to one concept without descendants; check get_descendants to confirm whether broader coverage is intended",
+      "concept_set": "encephalitis",
+      "concept_id": null
+     }
+    ]
+   }
+  }
+ ]
+}

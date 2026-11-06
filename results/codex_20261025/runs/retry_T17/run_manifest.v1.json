@@ -1,0 +1,60 @@
+{
+  "configuration_sha256": "6ab5737fa8b490fb8fd5bab81aa091daa638c9704de88bf8d2e1209112f84478",
+  "configurations": [
+    "C2"
+  ],
+  "created_at_utc": "2026-10-30T13:46:06.490189+00:00",
+  "design_freeze_input": {
+    "path": "/home/bharathwaj/jbi/results/benchmark_design/V5_3_FREEZE/BENCHMARK_FINAL20_V5_3_FINAL.csv",
+    "sha256": "205e4f69c4d43b89719c4291446d11b760b939b2610999e43c2a11dc4377e0f2"
+  },
+  "experiment_id": "retry_T17",
+  "freeze_manifest": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T17/freeze_manifest.json",
+    "sha256": "3d6efbe811c1e6a6e16432ec59f473c4dca0d8a6d4246fb818574da7c7aca4f8"
+  },
+  "model_identity": {
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "endpoint_kind": "local_ollama",
+    "modified_at": "2026-10-26T10:25:38.292373069+05:30",
+    "requested_model": "qwen2.5:7b",
+    "resolved_tag": "qwen2.5:7b",
+    "size_bytes": 4683087332
+  },
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "reference_inputs": [
+    {
+      "cohort_id": "1261",
+      "path": "/home/bharathwaj/jbi/tasks/reference/1261.json",
+      "sha256": "4725ef9feddb8fa69ae84789cd0edf882a7e8d8e5eaf2058b5ff3ea7ce738a1b",
+      "task_id": "T17",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1261",
+      "path": "/home/bharathwaj/jbi/tasks/reference_v2/1261.json",
+      "sha256": "540bb6026b462c61b1a7631f951ccdcdeb39fd068c5aa102d46beb5215ed724c",
+      "task_id": "T17",
+      "version": "v2"
+    }
+  ],
+  "runtime_queue_initial": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T17/RUN_QUEUE.csv",
+    "sha256": "93ab384c3bbf8d2f4f41e144e002528f39ca6cf29f3a96896934a86ea099d082"
+  },
+  "schema_version": 1,
+  "semantics": {
+    "design_freeze_input": "design CSV hash; never interpreted as runtime queue hash",
+    "runtime_queue_initial": "exact initial runtime queue bytes; queue changes as statuses are checkpointed"
+  },
+  "task_file": {
+    "path": "/home/bharathwaj/jbi/tasks/benchmark_questions.jsonl",
+    "sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df"
+  },
+  "track": "v53",
+  "vocabulary_source": {
+    "path": "/media/bharathwaj/HDD_Storage/project_jbi/data/vocab.duckdb",
+    "sha256": "34167ed891e1ff159ddc3ccb73f1bbad3c5364b9412e598a854f46cf11eae138"
+  }
+}

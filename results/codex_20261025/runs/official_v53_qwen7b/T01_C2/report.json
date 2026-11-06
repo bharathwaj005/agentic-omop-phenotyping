@@ -1,0 +1,333 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "134",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "adhd_diagnosis",
+      "event_domain": "Condition"
+    },
+    {
+      "concept_set": "adhd_treatment",
+      "event_domain": "Procedure"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "adhd_diagnosis": {
+        "description": "Attention deficit hyperactivity disorder diagnosis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 438409,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of ADHD"
+          }
+        ],
+        "name": "adhd_diagnosis"
+      },
+      "adhd_treatment": {
+        "description": "ADHD treatment procedures",
+        "domain": "Procedure",
+        "items": [
+          {
+            "concept_id": 45765570,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "General ADHD therapy procedure"
+          }
+        ],
+        "name": "adhd_treatment"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "adhd_diagnosis",
+        "event_domain": "Condition"
+      },
+      {
+        "concept_set": "adhd_treatment",
+        "event_domain": "Procedure"
+      }
+    ],
+    "entry_concept_set": "adhd_diagnosis",
+    "entry_concept_sets": [
+      "adhd_diagnosis",
+      "adhd_treatment"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with attention deficit hyperactivity disorder based on qualifying ADHD diagnosis or ADHD treatment evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 31000,
+  "llm_calls": 15,
+  "logical_run_id": "v53_T01_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.9411764705882353,
+        "jaccard": 0.8888888888888888,
+        "precision": 1.0,
+        "recall": 0.8888888888888888
+      },
+      "full": {
+        "f1": 0.03535911602209946,
+        "jaccard": 0.01799775028121485,
+        "precision": 1.0,
+        "recall": 0.01799775028121485
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.03535911602209946,
+        "jaccard": 0.01799775028121485,
+        "precision": 1.0,
+        "recall": 0.01799775028121485
+      },
+      "full": {
+        "f1": 0.03535911602209946,
+        "jaccard": 0.01799775028121485,
+        "precision": 1.0,
+        "recall": 0.01799775028121485
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD medication"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD drug"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "stimulant"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "ADHD medication"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "ADHD treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "ADHD therapy"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n45765570\tDrug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t2\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0",
+        "rows": 3
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 45765570,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n4216752\tDrug therapy\tProcedure\t1",
+        "rows": 1
+      },
+      "step": 18,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4216752
+        },
+        "output": "id\tname\tdomain\tvocab\n4216752\tDrug therapy\tProcedure\tSNOMED",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409,
+          "limit": 10
+        },
+        "output": "total_descendants=12\nid\tname\tclass\tlevels\n438132\tHyperkinetic conduct disorder\tDisorder\t1\n440086\tChild attention deficit disorder\tDisorder\t1\n4049391\tUndifferentiated attention deficit disorder\tDisorder\t1\n4262921\tHyperkinetic syndrome with developmental delay\tDisorder\t1\n40480225\tAdult attention deficit hyperactivity disorder\tDisorder\t1\n4041692\tDeficits in attention motor control and perception\tDisorder\t1\n4149904\tAttention deficit hyperactivity disorder, combined type\tDisorder\t1\n4149353\tAttention deficit hyperactivity disorder, predominantly inattentive type\tDisorder\t1\n45765796\tAttention deficit hyperactivity disorder, inattentive presentation (restrictive)\tDisorder\t1\n4253962\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type\tDisorder\t1\n44782517\tAttention deficit hyperactivity disorder, predominantly inattentive type in remission\tDisorder\t2\n44784525\tAttention deficit hyperactivity disorder, predominantly hyperactive impulsive type in remission\tDisorder\t2",
+        "rows": 13
+      },
+      "step": 22,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 438409,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n4043545\tDevelopmental mental disorder\tDisorder\t1\n4047120\tDisorders of attention and motor control\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 24,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4043545
+        },
+        "output": "id\tname\tdomain\tvocab\n4043545\tDevelopmental mental disorder\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 26,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4047120
+        },
+        "output": "id\tname\tdomain\tvocab\n4047120\tDisorders of attention and motor control\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 28,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 681,
+  "per_set": {
+    "adhd_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 438409,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of ADHD"
+        }
+      ],
+      "resolved_count": 13
+    },
+    "adhd_treatment": {
+      "domain": "Procedure",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 45765570,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "General ADHD therapy procedure"
+        }
+      ],
+      "resolved_count": 3
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "6836071c0313680c9e818ff96e9b50b91ecb66d6e78342d5f4e61e87f64da734",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T01_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 31000,
+    "llm_calls": 15,
+    "llm_time_s": 286.38,
+    "output_tokens": 681,
+    "peak_ram_mb": 342.1,
+    "tool_calls": 14,
+    "total_tokens": 31681,
+    "validator_retries": 0,
+    "wall_seconds": 291.97586956700025,
+    "wall_time_s": 291.98
+  },
+  "tool_calls": 14,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T01_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 291.97586956700025
+}

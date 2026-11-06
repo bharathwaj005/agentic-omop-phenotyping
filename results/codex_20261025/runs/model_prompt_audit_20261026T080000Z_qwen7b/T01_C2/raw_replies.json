@@ -1,0 +1,116 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD medication\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD drug\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"stimulant\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"methylphenidate\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD diagnosis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Measurement\"}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Observation\"}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Visit\"}}"
+  },
+  {
+    "step": 25,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Device\"}}"
+  },
+  {
+    "step": 27,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Metadata\"}}"
+  },
+  {
+    "step": 29,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Specimen\"}}"
+  },
+  {
+    "step": 31,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Episode\"}}"
+  },
+  {
+    "step": 33,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Provider\"}}"
+  },
+  {
+    "step": 35,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Location\"}}"
+  },
+  {
+    "step": 37,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"adhd_diagnosis\",\n  \"entry_concept_sets\": [\"adhd_diagnosis\", \"adhd_treatment\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"adhd_diagnosis\", \"event_domain\": \"Condition\"},\n    {\"concept_set\": \"adhd_treatment\", \"event_domain\": \"Drug\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"adhd_diagnosis\": {\n      \"name\": \"adhd_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Diagnosis of Attention Deficit Hyperactivity Disorder\",\n      \"items\": [\n        {\"concept_id\": 438409, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Primary diagnosis of ADHD\"}\n      ]\n    },\n    \"adhd_treatment\": {\n      \"name\": \"adhd_treatment\",\n      \"domain\": \"Drug\",\n      \"description\": \"ADHD treatment medications\",\n      \"items\": [\n        {\"concept_id\": 705944, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Methylphenidate, a common ADHD treatment\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

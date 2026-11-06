@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C2"
+  ],
+  "freeze_manifest_sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06",
+  "model": "jbi-qwen2.5:3b-8k",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-10-26T06:30:39.773032+00:00",
+      "reason": "JBI_RUN_DEADLINE_S exceeded",
+      "report_path": "results/codex_20261025/runs/model_smoke_20261026T064000Z_jbi3b/T01_C2/report.json",
+      "report_sha256": "a5cbe7ed0f0fd1e396c7e0385da1080753efabf611efc10c395e40855320a05f",
+      "retry_log": [],
+      "started_at": "2026-10-26T06:25:39.742680+00:00",
+      "status": "timeout",
+      "task_id": "T01",
+      "trace_sha256": "fb19da2f712ec628a07e54e9fd3cce3acc543709575b3cac1078e9879d79bcdb",
+      "wall_seconds": 300.00407371300025
+    }
+  ],
+  "task_ids": [
+    "T01"
+  ],
+  "track": "v53"
+}

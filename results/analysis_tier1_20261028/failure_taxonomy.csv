@@ -1,0 +1,15 @@
+track,configuration,failure_class,count
+neuro,C2,timeout,1
+v53,C1,infrastructure,2
+v53,C1,repeated_tool_call_loop,2
+v53,C1,structured_output_schema_error,1
+v53,C1,validator_repair_loop_unconverged,4
+v53,C2,domain_mismatch,2
+v53,C2,infrastructure,2
+v53,C2,llm_budget_exhausted,1
+v53,C2,timeout,1
+v53,C3,infrastructure,1
+v53,C3,structured_output_schema_error,3
+v53,C3,validator_repair_loop_unconverged,1
+v53,C4,llm_budget_exhausted,1
+v53,C4,structured_output_schema_error,2

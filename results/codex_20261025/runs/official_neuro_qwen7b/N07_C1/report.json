@@ -1,0 +1,261 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N07_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1079",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_disseminated_encephalomyelitis_or_myelitis": {
+        "description": "Patients with a diagnosis of acute disseminated encephalomyelitis or myelitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 374021,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 374021, 'Acute disseminated encephalomyelitis', accurately represents the clinical description of acute disseminated encephalomyelitis. Including descendants ensures that related conditions are also captured."
+          },
+          {
+            "concept_id": 138965,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 138965, 'Myelitis', is included to capture a broader range of myelitis diagnoses, as suggested. Including descendants will ensure that various types of myelitis are covered."
+          }
+        ],
+        "name": "acute_disseminated_encephalomyelitis_or_myelitis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "entry_concept_sets": [
+      "acute_disseminated_encephalomyelitis_or_myelitis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute disseminated encephalomyelitis or myelitis based on diagnosis evidence with a qualifying inpatient or inpatient/emergency visit.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 20100,
+  "llm_calls": 14,
+  "logical_run_id": "neuro_N07_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.36129032258064514,
+        "jaccard": 0.2204724409448819,
+        "precision": 0.23728813559322035,
+        "recall": 0.7567567567567568
+      },
+      "full": {
+        "f1": 0.35,
+        "jaccard": 0.21212121212121213,
+        "precision": 0.23728813559322035,
+        "recall": 0.6666666666666666
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.36129032258064514,
+        "jaccard": 0.2204724409448819,
+        "precision": 0.23728813559322035,
+        "recall": 0.7567567567567568
+      },
+      "full": {
+        "f1": 0.35,
+        "jaccard": 0.21212121212121213,
+        "precision": 0.23728813559322035,
+        "recall": 0.6666666666666666
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute disseminated encephalomyelitis"
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n374021\tAcute disseminated encephalomyelitis\tSNOMED\tDisorder\t4\n761989\tRecurrent acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n765827\tMultiphasic acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t4",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute disseminated encephalomyelitis"
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n374021\tAcute disseminated encephalomyelitis\tSNOMED\tDisorder\t4\n761989\tRecurrent acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n765827\tMultiphasic acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t4",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "myelitis"
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n138965\tMyelitis\tSNOMED\tDisorder\t117\n141663\tOsteomyelitis\tSNOMED\tDisorder\t271\n4245526\tSAPHO syndrome\tSNOMED\tDisorder\t0\n4254268\tMeningomyelitis\tSNOMED\tDisorder\t9\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n373189\tEncephalomyelitis\tSNOMED\tDisorder\t25\n4003304\tInfection of ulna\tSNOMED\tDisorder\t11\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n4048488\tPott's puffy tumor\tSNOMED\tDisorder\t0\n4266366\tProtozoal myelitis\tSNOMED\tDisorder\t2\n35622395\tRadiation myelitis\tSNOMED\tDisorder\t0\n75920\tOsteitis condensans\tSNOMED\tDisorder\t2\n133002\tAcute osteomyelitis\tSNOMED\tDisorder\t75\n378679\tAcute poliomyelitis\tSNOMED\tDisorder\t14\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 138965
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n138965\tMyelitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t117",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 22,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 138965
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\n138965\tMyelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 24,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 990,
+  "per_set": {
+    "acute_disseminated_encephalomyelitis_or_myelitis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true,
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 374021,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 374021, 'Acute disseminated encephalomyelitis', accurately represents the clinical description of acute disseminated encephalomyelitis. Including descendants ensures that related conditions are also captured."
+        },
+        {
+          "concept_id": 138965,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 138965, 'Myelitis', is included to capture a broader range of myelitis diagnoses, as suggested. Including descendants will ensure that various types of myelitis are covered."
+        }
+      ],
+      "resolved_count": 118
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "c1df8bf52400623dc5e0611271fe841382f60143477696d9f1535a8608d422f2",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N07_C1/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N07",
+  "timings": {
+    "critic_rounds": 2,
+    "input_tokens": 20100,
+    "llm_calls": 14,
+    "llm_time_s": 370.79,
+    "output_tokens": 990,
+    "peak_ram_mb": 373.0,
+    "tool_calls": 9,
+    "total_tokens": 21090,
+    "validator_retries": 0,
+    "wall_seconds": 373.5419947399996,
+    "wall_time_s": 373.61
+  },
+  "tool_calls": 9,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N07_C1/trace.json",
+  "track": "neuro",
+  "wall_seconds": 373.5419947399996
+}

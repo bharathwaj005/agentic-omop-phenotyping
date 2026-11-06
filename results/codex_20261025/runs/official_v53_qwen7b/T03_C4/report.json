@@ -1,0 +1,59 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T03_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "290",
+  "configuration": "C4",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 2491,
+  "llm_calls": 2,
+  "logical_run_id": "v53_T03_C4",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [],
+  "output_tokens": 607,
+  "per_set": {},
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "4499a9394e6873e900d62a8814f881a0d5ccc6af1722e841ff2ede63f27f4d8a",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T03_C4/raw_replies.json",
+  "reason": "planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'excluded_hypothyroidism' [type=value_error, input_value={'question': \"Identify pa...atment.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T03",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 2491,
+    "llm_calls": 2,
+    "llm_time_s": 138.0,
+    "output_tokens": 607,
+    "peak_ram_mb": 387.8,
+    "tool_calls": 0,
+    "total_tokens": 3098,
+    "validator_retries": 0,
+    "wall_seconds": 137.99609457099996,
+    "wall_time_s": 138.0
+  },
+  "tool_calls": 0,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T03_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 137.99609457099996
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"pneumonia\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"non-acute\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"pneumonia\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 4050869}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4050869}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4050869, \"max_levels\": 2}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 255848}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 433456}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 433456}}"
+  },
+  {
+    "step": 25,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 433456, \"max_levels\": 2}}"
+  },
+  {
+    "step": 27,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"diabetes\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 29,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 201820}}"
+  },
+  {
+    "step": 31,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"peptic ulcer\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 33,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4027663}}"
+  }
+]

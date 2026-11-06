@@ -1,0 +1,878 @@
+{
+ "run_id": "official_v53_qwen7b_v53_T10_C2_attempt1",
+ "config": "C2",
+ "task_id": "T10",
+ "repeat": 1,
+ "status": "failed",
+ "error": "budget exceeded: llm_calls limit=30 used=30",
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": null
+ },
+ "final_spec": null,
+ "totals": {
+  "llm_calls": 30,
+  "tool_calls": 8,
+  "input_tokens": 95089,
+  "output_tokens": 777,
+  "total_tokens": 95866,
+  "wall_time_s": 877.47,
+  "llm_time_s": 876.13,
+  "peak_ram_mb": 28.3,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122116.016295,
+   "latency_s": 10.137,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1534,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122126.1529365,
+   "latency_s": 0.177,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Condition"
+    },
+    "rows": 1,
+    "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122126.3304012,
+   "latency_s": 12.315,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1598,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Procedure\"}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122138.6456196,
+   "latency_s": 0.168,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Procedure"
+    },
+    "rows": 6,
+    "output": "id\tname\tvocab\tclass\tn_desc\n44813054\tAttention deficit hyperactivity disorder annual review\tSNOMED\tProcedure\t0\n45765570\tDrug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t2\n1243931\tDiagnostic assessment for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n1448142\tSignposting to ADHD (attention deficit hyperactivity disorder) resource\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122138.813181,
+   "latency_s": 21.727,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1804,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122160.5403242,
+   "latency_s": 0.187,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122160.7278194,
+   "latency_s": 13.471,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1864,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD medication\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122174.199276,
+   "latency_s": 0.168,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD medication",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122174.3676682,
+   "latency_s": 14.906,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1925,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"stimulant\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122189.2737293,
+   "latency_s": 0.143,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "stimulant",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122189.4162908,
+   "latency_s": 11.098,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1985,
+   "output_tokens": 28,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"methylphenidate\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122200.5148091,
+   "latency_s": 0.162,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "methylphenidate",
+     "domain": "Drug"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n705944\tmethylphenidate\tRxNorm\tIngredient\t323\n731533\tdexmethylphenidate\tRxNorm\tIngredient\t87\n1537411\tserdexmethylphenidate\tRxNorm\tIngredient\t18\n1592737\tmethylphenidate 8.6 MG\tRxNorm\tClinical Drug Comp\t3\n1592616\tmethylphenidate 17.3 MG\tRxNorm\tClinical Drug Comp\t3\n1592733\tmethylphenidate 25.9 MG\tRxNorm\tClinical Drug Comp\t3\n1537416\tdexmethylphenidate 5.2 MG\tRxNorm\tClinical Drug Comp\t3\n1537426\tdexmethylphenidate 7.8 MG\tRxNorm\tClinical Drug Comp\t3\n706182\tmethylphenidate 1.67 MG/HR\tRxNorm\tClinical Drug Comp\t5\n706183\tmethylphenidate 2.22 MG/HR\tRxNorm\tClinical Drug Comp\t5\n1537424\tdexmethylphenidate 10.4 MG\tRxNorm\tClinical Drug Comp\t3\n19123926\tmethylphenidate 3.33 MG/HR\tRxNorm\tClinical Drug Comp\t5\n19123961\tmethylphenidate 1.11 MG/HR\tRxNorm\tClinical Drug Comp\t5\n40066578\tmethylphenidate Oral Tablet\tRxNorm\tClinical Drug Form\t12\n1537417\tserdexmethylphenidate 52.3 MG\tRxNorm\tClinical Drug Comp\t3"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122200.677227,
+   "latency_s": 40.42,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2456,
+   "output_tokens": 27,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"non-stimulant\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122241.0969257,
+   "latency_s": 0.169,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "non-stimulant",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 15,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122241.2660635,
+   "latency_s": 14.62,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2518,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"atomoxetine\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 16,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793122255.885641,
+   "latency_s": 0.129,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "atomoxetine",
+     "domain": "Drug"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n742185\tatomoxetine\tRxNorm\tIngredient\t51\n19108912\tatomoxetine 5 MG\tRxNorm\tClinical Drug Comp\t1\n19097819\tatomoxetine 10 MG\tRxNorm\tClinical Drug Comp\t5\n19097820\tatomoxetine 18 MG\tRxNorm\tClinical Drug Comp\t7\n19097831\tatomoxetine 25 MG\tRxNorm\tClinical Drug Comp\t9\n19097832\tatomoxetine 40 MG\tRxNorm\tClinical Drug Comp\t9\n19097833\tatomoxetine 60 MG\tRxNorm\tClinical Drug Comp\t7\n19123232\tatomoxetine 80 MG\tRxNorm\tClinical Drug Comp\t5\n19123230\tatomoxetine 100 MG\tRxNorm\tClinical Drug Comp\t3\n1317130\tatomoxetine 4 MG/ML\tRxNorm\tClinical Drug Comp\t3\n40099132\tatomoxetine Oral Capsule\tRxNorm\tClinical Drug Form\t22\n1317132\tatomoxetine Oral Solution\tRxNorm\tClinical Drug Form\t3\n1317135\tatomoxetine 4 MG/ML [Atoncy]\tRxNorm\tBranded Drug Comp\t1\n19037332\tatomoxetine 80 MG [Strattera]\tRxNorm\tBranded Drug Comp\t2\n19103322\tatomoxetine 5 MG Oral Capsule\tRxNorm\tClinical Drug\t0"
+   }
+  },
+  {
+   "step": 17,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122256.015133,
+   "latency_s": 49.889,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2949,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 18,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122305.90971,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 19,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122305.9097261,
+   "latency_s": 21.978,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3016,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 20,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122327.887606,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "duplicate_tool_call": "search_concepts",
+    "duplicate_retries": 1
+   }
+  },
+  {
+   "step": 21,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122327.8876145,
+   "latency_s": 19.531,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3085,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 22,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122347.418986,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 23,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122347.4189951,
+   "latency_s": 15.121,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3152,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 24,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122362.5398023,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 25,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122362.5398118,
+   "latency_s": 13.751,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3219,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 26,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122376.2908843,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 27,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122376.290893,
+   "latency_s": 13.908,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3286,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 28,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122390.198591,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 29,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122390.1985989,
+   "latency_s": 14.103,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3353,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 30,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122404.3017347,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 31,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122404.3017433,
+   "latency_s": 14.895,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3420,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 32,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122419.1964698,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 33,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122419.196479,
+   "latency_s": 14.167,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3487,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 34,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122433.363602,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 35,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122433.3636103,
+   "latency_s": 14.629,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3554,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 36,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122447.9930458,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 37,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122447.9930544,
+   "latency_s": 17.097,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3621,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 38,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122465.0899005,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 39,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122465.0899096,
+   "latency_s": 22.894,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3688,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 40,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122487.9834535,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 41,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122487.983463,
+   "latency_s": 19.59,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3755,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 42,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122507.5738673,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 43,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122507.5738764,
+   "latency_s": 19.072,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3822,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 44,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122526.6462233,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 45,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122526.6462328,
+   "latency_s": 18.768,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3889,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 46,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122545.4147499,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 47,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122545.4147625,
+   "latency_s": 18.648,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3956,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 48,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122564.0626266,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 49,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122564.0626354,
+   "latency_s": 17.606,
+   "model": "qwen2.5:7b",
+   "input_tokens": 4023,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 50,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122581.6689098,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 51,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122581.6689186,
+   "latency_s": 15.705,
+   "model": "qwen2.5:7b",
+   "input_tokens": 4090,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 52,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122597.3736138,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 53,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122597.3736236,
+   "latency_s": 195.238,
+   "model": "qwen2.5:7b",
+   "input_tokens": 4064,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 54,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122792.6118705,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 55,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122792.6118808,
+   "latency_s": 173.986,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3925,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 56,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122966.597635,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 57,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122966.5976455,
+   "latency_s": 13.424,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3992,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 58,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122980.0218363,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 59,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793122980.021849,
+   "latency_s": 13.432,
+   "model": "qwen2.5:7b",
+   "input_tokens": 4059,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}}"
+   }
+  },
+  {
+   "step": 60,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122993.4538503,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "response is not a JSON object; reply with JSON only, no prose"
+   }
+  },
+  {
+   "step": 61,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1793122993.4565146,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "budget_exceeded": "budget exceeded: llm_calls limit=30 used=30"
+   }
+  }
+ ]
+}

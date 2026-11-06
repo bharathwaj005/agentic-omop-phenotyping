@@ -1,0 +1,2 @@
+task_id,configuration,status,attempts,reason,retry_log,wall_seconds,started_at,finished_at,report_path,report_sha256,trace_sha256
+T11,C3,success,1,,[],470.0196477110003,2026-10-30T11:39:00.009142+00:00,2026-10-30T11:46:50.123773+00:00,results/codex_20261025/runs/retry_T11/T11_C3/report.json,1566acec9bce94db7e8c8b41f47e8358328b906af1dbaed7a3af638ccb980a6f,1491bc85c437cea1e1df1bdde4fa6f96be7b8a1289111e8351f3649aa58148ee

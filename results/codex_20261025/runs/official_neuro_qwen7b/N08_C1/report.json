@@ -1,0 +1,160 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N08_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "544",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "encephalitis_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "encephalitis_diagnosis": {
+        "description": "Patients with a diagnosis of encephalitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378143,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 'Encephalitis' (378143) accurately represents the clinical description of patients with encephalitis. It is a valid standard concept and includes various types of encephalitis, which aligns with the broad clinical definition provided."
+          }
+        ],
+        "name": "encephalitis_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "encephalitis_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "encephalitis_diagnosis",
+    "entry_concept_sets": [
+      "encephalitis_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with encephalitis based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5897,
+  "llm_calls": 5,
+  "logical_run_id": "neuro_N08_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "encephalitis"
+        },
+        "concept_set": "encephalitis_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n378143\tEncephalitis\tSNOMED\tDisorder\t238\n444373\tKuru\tSNOMED\tDisorder\t0\n377793\tRabies\tSNOMED\tDisorder\t9\n4046826\tRio Bravo fever\tSNOMED\tDisorder\t1\n35622356\tMorvan syndrome\tSNOMED\tDisorder\t0\n4103103\tPolioencephalitis\tSNOMED\tDisorder\t0\n372547\tViral encephalitis\tSNOMED\tDisorder\t122\n376970\tSchilder's disease\tSNOMED\tDisorder\t0\n378065\tMumps encephalitis\tSNOMED\tDisorder\t1\n378136\tToxic encephalitis\tSNOMED\tDisorder\t2\n4041672\tRasmussen syndrome\tSNOMED\tDisorder\t1\n4047626\tFocal encephalitis\tSNOMED\tDisorder\t2\n44806551\tAcute encephalitis\tSNOMED\tDisorder\t6\n4041673\tLimbic encephalitis\tSNOMED\tDisorder\t9\n4044936\tTensaw encephalitis\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378143
+        },
+        "concept_set": "encephalitis_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378143\tEncephalitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t238",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 397,
+  "per_set": {
+    "encephalitis_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 378143,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 'Encephalitis' (378143) accurately represents the clinical description of patients with encephalitis. It is a valid standard concept and includes various types of encephalitis, which aligns with the broad clinical definition provided."
+        }
+      ],
+      "resolved_count": 239
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "d5a0d7c2dd240ad65da015ccb1cbc48a65e3f6d5d2153a701a5cd4789ece3b29",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N08_C1/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N08",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 5897,
+    "llm_calls": 5,
+    "llm_time_s": 121.02,
+    "output_tokens": 397,
+    "peak_ram_mb": 383.8,
+    "tool_calls": 2,
+    "total_tokens": 6294,
+    "validator_retries": 0,
+    "wall_seconds": 121.25576294199982,
+    "wall_time_s": 121.32
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N08_C1/trace.json",
+  "track": "neuro",
+  "wall_seconds": 121.25576294199982
+}

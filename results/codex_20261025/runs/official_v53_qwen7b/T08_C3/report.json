@@ -1,0 +1,159 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T08_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "862",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "alzheimers_disease",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "alzheimers_disease": {
+        "description": "Patients with a diagnosis of Alzheimer's disease.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378419,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The concept 'Alzheimer's disease' (378419) in the SNOMED vocabulary is the most appropriate standard concept as it directly matches the clinical description of patients with a diagnosis of Alzheimer's disease."
+          }
+        ],
+        "name": "alzheimers_disease"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "alzheimers_disease",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "alzheimers_disease",
+    "entry_concept_sets": [
+      "alzheimers_disease"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Alzheimer's disease while distinguishing it from other dementias and neurological conditions such as stroke or Parkinson's disease.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5496,
+  "llm_calls": 4,
+  "logical_run_id": "v53_T08_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 0.052316890881913304,
+        "jaccard": 0.02686108979278588,
+        "precision": 1.0,
+        "recall": 0.02686108979278588
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.226537216828479,
+        "jaccard": 0.12773722627737227,
+        "precision": 1.0,
+        "recall": 0.12773722627737227
+      },
+      "full": {
+        "f1": 0.052316890881913304,
+        "jaccard": 0.02686108979278588,
+        "precision": 1.0,
+        "recall": 0.02686108979278588
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer"
+        },
+        "concept_set": "alzheimers_disease",
+        "output": "id\tname\tvocab\tclass\tn_desc\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n4046085\tNon-Alzheimer's progressive dysphasia\tSNOMED\tDisorder\t0\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "concept_set": "alzheimers_disease",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378419\tAlzheimer's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t34",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 359,
+  "per_set": {
+    "alzheimers_disease": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 378419,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The concept 'Alzheimer's disease' (378419) in the SNOMED vocabulary is the most appropriate standard concept as it directly matches the clinical description of patients with a diagnosis of Alzheimer's disease."
+        }
+      ],
+      "resolved_count": 35
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "286549bc5be6b4f4cc5ae349712655397f35aacd3ee9d36d31bf8186053ee5b0",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T08_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T08",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5496,
+    "llm_calls": 4,
+    "llm_time_s": 139.27,
+    "output_tokens": 359,
+    "peak_ram_mb": 253.9,
+    "tool_calls": 2,
+    "total_tokens": 5855,
+    "validator_retries": 0,
+    "wall_seconds": 139.51938123900027,
+    "wall_time_s": 139.54
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T08_C3/trace.json",
+  "track": "v53",
+  "wall_seconds": 139.51938123900027
+}

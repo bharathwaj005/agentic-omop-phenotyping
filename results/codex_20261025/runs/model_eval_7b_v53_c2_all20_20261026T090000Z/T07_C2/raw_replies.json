@@ -1,0 +1,56 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"skin burn\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn dressing\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn ointment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn cream\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn gel\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn dressing\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"entry_set_1\",\n  \"entry_concept_sets\": [\"entry_set_1\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"entry_set_1\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"entry_set_1\": {\n      \"name\": \"entry_set_1\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with skin burns\",\n      \"items\": [\n        {\"concept_id\": 4108467, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Includes various types of skin burns\"}\n      ]\n    }\n  },\n  \"criteria\": [\n    {\n      \"concept_set\": \"entry_set_1\",\n      \"event_domain\": \"Procedure\",\n      \"window_start_days\": -365,\n      \"window_end_days\": 0,\n      \"rule\": \"at_least_one\",\n      \"first_occurrence_only\": false,\n      \"description\": \"Burn treatment involving relevant drugs or procedures\",\n      \"items\": [\n        {\"concept_id\": 4233678, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Includes application of dressing for burn\"}\n      ]\n    }\n  ]\n}}"
+  }
+]

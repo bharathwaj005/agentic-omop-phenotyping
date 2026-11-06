@@ -1,0 +1,12 @@
+{"task_id": "N01", "question": "Identify patients with Alzheimer disease based on qualifying diagnosis or medication exposure, with required inclusion criteria."}
+{"task_id": "N02", "question": "Identify patients with incident cognitive impairment based on a first qualifying diagnosis."}
+{"task_id": "N03", "question": "Identify patients with Parkinson disease based on diagnosis evidence."}
+{"task_id": "N04", "question": "Identify patients with multiple sclerosis based on their earliest qualifying diagnosis."}
+{"task_id": "N05", "question": "Identify patients with transverse myelitis, unspecified myelitis, or neuromyelitis optica based on diagnosis evidence."}
+{"task_id": "N06", "question": "Identify patients with acute disseminated encephalomyelitis based on diagnosis evidence."}
+{"task_id": "N07", "question": "Identify patients with acute disseminated encephalomyelitis or myelitis based on diagnosis evidence with a qualifying inpatient or inpatient/emergency visit."}
+{"task_id": "N08", "question": "Identify patients with encephalitis based on diagnosis evidence."}
+{"task_id": "N09", "question": "Identify patients with Guillain-Barre syndrome during an inpatient stay, based on diagnosis evidence."}
+{"task_id": "N10", "question": "Identify patients with chronic inflammatory demyelinating polyradiculoneuropathy based on diagnosis evidence."}
+{"task_id": "N11", "question": "Identify patients with progressive multifocal leukoencephalopathy based on their first qualifying diagnosis."}
+{"task_id": "N12", "question": "Identify patients with rheumatoid arthritis who are new users of tumor necrosis factor alpha inhibitors, based on medication exposure."}

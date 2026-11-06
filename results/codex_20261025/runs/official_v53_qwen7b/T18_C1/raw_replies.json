@@ -1,0 +1,14 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"copd_diagnosis\",\n    \"entry_concept_sets\": [\"copd_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"copd_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"copd_diagnosis\": {\n        \"name\": \"copd_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of chronic obstructive pulmonary disease.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"no_asthma\",\n        \"rule\": \"none\"\n      }\n    ]\n  }\n}"
+  },
+  {
+    "step": 3,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"copd_diagnosis\",\n    \"entry_concept_sets\": [\"copd_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"copd_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"copd_diagnosis\": {\n        \"name\": \"copd_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of chronic obstructive pulmonary disease.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"no_asthma\",\n        \"rule\": \"none\"\n      }\n    ]\n  }\n}"
+  }
+]

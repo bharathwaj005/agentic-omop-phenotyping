@@ -1,0 +1,117 @@
+{
+  "attempt_id": "v53_T01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "134",
+  "configuration": "C2",
+  "entry_arms": [],
+  "final_spec": null,
+  "input_tokens": 12568,
+  "llm_calls": 7,
+  "logical_run_id": "v53_T01_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "methylphenidate"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n705944\tmethylphenidate\tRxNorm\tIngredient\t323\n731533\tdexmethylphenidate\tRxNorm\tIngredient\t87\n1537411\tserdexmethylphenidate\tRxNorm\tIngredient\t18\n1592737\tmethylphenidate 8.6 MG\tRxNorm\tClinical Drug Comp\t3\n1592616\tmethylphenidate 17.3 MG\tRxNorm\tClinical Drug Comp\t3\n1592733\tmethylphenidate 25.9 MG\tRxNorm\tClinical Drug Comp\t3\n1537416\tdexmethylphenidate 5.2 MG\tRxNorm\tClinical Drug Comp\t3\n1537426\tdexmethylphenidate 7.8 MG\tRxNorm\tClinical Drug Comp\t3\n706182\tmethylphenidate 1.67 MG/HR\tRxNorm\tClinical Drug Comp\t5\n706183\tmethylphenidate 2.22 MG/HR\tRxNorm\tClinical Drug Comp\t5\n1537424\tdexmethylphenidate 10.4 MG\tRxNorm\tClinical Drug Comp\t3\n19123926\tmethylphenidate 3.33 MG/HR\tRxNorm\tClinical Drug Comp\t5\n19123961\tmethylphenidate 1.11 MG/HR\tRxNorm\tClinical Drug Comp\t5\n40066578\tmethylphenidate Oral Tablet\tRxNorm\tClinical Drug Form\t12\n1537417\tserdexmethylphenidate 52.3 MG\tRxNorm\tClinical Drug Comp\t3",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n44813054\tAttention deficit hyperactivity disorder annual review\tSNOMED\tProcedure\t0\n45765570\tDrug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t2\n1243931\tDiagnostic assessment for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n1448142\tSignposting to ADHD (attention deficit hyperactivity disorder) resource\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0",
+        "rows": 6
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 188,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "5a80507b35df"
+  },
+  "question_text_sha256": "6836071c0313680c9e818ff96e9b50b91ecb66d6e78342d5f4e61e87f64da734",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen7b_ctx4096/T01_C2/raw_replies.json",
+  "reason": "repeated identical vocabulary tool call after 2 corrective retries",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 12568,
+    "llm_calls": 7,
+    "llm_time_s": 174.33,
+    "output_tokens": 188,
+    "peak_ram_mb": 261.7,
+    "tool_calls": 5,
+    "total_tokens": 12756,
+    "validator_retries": 0,
+    "wall_seconds": 177.90637824799978,
+    "wall_time_s": 177.91
+  },
+  "tool_calls": 5,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen7b_ctx4096/T01_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 177.90637824799978
+}

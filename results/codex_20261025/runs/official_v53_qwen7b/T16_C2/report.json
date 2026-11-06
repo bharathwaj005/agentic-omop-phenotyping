@@ -1,0 +1,201 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T16_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1188",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 50462,
+  "llm_calls": 17,
+  "logical_run_id": "v53_T16_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "anemia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n439777\tAnemia\tSNOMED\tDisorder\t578\n43022052\tFetal anemia\tSNOMED\tDisorder\t3\n1075863\tAMeD syndrome\tSNOMED\tDisorder\t0\n4217370\tAase syndrome\tSNOMED\tDisorder\t0\n4307469\tSports anemia\tSNOMED\tDisorder\t0\n4030371\tTryptophanemia\tSNOMED\tDisorder\t1\n4101001\tChronic anemia\tSNOMED\tDisorder\t14\n4125493\tVegan's anemia\tSNOMED\tDisorder\t0\n137829\tAplastic anemia\tSNOMED\tDisorder\t28\n1075924\tCIMDAG syndrome\tSNOMED\tDisorder\t0\n4018378\tRelative anemia\tSNOMED\tDisorder\t0\n4339722\tNeonatal anemia\tSNOMED\tDisorder\t7\n37117164\tRevesz syndrome\tSNOMED\tDisorder\t0\n45766392\tMajeed syndrome\tSNOMED\tDisorder\t0\n435503\tHemolytic anemia\tSNOMED\tDisorder\t182",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "reticulocytopenia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4051681\tReticulocytopenia\tSNOMED\tClinical Finding\t0",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "polycythemia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4130681\tErythrocytosis\tSNOMED\tDisorder\t46\n4167506\tGaisbock's syndrome\tSNOMED\tDisorder\t0\n4285372\tStress polycythemia\tSNOMED\tDisorder\t0\n4308045\tPseudo-polycythemia\tSNOMED\tDisorder\t2\n439140\tNeonatal polycythemia\tSNOMED\tDisorder\t6\n4308044\tRelative polycythemia\tSNOMED\tDisorder\t5\n435790\tSecondary polycythemia\tSNOMED\tDisorder\t29\n36674691\tChuvash erythrocytosis\tSNOMED\tDisorder\t0\n433741\tFamilial erythrocytosis\tSNOMED\tDisorder\t5\n4131920\tFamilial polycythemia vera\tSNOMED\tDisorder\t0\n135214\tPolycythemia vera (clinical)\tSNOMED\tDisorder\t1\n607388\tPolycythemia due to HIF2A mutation\tSNOMED\tDisorder\t0\n3656046\tPost-polycythemia vera myelofibrosis\tSNOMED\tDisorder\t0\n1075374\tFetal twin anemia-polycythemia sequence\tSNOMED\tDisorder\t0\n37204525\tAutosomal dominant secondary polycythemia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "hematologic"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4044013\tHematologic neoplasm\tSNOMED\tDisorder\t554\n36716894\tFear of hematological cancer\tSNOMED\tClinical Finding\t0\n36716893\tFear of hematological disease\tSNOMED\tClinical Finding\t0\n4178811\tHematologic complication of procedure\tSNOMED\tDisorder\t8\n438111\tHematologic neoplasm of uncertain behavior\tSNOMED\tDisorder\t45\n606937\tGlomerular disease due to hematological disease\tSNOMED\tDisorder\t5\n37016333\tAlbinism co-occurrent with hematologic disorder\tSNOMED\tDisorder\t0\n37166028\tPyoderma gangrenosum due to hematological disorder\tSNOMED\tDisorder\t0\n79102\tArthropathy associated with a hematological disorder\tSNOMED\tDisorder\t22\n44782564\tPulmonary hypertension due to hematological disorder\tSNOMED\tDisorder\t2\n46271435\tPeriodontitis co-occurrent with hematologic disorder\tSNOMED\tDisorder\t0\n37160954\tDDX41-related hematologic malignancy predisposition syndrome\tSNOMED\tDisorder\t0\n4061847\tAbnormal hematologic finding on antenatal screening of mother\tSNOMED\tClinical Finding\t0\n4147164\tMalignant neoplasm of lymphoid, hematopoietic and/or related tissue\tSNOMED\tDisorder\t663\n44783635\tPulmonary hypertension due to post-splenectomy hematological disorder\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "hematologic evidence"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "hematologic disorder"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4044013\tHematologic neoplasm\tSNOMED\tDisorder\t554\n4178811\tHematologic complication of procedure\tSNOMED\tDisorder\t8\n438111\tHematologic neoplasm of uncertain behavior\tSNOMED\tDisorder\t45\n606937\tGlomerular disease due to hematological disease\tSNOMED\tDisorder\t5\n37016333\tAlbinism co-occurrent with hematologic disorder\tSNOMED\tDisorder\t0\n37166028\tPyoderma gangrenosum due to hematological disorder\tSNOMED\tDisorder\t0\n79102\tArthropathy associated with a hematological disorder\tSNOMED\tDisorder\t22\n44782564\tPulmonary hypertension due to hematological disorder\tSNOMED\tDisorder\t2\n46271435\tPeriodontitis co-occurrent with hematologic disorder\tSNOMED\tDisorder\t0\n37160954\tDDX41-related hematologic malignancy predisposition syndrome\tSNOMED\tDisorder\t0\n44783635\tPulmonary hypertension due to post-splenectomy hematological disorder\tSNOMED\tDisorder\t0\n4264694\tSystemic mastocytosis with associated clonal hematological non-mast cell lineage disease\tSNOMED\tDisorder\t0",
+        "rows": 12
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "hematologic finding"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n36716894\tFear of hematological cancer\tSNOMED\tClinical Finding\t0\n36716893\tFear of hematological disease\tSNOMED\tClinical Finding\t0\n4061847\tAbnormal hematologic finding on antenatal screening of mother\tSNOMED\tClinical Finding\t0",
+        "rows": 3
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Measurement",
+          "query": "hematologic test"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Measurement",
+          "query": "hematologic marker"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Measurement",
+          "query": "hematologic parameter"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Observation",
+          "query": "hematologic test"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Observation",
+          "query": "hematologic"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4313284\tHematologic function\tSNOMED\tObservable Entity\t112\n4199939\tHematological malignancy suspected\tSNOMED\tContext-dependent\t2\n762474\tEducation about hematologic disorder\tSNOMED\tProcedure\t1\n37116986\tGerm cell neoplasm with hematological malignancy\tSNOMED\tMorph Abnormality\t0\n762877\tDocumentation of hematologic disorder medication action plan\tSNOMED\tProcedure\t1\n4288093\tSystemic mastocytosis with associated clonal, hematologic non-mast-cell lineage disease\tSNOMED\tMorph Abnormality\t0",
+        "rows": 6
+      },
+      "step": 24,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 1905,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "0179ed9dc79bb1f088e4097422a4e2d38dcbdfbb4d40809614f12a6dee17cc56",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T16_C2/raw_replies.json",
+  "reason": "JBI_RUN_DEADLINE_S exceeded",
+  "schema_version": 1,
+  "status": "timeout",
+  "task_id": "T16",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 50462,
+    "llm_calls": 17,
+    "llm_time_s": 1198.67,
+    "output_tokens": 1905,
+    "peak_ram_mb": 221.2,
+    "tool_calls": 12,
+    "total_tokens": 52367,
+    "validator_retries": 1,
+    "wall_seconds": 1200.106431533999,
+    "wall_time_s": 1200.11
+  },
+  "tool_calls": 12,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T16_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 1200.106431533999
+}

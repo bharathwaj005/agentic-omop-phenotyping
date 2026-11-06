@@ -1,0 +1,31 @@
+{
+  "configuration_sha256": "b37f3c9c085ee13521fa3cd0ec29a972a220d10d66262d3c78e14f44784078c7",
+  "configurations": [
+    "C2"
+  ],
+  "created_at_utc": "2026-10-26T06:52:26.486099+00:00",
+  "design_freeze_input": {
+    "path": "/home/bharathwaj/jbi/results/benchmark_design/V5_3_FREEZE/BENCHMARK_FINAL20_V5_3_FINAL.csv",
+    "sha256": "205e4f69c4d43b89719c4291446d11b760b939b2610999e43c2a11dc4377e0f2"
+  },
+  "freeze_manifest": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen7b_ctx4096/freeze_manifest.json",
+    "sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06"
+  },
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "runtime_queue_initial": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen7b_ctx4096/RUN_QUEUE.csv",
+    "sha256": "3207290b52b13be5842fbaeb7f96882e27b37c5ffdf9bd3444cd110e1eb0b015"
+  },
+  "schema_version": 1,
+  "semantics": {
+    "design_freeze_input": "design CSV hash; never interpreted as runtime queue hash",
+    "runtime_queue_initial": "exact initial runtime queue bytes; queue changes as statuses are checkpointed"
+  },
+  "task_file": {
+    "path": "/home/bharathwaj/jbi/tasks/benchmark_questions.jsonl",
+    "sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df"
+  },
+  "track": "v53"
+}

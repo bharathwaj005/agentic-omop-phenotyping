@@ -1,0 +1,38 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"multiple sclerosis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 374919}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 37163450, \"max_levels\": 2}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 374919}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"neuromyelitis optica\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"ms_diagnosis\",\n  \"entry_concept_sets\": [\"ms_diagnosis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"ms_diagnosis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": true,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"ms_diagnosis\": {\n      \"name\": \"ms_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of multiple sclerosis.\",\n      \"items\": [\n        {\"concept_id\": 374919, \"include_descendants\": false, \"is_excluded\": false, \"rationale\": \"Primary concept for multiple sclerosis diagnosis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

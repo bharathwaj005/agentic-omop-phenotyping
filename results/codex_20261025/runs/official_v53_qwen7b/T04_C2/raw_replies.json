@@ -1,0 +1,50 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma inhaler\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"asthma_treatment\",\n  \"entry_concept_sets\": [\"asthma_treatment\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"asthma_treatment\", \"event_domain\": \"Procedure\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"asthma_treatment\": {\n      \"name\": \"asthma_treatment\",\n      \"domain\": \"Procedure\",\n      \"description\": \"Procedures related to asthma treatment\",\n      \"items\": [\n        {\"concept_id\": 4199706, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Asthma control steps include treatment\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

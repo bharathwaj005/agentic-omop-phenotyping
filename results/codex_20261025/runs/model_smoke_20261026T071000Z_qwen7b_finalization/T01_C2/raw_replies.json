@@ -1,0 +1,50 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"methylphenidate\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 16,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"entry_concept_set\": \"adhd_diagnosis\",\n  \"entry_concept_sets\": [\"adhd_diagnosis\"],\n  \"entry_arms\": [\n    {\n      \"concept_set\": \"adhd_diagnosis\",\n      \"event_domain\": \"Condition\"\n    }\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": 18,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"adhd_diagnosis\": {\n      \"name\": \"adhd_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of Attention Deficit Hyperactivity Disorder\",\n      \"items\": [\n        {\n          \"concept_id\": 438409,\n          \"include_descendants\": true,\n          \"is_excluded\": false,\n          \"rationale\": \"This is the standard concept for ADHD diagnosis.\"\n        }\n      ]\n    }\n  },\n  \"criteria\": []\n}"
+  }
+]

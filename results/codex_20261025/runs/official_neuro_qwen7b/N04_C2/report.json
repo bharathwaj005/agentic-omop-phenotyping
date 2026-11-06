@@ -1,0 +1,189 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N04_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1026",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "ms_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "ms_diagnosis": {
+        "description": "Patients with a diagnosis of multiple sclerosis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 374919,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Primary concept for multiple sclerosis diagnosis"
+          }
+        ],
+        "name": "ms_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "ms_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "ms_diagnosis",
+    "entry_concept_sets": [
+      "ms_diagnosis"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 0,
+    "question": "Identify patients with multiple sclerosis based on their earliest qualifying diagnosis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 12954,
+  "llm_calls": 6,
+  "logical_run_id": "neuro_N04_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.08695652173913045,
+        "jaccard": 0.045454545454545456,
+        "precision": 1.0,
+        "recall": 0.045454545454545456
+      },
+      "full": {
+        "f1": 0.08695652173913045,
+        "jaccard": 0.045454545454545456,
+        "precision": 1.0,
+        "recall": 0.045454545454545456
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.08695652173913045,
+        "jaccard": 0.045454545454545456,
+        "precision": 1.0,
+        "recall": 0.045454545454545456
+      },
+      "full": {
+        "f1": 0.08695652173913045,
+        "jaccard": 0.045454545454545456,
+        "precision": 1.0,
+        "recall": 0.045454545454545456
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "multiple sclerosis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n374919\tMultiple sclerosis\tSNOMED\tDisorder\t17\n4231948\tBenign multiple sclerosis\tSNOMED\tDisorder\t0\n4258676\tMalignant multiple sclerosis\tSNOMED\tDisorder\t0\n37162102\tPediatric multiple sclerosis\tSNOMED\tDisorder\t0\n37311816\tProgressive multiple sclerosis\tSNOMED\tDisorder\t3\n35623817\tMarburg acute multiple sclerosis\tSNOMED\tDisorder\t0\n4046108\tAcute relapsing multiple sclerosis\tSNOMED\tDisorder\t0\n4102337\tExacerbation of multiple sclerosis\tSNOMED\tDisorder\t1\n37167005\tMyelitis due to multiple sclerosis\tSNOMED\tDisorder\t0\n4105353\tMultiple sclerosis of the brainstem\tSNOMED\tDisorder\t0\n37166929\tHemichorea due to multiple sclerosis\tSNOMED\tDisorder\t0\n4101729\tMultiple sclerosis of the spinal cord\tSNOMED\tDisorder\t1\n4145049\tRelapsing remitting multiple sclerosis\tSNOMED\tDisorder\t0\n4178929\tPrimary progressive multiple sclerosis\tSNOMED\tDisorder\t0\n37163450\tSclerosis of multiple endocrine glands\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374919
+        },
+        "output": "total_descendants=17\nid\tname\tclass\tlevels\n4231948\tBenign multiple sclerosis\tDisorder\t1\n37162102\tPediatric multiple sclerosis\tDisorder\t1\n4258676\tMalignant multiple sclerosis\tDisorder\t1\n37311816\tProgressive multiple sclerosis\tDisorder\t1\n35623817\tMarburg acute multiple sclerosis\tDisorder\t1\n4102337\tExacerbation of multiple sclerosis\tDisorder\t1\n4046108\tAcute relapsing multiple sclerosis\tDisorder\t1\n4105353\tMultiple sclerosis of the brainstem\tDisorder\t1\n4101729\tMultiple sclerosis of the spinal cord\tDisorder\t1\n4145049\tRelapsing remitting multiple sclerosis\tDisorder\t1\n37166088\tAutonomic disorder due to multiple sclerosis\tDisorder\t1\n37116351\tMultiple sclerosis, ichthyosis, factor VIII deficiency syndrome\tDisorder\t1\n44811462\tUhthoff phenomenon\tDisorder\t2\n4178929\tPrimary progressive multiple sclerosis\tDisorder\t2\n37110514\tProgressive relapsing multiple sclerosis\tDisorder\t2",
+        "rows": 16
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 37163450,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n22856\tPolyglandular dysfunction\tDisorder\t1\n4131812\tPolyglandular dysfunction AND/OR related disorders\tDisorder\t2",
+        "rows": 2
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374919
+        },
+        "output": "id\tname\tdomain\tvocab\n374919\tMultiple sclerosis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "neuromyelitis optica"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n380995\tNeuromyelitis optica\tSNOMED\tDisorder\t0",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 331,
+  "per_set": {
+    "ms_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 374919,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Primary concept for multiple sclerosis diagnosis"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "a50c0555df2c688f54e98f1d0ff5257a963a9b378cb739105f48cc13c9923d23",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N04_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N04",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 12954,
+    "llm_calls": 6,
+    "llm_time_s": 131.5,
+    "output_tokens": 331,
+    "peak_ram_mb": 369.7,
+    "tool_calls": 5,
+    "total_tokens": 13285,
+    "validator_retries": 0,
+    "wall_seconds": 132.86488805599993,
+    "wall_time_s": 132.87
+  },
+  "tool_calls": 5,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N04_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 132.86488805599993
+}

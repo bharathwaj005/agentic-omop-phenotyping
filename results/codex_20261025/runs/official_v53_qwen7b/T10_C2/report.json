@@ -1,0 +1,153 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T10_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "967",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 95089,
+  "llm_calls": 30,
+  "logical_run_id": "v53_T10_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12",
+        "rows": 1
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "ADHD"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n44813054\tAttention deficit hyperactivity disorder annual review\tSNOMED\tProcedure\t0\n45765570\tDrug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t2\n1243931\tDiagnostic assessment for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n1448142\tSignposting to ADHD (attention deficit hyperactivity disorder) resource\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0",
+        "rows": 6
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "ADHD medication"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "stimulant"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "methylphenidate"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n705944\tmethylphenidate\tRxNorm\tIngredient\t323\n731533\tdexmethylphenidate\tRxNorm\tIngredient\t87\n1537411\tserdexmethylphenidate\tRxNorm\tIngredient\t18\n1592737\tmethylphenidate 8.6 MG\tRxNorm\tClinical Drug Comp\t3\n1592616\tmethylphenidate 17.3 MG\tRxNorm\tClinical Drug Comp\t3\n1592733\tmethylphenidate 25.9 MG\tRxNorm\tClinical Drug Comp\t3\n1537416\tdexmethylphenidate 5.2 MG\tRxNorm\tClinical Drug Comp\t3\n1537426\tdexmethylphenidate 7.8 MG\tRxNorm\tClinical Drug Comp\t3\n706182\tmethylphenidate 1.67 MG/HR\tRxNorm\tClinical Drug Comp\t5\n706183\tmethylphenidate 2.22 MG/HR\tRxNorm\tClinical Drug Comp\t5\n1537424\tdexmethylphenidate 10.4 MG\tRxNorm\tClinical Drug Comp\t3\n19123926\tmethylphenidate 3.33 MG/HR\tRxNorm\tClinical Drug Comp\t5\n19123961\tmethylphenidate 1.11 MG/HR\tRxNorm\tClinical Drug Comp\t5\n40066578\tmethylphenidate Oral Tablet\tRxNorm\tClinical Drug Form\t12\n1537417\tserdexmethylphenidate 52.3 MG\tRxNorm\tClinical Drug Comp\t3",
+        "rows": 15
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "non-stimulant"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "atomoxetine"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n742185\tatomoxetine\tRxNorm\tIngredient\t51\n19108912\tatomoxetine 5 MG\tRxNorm\tClinical Drug Comp\t1\n19097819\tatomoxetine 10 MG\tRxNorm\tClinical Drug Comp\t5\n19097820\tatomoxetine 18 MG\tRxNorm\tClinical Drug Comp\t7\n19097831\tatomoxetine 25 MG\tRxNorm\tClinical Drug Comp\t9\n19097832\tatomoxetine 40 MG\tRxNorm\tClinical Drug Comp\t9\n19097833\tatomoxetine 60 MG\tRxNorm\tClinical Drug Comp\t7\n19123232\tatomoxetine 80 MG\tRxNorm\tClinical Drug Comp\t5\n19123230\tatomoxetine 100 MG\tRxNorm\tClinical Drug Comp\t3\n1317130\tatomoxetine 4 MG/ML\tRxNorm\tClinical Drug Comp\t3\n40099132\tatomoxetine Oral Capsule\tRxNorm\tClinical Drug Form\t22\n1317132\tatomoxetine Oral Solution\tRxNorm\tClinical Drug Form\t3\n1317135\tatomoxetine 4 MG/ML [Atoncy]\tRxNorm\tBranded Drug Comp\t1\n19037332\tatomoxetine 80 MG [Strattera]\tRxNorm\tBranded Drug Comp\t2\n19103322\tatomoxetine 5 MG Oral Capsule\tRxNorm\tClinical Drug\t0",
+        "rows": 15
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 777,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "ea7efdf73a6a7b3479f15b80280eb126e331e9d6c551caf1af8d19ca6a9fb03b",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T10_C2/raw_replies.json",
+  "reason": "budget exceeded: llm_calls limit=30 used=30",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T10",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 95089,
+    "llm_calls": 30,
+    "llm_time_s": 876.13,
+    "output_tokens": 777,
+    "peak_ram_mb": 27.8,
+    "tool_calls": 8,
+    "total_tokens": 95866,
+    "validator_retries": 0,
+    "wall_seconds": 877.4414354439996,
+    "wall_time_s": 877.47
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T10_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 877.4414354439996
+}

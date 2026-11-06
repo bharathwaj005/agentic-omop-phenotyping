@@ -1,0 +1,201 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T20_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1301",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "acute_uti",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_uti": {
+        "description": "Patients with acute urinary tract infection",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4331815,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Specific concept for acute urinary tract infection"
+          }
+        ],
+        "name": "acute_uti"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_uti",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_uti",
+    "entry_concept_sets": [
+      "acute_uti"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with qualifying acute urinary tract infection events.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 18866,
+  "llm_calls": 8,
+  "logical_run_id": "v53_T20_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.23076923076923075,
+        "jaccard": 0.13043478260869565,
+        "precision": 0.9130434782608695,
+        "recall": 0.1320754716981132
+      },
+      "full": {
+        "f1": 0.23076923076923075,
+        "jaccard": 0.13043478260869565,
+        "precision": 0.9130434782608695,
+        "recall": 0.1320754716981132
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.23076923076923075,
+        "jaccard": 0.13043478260869565,
+        "precision": 0.9130434782608695,
+        "recall": 0.1320754716981132
+      },
+      "full": {
+        "f1": 0.23076923076923075,
+        "jaccard": 0.13043478260869565,
+        "precision": 0.9130434782608695,
+        "recall": 0.1320754716981132
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "urinary tract infection"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n606935\tBacterial pyuria\tSNOMED\tDisorder\t0\n4208664\tBacterial urinary infection\tSNOMED\tDisorder\t58\n4311853\tUpper urinary tract infection\tSNOMED\tDisorder\t70\n4331815\tAcute urinary tract infection\tSNOMED\tDisorder\t22\n4056622\tChronic urinary tract infection\tSNOMED\tDisorder\t10\n4114033\tProteus urinary tract infection\tSNOMED\tDisorder\t0\n45770841\tFebrile urinary tract infection\tSNOMED\tDisorder\t0\n81902\tUrinary tract infectious disease\tSNOMED\tDisorder\t171\n4047937\tNeonatal urinary tract infection\tSNOMED\tDisorder\t0\n4116490\tColiform urinary tract infection\tSNOMED\tDisorder\t4\n4056621\tRecurrent urinary tract infection\tSNOMED\tDisorder\t4\n4329106\tAcute upper urinary tract infection\tSNOMED\tDisorder\t15\n4330644\tAcute lower urinary tract infection\tSNOMED\tDisorder\t5\n4146482\tUrinary tract infection in pregnancy\tSNOMED\tDisorder\t0\n37471121\tTuberculosis of urinary tract proper\tSNOMED\tDisorder\t5",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4331815
+        },
+        "output": "total_descendants=22\nid\tname\tclass\tlevels\n4329106\tAcute upper urinary tract infection\tDisorder\t1\n4330644\tAcute lower urinary tract infection\tDisorder\t1\n4056023\tAcute pyonephrosis\tDisorder\t2\n4280571\tAcute pyelonephritis\tDisorder\t2\n4144035\tAcute infective cystitis\tDisorder\t2\n4107240\tAcute gonococcal urethritis\tDisorder\t2\n3654660\tAcute pyelonephritis caused by bacterium\tDisorder\t2\n4048676\tFocal pyelonephritis\tDisorder\t3\n193140\tAcute gonococcal cystitis\tDisorder\t3\n4125951\tEmphysematous pyelonephritis\tDisorder\t3\n37166017\tAcute bacterial simple cystitis\tDisorder\t3\n4128401\tAcute culture positive cystitis\tDisorder\t3\n4329572\tAcute bacterial tubulointerstitial nephritis\tDisorder\t3\n197035\tAcute pyelonephritis with medullary necrosis\tDisorder\t3\n4284564\tAcute infectious tubulointerstitial nephritis\tDisorder\t3",
+        "rows": 16
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4331815,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4271450\tAcute infectious disease\tDisorder\t1\n4018852\tAcute genitourinary disorder\tDisorder\t1\n81902\tUrinary tract infectious disease\tDisorder\t1\n443883\tAcute disease\tDisorder\t2\n432250\tInfectious disease\tDisorder\t2\n75865\tDisorder of urinary system\tDisorder\t2\n4171379\tDisorder of the genitourinary system\tDisorder\t2\n4099350\tInfectious disease of genitourinary system\tDisorder\t2",
+        "rows": 8
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4331815
+        },
+        "output": "id\tname\tdomain\tvocab\n4331815\tAcute urinary tract infection\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "acute urinary tract infection"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "urinary tract infection"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n36713142\tUrinary tract infection prophylaxis\tSNOMED\tProcedure\t0\n1448281\tAssessment of signs and symptoms of urinary tract infection\tSNOMED\tProcedure\t0",
+        "rows": 2
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 386,
+  "per_set": {
+    "acute_uti": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 4331815,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Specific concept for acute urinary tract infection"
+        }
+      ],
+      "resolved_count": 23
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "99ef68483e1d364350b9df00b851d0a6e52620fe67ed1a763efb04e984a7e175",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T20_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T20",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 18866,
+    "llm_calls": 8,
+    "llm_time_s": 168.17,
+    "output_tokens": 386,
+    "peak_ram_mb": 356.7,
+    "tool_calls": 6,
+    "total_tokens": 19252,
+    "validator_retries": 0,
+    "wall_seconds": 169.4793147499986,
+    "wall_time_s": 169.49
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T20_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 169.4793147499986
+}

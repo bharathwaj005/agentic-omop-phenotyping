@@ -1,0 +1,131 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T14_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1183",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": null,
+  "input_tokens": 18527,
+  "llm_calls": 10,
+  "logical_run_id": "v53_T14_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "antiepileptic"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "epilepsy"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "anticonvulsant"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "antiepileptic"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4177128\tOverdose of anticonvulsant drug\tSNOMED\tDisorder\t111\n601067\tPancytopenia caused by anticonvulsant\tSNOMED\tDisorder\t0",
+        "rows": 2
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "anticonvulsant",
+          "vocabulary": "SNOMED"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "antiepileptic",
+          "vocabulary": "SNOMED"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 519,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "a2099ac9ecba81b1e383b6d8285c7de3bc2824adaf7dbb87125248bef26f60ea",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T14_C2/raw_replies.json",
+  "reason": "bounded finalization failed validation: ERROR domain_mismatch [anticonvulsant_drug] concept 4177128: concept is in domain 'Condition' but the set declares 'Drug'",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T14",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 18527,
+    "llm_calls": 10,
+    "llm_time_s": 142.65,
+    "output_tokens": 519,
+    "peak_ram_mb": 255.8,
+    "tool_calls": 6,
+    "total_tokens": 19046,
+    "validator_retries": 1,
+    "wall_seconds": 145.50390987799983,
+    "wall_time_s": 145.51
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T14_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 145.50390987799983
+}

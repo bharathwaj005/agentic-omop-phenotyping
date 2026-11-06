@@ -1,0 +1,159 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N03_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "552",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "parkinson_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "parkinson_diagnosis": {
+        "description": "Patients with a diagnosis of Parkinson disease.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 381270,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 'Parkinson's disease' (381270) accurately represents the clinical description of patients with a diagnosis of Parkinson disease."
+          }
+        ],
+        "name": "parkinson_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "parkinson_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "parkinson_diagnosis",
+    "entry_concept_sets": [
+      "parkinson_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Parkinson disease based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5375,
+  "llm_calls": 4,
+  "logical_run_id": "neuro_N03_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.16666666666666669,
+        "jaccard": 0.09090909090909091,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "full": {
+        "f1": 0.16666666666666669,
+        "jaccard": 0.09090909090909091,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.16666666666666669,
+        "jaccard": 0.09090909090909091,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "full": {
+        "f1": 0.16666666666666669,
+        "jaccard": 0.09090909090909091,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Parkinson"
+        },
+        "concept_set": "parkinson_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n36716432\tDystonia 16\tSNOMED\tDisorder\t0\n4140090\tParkinsonism\tSNOMED\tDisorder\t70\n44783137\tPerry syndrome\tSNOMED\tDisorder\t0\n381270\tParkinson's disease\tSNOMED\tDisorder\t10\n4086836\tParkinsonian facies\tSNOMED\tClinical Finding\t0\n4092871\tExtrapyramidal gait\tSNOMED\tClinical Finding\t0\n4095182\tParkinsonian ataxia\tSNOMED\tClinical Finding\t0\n4204820\tParkinsonian tremor\tSNOMED\tClinical Finding\t0\n37117179\tKufor Rakeb syndrome\tSNOMED\tDisorder\t0\n4046093\tVascular parkinsonism\tSNOMED\tDisorder\t0\n36716783\tAtypical Parkinsonism\tSNOMED\tDisorder\t1\n374013\tSecondary parkinsonism\tSNOMED\tDisorder\t28\n373139\tSyphilitic parkinsonism\tSNOMED\tDisorder\t0\n37110549\tFunctional parkinsonism\tSNOMED\tDisorder\t0\n4140881\tSymptomatic parkinsonism\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 381270
+        },
+        "concept_set": "parkinson_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n381270\tParkinson's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t10",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 336,
+  "per_set": {
+    "parkinson_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 381270,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 'Parkinson's disease' (381270) accurately represents the clinical description of patients with a diagnosis of Parkinson disease."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "067394ebbda0d1dcd1ea5a58d89f565b95285fbfe9bece0a4e9a7e31ce51abff",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N03_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N03",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5375,
+    "llm_calls": 4,
+    "llm_time_s": 100.26,
+    "output_tokens": 336,
+    "peak_ram_mb": 378.3,
+    "tool_calls": 2,
+    "total_tokens": 5711,
+    "validator_retries": 0,
+    "wall_seconds": 100.40332238300016,
+    "wall_time_s": 100.41
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N03_C3/trace.json",
+  "track": "neuro",
+  "wall_seconds": 100.40332238300016
+}

@@ -1,0 +1,98 @@
+{
+ "reference_version": "v2",
+ "task_id": "N1080",
+ "cohort_id": "1080",
+ "entry_codeset_id": "0",
+ "entry_codeset_ids": [
+  "0"
+ ],
+ "entry_domains": [
+  "Condition"
+ ],
+ "entry_arms": [
+  {
+   "codeset_id": "0",
+   "domain_key": "ConditionOccurrence",
+   "domain": "Condition"
+  }
+ ],
+ "entry_domain": "Condition",
+ "entry_concept_ids": [
+  374925,
+  4070552,
+  4164770,
+  35623634,
+  35624130,
+  37160984,
+  37204369,
+  37204541,
+  37396086,
+  37396785,
+  37396786
+ ],
+ "entry_concept_ids_by_codeset": {
+  "0": [
+   374925,
+   4070552,
+   4164770,
+   35623634,
+   35624130,
+   37160984,
+   37204369,
+   37204541,
+   37396086,
+   37396785,
+   37396786
+  ]
+ },
+ "all_concept_ids": [
+  262,
+  9201,
+  32037,
+  32254,
+  32760,
+  374925,
+  4070552,
+  4164770,
+  35623634,
+  35624130,
+  37160984,
+  37204369,
+  37204541,
+  37396086,
+  37396785,
+  37396786
+ ],
+ "concept_sets": {
+  "0": {
+   "name": "Guillian-Barre syndrome",
+   "concept_ids": [
+    374925,
+    4070552,
+    4164770,
+    35623634,
+    35624130,
+    37160984,
+    37204369,
+    37204541,
+    37396086,
+    37396785,
+    37396786
+   ]
+  },
+  "1": {
+   "name": "Inpatient or Inpatient/ER visit",
+   "concept_ids": [
+    262,
+    9201,
+    32037,
+    32254,
+    32760
+   ]
+  }
+ },
+ "counts": {
+  "entry": 11,
+  "all": 16
+ }
+}

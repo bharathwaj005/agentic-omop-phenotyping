@@ -1,0 +1,220 @@
+{
+  "attempt_id": "retry_T11_v53_T11_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1048",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "retry_T11",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "new_users_of_dihydropyridine_calcium_channel_blockers": {
+        "description": "New users of dihydropyridine calcium-channel blockers.",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 1318853,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The RxNorm concept 1318853 for nifedipine represents the dihydropyridine calcium-channel blockers as it is a valid standard concept for the drug ingredient."
+          }
+        ],
+        "name": "new_users_of_dihydropyridine_calcium_channel_blockers"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+    "entry_concept_sets": [
+      "new_users_of_dihydropyridine_calcium_channel_blockers"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 365,
+    "question": "Identify new users of dihydropyridine calcium-channel blockers.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 14239,
+  "llm_calls": 9,
+  "logical_run_id": "v53_T11_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.0029154518950437317,
+        "jaccard": 0.00145985401459854,
+        "precision": 1.0,
+        "recall": 0.00145985401459854
+      },
+      "full": {
+        "f1": 0.0029154518950437317,
+        "jaccard": 0.00145985401459854,
+        "precision": 1.0,
+        "recall": 0.00145985401459854
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.0029154518950437317,
+        "jaccard": 0.00145985401459854,
+        "precision": 1.0,
+        "recall": 0.00145985401459854
+      },
+      "full": {
+        "f1": 0.0029154518950437317,
+        "jaccard": 0.00145985401459854,
+        "precision": 1.0,
+        "recall": 0.00145985401459854
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "dihydropyridine calcium-channel blocker"
+        },
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "dihydropyridine"
+        },
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "calcium channel blocker"
+        },
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 7,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "nifedipine"
+        },
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "output": "id\tname\tvocab\tclass\tn_desc\n1318853\tnifedipine\tRxNorm\tIngredient\t345\n1318919\tnifedipine 5 MG\tRxNorm\tClinical Drug Comp\t11\n1318915\tnifedipine 10 MG\tRxNorm\tClinical Drug Comp\t53\n1318916\tnifedipine 20 MG\tRxNorm\tClinical Drug Comp\t66\n1318917\tnifedipine 60 MG\tRxNorm\tClinical Drug Comp\t24\n1318918\tnifedipine 30 MG\tRxNorm\tClinical Drug Comp\t21\n1318921\tnifedipine 40 MG\tRxNorm\tClinical Drug Comp\t9\n1318952\tnifedipine 90 MG\tRxNorm\tClinical Drug Comp\t12\n19093207\tnifedipine 33 MG\tRxNorm\tClinical Drug Comp\t1\n19110976\tnifedipine 50 MG\tRxNorm\tClinical Drug Comp\t1\n19110980\tnifedipine 15 MG\tRxNorm\tClinical Drug Comp\t1\n19110972\tnifedipine 0.1 MG/ML\tRxNorm\tClinical Drug Comp\t1\n40069156\tnifedipine Oral Tablet\tRxNorm\tClinical Drug Form\t5\n19117299\tnifedipine 5 MG [Vasad]\tRxNorm\tBranded Drug Comp\t1\n40069147\tnifedipine Oral Capsule\tRxNorm\tClinical Drug Form\t26",
+        "rows": 15
+      },
+      "step": 9,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1318853
+        },
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n1318853\tnifedipine\tDrug\tRxNorm\tIngredient\tS\tTrue\t345",
+        "rows": 1
+      },
+      "step": 11,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1318853
+        },
+        "concept_set": "new_users_of_dihydropyridine_calcium_channel_blockers",
+        "output": "id\tname\tdomain\tvocab\n1318853\tnifedipine\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 13,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 675,
+  "per_set": {
+    "new_users_of_dihydropyridine_calcium_channel_blockers": {
+      "domain": "Drug",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 1318853,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The RxNorm concept 1318853 for nifedipine represents the dihydropyridine calcium-channel blockers as it is a valid standard concept for the drug ingredient."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "20d8498c04ac54b19fd13d15de5c699c19b8bf00b80470f25c2143ac38ac74f9",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T11/T11_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T11",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 14239,
+    "llm_calls": 9,
+    "llm_time_s": 464.07,
+    "output_tokens": 675,
+    "peak_ram_mb": 105.6,
+    "tool_calls": 6,
+    "total_tokens": 14914,
+    "validator_retries": 0,
+    "wall_seconds": 470.0196477110003,
+    "wall_time_s": 470.07
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/retry_T11/T11_C3/trace.json",
+  "track": "v53",
+  "wall_seconds": 470.0196477110003
+}

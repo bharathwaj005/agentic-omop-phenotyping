@@ -1,0 +1,200 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T14_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1183",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "qualifying_antiepileptic_medication",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "qualifying_antiepileptic_medication": {
+        "description": "Patients receiving antiepileptic medications represented by the qualifying antiepileptic ingredient group.",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 740275,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The RxNorm concept 740275 for carbamazepine represents the antiepileptic ingredient group, which is clinically justified for identifying patients receiving antiepileptic medications."
+          }
+        ],
+        "name": "qualifying_antiepileptic_medication"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "qualifying_antiepileptic_medication",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "qualifying_antiepileptic_medication",
+    "entry_concept_sets": [
+      "qualifying_antiepileptic_medication"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients receiving antiepileptic medications represented by the qualifying antiepileptic ingredient group.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 13087,
+  "llm_calls": 9,
+  "logical_run_id": "v53_T14_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.11272898074213246,
+        "jaccard": 0.05973120955699353,
+        "precision": 1.0,
+        "recall": 0.05973120955699353
+      },
+      "full": {
+        "f1": 0.11272898074213246,
+        "jaccard": 0.05973120955699353,
+        "precision": 1.0,
+        "recall": 0.05973120955699353
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.11272898074213246,
+        "jaccard": 0.05973120955699353,
+        "precision": 1.0,
+        "recall": 0.05973120955699353
+      },
+      "full": {
+        "f1": 0.11272898074213246,
+        "jaccard": 0.05973120955699353,
+        "precision": 1.0,
+        "recall": 0.05973120955699353
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "antiepileptic"
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "antiepileptic drug"
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "carbamazepine"
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n740275\tcarbamazepine\tRxNorm\tIngredient\t143\n740347\tcarbamazepine 100 MG\tRxNorm\tClinical Drug Comp\t19\n740349\tcarbamazepine 200 MG\tRxNorm\tClinical Drug Comp\t27\n740350\tcarbamazepine 300 MG\tRxNorm\tClinical Drug Comp\t10\n740351\tcarbamazepine 400 MG\tRxNorm\tClinical Drug Comp\t13\n740392\tcarbamazepine 125 MG\tRxNorm\tClinical Drug Comp\t3\n740393\tcarbamazepine 250 MG\tRxNorm\tClinical Drug Comp\t3\n19109181\tcarbamazepine 150 MG\tRxNorm\tClinical Drug Comp\t1\n19109182\tcarbamazepine 600 MG\tRxNorm\tClinical Drug Comp\t1\n740348\tcarbamazepine 20 MG/ML\tRxNorm\tClinical Drug Comp\t3\n1366710\tcarbamazepine 10 MG/ML\tRxNorm\tClinical Drug Comp\t5\n1718200\tcarbamazepine 200 MG/ML\tRxNorm\tClinical Drug Comp\t3\n1718202\tcarbamazepine Injection\tRxNorm\tClinical Drug Form\t7\n40021196\tcarbamazepine Oral Tablet\tRxNorm\tClinical Drug Form\t14\n19115717\tcarbamazepine 100 MG [Epimaz]\tRxNorm\tBranded Drug Comp\t1",
+        "rows": 15
+      },
+      "step": 7,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 740275
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n740275\tcarbamazepine\tDrug\tRxNorm\tIngredient\tS\tTrue\t143",
+        "rows": 1
+      },
+      "step": 9,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 740275
+        },
+        "concept_set": "qualifying_antiepileptic_medication",
+        "output": "id\tname\tdomain\tvocab\n740275\tcarbamazepine\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 11,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 551,
+  "per_set": {
+    "qualifying_antiepileptic_medication": {
+      "domain": "Drug",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 740275,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The RxNorm concept 740275 for carbamazepine represents the antiepileptic ingredient group, which is clinically justified for identifying patients receiving antiepileptic medications."
+        }
+      ],
+      "resolved_count": 120
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "a2099ac9ecba81b1e383b6d8285c7de3bc2824adaf7dbb87125248bef26f60ea",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T14_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T14",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 13087,
+    "llm_calls": 9,
+    "llm_time_s": 170.7,
+    "output_tokens": 551,
+    "peak_ram_mb": 248.5,
+    "tool_calls": 5,
+    "total_tokens": 13638,
+    "validator_retries": 0,
+    "wall_seconds": 171.21386799700122,
+    "wall_time_s": 171.22
+  },
+  "tool_calls": 5,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T14_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 171.21386799700122
+}

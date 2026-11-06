@@ -1,0 +1,93 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T17_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1261",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 5400,
+  "llm_calls": 4,
+  "logical_run_id": "v53_T17_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "pneumonia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n255848\tPneumonia\tSNOMED\tDisorder\t186\n261326\tViral pneumonia\tSNOMED\tDisorder\t28\n4046011\tFocal pneumonia\tSNOMED\tDisorder\t0\n4116487\tBasal pneumonia\tSNOMED\tDisorder\t3\n4133224\tLobar pneumonia\tSNOMED\tDisorder\t10\n256722\tBronchopneumonia\tSNOMED\tDisorder\t31\n4049965\tFungal pneumonia\tSNOMED\tDisorder\t12\n252548\tAnthrax pneumonia\tSNOMED\tDisorder\t0\n4112655\tProteus pneumonia\tSNOMED\tDisorder\t2\n45770900\tRubella pneumonia\tSNOMED\tDisorder\t1\n46269693\tChronic pneumonia\tSNOMED\tDisorder\t2\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n4051337\tNeonatal pneumonia\tSNOMED\tDisorder\t2\n4145369\tLingular pneumonia\tSNOMED\tDisorder\t0\n43020558\tCavitary pneumonia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "typical pneumonia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n440431\tPneumonia caused by Mycoplasma pneumoniae\tSNOMED\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 77,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "72d2dca80aab9c7d7470e5eb1548c994b80323957ed4edd86c5d7abdb95bc9e8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T17_C2/raw_replies.json",
+  "reason": "RemoteDisconnected: Remote end closed connection without response",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T17",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5400,
+    "llm_calls": 4,
+    "llm_time_s": 70.61,
+    "output_tokens": 77,
+    "peak_ram_mb": 194.7,
+    "tool_calls": 3,
+    "total_tokens": 5477,
+    "validator_retries": 0,
+    "wall_seconds": 71.12526753299971,
+    "wall_time_s": 71.14
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T17_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 71.12526753299971
+}

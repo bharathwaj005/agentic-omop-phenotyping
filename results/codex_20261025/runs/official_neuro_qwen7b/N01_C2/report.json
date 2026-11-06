@@ -1,0 +1,202 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "255",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "alzheimer_disease",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "alzheimer_disease": {
+        "description": "Alzheimer's disease diagnosis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378419,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of Alzheimer's disease"
+          }
+        ],
+        "name": "alzheimer_disease"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "alzheimer_disease",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "alzheimer_disease",
+    "entry_concept_sets": [
+      "alzheimer_disease"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Alzheimer disease based on qualifying diagnosis or medication exposure, with required inclusion criteria.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 19748,
+  "llm_calls": 8,
+  "logical_run_id": "neuro_N01_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.05555555555555556,
+        "jaccard": 0.02857142857142857,
+        "precision": 1.0,
+        "recall": 0.02857142857142857
+      },
+      "full": {
+        "f1": 0.0008591065292096221,
+        "jaccard": 0.0004297378599054577,
+        "precision": 1.0,
+        "recall": 0.0004297378599054577
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.004301075268817204,
+        "jaccard": 0.0021551724137931034,
+        "precision": 1.0,
+        "recall": 0.0021551724137931034
+      },
+      "full": {
+        "f1": 0.0008591065292096221,
+        "jaccard": 0.0004297378599054577,
+        "precision": 1.0,
+        "recall": 0.0004297378599054577
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Alzheimer"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n4046085\tNon-Alzheimer's progressive dysphasia\tSNOMED\tDisorder\t0\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "Alzheimer"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Alzheimer",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n4046085\tNon-Alzheimer's progressive dysphasia\tSNOMED\tDisorder\t0\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "output": "total_descendants=34\nid\tname\tclass\tlevels\n43021816\tMixed dementia\tDisorder\t1\n4043377\tFocal Alzheimer's disease\tDisorder\t1\n36716558\tNon-amnestic Alzheimer disease\tDisorder\t1\n37395572\tAlzheimer's disease with delirium\tDisorder\t1\n44782726\tAlzheimer's disease with delusions\tDisorder\t1\n37166126\tAlzheimer's disease with psychosis\tDisorder\t1\n44782727\tAlzheimer's disease with depressed mood\tDisorder\t1\n44784643\tAlzheimer's disease with altered behavior\tDisorder\t1\n4043379\tAlzheimer's disease with progressive aphasia\tDisorder\t1\n43530664\tDementia of the Alzheimer type with behavioral disturbance\tDisorder\t1\n4220313\tPrimary degenerative dementia of the Alzheimer type, senile onset\tDisorder\t1\n4218017\tPrimary degenerative dementia of the Alzheimer type, presenile onset\tDisorder\t1\n37167043\tLogopenic non-amnestic Alzheimer disease\tDisorder\t2\n4043243\tFamilial Alzheimer's disease of late onset\tDisorder\t2\n4043241\tFamilial Alzheimer's disease of early onset\tDisorder\t2",
+        "rows": 16
+      },
+      "step": 8,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4182210\tDementia\tDisorder\t1\n4092747\tCerebral degeneration presenting primarily with dementia\tDisorder\t1\n443432\tImpaired cognition\tClinical Finding\t2\n4168666\tCerebral degeneration\tDisorder\t2\n374009\tOrganic mental disorder\tDisorder\t2",
+        "rows": 5
+      },
+      "step": 10,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "output": "id\tname\tdomain\tvocab\n378419\tAlzheimer's disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 386,
+  "per_set": {
+    "alzheimer_disease": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 378419,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of Alzheimer's disease"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "716ab5b87e785f74248adb89ada7de8f10267c0c996e34d43a1321a484f3c514",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N01_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 19748,
+    "llm_calls": 8,
+    "llm_time_s": 263.34,
+    "output_tokens": 386,
+    "peak_ram_mb": 336.5,
+    "tool_calls": 6,
+    "total_tokens": 20134,
+    "validator_retries": 0,
+    "wall_seconds": 267.814860963,
+    "wall_time_s": 267.83
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N01_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 267.814860963
+}

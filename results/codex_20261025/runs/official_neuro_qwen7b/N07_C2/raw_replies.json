@@ -1,0 +1,68 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute disseminated encephalomyelitis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"myelitis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 374021}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 138965}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 373189, \"max_levels\": 2}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 373189}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute inpatient\", \"domain\": \"Visit\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"inpatient\", \"domain\": \"Visit\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 373189, \"max_levels\": 2}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"entry_set_1\",\n  \"entry_concept_sets\": [\"entry_set_1\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"entry_set_1\", \"event_domain\": \"Condition\"},\n    {\"concept_set\": \"entry_set_1\", \"event_domain\": \"Visit\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"entry_set_1\": {\n      \"name\": \"entry_set_1\",\n      \"domain\": \"Condition\",\n      \"description\": \"Acute disseminated encephalomyelitis or myelitis\",\n      \"items\": [\n        {\"concept_id\": 373189, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Specific concept for encephalomyelitis\"}\n      ]\n    }\n  },\n  \"criteria\": [\n    {\"concept_set\": \"entry_set_1\", \"rule\": \"at_least_one\", \"window_start_days\": -365, \"window_end_days\": 0}\n  ]\n}}"
+  }
+]

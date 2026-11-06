@@ -1,0 +1,4 @@
+<!-- src: manuscript/08_conclusion.md -->
+# Conclusion
+
+This investigation evaluated the evidence fidelity and operational limits of multi-agent versus single-agent phenotyping using a locally executed 7B large language model on consumer hardware. Multi-agent planning with iterative critique significantly enhances concept recall in specialized clinical domains, doubling retrieval coverage relative to single-agent baselines. However, multi-agent architectures introduce substantial coordination overhead that reduces completion reliability in complex, multi-criteria general cohorts. For clinical bioinformaticians deploying local AI systems for RWE life cycle support, single-agent architectures with deterministic schema validators provide the most robust baseline, while multi-agent critique should be targeted to dense clinical domains.

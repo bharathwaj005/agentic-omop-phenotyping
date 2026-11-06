@@ -1,0 +1,215 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T04_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "334",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "asthma_condition",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "asthma_condition": {
+        "description": "Patients with a diagnosis of asthma",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 317009,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of asthma"
+          }
+        ],
+        "name": "asthma_condition"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "asthma_condition",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "asthma_condition",
+    "entry_concept_sets": [
+      "asthma_condition"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients receiving treatment for asthma.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 34029,
+  "llm_calls": 13,
+  "logical_run_id": "v53_T04_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.2926829268292683,
+        "jaccard": 0.17142857142857143,
+        "precision": 1.0,
+        "recall": 0.17142857142857143
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.2926829268292683,
+        "jaccard": 0.17142857142857143,
+        "precision": 1.0,
+        "recall": 0.17142857142857143
+      },
+      "full": {
+        "f1": 0.2926829268292683,
+        "jaccard": 0.17142857142857143,
+        "precision": 1.0,
+        "recall": 0.17142857142857143
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "asthma"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n317009\tAsthma\tSNOMED\tDisorder\t131\n314754\tWheezing\tSNOMED\tClinical Finding\t14\n4050564\tSequoiosis\tSNOMED\tDisorder\t0\n4311814\tByssinosis\tSNOMED\tDisorder\t2\n4155468\tMild asthma\tSNOMED\tDisorder\t15\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n4110051\tMixed asthma\tSNOMED\tDisorder\t0\n4152913\tSevere asthma\tSNOMED\tDisorder\t18\n4075237\tBrittle asthma\tSNOMED\tDisorder\t0\n4143474\tBakers' asthma\tSNOMED\tDisorder\t0\n4215802\tCardiac asthma\tSNOMED\tDisorder\t0\n4308356\tAsthma finding\tSNOMED\tClinical Finding\t36\n4022592\tMillers' asthma\tSNOMED\tDisorder\t0\n4155469\tModerate asthma\tSNOMED\tDisorder\t15\n4191479\tAllergic asthma\tSNOMED\tDisorder\t48",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "asthma treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "asthma"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n19120089\tepinephrine 0.3 MG/ACTUAT [Asthmahaler]\tRxNorm\tBranded Drug Comp\t1\n19055325\tracepinephrine 22.5 MG/ML [Asthmanefrin]\tRxNorm\tBranded Drug Comp\t1\n1356177\tepinephrine Metered Dose Inhaler [Asthmahaler]\tRxNorm\tBranded Drug Form\t1\n1356163\tracepinephrine Inhalation Solution [Asthmanefrin]\tRxNorm\tBranded Drug Form\t1\n1300154\tracepinephrine 22.5 MG/ML Inhalation Solution [Asthmanefrin]\tRxNorm\tBranded Drug\t0\n1343985\tepinephrine 0.3 MG/ACTUAT Metered Dose Inhaler [Asthmahaler]\tRxNorm\tBranded Drug\t0",
+        "rows": 6
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "asthma"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4199706\tAsthma control steps\tSNOMED\tProcedure\t6\n4057273\tAsthma control step 4\tSNOMED\tProcedure\t0\n4080962\tAsthma control step 0\tSNOMED\tProcedure\t0\n4080963\tAsthma control step 1\tSNOMED\tProcedure\t0\n4080964\tAsthma control step 2\tSNOMED\tProcedure\t0\n4082252\tAsthma control step 3\tSNOMED\tProcedure\t0\n4082254\tAsthma control step 5\tSNOMED\tProcedure\t0\n4214676\tAsthma medication review\tSNOMED\tProcedure\t0\n37396658\tAsthma action care planning\tSNOMED\tProcedure\t0\n46272934\tAcute asthma control management\tSNOMED\tProcedure\t0\n44806120\tAsthma self-management plan review\tSNOMED\tProcedure\t0\n45770432\tReview of patient at risk of asthma\tSNOMED\tProcedure\t0\n1244059\tProvision of adult asthma action plan\tSNOMED\tProcedure\t0\n1448027\tProvision of asthma safe cleaning supplies\tSNOMED\tProcedure\t0\n46285153\tSevere asthma exacerbation risk assessment\tSNOMED\tProcedure\t0",
+        "rows": 15
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "asthma treatment"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4155473\tAsthma treatment compliance satisfactory\tSNOMED\tClinical Finding\t0\n4152420\tAsthma treatment compliance unsatisfactory\tSNOMED\tClinical Finding\t0",
+        "rows": 2
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "asthma medication"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "asthma treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 694,
+  "per_set": {
+    "asthma_condition": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 317009,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of asthma"
+        }
+      ],
+      "resolved_count": 132
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "14b79b1115f6041c3d5c5480fd2c44add88223ad25fdc31987a6b24cf27e61c7",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T04_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T04",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 34029,
+    "llm_calls": 13,
+    "llm_time_s": 289.95,
+    "output_tokens": 694,
+    "peak_ram_mb": 375.0,
+    "tool_calls": 7,
+    "total_tokens": 34723,
+    "validator_retries": 0,
+    "wall_seconds": 292.9449842180002,
+    "wall_time_s": 292.96
+  },
+  "tool_calls": 7,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T04_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 292.9449842180002
+}

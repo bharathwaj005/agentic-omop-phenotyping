@@ -1,0 +1,151 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T14_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1183",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": null,
+  "input_tokens": 34074,
+  "llm_calls": 15,
+  "logical_run_id": "v53_T14_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "antiepileptic"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "epilepsy"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "anticonvulsant"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "antiepileptic"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4177128\tOverdose of anticonvulsant drug\tSNOMED\tDisorder\t111\n601067\tPancytopenia caused by anticonvulsant\tSNOMED\tDisorder\t0",
+        "rows": 2
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "anticonvulsant"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4177128\tOverdose of anticonvulsant drug\tSNOMED\tDisorder\t111\n601067\tPancytopenia caused by anticonvulsant\tSNOMED\tDisorder\t0\n4165845\tAnticonvulsant drug-induced osteomalacia\tSNOMED\tDisorder\t0\n45765791\tDrug reaction with eosinophilia and systemic symptoms\tSNOMED\tDisorder\t2\n37167287\tNeonatal disorder caused by anticonvulsant via breast milk\tSNOMED\tDisorder\t0\n765727\tFetal disorder caused by anticonvulsant via placental transfer\tSNOMED\tDisorder\t3",
+        "rows": 6
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 45765791
+        },
+        "output": "total_descendants=2\nid\tname\tclass\tlevels\n45765792\tAllopurinol hypersensitivity syndrome\tDisorder\t1\n45773405\tDrug reaction with eosinophilia and systemic symptoms caused by strontium ranelate\tDisorder\t1",
+        "rows": 3
+      },
+      "step": 12,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 45765791
+        },
+        "output": "id\tname\tdomain\tvocab\n45765791\tDrug reaction with eosinophilia and systemic symptoms\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 14,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 45765791,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n441207\tAdverse reaction to drug\tDisorder\t1\n4223616\tHypersensitivity reaction\tDisorder\t1\n4105886\tAdverse reaction\tDisorder\t2\n43021226\tHypersensitivity condition\tClinical Finding\t2",
+        "rows": 4
+      },
+      "step": 16,
+      "tool": "get_ancestors"
+    }
+  ],
+  "output_tokens": 1022,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "a2099ac9ecba81b1e383b6d8285c7de3bc2824adaf7dbb87125248bef26f60ea",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T14_C2/raw_replies.json",
+  "reason": "bounded finalization failed validation: ERROR domain_mismatch [antiepileptic_drug] concept 45765791: concept is in domain 'Condition' but the set declares 'Drug'",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T14",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 34074,
+    "llm_calls": 15,
+    "llm_time_s": 400.5,
+    "output_tokens": 1022,
+    "peak_ram_mb": 256.1,
+    "tool_calls": 8,
+    "total_tokens": 35096,
+    "validator_retries": 3,
+    "wall_seconds": 404.2682580769997,
+    "wall_time_s": 404.27
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T14_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 404.2682580769997
+}

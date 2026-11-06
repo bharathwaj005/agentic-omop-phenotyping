@@ -1,0 +1,160 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N09_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "235",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "gbs_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "gbs_diagnosis": {
+        "description": "Patients with a diagnosis of Guillain-Barre syndrome.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4164770,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'Guillain-Barr\u00e9 syndrome' (4164770) from the SNOMED vocabulary is the exact match for the clinical description of patients with Guillain-Barre syndrome. It is a valid standard concept and covers the intended clinical meaning."
+          }
+        ],
+        "name": "gbs_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "gbs_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "gbs_diagnosis",
+    "entry_concept_sets": [
+      "gbs_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Guillain-Barre syndrome during an inpatient stay, based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5479,
+  "llm_calls": 5,
+  "logical_run_id": "neuro_N09_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.16666666666666669,
+        "jaccard": 0.09090909090909091,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "full": {
+        "f1": 0.11764705882352941,
+        "jaccard": 0.0625,
+        "precision": 1.0,
+        "recall": 0.0625
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.16666666666666669,
+        "jaccard": 0.09090909090909091,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "full": {
+        "f1": 0.11764705882352941,
+        "jaccard": 0.0625,
+        "precision": 1.0,
+        "recall": 0.0625
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Guillain-Barre"
+        },
+        "concept_set": "gbs_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4070552\tFisher's syndrome\tSNOMED\tDisorder\t0\n4164770\tGuillain-Barr\u00e9 syndrome\tSNOMED\tDisorder\t9\n42535201\tSequela of Guillain Barre syndrome\tSNOMED\tDisorder\t1\n37166081\tDisorder of autonomic nerve due to Guillain-Barre Syndrome\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4164770
+        },
+        "concept_set": "gbs_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4164770\tGuillain-Barr\u00e9 syndrome\tCondition\tSNOMED\tDisorder\tS\tTrue\t9",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 389,
+  "per_set": {
+    "gbs_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4164770,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'Guillain-Barr\u00e9 syndrome' (4164770) from the SNOMED vocabulary is the exact match for the clinical description of patients with Guillain-Barre syndrome. It is a valid standard concept and covers the intended clinical meaning."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "d0ed061211aaafa0464d816570e334fe3c84a4ed458317fd81567d522d30dfef",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N09_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N09",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 5479,
+    "llm_calls": 5,
+    "llm_time_s": 97.93,
+    "output_tokens": 389,
+    "peak_ram_mb": 364.3,
+    "tool_calls": 2,
+    "total_tokens": 5868,
+    "validator_retries": 0,
+    "wall_seconds": 98.08190517099956,
+    "wall_time_s": 98.08
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N09_C4/trace.json",
+  "track": "neuro",
+  "wall_seconds": 98.08190517099956
+}

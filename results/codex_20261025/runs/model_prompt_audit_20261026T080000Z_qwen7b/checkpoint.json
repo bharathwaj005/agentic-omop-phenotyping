@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C2"
+  ],
+  "freeze_manifest_sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06",
+  "model": "qwen2.5:7b",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-10-26T08:03:08.611240+00:00",
+      "reason": "",
+      "report_path": "results/codex_20261025/runs/model_prompt_audit_20261026T080000Z_qwen7b/T01_C2/report.json",
+      "report_sha256": "3363606756165ceb5f85936cb3916e32f47adb20fb48cf751df3604664350b16",
+      "retry_log": [],
+      "started_at": "2026-10-26T07:56:06.279259+00:00",
+      "status": "success",
+      "task_id": "T01",
+      "trace_sha256": "4f6fd57482af42fa1d5b089cd8c199b17dc4e29b4a2fd8b30f42ee315b74b0f1",
+      "wall_seconds": 422.31077038400144
+    }
+  ],
+  "task_ids": [
+    "T01"
+  ],
+  "track": "v53"
+}

@@ -1,0 +1,56 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T17_C2_attempt2",
+  "attempt_number": 2,
+  "cohort_id": "1261",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": null,
+  "input_tokens": 0,
+  "llm_calls": 1,
+  "logical_run_id": "v53_T17_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [],
+  "output_tokens": 0,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "72d2dca80aab9c7d7470e5eb1548c994b80323957ed4edd86c5d7abdb95bc9e8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T17_C2_retry1/raw_replies.json",
+  "reason": "Ctrl+C received",
+  "schema_version": 1,
+  "status": "interrupted",
+  "task_id": "T17",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 0,
+    "llm_calls": 1,
+    "llm_time_s": 2.91,
+    "output_tokens": 0,
+    "peak_ram_mb": 76.7,
+    "tool_calls": 0,
+    "total_tokens": 0,
+    "validator_retries": 0,
+    "wall_seconds": 2.9056644170013897,
+    "wall_time_s": 2.91
+  },
+  "tool_calls": 0,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T17_C2_retry1/trace.json",
+  "track": "v53",
+  "wall_seconds": 2.9056644170013897
+}

@@ -1,0 +1,167 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T05_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "373",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "iron_deficiency_anemia",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "iron_deficiency_anemia": {
+        "description": "Patients with a diagnosis of iron deficiency anemia.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 436659,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'Iron deficiency anemia' (436659) from SNOMED is the most specific and relevant to the Planner's description of patients with a diagnosis of iron deficiency anemia."
+          }
+        ],
+        "name": "iron_deficiency_anemia"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "iron_deficiency_anemia",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "iron_deficiency_anemia",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "iron_deficiency_anemia",
+    "entry_concept_sets": [
+      "iron_deficiency_anemia"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with iron deficiency anemia while distinguishing the target condition from polycythemia.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 7391,
+  "llm_calls": 6,
+  "logical_run_id": "v53_T05_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.02857142857142857,
+        "jaccard": 0.014492753623188406,
+        "precision": 1.0,
+        "recall": 0.014492753623188406
+      },
+      "full": {
+        "f1": 0.01639344262295082,
+        "jaccard": 0.008264462809917356,
+        "precision": 1.0,
+        "recall": 0.008264462809917356
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.02857142857142857,
+        "jaccard": 0.014492753623188406,
+        "precision": 1.0,
+        "recall": 0.014492753623188406
+      },
+      "full": {
+        "f1": 0.01639344262295082,
+        "jaccard": 0.008264462809917356,
+        "precision": 1.0,
+        "recall": 0.008264462809917356
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "iron deficiency anemia"
+        },
+        "concept_set": "iron_deficiency_anemia",
+        "output": "id\tname\tvocab\tclass\tn_desc\n436659\tIron deficiency anemia\tSNOMED\tDisorder\t17\n4120446\tIron deficiency without anemia\tSNOMED\tDisorder\t0\n432875\tAnemia due to chronic blood loss\tSNOMED\tDisorder\t1\n607422\tHereditary iron deficiency anemia\tSNOMED\tDisorder\t0\n1244157\tPostpartum iron deficiency anemia\tSNOMED\tDisorder\t0\n4122079\tDeficiency anemias, excluding iron\tSNOMED\tDisorder\t0\n37474561\tUnexplained iron deficiency anemia\tSNOMED\tDisorder\t0\n4058246\tIron deficiency anemia of pregnancy\tSNOMED\tDisorder\t1\n36716126\tIron-refractory iron deficiency anemia\tSNOMED\tDisorder\t0\n606921\tPost gastrectomy iron deficiency anemia\tSNOMED\tDisorder\t0\n37119138\tIron deficiency anemia due to blood loss\tSNOMED\tDisorder\t0\n606928\tIron deficiency anemia due to celiac disease\tSNOMED\tDisorder\t0\n4100985\tIron deficiency anemia due to dietary causes\tSNOMED\tDisorder\t0\n605330\tRestless leg syndrome due to iron deficiency anemia\tSNOMED\tDisorder\t0\n1244473\tIron deficiency anemia during maternal intrapartum period\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 436659
+        },
+        "concept_set": "iron_deficiency_anemia",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n436659\tIron deficiency anemia\tCondition\tSNOMED\tDisorder\tS\tTrue\t17",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 625,
+  "per_set": {
+    "iron_deficiency_anemia": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 436659,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'Iron deficiency anemia' (436659) from SNOMED is the most specific and relevant to the Planner's description of patients with a diagnosis of iron deficiency anemia."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "bf8277af11d6f388612e0fb302f89bdb46444591909e8929ae1ac7bc3fa0b220",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T05_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T05",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 7391,
+    "llm_calls": 6,
+    "llm_time_s": 206.23,
+    "output_tokens": 625,
+    "peak_ram_mb": 250.5,
+    "tool_calls": 2,
+    "total_tokens": 8016,
+    "validator_retries": 0,
+    "wall_seconds": 206.72440131500002,
+    "wall_time_s": 206.73
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T05_C4/trace.json",
+  "track": "v53",
+  "wall_seconds": 206.72440131500002
+}

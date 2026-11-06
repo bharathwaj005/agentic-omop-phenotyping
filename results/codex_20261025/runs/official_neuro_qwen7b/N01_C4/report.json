@@ -1,0 +1,404 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N01_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "255",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "alzheimer_diagnosis_or_medication",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "alzheimer_diagnosis": {
+        "description": "Diagnosis of Alzheimer disease",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378419,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 378419 'Alzheimer's disease' accurately represents the clinical description of Alzheimer disease in the Condition domain."
+          }
+        ],
+        "name": "alzheimer_diagnosis"
+      },
+      "alzheimer_diagnosis_or_medication": {
+        "description": "Patients with a diagnosis of Alzheimer disease or a medication exposure for Alzheimer disease",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378419,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The concept 'Alzheimer's disease' (378419) in the SNOMED vocabulary best matches the clinical description of Alzheimer disease diagnosis."
+          }
+        ],
+        "name": "alzheimer_diagnosis_or_medication"
+      },
+      "alzheimer_medication": {
+        "description": "Medication exposure for Alzheimer disease",
+        "domain": "Drug",
+        "items": [],
+        "name": "alzheimer_medication"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "alzheimer_diagnosis_or_medication",
+    "entry_concept_sets": [
+      "alzheimer_diagnosis_or_medication"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Alzheimer disease based on qualifying diagnosis or medication exposure, with required inclusion criteria.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 43694,
+  "llm_calls": 28,
+  "logical_run_id": "neuro_N01_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 0.02963590177815411,
+        "jaccard": 0.015040825096691019,
+        "precision": 1.0,
+        "recall": 0.015040825096691019
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.1402805611222445,
+        "jaccard": 0.07543103448275862,
+        "precision": 1.0,
+        "recall": 0.07543103448275862
+      },
+      "full": {
+        "f1": 0.02963590177815411,
+        "jaccard": 0.015040825096691019,
+        "precision": 1.0,
+        "recall": 0.015040825096691019
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer disease"
+        },
+        "concept_set": "alzheimer_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0\n4043244\tNon-familial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n37167060\tFrontal variant non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "concept_set": "alzheimer_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378419\tAlzheimer's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t34",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "concept_set": "alzheimer_diagnosis",
+        "output": "id\tname\tdomain\tvocab\n378419\tAlzheimer's disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "Alzheimer disease medication"
+        },
+        "concept_set": "alzheimer_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 11,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "Alzheimer"
+        },
+        "concept_set": "alzheimer_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 13,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "Alzheimer drug"
+        },
+        "concept_set": "alzheimer_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 15,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer"
+        },
+        "concept_set": "alzheimer_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n4046085\tNon-Alzheimer's progressive dysphasia\tSNOMED\tDisorder\t0\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 17,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "limit": 15,
+          "query": "Alzheimer"
+        },
+        "concept_set": "alzheimer_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n35609573\tSignposting to Alzheimer's Society\tSNOMED\tProcedure\t0",
+        "rows": 1
+      },
+      "step": 19,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer disease"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0\n4043244\tNon-familial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n37167060\tFrontal variant non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 25,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer disease"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0\n4043244\tNon-familial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n37167060\tFrontal variant non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 31,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n378419\tAlzheimer's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t34",
+        "rows": 1
+      },
+      "step": 33,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "id\tname\tdomain\tvocab\n378419\tAlzheimer's disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 35,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer disease"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0\n4043244\tNon-familial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n37167060\tFrontal variant non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 43,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "Alzheimer disease medication"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 45,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "Alzheimer"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 47,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Alzheimer"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "id\tname\tvocab\tclass\tn_desc\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n4046085\tNon-Alzheimer's progressive dysphasia\tSNOMED\tDisorder\t0\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 49,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "Alzheimer medication"
+        },
+        "concept_set": "alzheimer_diagnosis_or_medication",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 51,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 1650,
+  "per_set": {
+    "alzheimer_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 378419,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 378419 'Alzheimer's disease' accurately represents the clinical description of Alzheimer disease in the Condition domain."
+        }
+      ],
+      "resolved_count": 35
+    },
+    "alzheimer_diagnosis_or_medication": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 378419,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The concept 'Alzheimer's disease' (378419) in the SNOMED vocabulary best matches the clinical description of Alzheimer disease diagnosis."
+        }
+      ],
+      "resolved_count": 35
+    },
+    "alzheimer_medication": {
+      "domain": "Drug",
+      "include_descendants": [],
+      "items": [],
+      "resolved_count": 0
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "716ab5b87e785f74248adb89ada7de8f10267c0c996e34d43a1321a484f3c514",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N01_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N01",
+  "timings": {
+    "critic_rounds": 2,
+    "input_tokens": 43694,
+    "llm_calls": 28,
+    "llm_time_s": 561.33,
+    "output_tokens": 1650,
+    "peak_ram_mb": 378.8,
+    "tool_calls": 17,
+    "total_tokens": 45344,
+    "validator_retries": 0,
+    "wall_seconds": 563.425344231,
+    "wall_time_s": 563.43
+  },
+  "tool_calls": 17,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N01_C4/trace.json",
+  "track": "neuro",
+  "wall_seconds": 563.425344231
+}

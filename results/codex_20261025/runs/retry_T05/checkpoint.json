@@ -1,0 +1,43 @@
+{
+  "configs": [
+    "C1",
+    "C2"
+  ],
+  "freeze_manifest_sha256": "3d6efbe811c1e6a6e16432ec59f473c4dca0d8a6d4246fb818574da7c7aca4f8",
+  "model": "qwen2.5:7b",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C1",
+      "finished_at": "2026-10-28T17:25:07.574973+00:00",
+      "reason": "",
+      "report_path": "results/codex_20261025/runs/retry_T05/T05_C1/report.json",
+      "report_sha256": "9141d880f5ce13d37f5148c3b1a6504398178d215a80121b12d76bfcb239ff26",
+      "retry_log": [],
+      "started_at": "2026-10-28T17:18:44.979077+00:00",
+      "status": "success",
+      "task_id": "T05",
+      "trace_sha256": "bb333cd8ac58acef7a4a9cab9603427f544ebbb6baa3db236abdc6d570a7eabd",
+      "wall_seconds": 382.50694400799966
+    },
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-10-28T17:30:51.232657+00:00",
+      "reason": "",
+      "report_path": "results/codex_20261025/runs/retry_T05/T05_C2/report.json",
+      "report_sha256": "15c8f6307d40bd1c2bc23c60d4606c5e74c09112404da68b446e183987213c39",
+      "retry_log": [],
+      "started_at": "2026-10-28T17:25:07.588990+00:00",
+      "status": "success",
+      "task_id": "T05",
+      "trace_sha256": "98b6b96950f4b93cf17ed867569e681939332a06a53533e3025681a1ab9b8702",
+      "wall_seconds": 343.55019917000027
+    }
+  ],
+  "task_ids": [
+    "T05"
+  ],
+  "track": "v53"
+}

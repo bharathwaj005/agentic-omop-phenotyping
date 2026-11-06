@@ -1,0 +1,200 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N11_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "229",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "progressive_multifocal_leukoencephalopathy",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "progressive_multifocal_leukoencephalopathy": {
+        "description": "Progressive multifocal leukoencephalopathy",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 433957,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The specific concept for progressive multifocal leukoencephalopathy is used."
+          }
+        ],
+        "name": "progressive_multifocal_leukoencephalopathy"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "progressive_multifocal_leukoencephalopathy",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "progressive_multifocal_leukoencephalopathy",
+    "entry_concept_sets": [
+      "progressive_multifocal_leukoencephalopathy"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 0,
+    "question": "Identify patients with progressive multifocal leukoencephalopathy based on their first qualifying diagnosis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 14968,
+  "llm_calls": 7,
+  "logical_run_id": "neuro_N11_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      },
+      "full": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      },
+      "full": {
+        "f1": 0.2857142857142857,
+        "jaccard": 0.16666666666666666,
+        "precision": 1.0,
+        "recall": 0.16666666666666666
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "progressive multifocal leukoencephalopathy"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n433957\tProgressive multifocal leukoencephalopathy\tSNOMED\tDisorder\t4\n37116468\tDementia with progressive multifocal leukoencephalopathy\tSNOMED\tDisorder\t0\n4100234\tCerebral degeneration due to progressive multifocal leukoencephalopathy\tSNOMED\tDisorder\t1\n4226631\tProgressive multifocal leukoencephalopathy with AIDS (acquired immunodeficiency syndrome)\tSNOMED\tDisorder\t0\n37017246\tProgressive multifocal leukoencephalopathy co-occurrent with human immunodeficiency virus infection\tSNOMED\tDisorder\t1",
+        "rows": 5
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433957
+        },
+        "output": "total_descendants=4\nid\tname\tclass\tlevels\n37116468\tDementia with progressive multifocal leukoencephalopathy\tDisorder\t1\n45766390\tLeukoencephalopathy with brainstem and spinal cord involvement and lactate elevation\tDisorder\t1\n37017246\tProgressive multifocal leukoencephalopathy co-occurrent with human immunodeficiency virus infection\tDisorder\t1\n4226631\tProgressive multifocal leukoencephalopathy with AIDS (acquired immunodeficiency syndrome)\tDisorder\t2",
+        "rows": 5
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433957,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n37109019\tWhite matter disease\tDisorder\t1\n4329092\tDisease caused by JC polyomavirus\tDisorder\t1\n381783\tViral infection of central nervous system\tDisorder\t1\n36716559\tWhite matter disorder caused by infection\tDisorder\t1\n440029\tViral disease\tDisorder\t2\n4200516\tLesion of brain\tDisorder\t2\n4027461\tLeukoencephalopathy\tDisorder\t2\n4168666\tCerebral degeneration\tDisorder\t2\n4029499\tInfectious disease of brain\tDisorder\t2\n4211682\tDisease caused by Polyomavirus\tDisorder\t2\n4028070\tInfectious disease of central nervous system\tDisorder\t2\n375801\tDemyelinating disease of central nervous system\tDisorder\t2",
+        "rows": 12
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433957
+        },
+        "output": "id\tname\tdomain\tvocab\n433957\tProgressive multifocal leukoencephalopathy\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "dementia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4182210\tDementia\tSNOMED\tDisorder\t215\n762497\tMild dementia\tSNOMED\tDisorder\t0\n36717598\tToxic dementia\tSNOMED\tDisorder\t6\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n765653\tSevere dementia\tSNOMED\tDisorder\t0\n4047748\tPatchy dementia\tSNOMED\tDisorder\t0\n4048875\tSenile dementia\tSNOMED\tDisorder\t18\n37204495\tABri amyloidosis\tSNOMED\tDisorder\t0\n37204554\tADan amyloidosis\tSNOMED\tDisorder\t0\n443605\tVascular dementia\tSNOMED\tDisorder\t24\n762704\tModerate dementia\tSNOMED\tDisorder\t0\n4046091\tSemantic dementia\tSNOMED\tDisorder\t0\n4244346\tDialysis dementia\tSNOMED\tDisorder\t0\n378125\tPresenile dementia\tSNOMED\tDisorder\t21\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34",
+        "rows": 15
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 433957
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n433957\tProgressive multifocal leukoencephalopathy\tCondition\tSNOMED\tDisorder\tS\tTrue\t4",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 408,
+  "per_set": {
+    "progressive_multifocal_leukoencephalopathy": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 433957,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The specific concept for progressive multifocal leukoencephalopathy is used."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "8ea9cd8c25dbc4a0954abc185fc74cc78078311e51d71409ea014e257136ffc8",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N11_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N11",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 14968,
+    "llm_calls": 7,
+    "llm_time_s": 161.82,
+    "output_tokens": 408,
+    "peak_ram_mb": 362.4,
+    "tool_calls": 6,
+    "total_tokens": 15376,
+    "validator_retries": 0,
+    "wall_seconds": 162.23567783,
+    "wall_time_s": 162.24
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N11_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 162.23567783
+}

@@ -1,0 +1,21 @@
+<!-- src: manuscript/02_introduction.md -->
+# Introduction
+
+Real-World Evidence (RWE) derived from observational electronic health record (EHR) and administrative claims databases plays an increasingly critical role in evaluating post-market drug safety, comparative effectiveness, and clinical outcomes [1]. Central to the validity of any observational study is computable phenotyping: the systematic identification of patient cohorts satisfying clinical inclusion, exclusion, and temporal criteria [2]. Within international consortia such as the Observational Health Data Sciences and Informatics (OHDSI) collaborative, phenotype definitions are operationalized against the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [CITATION NEEDED: OMOP CDM]. Despite standardization, constructing cohort definitions manually remains a major bottleneck in the clinical research life cycle, often requiring weeks of iterative manual concept mapping across standardized vocabularies (e.g., SNOMED-CT, RxNorm, ICD-10) and complex relational rule engineering [2, 10].
+
+Recent advances in large language models (LLMs) and agentic workflow orchestration have catalyzed interest in automating observational study pipelines [3, 4, 5, 9]. Unlike passive text generation, agentic architectures incorporate autonomous planning, iterative tool execution (such as SQL querying and vocabulary database lookup), self-reflection, and programmatic validation [2, 9]. However, as recently highlighted in open questions raised by clinical bioinformatics researchers, a fundamental gap persists: *Does the operational complexity and resource consumption of multi-agent modular architectures translate into demonstrable, trustworthy improvements in observational cohort fidelity?* [7].
+
+Existing explorations of AI-assisted phenotyping suffer from four critical limitations:
+1. **Conflation of Concept Retrieval with Cohort Extraction:** Many preliminary evaluations evaluate only single medical concept set lookups rather than complete, executable cohort definitions that incorporate temporal index events, observation windows, demographic bounds, and exclusion logic [10].
+2. **Dependence on Proprietary, Hosted Cloud APIs:** Prior agentic frameworks frequently route sensitive clinical logic through large commercial cloud-hosted endpoints (e.g., GPT-4), introducing significant data-governance concerns for clinical healthcare enterprises [4, 6].
+3. **Absence of Controlled Ablation:** When multi-agent systems are evaluated, their components are rarely decoupled under identical execution deadlines and token budgets, leaving it unclear which sub-agent provides measurable value [7, 8].
+4. **Uncorrected Multi-Arm Reference Bias:** Gold-standard phenotype repositories often support disjunctive clinical pathways. Failing to model these multi-arm entry criteria penalizes AI systems that correctly identify valid alternative clinical entry paths.
+
+To resolve these challenges, this study provides a controlled, fully reproducible evaluation of multi-agent versus single-agent phenotyping using an open-weights, 7-billion parameter language model (`qwen2.5:7b`) executing strictly on consumer-grade hardware (Intel Core i3-N305, 8 GB RAM, CPU-only execution).
+
+### Contributions
+1. **Controlled Multi-Agent vs. Single-Agent Benchmark:** Four systematically ablated configurations (C1: full multi-agent; C2: single-agent; C3: multi-agent without critic; C4: multi-agent without validator) under identical resource ceilings.
+2. **Full-Pipeline Cohort Execution:** Scored complete, machine-executable JSON cohort specifications capturing index dates, inclusion/exclusion criteria, and domain assignments.
+3. **Multi-Arm Ground-Truth Correction:** Demonstrated that 11 of 20 core OHDSI tasks feature alternative entry criteria, proving that single-arm evaluation artifacts artificially suppress valid phenotypic discovery.
+4. **Local Low-Resource Feasibility:** Documented the operational envelope of executing agentic clinical workflows entirely on edge hardware without external data leakage.
+5. **Failure Taxonomy and Dual-Denominator Accounting:** Documented every non-success through a rigorous taxonomy, reporting outcomes under both scored-only and full-intent denominators.

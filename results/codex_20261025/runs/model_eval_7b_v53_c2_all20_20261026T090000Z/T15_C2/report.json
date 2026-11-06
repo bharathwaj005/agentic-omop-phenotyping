@@ -1,0 +1,222 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T15_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1184",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "entry_set_1",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "entry_set_1": {
+        "description": "Patients with osteoarthritis of the hip",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4079749,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Specific concept for osteoarthritis of the hip"
+          }
+        ],
+        "name": "entry_set_1"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "entry_set_1",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "entry_set_1",
+    "entry_concept_sets": [
+      "entry_set_1"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with osteoarthritis.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 25402,
+  "llm_calls": 10,
+  "logical_run_id": "v53_T15_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.010989010989010988,
+        "jaccard": 0.0055248618784530384,
+        "precision": 1.0,
+        "recall": 0.0055248618784530384
+      },
+      "full": {
+        "f1": 0.010989010989010988,
+        "jaccard": 0.0055248618784530384,
+        "precision": 1.0,
+        "recall": 0.0055248618784530384
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.010989010989010988,
+        "jaccard": 0.0055248618784530384,
+        "precision": 1.0,
+        "recall": 0.0055248618784530384
+      },
+      "full": {
+        "f1": 0.010989010989010988,
+        "jaccard": 0.0055248618784530384,
+        "precision": 1.0,
+        "recall": 0.0055248618784530384
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "osteoarthritis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n80180\tOsteoarthritis\tSNOMED\tDisorder\t180\n42539033\tOligoosteoarthritis\tSNOMED\tDisorder\t0\n4079749\tOsteoarthritis of hip\tSNOMED\tDisorder\t12\n4079750\tOsteoarthritis of knee\tSNOMED\tDisorder\t11\n4185423\tChronic osteoarthritis\tSNOMED\tDisorder\t0\n4343920\tEndemic osteoarthritis\tSNOMED\tDisorder\t1\n1448869\tOsteoarthritis of spine\tSNOMED\tDisorder\t6\n4035441\tOsteoarthritis of wrist\tSNOMED\tDisorder\t13\n4083695\tOsteoarthritis of elbow\tSNOMED\tDisorder\t7\n4083696\tOsteoarthritis of ankle\tSNOMED\tDisorder\t12\n4143463\tLocalized osteoarthrosis\tSNOMED\tDisorder\t18\n40481943\tSecondary osteoarthritis\tSNOMED\tDisorder\t71\n40483794\tOsteoarthritis of pelvis\tSNOMED\tDisorder\t3\n4035439\tIdiopathic osteoarthritis\tSNOMED\tDisorder\t0\n45765978\tOsteoarthritis of midfoot\tSNOMED\tDisorder\t4",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 80180
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n80180\tOsteoarthritis\tCondition\tSNOMED\tDisorder\tS\tTrue\t180",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 80180
+        },
+        "output": "total_descendants=180\nid\tname\tclass\tlevels\n4079749\tOsteoarthritis of hip\tDisorder\t1\n4343920\tEndemic osteoarthritis\tDisorder\t1\n4079750\tOsteoarthritis of knee\tDisorder\t1\n4185423\tChronic osteoarthritis\tDisorder\t1\n4083695\tOsteoarthritis of elbow\tDisorder\t1\n4035441\tOsteoarthritis of wrist\tDisorder\t1\n1448869\tOsteoarthritis of spine\tDisorder\t1\n40481943\tSecondary osteoarthritis\tDisorder\t1\n40483794\tOsteoarthritis of pelvis\tDisorder\t1\n4035439\tIdiopathic osteoarthritis\tDisorder\t1\n78227\tOsteoarthritis of joint of hand\tDisorder\t1\n37203942\tAneurysm osteoarthritis syndrome\tDisorder\t1\n4147779\tOsteoarthritis of multiple joints\tDisorder\t1\n72405\tOsteoarthritis of shoulder region\tDisorder\t1\n4219481\tOsteoarthritis of ankle and/or foot\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 6,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4079749,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n80180\tOsteoarthritis\tDisorder\t1\n4286642\tArthritis of hip\tDisorder\t1\n4180011\tDegenerative disorder of extremity\tDisorder\t1",
+        "rows": 3
+      },
+      "step": 8,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4079749
+        },
+        "output": "id\tname\tdomain\tvocab\n4079749\tOsteoarthritis of hip\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "arthritis of hip"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4286642\tArthritis of hip\tSNOMED\tDisorder\t86\n759889\tArthritis of left hip\tSNOMED\tDisorder\t38\n4079749\tOsteoarthritis of hip\tSNOMED\tDisorder\t12\n759890\tArthritis of right hip\tSNOMED\tDisorder\t38\n4188413\tPyogenic arthritis of hip\tSNOMED\tDisorder\t1\n765258\tBilateral arthritis of hip\tSNOMED\tDisorder\t16\n1246240\tInfective arthritis of hip\tSNOMED\tDisorder\t22\n4175848\tMonoarthritis of hip joint\tSNOMED\tDisorder\t2\n4197765\tBacterial arthritis of hip\tSNOMED\tDisorder\t13\n4116150\tRheumatoid arthritis of hip\tSNOMED\tDisorder\t9\n1076902\tEnteropathic arthritis of hip\tSNOMED\tDisorder\t3\n1246175\tReactive arthritis of left hip\tSNOMED\tDisorder\t2\n1076887\tStaphylococcal arthritis of hip\tSNOMED\tDisorder\t3\n1244122\tSecondary osteoarthritis of hip\tSNOMED\tDisorder\t8\n1246181\tReactive arthritis of right hip\tSNOMED\tDisorder\t2",
+        "rows": 15
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4286642
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4286642\tArthritis of hip\tCondition\tSNOMED\tDisorder\tS\tTrue\t86",
+        "rows": 1
+      },
+      "step": 14,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4286642
+        },
+        "output": "total_descendants=86\nid\tname\tclass\tlevels\n4002793\tSynovitis of hip\tDisorder\t1\n759889\tArthritis of left hip\tDisorder\t1\n4079749\tOsteoarthritis of hip\tDisorder\t1\n759890\tArthritis of right hip\tDisorder\t1\n4145017\tOsteochondritis of pelvis\tDisorder\t1\n1246240\tInfective arthritis of hip\tDisorder\t1\n4175848\tMonoarthritis of hip joint\tDisorder\t1\n4116150\tRheumatoid arthritis of hip\tDisorder\t1\n1076902\tEnteropathic arthritis of hip\tDisorder\t1\n4065482\tReactive arthritis of joint of hip\tDisorder\t1\n4344383\tOsteochondritis of the femoral head\tDisorder\t1\n1076083\tJuvenile idiopathic arthritis of hip\tDisorder\t1\n4188413\tPyogenic arthritis of hip\tDisorder\t2\n765258\tBilateral arthritis of hip\tDisorder\t2\n4199407\tTransient synovitis of hip\tDisorder\t2",
+        "rows": 16
+      },
+      "step": 16,
+      "tool": "get_descendants"
+    }
+  ],
+  "output_tokens": 448,
+  "per_set": {
+    "entry_set_1": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4079749,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Specific concept for osteoarthritis of the hip"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "f173ca3cf14a49eecca84570b7da6f4fe51aaa4a96e5c584bae73b9ca1d9d28e",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T15_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T15",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 25402,
+    "llm_calls": 10,
+    "llm_time_s": 209.6,
+    "output_tokens": 448,
+    "peak_ram_mb": 299.8,
+    "tool_calls": 8,
+    "total_tokens": 25850,
+    "validator_retries": 0,
+    "wall_seconds": 211.56944393699814,
+    "wall_time_s": 211.58
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T15_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 211.56944393699814
+}

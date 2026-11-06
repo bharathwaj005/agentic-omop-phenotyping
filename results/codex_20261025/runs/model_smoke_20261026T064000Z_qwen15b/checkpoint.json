@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C2"
+  ],
+  "freeze_manifest_sha256": "77a26b5178d0ed36c33f2bb3a8c42791ddc123794c9ca3a4ad2eec1465134f06",
+  "model": "qwen2.5:1.5b",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-10-26T06:25:20.874070+00:00",
+      "reason": "repeated identical vocabulary tool call after 2 corrective retries",
+      "report_path": "results/codex_20261025/runs/model_smoke_20261026T064000Z_qwen15b/T01_C2/report.json",
+      "report_sha256": "69f5013eebd35e42356ff41fb7133ab4837e20fdc301c699cadfb0c92fd150cc",
+      "retry_log": [],
+      "started_at": "2026-10-26T06:24:45.404267+00:00",
+      "status": "failed",
+      "task_id": "T01",
+      "trace_sha256": "0e1bae364a83e360d48c5380ba2e26cd596ade2571e533d729602c95f0749438",
+      "wall_seconds": 35.43887443899985
+    }
+  ],
+  "task_ids": [
+    "T01"
+  ],
+  "track": "v53"
+}

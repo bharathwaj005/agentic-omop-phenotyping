@@ -1,0 +1,189 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T03_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "290",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": null,
+  "input_tokens": 45565,
+  "llm_calls": 15,
+  "logical_run_id": "v53_T03_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "thyroiditis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n133444\tThyroiditis\tSNOMED\tDisorder\t42\n133737\tAcute thyroiditis\tSNOMED\tDisorder\t6\n4186465\tViral thyroiditis\tSNOMED\tDisorder\t2\n4218126\tMumps thyroiditis\tSNOMED\tDisorder\t0\n4338540\tFocal thyroiditis\tSNOMED\tDisorder\t0\n4034819\tSilent thyroiditis\tSNOMED\tDisorder\t0\n137520\tChronic thyroiditis\tSNOMED\tDisorder\t10\n132579\tSubacute thyroiditis\tSNOMED\tDisorder\t4\n4228334\tRiedel's thyroiditis\tSNOMED\tDisorder\t0\n135215\tHashimoto thyroiditis\tSNOMED\tDisorder\t5\n40493187\tPalpation thyroiditis\tSNOMED\tDisorder\t0\n45757734\tEuthyroid thyroiditis\tSNOMED\tDisorder\t0\n135779\tIatrogenic thyroiditis\tSNOMED\tDisorder\t0\n4148556\tInfectious thyroiditis\tSNOMED\tDisorder\t7\n4199437\tPostpartum thyroiditis\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "hypothyroidism"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n140673\tHypothyroidism\tSNOMED\tDisorder\t112\n37396504\tHoffman syndrome\tSNOMED\tDisorder\t0\n4290064\tPendred's syndrome\tSNOMED\tDisorder\t0\n140062\tIodine hypothyroidism\tSNOMED\tDisorder\t1\n4223217\tSevere hypothyroidism\tSNOMED\tDisorder\t0\n4236858\tInfant hypothyroidism\tSNOMED\tDisorder\t5\n4132435\tCentral hypothyroidism\tSNOMED\tDisorder\t10\n40609121\tPrimary hypothyroidism\tSNOMED\tDisorder\t10\n138384\tAcquired hypothyroidism\tSNOMED\tDisorder\t39\n4202818\tIodide oxidation defect\tSNOMED\tDisorder\t0\n4331585\tIodide transport defect\tSNOMED\tDisorder\t0\n4104540\tTransient hypothyroidism\tSNOMED\tDisorder\t7\n4220368\tSecondary hypothyroidism\tSNOMED\tDisorder\t4\n36676796\tNeonatal iodine exposure\tSNOMED\tDisorder\t0\n133728\tCongenital hypothyroidism\tSNOMED\tDisorder\t43",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "levothyroxine"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1501700\tlevothyroxine\tRxNorm\tIngredient\t664\n1593922\tlevothyroxine Injection\tRxNorm\tClinical Drug Form\t10\n40087471\tlevothyroxine Oral Tablet\tRxNorm\tClinical Drug Form\t180\n40169798\tlevothyroxine sodium 1 MG\tRxNorm\tClinical Drug Comp\t10\n43527018\tlevothyroxine Oral Powder\tRxNorm\tClinical Drug Form\t5\n40137687\tlevothyroxine Oral Capsule\tRxNorm\tClinical Drug Form\t38\n40169765\tlevothyroxine sodium 0.1 MG\tRxNorm\tClinical Drug Comp\t47\n40169769\tlevothyroxine sodium 0.2 MG\tRxNorm\tClinical Drug Comp\t36\n40169774\tlevothyroxine sodium 0.3 MG\tRxNorm\tClinical Drug Comp\t32\n40169778\tlevothyroxine sodium 0.4 MG\tRxNorm\tClinical Drug Comp\t12\n40169782\tlevothyroxine sodium 0.5 MG\tRxNorm\tClinical Drug Comp\t13\n40169786\tlevothyroxine sodium 0.6 MG\tRxNorm\tClinical Drug Comp\t12\n40169790\tlevothyroxine sodium 0.7 MG\tRxNorm\tClinical Drug Comp\t12\n40169794\tlevothyroxine sodium 0.8 MG\tRxNorm\tClinical Drug Comp\t12\n40224671\tlevothyroxine Oral Solution\tRxNorm\tClinical Drug Form\t40",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Hashimoto"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n135215\tHashimoto thyroiditis\tSNOMED\tDisorder\t5\n138711\tFibrous autoimmune thyroiditis\tSNOMED\tDisorder\t0\n1449264\tGoitrous Hashimoto thyroiditis\tSNOMED\tDisorder\t0\n1449265\tAtrophic Hashimoto thyroiditis\tSNOMED\tDisorder\t0\n4100629\tHyperthyroidism with Hashimoto disease\tSNOMED\tDisorder\t1\n37166338\tDementia due to Hashimoto encephalopathy\tSNOMED\tDisorder\t0\n4130018\tHypothyroidism due to Hashimoto's thyroiditis\tSNOMED\tDisorder\t0\n4301782\tLangerhans cell histiocytosis - Hashimoto-Pritzker type\tSNOMED\tDisorder\t0\n36674282\tSteroid-responsive encephalopathy associated with autoimmune thyroiditis\tSNOMED\tDisorder\t0",
+        "rows": 9
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Hashimoto's"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n135215\tHashimoto thyroiditis\tSNOMED\tDisorder\t5\n138711\tFibrous autoimmune thyroiditis\tSNOMED\tDisorder\t0\n1449264\tGoitrous Hashimoto thyroiditis\tSNOMED\tDisorder\t0\n1449265\tAtrophic Hashimoto thyroiditis\tSNOMED\tDisorder\t0\n4100629\tHyperthyroidism with Hashimoto disease\tSNOMED\tDisorder\t1\n37166338\tDementia due to Hashimoto encephalopathy\tSNOMED\tDisorder\t0\n4130018\tHypothyroidism due to Hashimoto's thyroiditis\tSNOMED\tDisorder\t0\n4301782\tLangerhans cell histiocytosis - Hashimoto-Pritzker type\tSNOMED\tDisorder\t0\n36674282\tSteroid-responsive encephalopathy associated with autoimmune thyroiditis\tSNOMED\tDisorder\t0",
+        "rows": 9
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "levothyroxine treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "treatment"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4168208\tPedal pump\tSNOMED\tProcedure\t0\n4040255\tWax treatment\tSNOMED\tProcedure\t1\n4056973\tDietary regime\tSNOMED\tProcedure\t277\n4045289\tExercise therapy\tSNOMED\tProcedure\t65\n4158958\tSafety procedure\tSNOMED\tProcedure\t74\n4039589\tHot mud treatment\tSNOMED\tProcedure\t0\n4194676\tGeneral treatment\tSNOMED\tProcedure\t0\n4296956\tBronchial hygiene\tSNOMED\tProcedure\t0\n4298279\tNutrition therapy\tSNOMED\tProcedure\t339\n4321906\tNursing procedure\tSNOMED\tProcedure\t23\n4040257\tIce cube treatment\tSNOMED\tProcedure\t0\n4040261\tKromayer treatment\tSNOMED\tProcedure\t0\n4040976\tBehavioral therapy\tSNOMED\tProcedure\t84\n4042699\tIce bath treatment\tSNOMED\tProcedure\t0\n4046706\tHeat pad treatment\tSNOMED\tProcedure\t0",
+        "rows": 15
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "thyroid treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "thyroid"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4030107\tThyroidectomy\tSNOMED\tProcedure\t31\n4082966\tCT of thyroid\tSNOMED\tProcedure\t5\n4082983\tMRI of thyroid\tSNOMED\tProcedure\t1\n4191820\tThyroid imaging\tSNOMED\tProcedure\t52\n4210609\tThyroidorrhaphy\tSNOMED\tProcedure\t0\n4068680\tCricothyroidotomy\tSNOMED\tProcedure\t7\n4083124\tCT of parathyroid\tSNOMED\tProcedure\t3\n4085189\tBiopsy of thyroid\tSNOMED\tProcedure\t16\n4200418\tParathyroidectomy\tSNOMED\tProcedure\t11\n4083110\tUS scan of thyroid\tSNOMED\tProcedure\t18\n4086272\tMRI of parathyroid\tSNOMED\tProcedure\t0\n4093604\tCricothyroidectomy\tSNOMED\tProcedure\t0\n4073199\tTotal thyroidectomy\tSNOMED\tProcedure\t3\n4119240\tDrainage of thyroid\tSNOMED\tProcedure\t6\n4155289\tParathyroid imaging\tSNOMED\tProcedure\t25",
+        "rows": 15
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Procedure",
+          "query": "hypothyroidism treatment"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 22,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "hypothyroidism"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 26,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 374,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "4499a9394e6873e900d62a8814f881a0d5ccc6af1722e841ff2ede63f27f4d8a",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T03_C2/raw_replies.json",
+  "reason": "Ctrl+C received",
+  "schema_version": 1,
+  "status": "interrupted",
+  "task_id": "T03",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 45565,
+    "llm_calls": 15,
+    "llm_time_s": 551.17,
+    "output_tokens": 374,
+    "peak_ram_mb": 288.2,
+    "tool_calls": 11,
+    "total_tokens": 45939,
+    "validator_retries": 0,
+    "wall_seconds": 552.5925155969999,
+    "wall_time_s": 552.6
+  },
+  "tool_calls": 11,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T03_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 552.5925155969999
+}

@@ -1,0 +1,173 @@
+{
+  "attempt_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T03_C2_attempt2",
+  "attempt_number": 2,
+  "cohort_id": "290",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "model_eval_7b_v53_c2_all20_20261026T090000Z",
+  "final_spec": null,
+  "input_tokens": 33551,
+  "llm_calls": 12,
+  "logical_run_id": "v53_T03_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 4096,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "thyroiditis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n133444\tThyroiditis\tSNOMED\tDisorder\t42\n133737\tAcute thyroiditis\tSNOMED\tDisorder\t6\n4186465\tViral thyroiditis\tSNOMED\tDisorder\t2\n4218126\tMumps thyroiditis\tSNOMED\tDisorder\t0\n4338540\tFocal thyroiditis\tSNOMED\tDisorder\t0\n4034819\tSilent thyroiditis\tSNOMED\tDisorder\t0\n137520\tChronic thyroiditis\tSNOMED\tDisorder\t10\n132579\tSubacute thyroiditis\tSNOMED\tDisorder\t4\n4228334\tRiedel's thyroiditis\tSNOMED\tDisorder\t0\n135215\tHashimoto thyroiditis\tSNOMED\tDisorder\t5\n40493187\tPalpation thyroiditis\tSNOMED\tDisorder\t0\n45757734\tEuthyroid thyroiditis\tSNOMED\tDisorder\t0\n135779\tIatrogenic thyroiditis\tSNOMED\tDisorder\t0\n4148556\tInfectious thyroiditis\tSNOMED\tDisorder\t7\n4199437\tPostpartum thyroiditis\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "hypothyroidism"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n140673\tHypothyroidism\tSNOMED\tDisorder\t112\n37396504\tHoffman syndrome\tSNOMED\tDisorder\t0\n4290064\tPendred's syndrome\tSNOMED\tDisorder\t0\n140062\tIodine hypothyroidism\tSNOMED\tDisorder\t1\n4223217\tSevere hypothyroidism\tSNOMED\tDisorder\t0\n4236858\tInfant hypothyroidism\tSNOMED\tDisorder\t5\n4132435\tCentral hypothyroidism\tSNOMED\tDisorder\t10\n40609121\tPrimary hypothyroidism\tSNOMED\tDisorder\t10\n138384\tAcquired hypothyroidism\tSNOMED\tDisorder\t39\n4202818\tIodide oxidation defect\tSNOMED\tDisorder\t0\n4331585\tIodide transport defect\tSNOMED\tDisorder\t0\n4104540\tTransient hypothyroidism\tSNOMED\tDisorder\t7\n4220368\tSecondary hypothyroidism\tSNOMED\tDisorder\t4\n36676796\tNeonatal iodine exposure\tSNOMED\tDisorder\t0\n133728\tCongenital hypothyroidism\tSNOMED\tDisorder\t43",
+        "rows": 15
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "levothyroxine"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1501700\tlevothyroxine\tRxNorm\tIngredient\t664\n1593922\tlevothyroxine Injection\tRxNorm\tClinical Drug Form\t10\n40087471\tlevothyroxine Oral Tablet\tRxNorm\tClinical Drug Form\t180\n40169798\tlevothyroxine sodium 1 MG\tRxNorm\tClinical Drug Comp\t10\n43527018\tlevothyroxine Oral Powder\tRxNorm\tClinical Drug Form\t5\n40137687\tlevothyroxine Oral Capsule\tRxNorm\tClinical Drug Form\t38\n40169765\tlevothyroxine sodium 0.1 MG\tRxNorm\tClinical Drug Comp\t47\n40169769\tlevothyroxine sodium 0.2 MG\tRxNorm\tClinical Drug Comp\t36\n40169774\tlevothyroxine sodium 0.3 MG\tRxNorm\tClinical Drug Comp\t32\n40169778\tlevothyroxine sodium 0.4 MG\tRxNorm\tClinical Drug Comp\t12\n40169782\tlevothyroxine sodium 0.5 MG\tRxNorm\tClinical Drug Comp\t13\n40169786\tlevothyroxine sodium 0.6 MG\tRxNorm\tClinical Drug Comp\t12\n40169790\tlevothyroxine sodium 0.7 MG\tRxNorm\tClinical Drug Comp\t12\n40169794\tlevothyroxine sodium 0.8 MG\tRxNorm\tClinical Drug Comp\t12\n40224671\tlevothyroxine Oral Solution\tRxNorm\tClinical Drug Form\t40",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Hashimoto"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n135215\tHashimoto thyroiditis\tSNOMED\tDisorder\t5\n138711\tFibrous autoimmune thyroiditis\tSNOMED\tDisorder\t0\n1449264\tGoitrous Hashimoto thyroiditis\tSNOMED\tDisorder\t0\n1449265\tAtrophic Hashimoto thyroiditis\tSNOMED\tDisorder\t0\n4100629\tHyperthyroidism with Hashimoto disease\tSNOMED\tDisorder\t1\n37166338\tDementia due to Hashimoto encephalopathy\tSNOMED\tDisorder\t0\n4130018\tHypothyroidism due to Hashimoto's thyroiditis\tSNOMED\tDisorder\t0\n4301782\tLangerhans cell histiocytosis - Hashimoto-Pritzker type\tSNOMED\tDisorder\t0\n36674282\tSteroid-responsive encephalopathy associated with autoimmune thyroiditis\tSNOMED\tDisorder\t0",
+        "rows": 9
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 135215
+        },
+        "output": "total_descendants=5\nid\tname\tclass\tlevels\n1449264\tGoitrous Hashimoto thyroiditis\tDisorder\t1\n1449265\tAtrophic Hashimoto thyroiditis\tDisorder\t1\n138711\tFibrous autoimmune thyroiditis\tDisorder\t1\n4100629\tHyperthyroidism with Hashimoto disease\tDisorder\t1\n4130012\tHashitoxicosis - transient\tDisorder\t2",
+        "rows": 6
+      },
+      "step": 10,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 135215,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n137520\tChronic thyroiditis\tDisorder\t1\n4281109\tAutoimmune thyroiditis\tDisorder\t1\n4188970\tChronic disease of immune function\tDisorder\t1\n133444\tThyroiditis\tDisorder\t2\n443783\tChronic disease\tDisorder\t2\n440371\tDisorder of immune function\tDisorder\t2\n4028942\tAutoimmune endocrine disease\tDisorder\t2\n444208\tChronic inflammatory disorder\tDisorder\t2",
+        "rows": 8
+      },
+      "step": 12,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 135215
+        },
+        "output": "id\tname\tdomain\tvocab\n135215\tHashimoto thyroiditis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 14,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140673
+        },
+        "output": "total_descendants=112\nid\tname\tclass\tlevels\n4182596\tMyxedema\tDisorder\t1\n37396504\tHoffman syndrome\tDisorder\t1\n4314386\tHypothyroid dwarfism\tDisorder\t1\n4236858\tInfant hypothyroidism\tDisorder\t1\n4223217\tSevere hypothyroidism\tDisorder\t1\n4132435\tCentral hypothyroidism\tDisorder\t1\n40609121\tPrimary hypothyroidism\tDisorder\t1\n138384\tAcquired hypothyroidism\tDisorder\t1\n4104540\tTransient hypothyroidism\tDisorder\t1\n4220368\tSecondary hypothyroidism\tDisorder\t1\n1244151\tPostpartum hypothyroidism\tDisorder\t1\n133728\tCongenital hypothyroidism\tDisorder\t1\n4183422\tSubclinical hypothyroidism\tDisorder\t1\n4176015\tHypothyroidism in pregnancy\tDisorder\t1\n45757193\tHypothyroidism in childbirth\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 16,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140673,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n141253\tDisorder of thyroid gland\tDisorder\t1\n4042837\tDisorder of neck\tDisorder\t2\n4201376\tFinding of thyroid gland\tClinical Finding\t2\n31821\tDisorder of endocrine system\tDisorder\t2",
+        "rows": 4
+      },
+      "step": 18,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140673
+        },
+        "output": "id\tname\tdomain\tvocab\n140673\tHypothyroidism\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 419,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "4499a9394e6873e900d62a8814f881a0d5ccc6af1722e841ff2ede63f27f4d8a",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T03_C2_retry1/raw_replies.json",
+  "reason": "APIError: request timed out",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T03",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 33551,
+    "llm_calls": 12,
+    "llm_time_s": 592.57,
+    "output_tokens": 419,
+    "peak_ram_mb": 346.1,
+    "tool_calls": 10,
+    "total_tokens": 33970,
+    "validator_retries": 0,
+    "wall_seconds": 601.3067068580021,
+    "wall_time_s": 601.32
+  },
+  "tool_calls": 10,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/model_eval_7b_v53_c2_all20_20261026T090000Z/T03_C2_retry1/trace.json",
+  "track": "v53",
+  "wall_seconds": 601.3067068580021
+}

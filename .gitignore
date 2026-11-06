@@ -1,0 +1,12 @@
+*.env*
+.env*
+*.log
+*.duckdb
+__pycache__/
+*.pyc
+*.tar.gz
+*.docx
+
+*doctor*
+*reconcil*
+*recovery*

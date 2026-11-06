@@ -1,0 +1,193 @@
+{
+ "run_id": "official_neuro_qwen7b_neuro_N02_C4_attempt1",
+ "config": "C4",
+ "task_id": "N02",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with incident cognitive impairment based on a first qualifying diagnosis.",
+  "entry_concept_set": "cognitive_impairment_diagnosis",
+  "entry_concept_sets": [
+   "cognitive_impairment_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "cognitive_impairment_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": true,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 365,
+  "criteria": [],
+  "concept_sets": {
+   "cognitive_impairment_diagnosis": {
+    "name": "cognitive_impairment_diagnosis",
+    "domain": "Condition",
+    "description": "First diagnosis of cognitive impairment",
+    "items": [
+     {
+      "concept_id": 4297400,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "The concept 'Mild neurocognitive disorder' (4297400) best matches the clinical description of cognitive impairment as it is a broad term that encompasses various levels of cognitive impairment, including minimal, mild, and moderate. It is a Disorder concept, which aligns with the clinical context of a first diagnosis."
+     },
+     {
+      "concept_id": 443432,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "The concept 'Impaired cognition' (443432) is a Clinical Finding concept that directly matches the clinical description of cognitive impairment. It is a more specific term that can be used to identify the first diagnosis of cognitive impairment."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 1,
+  "input_tokens": 6017,
+  "output_tokens": 529,
+  "total_tokens": 6546,
+  "wall_time_s": 146.97,
+  "llm_time_s": 146.83,
+  "peak_ram_mb": 367.9,
+  "critic_rounds": 1,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793165295.2073114,
+   "latency_s": 40.015,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1021,
+   "output_tokens": 181,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"cognitive_impairment_diagnosis\",\n    \"entry_concept_sets\": [\"cognitive_impairment_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"cognitive_impairment_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": true,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"cognitive_impairment_diagnosis\": {\n        \"name\": \"cognitive_impairment_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"First diagnosis of cognitive impairment\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793165335.2226436,
+   "latency_s": 9.567,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1155,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "cognitive_impairment_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"cognitive impairment\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793165344.7901726,
+   "latency_s": 0.115,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "cognitive impairment",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "cognitive_impairment_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n443432\tImpaired cognition\tSNOMED\tClinical Finding\t882\n45765900\tSevere cognitive impairment\tSNOMED\tClinical Finding\t0\n439795\tMinimal cognitive impairment\tSNOMED\tClinical Finding\t0\n4297400\tMild neurocognitive disorder\tSNOMED\tDisorder\t1\n45765899\tModerate cognitive impairment\tSNOMED\tClinical Finding\t0\n3654469\tAmnestic mild cognitive disorder\tSNOMED\tDisorder\t0\n37164785\tCognitive impairment caused by ethanol\tSNOMED\tDisorder\t0\n37162140\tCognitive impairment due to lead toxicity\tSNOMED\tDisorder\t0\n761978\tCognitive impairment due to multiple sclerosis\tSNOMED\tClinical Finding\t1\n42538566\tCognitive impairment due to toxicity of substance\tSNOMED\tClinical Finding\t1\n35622315\tHypotonia, speech impairment, severe cognitive delay syndrome\tSNOMED\tDisorder\t0\n37166422\tCognitive impairment due to late-delayed irradiation of brain\tSNOMED\tDisorder\t0\n37168522\tFocal onset cognitive epileptic seizure with memory impairment\tSNOMED\tClinical Finding\t0\n36687122\tHuman immunodeficiency virus infection with cognitive impairment\tSNOMED\tDisorder\t0\n37110498\tCognitive impairment co-occurrent and due to primary psychotic disorder\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793165344.9055448,
+   "latency_s": 37.981,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1601,
+   "output_tokens": 64,
+   "detail": {
+    "concept_set": "cognitive_impairment_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 4297400\n  }\n}\n\n{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 443432\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1793165382.8862212,
+   "latency_s": 53.112,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1706,
+   "output_tokens": 219,
+   "detail": {
+    "concept_set": "cognitive_impairment_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 4297400,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The concept 'Mild neurocognitive disorder' (4297400) best matches the clinical description of cognitive impairment as it is a broad term that encompasses various levels of cognitive impairment, including minimal, mild, and moderate. It is a Disorder concept, which aligns with the clinical context of a first diagnosis.\"\n      },\n      {\n        \"concept_id\": 443432,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The concept 'Impaired cognition' (443432) is a Clinical Finding concept that directly matches the clinical description of cognitive impairment. It is a more specific term that can be used to identify the first diagnosis of cognitive impairment.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1793165435.9982302,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "cognitive_impairment_diagnosis",
+    "items": 2,
+    "tool_calls": 1
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1793165436.0201485,
+   "latency_s": 6.152,
+   "model": "qwen2.5:7b",
+   "input_tokens": 534,
+   "output_tokens": 22,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+   }
+  }
+ ]
+}

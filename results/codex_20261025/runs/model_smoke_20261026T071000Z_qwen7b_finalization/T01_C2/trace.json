@@ -1,0 +1,294 @@
+{
+ "run_id": "v53_T01_C2_attempt1",
+ "config": "C2",
+ "task_id": "T01",
+ "repeat": 1,
+ "status": "failed",
+ "error": "bounded finalization returned an unparseable response: missing \"action\" field",
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "5a80507b35df"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": null
+ },
+ "final_spec": null,
+ "totals": {
+  "llm_calls": 8,
+  "tool_calls": 5,
+  "input_tokens": 14935,
+  "output_tokens": 396,
+  "total_tokens": 15331,
+  "wall_time_s": 249.76,
+  "llm_time_s": 246.18,
+  "peak_ram_mb": 124.1,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999323.3680274,
+   "latency_s": 86.766,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1348,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792999410.133967,
+   "latency_s": 2.846,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Condition"
+    },
+    "rows": 1,
+    "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999412.9802747,
+   "latency_s": 8.847,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1412,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD treatment\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792999421.8273387,
+   "latency_s": 0.259,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD treatment",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999422.0865247,
+   "latency_s": 9.107,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1473,
+   "output_tokens": 28,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"methylphenidate\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792999431.193163,
+   "latency_s": 0.151,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "methylphenidate",
+     "domain": "Drug"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n705944\tmethylphenidate\tRxNorm\tIngredient\t323\n731533\tdexmethylphenidate\tRxNorm\tIngredient\t87\n1537411\tserdexmethylphenidate\tRxNorm\tIngredient\t18\n1592737\tmethylphenidate 8.6 MG\tRxNorm\tClinical Drug Comp\t3\n1592616\tmethylphenidate 17.3 MG\tRxNorm\tClinical Drug Comp\t3\n1592733\tmethylphenidate 25.9 MG\tRxNorm\tClinical Drug Comp\t3\n1537416\tdexmethylphenidate 5.2 MG\tRxNorm\tClinical Drug Comp\t3\n1537426\tdexmethylphenidate 7.8 MG\tRxNorm\tClinical Drug Comp\t3\n706182\tmethylphenidate 1.67 MG/HR\tRxNorm\tClinical Drug Comp\t5\n706183\tmethylphenidate 2.22 MG/HR\tRxNorm\tClinical Drug Comp\t5\n1537424\tdexmethylphenidate 10.4 MG\tRxNorm\tClinical Drug Comp\t3\n19123926\tmethylphenidate 3.33 MG/HR\tRxNorm\tClinical Drug Comp\t5\n19123961\tmethylphenidate 1.11 MG/HR\tRxNorm\tClinical Drug Comp\t5\n40066578\tmethylphenidate Oral Tablet\tRxNorm\tClinical Drug Form\t12\n1537417\tserdexmethylphenidate 52.3 MG\tRxNorm\tClinical Drug Comp\t3"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999431.3443465,
+   "latency_s": 32.547,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1944,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792999463.8911726,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "duplicate_tool_call": "search_concepts",
+    "duplicate_retries": 1
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999463.8911798,
+   "latency_s": 11.889,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2013,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792999475.7806373,
+   "latency_s": 0.148,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Condition",
+     "vocabulary": "SNOMED"
+    },
+    "rows": 1,
+    "output": "id\tname\tvocab\tclass\tn_desc\n438409\tAttention deficit hyperactivity disorder\tSNOMED\tDisorder\t12"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999475.9291039,
+   "latency_s": 13.408,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2086,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Procedure\"}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1792999489.3371406,
+   "latency_s": 0.127,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ADHD",
+     "domain": "Procedure"
+    },
+    "rows": 6,
+    "output": "id\tname\tvocab\tclass\tn_desc\n44813054\tAttention deficit hyperactivity disorder annual review\tSNOMED\tProcedure\t0\n45765570\tDrug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t2\n1243931\tDiagnostic assessment for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n45765568\tStimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0\n1448142\tSignposting to ADHD (attention deficit hyperactivity disorder) resource\tSNOMED\tProcedure\t0\n45766202\tNon-stimulant drug therapy for attention deficit hyperactivity disorder\tSNOMED\tProcedure\t0"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999489.4645803,
+   "latency_s": 17.04,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2292,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ADHD\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792999506.5041397,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "duplicate_tool_call": "search_concepts",
+    "duplicate_retries": 2
+   }
+  },
+  {
+   "step": 15,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792999506.5041442,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "finalization_requested": true,
+    "duplicate_retries": 2
+   }
+  },
+  {
+   "step": 16,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1792999506.504148,
+   "latency_s": 66.571,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2367,
+   "output_tokens": 208,
+   "detail": {
+    "raw_text": "{\n  \"entry_concept_set\": \"adhd_diagnosis\",\n  \"entry_concept_sets\": [\"adhd_diagnosis\"],\n  \"entry_arms\": [\n    {\n      \"concept_set\": \"adhd_diagnosis\",\n      \"event_domain\": \"Condition\"\n    }\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": 18,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"adhd_diagnosis\": {\n      \"name\": \"adhd_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of Attention Deficit Hyperactivity Disorder\",\n      \"items\": [\n        {\n          \"concept_id\": 438409,\n          \"include_descendants\": true,\n          \"is_excluded\": false,\n          \"rationale\": \"This is the standard concept for ADHD diagnosis.\"\n        }\n      ]\n    }\n  },\n  \"criteria\": []\n}"
+   }
+  },
+  {
+   "step": 17,
+   "kind": "note",
+   "actor": "single_agent",
+   "started_at": 1792999573.0791686,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "failed": "bounded finalization returned an unparseable response: missing \"action\" field"
+   }
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute typical pneumonia\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical pneumonia\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical pneumonia\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical pneumonia\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute typical pneumonia\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"pneumonia\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"typical\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"acute\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\"}}"
+  },
+  {
+    "step": 26,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"entry_set_1\",\n  \"entry_concept_sets\": [\"entry_set_1\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"entry_set_1\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": true,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"entry_set_1\": {\n      \"name\": \"entry_set_1\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with acute typical pneumonia\",\n      \"items\": [\n        {\"concept_id\": 255848, \"include_descendants\": false, \"is_excluded\": false, \"rationale\": \"SNOMED code for pneumonia\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

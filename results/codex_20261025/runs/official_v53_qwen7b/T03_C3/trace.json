@@ -1,0 +1,103 @@
+{
+ "run_id": "official_v53_qwen7b_v53_T03_C3_attempt1",
+ "config": "C3",
+ "task_id": "T03",
+ "repeat": 1,
+ "status": "failed",
+ "error": "planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'excluded_hypothyroidism' [type=value_error, input_value={'question': \"Identify pa...atment.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": null
+ },
+ "final_spec": null,
+ "totals": {
+  "llm_calls": 2,
+  "tool_calls": 0,
+  "input_tokens": 2491,
+  "output_tokens": 607,
+  "total_tokens": 3098,
+  "wall_time_s": 138.16,
+  "llm_time_s": 138.15,
+  "peak_ram_mb": 387.7,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793110037.087702,
+   "latency_s": 64.864,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1048,
+   "output_tokens": 304,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"thyroiditis_or_hypothyroidism\",\n    \"entry_concept_sets\": [\"thyroiditis_or_hypothyroidism\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"thyroiditis_or_hypothyroidism\": {\n        \"name\": \"thyroiditis_or_hypothyroidism\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with thyroiditis or relevant hypothyroidism based on qualifying diagnosis or levothyroxine treatment.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"rule\": \"at_least_one\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      },\n      {\n        \"concept_set\": \"hashimotos_hypothyroidism\",\n        \"rule\": \"none\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "note",
+   "actor": "planner",
+   "started_at": 1793110101.9610255,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "parse_error": "ValidationError: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'hashimotos_hypothyroidism' [type=value_error, input_value={'question': \"Identify pa...atment.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "retrying": true
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1793110101.9610476,
+   "latency_s": 73.281,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1443,
+   "output_tokens": 303,
+   "detail": {
+    "attempt": 2,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"thyroiditis_or_hypothyroidism\",\n    \"entry_concept_sets\": [\"thyroiditis_or_hypothyroidism\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 365,\n    \"concept_sets\": {\n      \"thyroiditis_or_hypothyroidism\": {\n        \"name\": \"thyroiditis_or_hypothyroidism\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with thyroiditis or relevant hypothyroidism based on qualifying diagnosis or levothyroxine treatment.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": [\n      {\n        \"concept_set\": \"thyroiditis_or_hypothyroidism\",\n        \"rule\": \"at_least_one\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      },\n      {\n        \"concept_set\": \"excluded_hypothyroidism\",\n        \"rule\": \"none\",\n        \"window_start_days\": -365,\n        \"window_end_days\": 0\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "note",
+   "actor": "orchestrator",
+   "started_at": 1793110175.2423844,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "failed": "planner failed: planner failed after one retry: ValidationError: 1 validation error for CohortSpec\n  Value error, criterion references unknown concept set 'excluded_hypothyroidism' [type=value_error, input_value={'question': \"Identify pa...atment.', 'items': []}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+   }
+  }
+ ]
+}

@@ -1,0 +1,221 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T13_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1073",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "inpatient_or_emergency_room_encounter",
+      "event_domain": "Visit"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "inpatient_or_emergency_room_encounter": {
+        "description": "Inpatient or emergency-room encounter.",
+        "domain": "Visit",
+        "items": [
+          {
+            "concept_id": 44814704,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 44814704 'Inpatient or emergency room encounter' directly matches the clinical description of an inpatient or emergency-room encounter."
+          }
+        ],
+        "name": "inpatient_or_emergency_room_encounter"
+      },
+      "serious_opportunistic_or_other_infections": {
+        "description": "Serious, opportunistic, or other infections of interest.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4229111,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Serious, opportunistic, or other infections of interest."
+          }
+        ],
+        "name": "serious_opportunistic_or_other_infections"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "serious_opportunistic_or_other_infections",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "inpatient_or_emergency_room_encounter",
+        "event_domain": "Visit"
+      }
+    ],
+    "entry_concept_set": "inpatient_or_emergency_room_encounter",
+    "entry_concept_sets": [
+      "inpatient_or_emergency_room_encounter"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with serious, opportunistic, or other infections of interest associated with a qualifying inpatient or emergency-room encounter.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 11774,
+  "llm_calls": 10,
+  "logical_run_id": "v53_T13_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": null,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "serious opportunistic infections"
+        },
+        "concept_set": "serious_opportunistic_or_other_infections",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "infection"
+        },
+        "concept_set": "serious_opportunistic_or_other_infections",
+        "output": "id\tname\tvocab\tclass\tn_desc\n436333\tOrf\tSNOMED\tDisorder\t0\n432829\tYaws\tSNOMED\tDisorder\t41\n4267414\tAIDS\tSNOMED\tDisorder\t70\n433966\tPinta\tSNOMED\tDisorder\t14\n132797\tSepsis\tSNOMED\tDisorder\t154\n377793\tRabies\tSNOMED\tDisorder\t9\n434271\tPlague\tSNOMED\tDisorder\t9\n198677\tCholera\tSNOMED\tDisorder\t4\n432821\tLeprosy\tSNOMED\tDisorder\t29\n433701\tMycosis\tSNOMED\tDisorder\t797\n434567\tQ fever\tSNOMED\tDisorder\t11\n438960\tAnthrax\tSNOMED\tDisorder\t6\n133547\tPyoderma\tSNOMED\tDisorder\t230\n195588\tCystitis\tSNOMED\tDisorder\t69\n436033\tSyphilis\tSNOMED\tDisorder\t216",
+        "rows": 15
+      },
+      "step": 7,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 132797
+        },
+        "concept_set": "serious_opportunistic_or_other_infections",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n132797\tSepsis\tCondition\tSNOMED\tDisorder\tS\tTrue\t154",
+        "rows": 1
+      },
+      "step": 9,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 132797
+        },
+        "concept_set": "serious_opportunistic_or_other_infections",
+        "output": "id\tname\tdomain\tvocab\n132797\tSepsis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 11,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 1223,
+  "per_set": {
+    "inpatient_or_emergency_room_encounter": {
+      "domain": "Visit",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 44814704,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 44814704 'Inpatient or emergency room encounter' directly matches the clinical description of an inpatient or emergency-room encounter."
+        }
+      ],
+      "resolved_count": 0
+    },
+    "serious_opportunistic_or_other_infections": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 4229111,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Serious, opportunistic, or other infections of interest."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "1a49e530165dca93ba50687ea614db551441b1fb3f2d569eff244701124a8b0d",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T13_C1/raw_replies.json",
+  "reason": "validator errors persisted after 3 repairs",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "T13",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 11774,
+    "llm_calls": 10,
+    "llm_time_s": 319.78,
+    "output_tokens": 1223,
+    "peak_ram_mb": 212.5,
+    "tool_calls": 4,
+    "total_tokens": 12997,
+    "validator_retries": 4,
+    "wall_seconds": 321.3585830719985,
+    "wall_time_s": 321.38
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T13_C1/trace.json",
+  "track": "v53",
+  "wall_seconds": 321.3585830719985
+}

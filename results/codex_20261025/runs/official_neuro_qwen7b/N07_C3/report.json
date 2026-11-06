@@ -1,0 +1,171 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N07_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1079",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "acute_disseminated_encephalomyelitis_or_myelitis": {
+        "description": "Patients with a diagnosis of acute disseminated encephalomyelitis or myelitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 374021,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 374021, 'Acute disseminated encephalomyelitis', accurately represents the Planner's clinical description of patients with a diagnosis of acute disseminated encephalomyelitis."
+          }
+        ],
+        "name": "acute_disseminated_encephalomyelitis_or_myelitis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+    "entry_concept_sets": [
+      "acute_disseminated_encephalomyelitis_or_myelitis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with acute disseminated encephalomyelitis or myelitis based on diagnosis evidence with a qualifying inpatient or inpatient/emergency visit.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 6612,
+  "llm_calls": 5,
+  "logical_run_id": "neuro_N07_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.052631578947368425,
+        "jaccard": 0.02702702702702703,
+        "precision": 1.0,
+        "recall": 0.02702702702702703
+      },
+      "full": {
+        "f1": 0.046511627906976744,
+        "jaccard": 0.023809523809523808,
+        "precision": 1.0,
+        "recall": 0.023809523809523808
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.052631578947368425,
+        "jaccard": 0.02702702702702703,
+        "precision": 1.0,
+        "recall": 0.02702702702702703
+      },
+      "full": {
+        "f1": 0.046511627906976744,
+        "jaccard": 0.023809523809523808,
+        "precision": 1.0,
+        "recall": 0.023809523809523808
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "acute disseminated encephalomyelitis"
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n374021\tAcute disseminated encephalomyelitis\tSNOMED\tDisorder\t4\n761989\tRecurrent acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n765827\tMultiphasic acute disseminated encephalomyelitis\tSNOMED\tDisorder\t0\n43530701\tAcute disseminated encephalomyelitis following infectious disease\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED\tDisorder\tS\tTrue\t4",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 374021
+        },
+        "concept_set": "acute_disseminated_encephalomyelitis_or_myelitis",
+        "output": "id\tname\tdomain\tvocab\n374021\tAcute disseminated encephalomyelitis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 456,
+  "per_set": {
+    "acute_disseminated_encephalomyelitis_or_myelitis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 374021,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 374021, 'Acute disseminated encephalomyelitis', accurately represents the Planner's clinical description of patients with a diagnosis of acute disseminated encephalomyelitis."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "c1df8bf52400623dc5e0611271fe841382f60143477696d9f1535a8608d422f2",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N07_C3/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N07",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 6612,
+    "llm_calls": 5,
+    "llm_time_s": 116.69,
+    "output_tokens": 456,
+    "peak_ram_mb": 382.4,
+    "tool_calls": 3,
+    "total_tokens": 7068,
+    "validator_retries": 0,
+    "wall_seconds": 116.87200927100002,
+    "wall_time_s": 116.87
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N07_C3/trace.json",
+  "track": "neuro",
+  "wall_seconds": 116.87200927100002
+}

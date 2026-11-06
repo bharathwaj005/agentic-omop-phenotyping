@@ -1,0 +1,231 @@
+{
+  "attempt_id": "official_neuro_qwen7b_neuro_N09_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "235",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "inpatient_visit",
+      "event_domain": "Visit"
+    }
+  ],
+  "experiment_id": "official_neuro_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "inpatient_visit": {
+        "description": "Inpatient visit",
+        "domain": "Visit",
+        "items": [
+          {
+            "concept_id": 9201,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Standard concept for inpatient visit"
+          }
+        ],
+        "name": "inpatient_visit"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "inpatient_visit",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "inpatient_visit",
+        "event_domain": "Visit"
+      }
+    ],
+    "entry_concept_set": "inpatient_visit",
+    "entry_concept_sets": [
+      "inpatient_visit"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Guillain-Barre syndrome during an inpatient stay, based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 18795,
+  "llm_calls": 9,
+  "logical_run_id": "neuro_N09_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.11764705882352941,
+        "jaccard": 0.0625,
+        "precision": 1.0,
+        "recall": 0.0625
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.11764705882352941,
+        "jaccard": 0.0625,
+        "precision": 1.0,
+        "recall": 0.0625
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Guillain-Barre"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4070552\tFisher's syndrome\tSNOMED\tDisorder\t0\n4164770\tGuillain-Barr\u00e9 syndrome\tSNOMED\tDisorder\t9\n42535201\tSequela of Guillain Barre syndrome\tSNOMED\tDisorder\t1\n37166081\tDisorder of autonomic nerve due to Guillain-Barre Syndrome\tSNOMED\tDisorder\t0",
+        "rows": 4
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4164770
+        },
+        "output": "total_descendants=9\nid\tname\tclass\tlevels\n4070552\tFisher's syndrome\tDisorder\t1\n37396086\tAcute motor axonal neuropathy\tDisorder\t1\n37204541\tAcute pure sensory neuropathy\tDisorder\t1\n35623634\tAcute sensory ataxic neuropathy\tDisorder\t1\n37160984\tFacial diplegia with paresthesia\tDisorder\t1\n37396785\tAcute motor sensory axonal neuropathy\tDisorder\t1\n35624130\tParaparetic variant of Guillain-Barr\u00e9 syndrome\tDisorder\t1\n37396786\tAcute inflammatory demyelinating polyradiculoneuropathy\tDisorder\t1\n37204369\tPharyngeal-cervical-brachial variant of Guillain-Barr\u00e9 syndrome\tDisorder\t1",
+        "rows": 10
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4164770,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n4296728\tPolyneuritis\tDisorder\t1\n37166107\tAutoimmune neuritis\tDisorder\t1\n4134432\tPolyradiculoneuropathy\tDisorder\t1\n4134294\tAcute inflammatory disease\tDisorder\t1\n4132091\tAcute nervous system disorder\tDisorder\t1\n4050856\tPeripheral demyelinating neuropathy\tDisorder\t1",
+        "rows": 6
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4164770
+        },
+        "output": "id\tname\tdomain\tvocab\n4164770\tGuillain-Barr\u00e9 syndrome\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient stay"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "hospitalization"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Visit",
+          "query": "inpatient"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n9201\tInpatient Visit\tVisit\tVisit\t3\n32760\tIsolation in inpatient setting\tVisit\tVisit\t0\n262\tEmergency Room and Inpatient Visit\tVisit\tVisit\t0",
+        "rows": 3
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 9201
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n9201\tInpatient Visit\tVisit\tVisit\tVisit\tS\tTrue\t3",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 450,
+  "per_set": {
+    "inpatient_visit": {
+      "domain": "Visit",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 9201,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Standard concept for inpatient visit"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "d0ed061211aaafa0464d816570e334fe3c84a4ed458317fd81567d522d30dfef",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N09_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "N09",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 18795,
+    "llm_calls": 9,
+    "llm_time_s": 181.62,
+    "output_tokens": 450,
+    "peak_ram_mb": 342.9,
+    "tool_calls": 8,
+    "total_tokens": 19245,
+    "validator_retries": 0,
+    "wall_seconds": 182.68205997399946,
+    "wall_time_s": 182.69
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_neuro_qwen7b/N09_C2/trace.json",
+  "track": "neuro",
+  "wall_seconds": 182.68205997399946
+}

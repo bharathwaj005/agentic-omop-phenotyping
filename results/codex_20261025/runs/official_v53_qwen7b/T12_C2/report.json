@@ -1,0 +1,215 @@
+{
+  "attempt_id": "official_v53_qwen7b_v53_T12_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1064",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "entry_set_1",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "official_v53_qwen7b",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "entry_set_1": {
+        "description": "Acute typical pneumonia",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4050869,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'Atypical pneumonia' is the closest match to 'typical pneumonia' in the vocabulary, and we are distinguishing it from non-acute typical pneumonia."
+          }
+        ],
+        "name": "entry_set_1"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "entry_set_1",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "entry_set_1",
+    "entry_concept_sets": [
+      "entry_set_1"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 0,
+    "question": "Identify new users of systemic cephalosporins among patients with acute typical pneumonia, while distinguishing acute typical pneumonia from non-acute typical pneumonia.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 29932,
+  "llm_calls": 12,
+  "logical_run_id": "v53_T12_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.0017226528854435831,
+        "jaccard": 0.0008620689655172414,
+        "precision": 1.0,
+        "recall": 0.0008620689655172414
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": null,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.0017226528854435831,
+        "jaccard": 0.0008620689655172414,
+        "precision": 1.0,
+        "recall": 0.0008620689655172414
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute typical pneumonia"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "typical pneumonia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n440431\tPneumonia caused by Mycoplasma pneumoniae\tSNOMED\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n201965\tShock\tSNOMED\tDisorder\t70\n373995\tDelirium\tSNOMED\tDisorder\t54\n37311061\tCOVID-19\tSNOMED\tDisorder\t25\n433456\tAcute pain\tSNOMED\tClinical Finding\t28\n36674930\tAcute gout\tSNOMED\tDisorder\t6\n260427\tCommon cold\tSNOMED\tDisorder\t0\n1077447\tAcute cough\tSNOMED\tClinical Finding\t1\n3655137\tAcute edema\tSNOMED\tClinical Finding\t7\n141055\tCancrum oris\tSNOMED\tDisorder\t1\n257581\tAcute asthma\tSNOMED\tDisorder\t36\n374923\tBell's palsy\tSNOMED\tDisorder\t3\n4104039\tAcute iritis\tSNOMED\tDisorder\t4\n4245843\tAcute eczema\tSNOMED\tDisorder\t11\n443883\tAcute disease\tSNOMED\tDisorder\t2641\n4103451\tAcute cecitis\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "pneumonia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n255848\tPneumonia\tSNOMED\tDisorder\t186\n261326\tViral pneumonia\tSNOMED\tDisorder\t28\n4046011\tFocal pneumonia\tSNOMED\tDisorder\t0\n4116487\tBasal pneumonia\tSNOMED\tDisorder\t3\n4133224\tLobar pneumonia\tSNOMED\tDisorder\t10\n256722\tBronchopneumonia\tSNOMED\tDisorder\t31\n4049965\tFungal pneumonia\tSNOMED\tDisorder\t12\n252548\tAnthrax pneumonia\tSNOMED\tDisorder\t0\n4112655\tProteus pneumonia\tSNOMED\tDisorder\t2\n45770900\tRubella pneumonia\tSNOMED\tDisorder\t1\n46269693\tChronic pneumonia\tSNOMED\tDisorder\t2\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n4051337\tNeonatal pneumonia\tSNOMED\tDisorder\t2\n4145369\tLingular pneumonia\tSNOMED\tDisorder\t0\n43020558\tCavitary pneumonia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute pneumonia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4048517\tAcute bronchopneumonia\tSNOMED\tDisorder\t0\n46270510\tAcute aspiration pneumonia\tSNOMED\tDisorder\t0\n4051332\tAcute mycoplasmal bronchitis\tSNOMED\tDisorder\t0\n3661408\tPneumonia caused by SARS-CoV-2\tSNOMED\tDisorder\t0\n4341520\tAcute interstitial pneumonitis\tSNOMED\tDisorder\t0\n45768997\tAcute exogenous lipoid pneumonitis\tSNOMED\tDisorder\t0\n605225\tAcute endogenous lipoid pneumonitis\tSNOMED\tDisorder\t0\n45770911\tAcute pneumonia caused by coccidioidomycosis\tSNOMED\tDisorder\t0\n4001167\tAcute ulcerative gastroenteritis complicating pneumonia\tSNOMED\tDisorder\t0\n40479642\tPneumonia caused by Severe acute respiratory syndrome coronavirus\tSNOMED\tDisorder\t0\n760984\tSepsis without acute organ dysfunction caused by Streptococcus pneumoniae\tSNOMED\tDisorder\t0",
+        "rows": 11
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "acute typical"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4263629\tAtypical subacute thyroiditis\tSNOMED\tDisorder\t0",
+        "rows": 1
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "typical"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4324893\tTypical angina\tSNOMED\tDisorder\t0\n4155963\tAtypical angina\tSNOMED\tDisorder\t0\n4338037\tAtypical autism\tSNOMED\tDisorder\t0\n4292105\tMorquio syndrome\tSNOMED\tDisorder\t2\n4345463\tAtypical measles\tSNOMED\tDisorder\t0\n440740\tTakayasu's disease\tSNOMED\tDisorder\t0\n4008244\tAtypical neuralgia\tSNOMED\tClinical Finding\t0\n4050869\tAtypical pneumonia\tSNOMED\tDisorder\t0\n43022060\tAtypical psychosis\tSNOMED\tDisorder\t0\n4010017\tAtypical chest pain\tSNOMED\tClinical Finding\t0\n37017588\tAtypical odontalgia\tSNOMED\tClinical Finding\t0\n137856\tAtypical facial pain\tSNOMED\tClinical Finding\t0\n434890\tStereotyped routines\tSNOMED\tClinical Finding\t6\n378735\tMigraine without aura\tSNOMED\tDisorder\t5\n1244835\tAtypical neurofibroma\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 518,
+  "per_set": {
+    "entry_set_1": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 4050869,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'Atypical pneumonia' is the closest match to 'typical pneumonia' in the vocabulary, and we are distinguishing it from non-acute typical pneumonia."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "8862ff3093c2b4bca347b5790271814e7734c1f2edee1d38e919a0ac2f141da5",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T12_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "T12",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 29932,
+    "llm_calls": 12,
+    "llm_time_s": 343.19,
+    "output_tokens": 518,
+    "peak_ram_mb": 174.3,
+    "tool_calls": 7,
+    "total_tokens": 30450,
+    "validator_retries": 0,
+    "wall_seconds": 344.47162561799996,
+    "wall_time_s": 344.5
+  },
+  "tool_calls": 7,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/official_v53_qwen7b/T12_C2/trace.json",
+  "track": "v53",
+  "wall_seconds": 344.47162561799996
+}

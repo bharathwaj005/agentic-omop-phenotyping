@@ -1,0 +1,30 @@
+{
+ "task_id": "863",
+ "cohort_id": "863",
+ "entry_codeset_id": "3",
+ "entry_domain": "Condition",
+ "entry_concept_ids": [
+  439795,
+  3654469,
+  4297400
+ ],
+ "all_concept_ids": [
+  439795,
+  3654469,
+  4297400
+ ],
+ "concept_sets": {
+  "3": {
+   "name": "Mild cognitive impairment (REWARD update)",
+   "concept_ids": [
+    439795,
+    3654469,
+    4297400
+   ]
+  }
+ },
+ "counts": {
+  "entry": 3,
+  "all": 3
+ }
+}

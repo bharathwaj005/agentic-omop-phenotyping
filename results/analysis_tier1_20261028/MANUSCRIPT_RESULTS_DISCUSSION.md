@@ -1,0 +1,56 @@
+# Section: Results and Discussion
+
+## Results
+
+### Overall Extraction Fidelity Across Architectures
+We evaluated four architectural paradigms (C1–C4) across two clinical tracks: the V5.3 general phenotype cohort track ($N=20$ target cohort specifications) and the domain-specific Neurological phenotype track ($N=12$ target cohort specifications). Performance was measured using dual-denominator accounting: (i) scored runs only, and (ii) an intention-to-evaluate basis where unparsed outputs, infrastructure aborts, and missing cohorts were treated as zero ($F_1 = 0.0$).
+
+In the Neurological track, C1 achieved complete execution across all specifications (12/12), yielding a scored-only mean $F_1$ of $0.6208 \pm 0.410$ with a balanced recall ($0.6082$) and high precision ($0.9295$). In contrast, configurations C2, C3, and C4 exhibited lower overall discovery, achieving scored-only mean $F_1$ scores of $0.3242 \pm 0.362$, $0.3556 \pm 0.311$, and $0.3473 \pm 0.308$, respectively. While C2 and C3 attained perfect precision ($1.0000$), this conservative behavior came at the cost of recall ($0.2597$ and $0.2700$).
+
+In the V5.3 general phenotype track, cohort discovery faced higher structural dropouts across multi-stage temporal logic. C4 achieved the highest completion rate (14/20), followed by C2 and C3 (13/20 each), whereas C1 completed 9/20 specifications. Conditioned on successful execution, C1 led scored-only cohort discovery ($F_1 = 0.3002 \pm 0.353$, recall $= 0.2374$, precision $= 0.9903$). However, when penalized for non-completions under the full evaluation set (Failures = 0), C2 demonstrated the highest overall robustness with a mean $F_1$ of $0.1550$, followed by C3 ($0.1487$), C1 ($0.1351$), and C4 ($0.1202$).
+
+| Track | Config | Completed | Mean $F_1$ (Scored) | Mean $F_1$ (All=0) | Mean Recall | Mean Precision |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **V5.3** | C1 | 9 / 20 | $0.3002 \pm 0.353$ | 0.1351 | 0.2374 | 0.9903 |
+| **V5.3** | C2 | 13 / 20 | $0.2385 \pm 0.321$ | 0.1550 | 0.1842 | 0.9036 |
+| **V5.3** | C3 | 13 / 20 | $0.2288 \pm 0.314$ | 0.1487 | 0.2024 | 0.9385 |
+| **V5.3** | C4 | 14 / 20 | $0.1717 \pm 0.316$ | 0.1202 | 0.1398 | 1.0000 |
+| **NEURO** | C1 | 12 / 12 | $0.6208 \pm 0.410$ | 0.6208 | 0.6082 | 0.9295 |
+| **NEURO** | C2 | 11 / 12 | $0.3242 \pm 0.362$ | 0.2972 | 0.2597 | 1.0000 |
+| **NEURO** | C3 | 12 / 12 | $0.3556 \pm 0.311$ | 0.3556 | 0.2700 | 1.0000 |
+| **NEURO** | C4 | 12 / 12 | $0.3473 \pm 0.308$ | 0.3473 | 0.2700 | 0.9583 |
+
+### Paired Non-Parametric Hypothesis Testing
+To isolate architecture-driven differences from cohort-level variance, we conducted paired comparisons anchored against C1 for all specifications evaluated by both comparator pipelines. Confidence intervals ($95\%$ CI) were constructed via 10,000 bootstrap resamples (seed 20261028), with significance assessed via two-sided Wilcoxon signed-rank tests.
+
+| Track | Comparison | $N$ (Paired) | Wins | Ties | Losses | Median Diff | Mean Diff | 95% Bootstrap CI | $p$-value |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **V5.3** | C1 vs C2 | 9 | 3 | 3 | 3 | 0.0000 | +0.0442 | $[-0.0600, 0.1707]$ | n.s. |
+| **V5.3** | C1 vs C3 | 9 | 3 | 6 | 0 | 0.0000 | +0.0514 | $[0.0000, 0.1267]$ | n.s. |
+| **V5.3** | C1 vs C4 | 9 | 4 | 5 | 0 | 0.0000 | +0.0571 | $[0.0006, 0.1267]$ | n.s. |
+| **NEURO** | C1 vs C2 | 11 | 7 | 3 | 1 | +0.0288 | +0.3190 | $[0.0614, 0.5778]$ | n.s. |
+| **NEURO** | C1 vs C3 | 12 | 6 | 5 | 1 | +0.1500 | +0.2651 | $[0.0881, 0.4535]$ | $p = 0.0312$ |
+| **NEURO** | C1 vs C4 | 12 | 6 | 5 | 1 | +0.1517 | +0.2735 | $[0.0935, 0.4615]$ | $p = 0.0312$ |
+
+In the Neurological track, C1 exhibited a statistically significant advantage over both C3 (mean diff $= +0.2651$, $95\%$ CI $[0.0881, 0.4535]$, $p = 0.0312$) and C4 (mean diff $= +0.2735$, $95\%$ CI $[0.0935, 0.4615]$, $p = 0.0312$). In both comparisons, C1 improved performance in 6 cohorts while suffering only 1 loss (5 ties). Against C2, C1 achieved 7 wins versus 1 loss with a mean difference of $+0.3190$ ($95\%$ CI $[0.0614, 0.5778]$). 
+
+Within the V5.3 track, pairwise comparisons among mutually completed runs revealed no statistically significant differences ($p > 0.05$), with median differences settling at $0.0000$ due to high tie frequencies on shared edge-case cohorts.
+
+---
+
+## Discussion
+
+### The Specificity–Sensitivity Trade-off in Constrained Inference
+Across all tested tracks and configurations, precision remained exceptionally high ($0.9036$ to $1.0000$). This indicates that 7B-parameter models under strict vocabulary-grounded prompting rarely hallucinate invalid standard concept identifiers into the final definition. Instead, the primary differentiator of observational cohort quality is candidate discovery (recall).
+
+In domain-dense cohorts such as the Neurological track, the multi-agent critique and validation loop in C1 prevented the premature pruning seen in C2–C4. Single-agent setups (C2) and critic-deprived pipelines (C3) frequently locked onto a narrow subset of primary condition concepts (yielding $1.0000$ precision) while discarding related syndromic, procedural, or medication attributes. C1’s planner–critic negotiation expanded semantic coverage, producing a $0.3382$ absolute gain in recall over C2 and C3 without introducing significant noise (precision $= 0.9295$).
+
+### Modularity vs. Compounding Failures in General Observational Cohorts
+In the broader V5.3 track, the architectural hierarchy introduced a different operational trade-off. While C1 achieved the highest score when runs completed ($F_1 = 0.3002$), its complex multi-agent handoffs led to higher attrition on multi-criteria tasks (9 completions vs. 13–14 for C2–C4). The dominant failure mode for C1 was validator repair-loop non-convergence (e.g., in T03, T12, T13, and T14), where cyclic inter-agent revisions failed to satisfy relational syntax constraints prior to the execution deadline. 
+
+Conversely, single-agent baseline C2 avoided circular repair trajectories, completing 13/20 tasks and achieving the highest intention-to-evaluate score ($F_1 = 0.1550$). This demonstrates that in resource-constrained environments running local quantized models, multi-agent frameworks risk compounding parsing overheads unless bounded by strict fallback heuristics.
+
+### Feasibility of Edge-Compute Phenotyping for RWE
+All 128 benchmark evaluations were executed locally on consumer-grade hardware (Intel Core i3-N305, 8 GB RAM) without external API dependencies or GPU acceleration[cite: 1, 2]. Sustained throughput remained within 4.0–5.5 tokens/second, requiring no more than 5.0 GB resident memory[cite: 2]. 
+
+These empirical results show that local, privacy-preserving LLM execution is technically viable for OMOP CDM cohort generation. For specialized clinical questions, a multi-agent critique architecture (C1) yields superior phenotypic fidelity. For broader, multi-temporal cohort queries, single-agent architectures with deterministic schema validators (C2) offer the strongest balance between semantic validity and execution stability.

@@ -1,0 +1,80 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma medication\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"asthma_condition\",\n  \"entry_concept_sets\": [\"asthma_condition\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"asthma_condition\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"asthma_condition\": {\n      \"name\": \"asthma_condition\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of asthma\",\n      \"items\": [\n        {\"concept_id\": 317009, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Primary diagnosis of asthma\"}\n      ]\n    }\n  },\n  \"criteria\": [\n    {\"concept_set\": \"asthma_drug\", \"rule\": \"at_least_one\",\n     \"rationale\": \"At least one asthma medication prescription\"}\n  ]\n}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"asthma\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 26,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"asthma_condition\",\n  \"entry_concept_sets\": [\"asthma_condition\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"asthma_condition\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"asthma_condition\": {\n      \"name\": \"asthma_condition\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of asthma\",\n      \"items\": [\n        {\"concept_id\": 317009, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Primary diagnosis of asthma\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

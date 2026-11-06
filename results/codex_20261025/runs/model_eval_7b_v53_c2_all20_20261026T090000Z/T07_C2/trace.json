@@ -1,0 +1,359 @@
+{
+ "run_id": "model_eval_7b_v53_c2_all20_20261026T090000Z_v53_T07_C2_attempt1",
+ "config": "C2",
+ "task_id": "T07",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with qualifying skin burns and associated burn treatment involving relevant drugs or procedures.",
+  "entry_concept_set": "entry_set_1",
+  "entry_concept_sets": [
+   "entry_set_1"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "entry_set_1",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [
+   {
+    "concept_set": "entry_set_1",
+    "window_start_days": -365,
+    "window_end_days": 0,
+    "rule": "at_least_one"
+   }
+  ],
+  "concept_sets": {
+   "entry_set_1": {
+    "name": "entry_set_1",
+    "domain": "Condition",
+    "description": "Patients with skin burns",
+    "items": [
+     {
+      "concept_id": 4108467,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "Includes various types of skin burns"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 9,
+  "tool_calls": 8,
+  "input_tokens": 19624,
+  "output_tokens": 522,
+  "total_tokens": 20146,
+  "wall_time_s": 222.71,
+  "llm_time_s": 221.31,
+  "peak_ram_mb": 378.0,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007918.3495631,
+   "latency_s": 7.584,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1527,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"skin burn\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007925.933118,
+   "latency_s": 0.169,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "skin burn",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4108467\tBurn of skin\tSNOMED\tDisorder\t398\n4294192\tFat burn of skin\tSNOMED\tDisorder\t0\n4266801\tAcid burn of skin\tSNOMED\tDisorder\t0\n4300259\tFood burn of skin\tSNOMED\tDisorder\t0\n4294187\tFlash burn of skin\tSNOMED\tDisorder\t0\n4300257\tSteam burn of skin\tSNOMED\tDisorder\t0\n4270999\tCement burn of skin\tSNOMED\tDisorder\t0\n4290847\tAlkali burn of skin\tSNOMED\tDisorder\t1\n4294186\tBleach burn of skin\tSNOMED\tDisorder\t0\n4294188\tContact burn of skin\tSNOMED\tDisorder\t53\n4295790\tHot tar burn of skin\tSNOMED\tDisorder\t0\n4300258\tHot oil burn of skin\tSNOMED\tDisorder\t0\n4295791\tFirework burn of skin\tSNOMED\tDisorder\t0\n37311233\tChemical burn of skin\tSNOMED\tDisorder\t13\n4295794\tHot drink burn of skin\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007926.1018867,
+   "latency_s": 27.757,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1911,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn treatment\", \"domain\": \"Procedure\"}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007953.8585632,
+   "latency_s": 0.138,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn treatment",
+     "domain": "Procedure"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007953.9964266,
+   "latency_s": 9.02,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1971,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn treatment\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007963.0161293,
+   "latency_s": 0.143,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn treatment",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007963.159413,
+   "latency_s": 8.873,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2031,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn dressing\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007972.0329437,
+   "latency_s": 0.134,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn dressing",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007972.1672082,
+   "latency_s": 9.394,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2091,
+   "output_tokens": 27,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn ointment\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007981.5615273,
+   "latency_s": 0.099,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn ointment",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007981.6609743,
+   "latency_s": 9.111,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2153,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn cream\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007990.7721577,
+   "latency_s": 0.124,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn cream",
+     "domain": "Drug"
+    },
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793007990.896191,
+   "latency_s": 9.028,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2213,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn gel\", \"domain\": \"Drug\"}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793007999.924317,
+   "latency_s": 0.112,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn gel",
+     "domain": "Drug"
+    },
+    "rows": 13,
+    "output": "id\tname\tvocab\tclass\tn_desc\n1718818\tlidocaine Topical Gel [BurnX]\tRxNorm\tBranded Drug Form\t1\n43525567\tlidocaine Topical Gel [Unburn]\tRxNorm\tBranded Drug Form\t1\n35200607\tlidocaine Topical Gel [Burn Jel]\tRxNorm\tBranded Drug Form\t1\n40236389\tlidocaine Topical Gel [Burn Jel Plus]\tRxNorm\tBranded Drug Form\t1\n40229167\tallantoin Topical Gel [Burn-B Gone OTC]\tRxNorm\tBranded Drug Form\t1\n40229164\tallantoin 0.01 MG/MG Topical Gel [Burn-B Gone OTC]\tRxNorm\tBranded Drug\t0\n1718820\tlidocaine hydrochloride 0.025 MG/MG Topical Gel [BurnX]\tRxNorm\tBranded Drug\t0\n43525721\tlidocaine hydrochloride 0.025 MG/MG Topical Gel [Unburn]\tRxNorm\tBranded Drug\t0\n35200609\tlidocaine hydrochloride 0.02 MG/MG Topical Gel [Burn Jel]\tRxNorm\tBranded Drug\t0\n40226964\tlidocaine hydrochloride 0.005 MG/MG Topical Gel [Solarcaine]\tRxNorm\tBranded Drug\t0\n40233499\tbenzalkonium / lidocaine Topical Gel [Scar Zone Burn Relief]\tRxNorm\tBranded Drug Form\t1\n40236371\tlidocaine hydrochloride 0.025 MG/MG Topical Gel [Burn Jel Plus]\tRxNorm\tBranded Drug\t0\n40233508\tbenzalkonium chloride 0.0013 MG/MG / lidocaine 0.02 MG/MG Topical Gel [Scar Zone Burn Relief]\tRxNorm\tBranded Drug\t0"
+   }
+  },
+  {
+   "step": 15,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793008000.0363693,
+   "latency_s": 38.008,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2744,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn dressing\", \"domain\": \"Procedure\"}}"
+   }
+  },
+  {
+   "step": 16,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1793008038.0441434,
+   "latency_s": 0.092,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "burn dressing",
+     "domain": "Procedure"
+    },
+    "rows": 8,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4233678\tApplication of dressing for burn\tSNOMED\tProcedure\t6\n4120996\tAttention to dressing of burnt skin\tSNOMED\tProcedure\t1\n4075598\tDressing of burnt skin of head or neck\tSNOMED\tProcedure\t1\n4040653\tApplication of dressing for third degree burn\tSNOMED\tProcedure\t0\n4075616\tAttention to dressing of burn of head or neck\tSNOMED\tProcedure\t0\n4242547\tApplication of dressing for second degree burn\tSNOMED\tProcedure\t0\n42872641\tApplication of vacuum assisted closure device to burnt skin\tSNOMED\tProcedure\t0\n44791474\tDressing of burnt skin of head or neck using vacuum assisted closure device\tSNOMED\tProcedure\t0"
+   }
+  },
+  {
+   "step": 17,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1793008038.136121,
+   "latency_s": 102.534,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2983,
+   "output_tokens": 320,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"entry_set_1\",\n  \"entry_concept_sets\": [\"entry_set_1\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"entry_set_1\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"entry_set_1\": {\n      \"name\": \"entry_set_1\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with skin burns\",\n      \"items\": [\n        {\"concept_id\": 4108467, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Includes various types of skin burns\"}\n      ]\n    }\n  },\n  \"criteria\": [\n    {\n      \"concept_set\": \"entry_set_1\",\n      \"event_domain\": \"Procedure\",\n      \"window_start_days\": -365,\n      \"window_end_days\": 0,\n      \"rule\": \"at_least_one\",\n      \"first_occurrence_only\": false,\n      \"description\": \"Burn treatment involving relevant drugs or procedures\",\n      \"items\": [\n        {\"concept_id\": 4233678, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Includes application of dressing for burn\"}\n      ]\n    }\n  ]\n}}"
+   }
+  },
+  {
+   "step": 18,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1793008141.0467167,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}

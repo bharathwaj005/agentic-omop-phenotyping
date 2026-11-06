@@ -1,0 +1,74 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"skin burn\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 37311233, \"tool_calls_remaining\": 17}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 37311233, \"max_levels\": 2, \"tool_calls_remaining\": 16}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 37311233, \"tool_calls_remaining\": 15}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn treatment\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn dressing\", \"domain\": \"Procedure\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4233678, \"max_levels\": 2, \"tool_calls_remaining\": 12}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4233678, \"tool_calls_remaining\": 11}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"burn\", \"domain\": \"Drug\"}}"
+  },
+  {
+    "step": 19,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 19078938, \"max_levels\": 2, \"tool_calls_remaining\": 10}}"
+  },
+  {
+    "step": 21,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 19078938, \"tool_calls_remaining\": 9}}"
+  },
+  {
+    "step": 23,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"entry_set_1\",\n  \"entry_concept_sets\": [\"entry_set_1\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"entry_set_1\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"entry_set_1\": {\n      \"name\": \"entry_set_1\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with skin burns\",\n      \"items\": [\n        {\"concept_id\": 37311233, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Chemical burn of skin\"}\n      ]\n    }\n  },\n  \"criteria\": [\n    {\n      \"concept_set\": \"entry_set_1\",\n      \"event_domain\": \"Procedure\",\n      \"description\": \"Burn treatment\",\n      \"items\": [\n        {\"concept_id\": 4233678, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Application of dressing for burn\"}\n      ]\n    },\n    {\n      \"concept_set\": \"entry_set_1\",\n      \"event_domain\": \"Drug\",\n      \"description\": \"Burn treatment drugs\",\n      \"items\": [\n        {\"concept_id\": 19078938, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Vinburnine\"}\n      ]\n    }\n  ]\n}}"
+  }
+]
