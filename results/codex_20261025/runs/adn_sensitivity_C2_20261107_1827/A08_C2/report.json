@@ -1,0 +1,199 @@
+{
+  "attempt_id": "adn_sensitivity_C2_20261107_1827_adn_A08_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "475",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "psoriasis_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_sensitivity_C2_20261107_1827",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "psoriasis_diagnosis": {
+        "description": "Patients diagnosed with psoriasis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 140168,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of psoriasis"
+          }
+        ],
+        "name": "psoriasis_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "psoriasis_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "psoriasis_diagnosis",
+    "entry_concept_sets": [
+      "psoriasis_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with psoriasis based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 14919,
+  "llm_calls": 7,
+  "logical_run_id": "adn_A08_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "psoriasis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n140168\tPsoriasis\tSNOMED\tDisorder\t79\n320798\tParapsoriasis\tSNOMED\tDisorder\t9\n4031651\tK\u00f6bner psoriasis\tSNOMED\tDisorder\t0\n4063431\tPlaque psoriasis\tSNOMED\tDisorder\t6\n4066487\tPsoriasis gyrata\tSNOMED\tDisorder\t0\n4219879\tNevoid psoriasis\tSNOMED\tDisorder\t0\n4031649\tPsoriasis of nail\tSNOMED\tDisorder\t3\n4063432\tRupioid psoriasis\tSNOMED\tDisorder\t0\n4066485\tPsoriasis diffusa\tSNOMED\tDisorder\t0\n4284492\tGuttate psoriasis\tSNOMED\tDisorder\t2\n4297496\tPsoriasis of face\tSNOMED\tDisorder\t0\n4031141\tPsoriasis of scalp\tSNOMED\tDisorder\t1\n4031645\tFlexural psoriasis\tSNOMED\tDisorder\t0\n4031646\tUnstable psoriasis\tSNOMED\tDisorder\t0\n4063433\tPsoriasis palmaris\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n140168\tPsoriasis\tCondition\tSNOMED\tDisorder\tS\tTrue\t79",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168
+        },
+        "output": "total_descendants=79\nid\tname\tclass\tlevels\n4031651\tK\u00f6bner psoriasis\tDisorder\t1\n4066487\tPsoriasis gyrata\tDisorder\t1\n4063431\tPlaque psoriasis\tDisorder\t1\n4284492\tGuttate psoriasis\tDisorder\t1\n4297496\tPsoriasis of face\tDisorder\t1\n4066485\tPsoriasis diffusa\tDisorder\t1\n4031649\tPsoriasis of nail\tDisorder\t1\n4063432\tRupioid psoriasis\tDisorder\t1\n4063433\tPsoriasis palmaris\tDisorder\t1\n4299287\tFamilial psoriasis\tDisorder\t1\n4066832\tPsoriasis punctata\tDisorder\t1\n4031645\tFlexural psoriasis\tDisorder\t1\n4063434\tPustular psoriasis\tDisorder\t1\n4031646\tUnstable psoriasis\tDisorder\t1\n4031141\tPsoriasis of scalp\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 6,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168,
+          "max_levels": 1
+        },
+        "output": "id\tname\tclass\tlevels\n4317258\tDisorder of skin\tDisorder\t1\n4141523\tCell-mediated cytotoxic disorder\tDisorder\t1",
+        "rows": 2
+      },
+      "step": 8,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4317258
+        },
+        "output": "id\tname\tdomain\tvocab\n4317258\tDisorder of skin\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4141523
+        },
+        "output": "id\tname\tdomain\tvocab\n4141523\tCell-mediated cytotoxic disorder\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 12,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 351,
+  "per_set": {
+    "psoriasis_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 140168,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of psoriasis"
+        }
+      ],
+      "resolved_count": 80
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "9f043fdb0f8d53e9149369934446b9c2f1d1eb9a7f61aad4ae14059eae76601c",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_sensitivity_C2_20261107_1827/A08_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A08",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 14919,
+    "llm_calls": 7,
+    "llm_time_s": 252.18,
+    "output_tokens": 351,
+    "peak_ram_mb": 310.3,
+    "tool_calls": 6,
+    "total_tokens": 15270,
+    "validator_retries": 0,
+    "wall_seconds": 260.39860599400004,
+    "wall_time_s": 260.41
+  },
+  "tool_calls": 6,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_sensitivity_C2_20261107_1827/A08_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 260.39860599400004
+}

@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C2"
+  ],
+  "freeze_manifest_sha256": "825e530d3ce861536028665ab84352272e8ae1b1d55b791630f9f8a91842f432",
+  "model": "qwen2.5:7b",
+  "question_sha256": "7b2d17d982ccf0d82f9287700f2d7ef8d1a6d464a314a7607667d39b3f69ca2b",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-11-07T13:02:20.642792+00:00",
+      "reason": "",
+      "report_path": "results/codex_20261025/runs/adn_sensitivity_C2_20261107_1827/A08_C2/report.json",
+      "report_sha256": "da841d6d684821ea4a139aa192c9cd943cbe3ca5a7a1c07eead5db1371f7f7b5",
+      "retry_log": [],
+      "started_at": "2026-11-07T12:58:00.215018+00:00",
+      "status": "success",
+      "task_id": "A08",
+      "trace_sha256": "cbadba639419e042c3df85985743ce0edf5bdde59d60db988dc40c63f4d1a732",
+      "wall_seconds": 260.39860599400004
+    }
+  ],
+  "task_ids": [
+    "A08"
+  ],
+  "track": "adn"
+}

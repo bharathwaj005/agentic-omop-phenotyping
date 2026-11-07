@@ -1,0 +1,2 @@
+task_id,configuration,status,attempts,reason,retry_log,wall_seconds,started_at,finished_at,report_path,report_sha256,trace_sha256
+A08,C2,success,1,,[],260.39860599400004,2026-11-07T12:58:00.215018+00:00,2026-11-07T13:02:20.642792+00:00,results/codex_20261025/runs/adn_sensitivity_C2_20261107_1827/A08_C2/report.json,da841d6d684821ea4a139aa192c9cd943cbe3ca5a7a1c07eead5db1371f7f7b5,cbadba639419e042c3df85985743ce0edf5bdde59d60db988dc40c63f4d1a732

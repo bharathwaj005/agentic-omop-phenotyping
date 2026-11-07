@@ -1,0 +1,286 @@
+{
+ "run_id": "adn_sensitivity_C2_20261107_1827_adn_A08_C2_attempt1",
+ "config": "C2",
+ "task_id": "A08",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with psoriasis based on diagnosis evidence.",
+  "entry_concept_set": "psoriasis_diagnosis",
+  "entry_concept_sets": [
+   "psoriasis_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "psoriasis_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "psoriasis_diagnosis": {
+    "name": "psoriasis_diagnosis",
+    "domain": "Condition",
+    "description": "Patients diagnosed with psoriasis",
+    "items": [
+     {
+      "concept_id": 140168,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "Primary diagnosis of psoriasis"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 7,
+  "tool_calls": 6,
+  "input_tokens": 14919,
+  "output_tokens": 351,
+  "total_tokens": 15270,
+  "wall_time_s": 260.41,
+  "llm_time_s": 252.18,
+  "peak_ram_mb": 310.4,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056280.2256322,
+   "latency_s": 94.926,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1521,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"psoriasis\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794056375.1512597,
+   "latency_s": 3.164,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "psoriasis",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n140168\tPsoriasis\tSNOMED\tDisorder\t79\n320798\tParapsoriasis\tSNOMED\tDisorder\t9\n4031651\tK\u00f6bner psoriasis\tSNOMED\tDisorder\t0\n4063431\tPlaque psoriasis\tSNOMED\tDisorder\t6\n4066487\tPsoriasis gyrata\tSNOMED\tDisorder\t0\n4219879\tNevoid psoriasis\tSNOMED\tDisorder\t0\n4031649\tPsoriasis of nail\tSNOMED\tDisorder\t3\n4063432\tRupioid psoriasis\tSNOMED\tDisorder\t0\n4066485\tPsoriasis diffusa\tSNOMED\tDisorder\t0\n4284492\tGuttate psoriasis\tSNOMED\tDisorder\t2\n4297496\tPsoriasis of face\tSNOMED\tDisorder\t0\n4031141\tPsoriasis of scalp\tSNOMED\tDisorder\t1\n4031645\tFlexural psoriasis\tSNOMED\tDisorder\t0\n4031646\tUnstable psoriasis\tSNOMED\tDisorder\t0\n4063433\tPsoriasis palmaris\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056378.3154023,
+   "latency_s": 29.847,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1891,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 140168}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1794056408.1625555,
+   "latency_s": 0.376,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n140168\tPsoriasis\tCondition\tSNOMED\tDisorder\tS\tTrue\t79"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056408.5383623,
+   "latency_s": 9.366,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1961,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 140168}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1794056417.903958,
+   "latency_s": 2.237,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168
+    },
+    "rows": 16,
+    "output": "total_descendants=79\nid\tname\tclass\tlevels\n4031651\tK\u00f6bner psoriasis\tDisorder\t1\n4066487\tPsoriasis gyrata\tDisorder\t1\n4063431\tPlaque psoriasis\tDisorder\t1\n4284492\tGuttate psoriasis\tDisorder\t1\n4297496\tPsoriasis of face\tDisorder\t1\n4066485\tPsoriasis diffusa\tDisorder\t1\n4031649\tPsoriasis of nail\tDisorder\t1\n4063432\tRupioid psoriasis\tDisorder\t1\n4063433\tPsoriasis palmaris\tDisorder\t1\n4299287\tFamilial psoriasis\tDisorder\t1\n4066832\tPsoriasis punctata\tDisorder\t1\n4031645\tFlexural psoriasis\tDisorder\t1\n4063434\tPustular psoriasis\tDisorder\t1\n4031646\tUnstable psoriasis\tDisorder\t1\n4031141\tPsoriasis of scalp\tDisorder\t1"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056420.1405857,
+   "latency_s": 32.304,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2279,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 140168, \"max_levels\": 1}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1794056452.445024,
+   "latency_s": 0.598,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168,
+     "max_levels": 1
+    },
+    "rows": 2,
+    "output": "id\tname\tclass\tlevels\n4317258\tDisorder of skin\tDisorder\t1\n4141523\tCell-mediated cytotoxic disorder\tDisorder\t1"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056453.0433946,
+   "latency_s": 12.343,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2363,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4317258}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794056465.385945,
+   "latency_s": 1.254,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4317258
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n4317258\tDisorder of skin\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056466.6394749,
+   "latency_s": 9.095,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2422,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4141523}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794056475.734919,
+   "latency_s": 0.174,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4141523
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n4141523\tCell-mediated cytotoxic disorder\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794056475.908861,
+   "latency_s": 64.299,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2482,
+   "output_tokens": 195,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"psoriasis_diagnosis\",\n  \"entry_concept_sets\": [\"psoriasis_diagnosis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"psoriasis_diagnosis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"psoriasis_diagnosis\": {\n      \"name\": \"psoriasis_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients diagnosed with psoriasis\",\n      \"items\": [\n        {\"concept_id\": 140168, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Primary diagnosis of psoriasis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794056540.623321,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}

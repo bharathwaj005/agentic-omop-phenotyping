@@ -1,0 +1,60 @@
+{
+  "configuration_sha256": "7633d1965745f6ffc21dca479851b5f6bf9a3bf17cc597dc562575fe62b1664b",
+  "configurations": [
+    "C2"
+  ],
+  "created_at_utc": "2026-11-07T12:58:00.192849+00:00",
+  "design_freeze_input": {
+    "path": null,
+    "sha256": null
+  },
+  "experiment_id": "adn_sensitivity_C2_20261107_1827",
+  "freeze_manifest": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_sensitivity_C2_20261107_1827/freeze_manifest.json",
+    "sha256": "825e530d3ce861536028665ab84352272e8ae1b1d55b791630f9f8a91842f432"
+  },
+  "model_identity": {
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "endpoint_kind": "local_ollama",
+    "modified_at": "2026-10-26T10:25:38.292373069+05:30",
+    "requested_model": "qwen2.5:7b",
+    "resolved_tag": "qwen2.5:7b",
+    "size_bytes": 4683087332
+  },
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "reference_inputs": [
+    {
+      "cohort_id": "475",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/475.json",
+      "sha256": "b375be18043245aac2fc15a33ae7e003080d00f13d418c9e25c3e003abb7934f",
+      "task_id": "A08",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "475",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/475.json",
+      "sha256": "b375be18043245aac2fc15a33ae7e003080d00f13d418c9e25c3e003abb7934f",
+      "task_id": "A08",
+      "version": "v2"
+    }
+  ],
+  "runtime_queue_initial": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_sensitivity_C2_20261107_1827/RUN_QUEUE.csv",
+    "sha256": "1cab2e12e201ba9524c3f938cff1878fc97b3f2cf6374383c2a24d8c4a29be2e"
+  },
+  "schema_version": 1,
+  "semantics": {
+    "design_freeze_input": "design CSV hash; never interpreted as runtime queue hash",
+    "runtime_queue_initial": "exact initial runtime queue bytes; queue changes as statuses are checkpointed"
+  },
+  "task_file": {
+    "path": "/home/bharathwaj/jbi/tasks/adn/ad_neuroinflammation_questions.jsonl",
+    "sha256": "7b2d17d982ccf0d82f9287700f2d7ef8d1a6d464a314a7607667d39b3f69ca2b"
+  },
+  "track": "adn",
+  "vocabulary_source": {
+    "path": "/media/bharathwaj/HDD_Storage/project_jbi/data/vocab.duckdb",
+    "sha256": "34167ed891e1ff159ddc3ccb73f1bbad3c5364b9412e598a854f46cf11eae138"
+  }
+}

@@ -1,0 +1,2 @@
+task_id,configuration,status,attempts,reason,retry_log,wall_seconds,started_at,finished_at,report_path,report_sha256,trace_sha256
+T17,C2,timeout,1,JBI_RUN_DEADLINE_S exceeded,[],1200.107857254,2026-11-07T13:15:07.639103+00:00,2026-11-07T13:35:07.811958+00:00,results/codex_20261025/runs/sensitivity_v53_T17_C2_20261107_1833/T17_C2/report.json,70c6fd872f69b69e8d8c76ca5c858d216b990e4686d6d4c4ea4667633c4144aa,97d515282c815fd1086e8eab9fdde2f82739f7b6de4eea050d27de31c7f0a506

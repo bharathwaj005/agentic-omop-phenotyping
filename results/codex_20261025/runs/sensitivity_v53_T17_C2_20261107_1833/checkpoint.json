@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "C2"
+  ],
+  "freeze_manifest_sha256": "3d6efbe811c1e6a6e16432ec59f473c4dca0d8a6d4246fb818574da7c7aca4f8",
+  "model": "qwen2.5:7b",
+  "question_sha256": "087918530eebbedd94004edfc8edd626c577cc5d45bd48306dd6cb12058f77df",
+  "runs": [
+    {
+      "attempts": 1,
+      "configuration": "C2",
+      "finished_at": "2026-11-07T13:35:07.811958+00:00",
+      "reason": "JBI_RUN_DEADLINE_S exceeded",
+      "report_path": "results/codex_20261025/runs/sensitivity_v53_T17_C2_20261107_1833/T17_C2/report.json",
+      "report_sha256": "70c6fd872f69b69e8d8c76ca5c858d216b990e4686d6d4c4ea4667633c4144aa",
+      "retry_log": [],
+      "started_at": "2026-11-07T13:15:07.639103+00:00",
+      "status": "timeout",
+      "task_id": "T17",
+      "trace_sha256": "97d515282c815fd1086e8eab9fdde2f82739f7b6de4eea050d27de31c7f0a506",
+      "wall_seconds": 1200.107857254
+    }
+  ],
+  "task_ids": [
+    "T17"
+  ],
+  "track": "v53"
+}
