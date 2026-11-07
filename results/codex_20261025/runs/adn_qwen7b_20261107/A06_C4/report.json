@@ -1,0 +1,427 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A06_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1069",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "crohns_disease",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "crohns_disease": {
+        "description": "Patients with a diagnosis of Crohn's disease.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 201606,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 201606 'Crohn's disease' accurately represents the Planner's clinical description of patients with a diagnosis of Crohn's disease."
+          }
+        ],
+        "name": "crohns_disease"
+      },
+      "tumor_necrosis_factor_alpha_inhibitors": {
+        "description": "Patients who are new users of tumor necrosis factor alpha inhibitors.",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 1151789,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The concept 'etanercept' (concept_id: 1151789) in the RxNorm vocabulary represents tumor necrosis factor alpha inhibitors as required by the clinical description."
+          }
+        ],
+        "name": "tumor_necrosis_factor_alpha_inhibitors"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "crohns_disease",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "crohns_disease",
+    "entry_concept_sets": [
+      "crohns_disease"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 365,
+    "question": "Identify patients with Crohn's disease who are new users of tumor necrosis factor alpha inhibitors.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 43527,
+  "llm_calls": 30,
+  "logical_run_id": "adn_A06_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.0,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.00784313725490196,
+        "jaccard": 0.003937007874015748,
+        "precision": 1.0,
+        "recall": 0.003937007874015748
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.0,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.00784313725490196,
+        "jaccard": 0.003937007874015748,
+        "precision": 1.0,
+        "recall": 0.003937007874015748
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Crohn"
+        },
+        "concept_set": "crohns_disease",
+        "output": "id\tname\tvocab\tclass\tn_desc\n201606\tCrohn's disease\tSNOMED\tDisorder\t38\n4290835\tCrohn's disease of skin\tSNOMED\tDisorder\t5\n37111373\tExtraintestinal Crohn's\tSNOMED\tDisorder\t10\n4177488\tCrohn's disease of colon\tSNOMED\tDisorder\t2\n4244235\tCrohn's disease of ileum\tSNOMED\tDisorder\t2\n4297643\tCrohn's disease of vulva\tSNOMED\tDisorder\t0\n4299294\tCrohn's disease of penis\tSNOMED\tDisorder\t0\n4340812\tPerianal Crohn's disease\tSNOMED\tDisorder\t0\n37162889\tColorectal Crohn disease\tSNOMED\tDisorder\t0\n4242392\tCrohn's disease of rectum\tSNOMED\tDisorder\t2\n37116446\tCrohn disease of appendix\tSNOMED\tDisorder\t0\n37162890\tIleojejunal Crohn disease\tSNOMED\tDisorder\t0\n4131542\tCrohn's stricture of colon\tSNOMED\tDisorder\t0\n4239382\tCrohn's disease of jejunum\tSNOMED\tDisorder\t1\n4266370\tCrohn's disease of pylorus\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 201606
+        },
+        "concept_set": "crohns_disease",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n201606\tCrohn's disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t38",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 201606
+        },
+        "concept_set": "crohns_disease",
+        "output": "id\tname\tdomain\tvocab\n201606\tCrohn's disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 10,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "tumor necrosis factor alpha inhibitors"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF alpha inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "tumor necrosis factor inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 20,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "tumor necrosis factor alpha inhibitors"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 28,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF alpha inhibitors"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 30,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF inhibitors"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 32,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF ab"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 34,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 36,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "anti-TNF"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 38,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "tumor necrosis factor alpha inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 46,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 48,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "TNF alpha inhibitor"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 50,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "limit": 15,
+          "query": "etanercept"
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "id\tname\tvocab\tclass\tn_desc\n1151789\tetanercept\tRxNorm\tIngredient\t47\n1151882\tetanercept 25 MG/ML\tRxNorm\tClinical Drug Comp\t3\n19121852\tetanercept 50 MG/ML\tRxNorm\tClinical Drug Comp\t20\n1361411\tetanercept Cartridge\tRxNorm\tClinical Drug Form\t5\n37002663\tetanercept Injection\tRxNorm\tClinical Drug Form\t5\n37003185\tetanercept-ykro 50 MG/ML\tRxNorm\tClinical Drug Comp\t7\n46234060\tetanercept Auto-Injector\tRxNorm\tClinical Drug Form\t5\n19064171\tetanercept 25 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t1\n19064172\tetanercept 50 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t9\n40141784\tetanercept Prefilled Syringe\tRxNorm\tClinical Drug Form\t14\n1361412\tetanercept Cartridge [Enbrel]\tRxNorm\tBranded Drug Form\t2\n1361413\tetanercept 50 MG/ML Cartridge\tRxNorm\tClinical Drug\t3\n37002664\tetanercept Injection [Enbrel]\tRxNorm\tBranded Drug Form\t2\n37002665\tetanercept 50 MG/ML Injection\tRxNorm\tClinical Drug\t3\n40038979\tetanercept Injectable Solution\tRxNorm\tClinical Drug Form\t4",
+        "rows": 15
+      },
+      "step": 52,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1151789
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n1151789\tetanercept\tDrug\tRxNorm\tIngredient\tS\tTrue\t47",
+        "rows": 1
+      },
+      "step": 54,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 1151789
+        },
+        "concept_set": "tumor_necrosis_factor_alpha_inhibitors",
+        "output": "id\tname\tdomain\tvocab\n1151789\tetanercept\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 56,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 1841,
+  "per_set": {
+    "crohns_disease": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 201606,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 201606 'Crohn's disease' accurately represents the Planner's clinical description of patients with a diagnosis of Crohn's disease."
+        }
+      ],
+      "resolved_count": 1
+    },
+    "tumor_necrosis_factor_alpha_inhibitors": {
+      "domain": "Drug",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 1151789,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The concept 'etanercept' (concept_id: 1151789) in the RxNorm vocabulary represents tumor necrosis factor alpha inhibitors as required by the clinical description."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "0f6b099ef31b7c3f0067477b9e0ed4b1c8575e7206f50b0eca5387f86820f4cf",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A06_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A06",
+  "timings": {
+    "critic_rounds": 2,
+    "input_tokens": 43527,
+    "llm_calls": 30,
+    "llm_time_s": 522.08,
+    "output_tokens": 1841,
+    "peak_ram_mb": 227.5,
+    "tool_calls": 19,
+    "total_tokens": 45368,
+    "validator_retries": 0,
+    "wall_seconds": 526.1174927739994,
+    "wall_time_s": 526.13
+  },
+  "tool_calls": 19,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A06_C4/trace.json",
+  "track": "adn",
+  "wall_seconds": 526.1174927739994
+}

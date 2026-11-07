@@ -1,0 +1,239 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A06_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1069",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "adalimumab_drug",
+      "event_domain": "Drug"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "adalimumab_drug": {
+        "description": "Includes all forms and brands of adalimumab",
+        "domain": "Drug",
+        "items": [
+          {
+            "concept_id": 1151789,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Ingredient concept for adalimumab"
+          }
+        ],
+        "name": "adalimumab_drug"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "adalimumab_drug",
+        "event_domain": "Drug"
+      }
+    ],
+    "entry_concept_set": "adalimumab_drug",
+    "entry_concept_sets": [
+      "adalimumab_drug"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Crohn's disease who are new users of tumor necrosis factor alpha inhibitors.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 34988,
+  "llm_calls": 12,
+  "logical_run_id": "adn_A06_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.1851851851851852,
+        "jaccard": 0.10204081632653061,
+        "precision": 1.0,
+        "recall": 0.10204081632653061
+      },
+      "full": {
+        "f1": 0.16274864376130196,
+        "jaccard": 0.08858267716535433,
+        "precision": 1.0,
+        "recall": 0.08858267716535433
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.1851851851851852,
+        "jaccard": 0.10204081632653061,
+        "precision": 1.0,
+        "recall": 0.10204081632653061
+      },
+      "full": {
+        "f1": 0.16274864376130196,
+        "jaccard": 0.08858267716535433,
+        "precision": 1.0,
+        "recall": 0.08858267716535433
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Crohn"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n201606\tCrohn's disease\tSNOMED\tDisorder\t38\n4290835\tCrohn's disease of skin\tSNOMED\tDisorder\t5\n37111373\tExtraintestinal Crohn's\tSNOMED\tDisorder\t10\n4177488\tCrohn's disease of colon\tSNOMED\tDisorder\t2\n4244235\tCrohn's disease of ileum\tSNOMED\tDisorder\t2\n4297643\tCrohn's disease of vulva\tSNOMED\tDisorder\t0\n4299294\tCrohn's disease of penis\tSNOMED\tDisorder\t0\n4340812\tPerianal Crohn's disease\tSNOMED\tDisorder\t0\n37162889\tColorectal Crohn disease\tSNOMED\tDisorder\t0\n4242392\tCrohn's disease of rectum\tSNOMED\tDisorder\t2\n37116446\tCrohn disease of appendix\tSNOMED\tDisorder\t0\n37162890\tIleojejunal Crohn disease\tSNOMED\tDisorder\t0\n4131542\tCrohn's stricture of colon\tSNOMED\tDisorder\t0\n4239382\tCrohn's disease of jejunum\tSNOMED\tDisorder\t1\n4266370\tCrohn's disease of pylorus\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "tumor necrosis factor alpha inhibitor"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "TNF inhibitor"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "TNF"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 8,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "adalimumab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1119119\tadalimumab\tRxNorm\tIngredient\t325\n1119121\tadalimumab 50 MG/ML\tRxNorm\tClinical Drug Comp\t25\n35604489\tadalimumab 100 MG/ML\tRxNorm\tClinical Drug Comp\t31\n46275866\tadalimumab Injection\tRxNorm\tClinical Drug Form\t20\n745879\tadalimumab-bwwd 50 MG/ML\tRxNorm\tClinical Drug Comp\t13\n745892\tadalimumab-aqvh 50 MG/ML\tRxNorm\tClinical Drug Comp\t9\n745903\tadalimumab-fkjp 50 MG/ML\tRxNorm\tClinical Drug Comp\t11\n745924\tadalimumab-aacf 50 MG/ML\tRxNorm\tClinical Drug Comp\t17\n745948\tadalimumab-adbm 50 MG/ML\tRxNorm\tClinical Drug Comp\t17\n746661\tadalimumab-adaz 50 MG/ML\tRxNorm\tClinical Drug Comp\t9\n746915\tadalimumab-afzb 50 MG/ML\tRxNorm\tClinical Drug Comp\t17\n1301574\tadalimumab-atto 50 MG/ML\tRxNorm\tClinical Drug Comp\t13\n46275564\tadalimumab Auto-Injector\tRxNorm\tClinical Drug Form\t123\n745917\tadalimumab-bwwd 100 MG/ML\tRxNorm\tClinical Drug Comp\t9\n746013\tadalimumab-adaz 100 MG/ML\tRxNorm\tClinical Drug Comp\t25",
+        "rows": 15
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "infliximab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n937368\tinfliximab\tRxNorm\tIngredient\t41\n46275592\tinfliximab 100 MG\tRxNorm\tClinical Drug Comp\t3\n46275593\tinfliximab Injection\tRxNorm\tClinical Drug Form\t12\n1592761\tinfliximab-abda 100 MG\tRxNorm\tClinical Drug Comp\t3\n37498064\tinfliximab-axxq 100 MG\tRxNorm\tClinical Drug Comp\t3\n42629514\tinfliximab-dyyb 100 MG\tRxNorm\tClinical Drug Comp\t3\n42609234\tinfliximab Pen Injector\tRxNorm\tClinical Drug Form\t5\n42609233\tinfliximab-dyyb 120 MG/ML\tRxNorm\tClinical Drug Comp\t9\n19078524\tinfliximab 100 MG Injection\tRxNorm\tClinical Drug\t1\n42609241\tinfliximab Prefilled Syringe\tRxNorm\tClinical Drug Form\t5\n46275594\tinfliximab 100 MG [Remicade]\tRxNorm\tBranded Drug Comp\t1\n37498068\tinfliximab Injection [Avsola]\tRxNorm\tBranded Drug Form\t1\n37498067\tinfliximab-axxq 100 MG [Avsola]\tRxNorm\tBranded Drug Comp\t1\n46275595\tinfliximab Injection [Remicade]\tRxNorm\tBranded Drug Form\t1\n1592762\tinfliximab-abda 100 MG Injection\tRxNorm\tClinical Drug\t1",
+        "rows": 15
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "certolizumab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n912263\tcertolizumab pegol\tRxNorm\tIngredient\t20\n46234123\tcertolizumab pegol 200 MG\tRxNorm\tClinical Drug Comp\t3\n19129992\tcertolizumab pegol 200 MG/ML\tRxNorm\tClinical Drug Comp\t9\n46234124\tcertolizumab pegol Injection\tRxNorm\tClinical Drug Form\t3\n46234125\tcertolizumab pegol 200 MG [Cimzia]\tRxNorm\tBranded Drug Comp\t1\n19129993\tcertolizumab pegol 200 MG Injection\tRxNorm\tClinical Drug\t1\n40160746\tcertolizumab pegol Prefilled Syringe\tRxNorm\tClinical Drug Form\t9\n19129994\tcertolizumab pegol 200 MG/ML [Cimzia]\tRxNorm\tBranded Drug Comp\t4\n46234126\tcertolizumab pegol Injection [Cimzia]\tRxNorm\tBranded Drug Form\t1\n19129995\tcertolizumab pegol 200 MG Injection [Cimzia]\tRxNorm\tBranded Drug\t0\n40160747\tcertolizumab pegol Prefilled Syringe [Cimzia]\tRxNorm\tBranded Drug Form\t4\n42902968\tcertolizumab pegol 200 MG/ML Prefilled Syringe\tRxNorm\tClinical Drug\t7\n912267\t1 ML certolizumab pegol 200 MG/ML Prefilled Syringe\tRxNorm\tQuant Clinical Drug\t5\n42902822\tcertolizumab pegol 200 MG/ML Prefilled Syringe [Cimzia]\tRxNorm\tBranded Drug\t3\n912268\t1 ML certolizumab pegol 200 MG/ML Prefilled Syringe [Cimzia]\tRxNorm\tQuant Branded Drug\t2",
+        "rows": 15
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "etanercept"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1151789\tetanercept\tRxNorm\tIngredient\t47\n1151882\tetanercept 25 MG/ML\tRxNorm\tClinical Drug Comp\t3\n19121852\tetanercept 50 MG/ML\tRxNorm\tClinical Drug Comp\t20\n1361411\tetanercept Cartridge\tRxNorm\tClinical Drug Form\t5\n37002663\tetanercept Injection\tRxNorm\tClinical Drug Form\t5\n37003185\tetanercept-ykro 50 MG/ML\tRxNorm\tClinical Drug Comp\t7\n46234060\tetanercept Auto-Injector\tRxNorm\tClinical Drug Form\t5\n19064171\tetanercept 25 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t1\n19064172\tetanercept 50 MG/ML [Enbrel]\tRxNorm\tBranded Drug Comp\t9\n40141784\tetanercept Prefilled Syringe\tRxNorm\tClinical Drug Form\t14\n1361412\tetanercept Cartridge [Enbrel]\tRxNorm\tBranded Drug Form\t2\n1361413\tetanercept 50 MG/ML Cartridge\tRxNorm\tClinical Drug\t3\n37002664\tetanercept Injection [Enbrel]\tRxNorm\tBranded Drug Form\t2\n37002665\tetanercept 50 MG/ML Injection\tRxNorm\tClinical Drug\t3\n40038979\tetanercept Injectable Solution\tRxNorm\tClinical Drug Form\t4",
+        "rows": 15
+      },
+      "step": 16,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "golimumab"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n19041065\tgolimumab\tRxNorm\tIngredient\t28\n19041066\tgolimumab 100 MG/ML\tRxNorm\tClinical Drug Comp\t13\n46234102\tgolimumab Injection\tRxNorm\tClinical Drug Form\t5\n43532767\tgolimumab 12.5 MG/ML\tRxNorm\tClinical Drug Comp\t5\n46234030\tgolimumab Auto-Injector\tRxNorm\tClinical Drug Form\t7\n40160779\tgolimumab Prefilled Syringe\tRxNorm\tClinical Drug Form\t7\n19048226\tgolimumab 100 MG/ML [Simponi]\tRxNorm\tBranded Drug Comp\t6\n46234103\tgolimumab Injection [Simponi]\tRxNorm\tBranded Drug Form\t2\n43532770\tgolimumab 12.5 MG/ML [Simponi]\tRxNorm\tBranded Drug Comp\t2\n46234104\tgolimumab 12.5 MG/ML Injection\tRxNorm\tClinical Drug\t3\n46234032\tgolimumab Auto-Injector [Simponi]\tRxNorm\tBranded Drug Form\t3\n46234034\tgolimumab 100 MG/ML Auto-Injector\tRxNorm\tClinical Drug\t5\n43532959\t4 ML golimumab 12.5 MG/ML Injection\tRxNorm\tQuant Clinical Drug\t1\n40160780\tgolimumab Prefilled Syringe [Simponi]\tRxNorm\tBranded Drug Form\t3\n42902373\tgolimumab 100 MG/ML Prefilled Syringe\tRxNorm\tClinical Drug\t5",
+        "rows": 15
+      },
+      "step": 18,
+      "tool": "search_concepts"
+    }
+  ],
+  "output_tokens": 501,
+  "per_set": {
+    "adalimumab_drug": {
+      "domain": "Drug",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 1151789,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Ingredient concept for adalimumab"
+        }
+      ],
+      "resolved_count": 45
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "0f6b099ef31b7c3f0067477b9e0ed4b1c8575e7206f50b0eca5387f86820f4cf",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A06_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A06",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 34988,
+    "llm_calls": 12,
+    "llm_time_s": 1112.48,
+    "output_tokens": 501,
+    "peak_ram_mb": 219.6,
+    "tool_calls": 9,
+    "total_tokens": 35489,
+    "validator_retries": 0,
+    "wall_seconds": 1115.658122984998,
+    "wall_time_s": 1115.66
+  },
+  "tool_calls": 9,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A06_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 1115.658122984998
+}

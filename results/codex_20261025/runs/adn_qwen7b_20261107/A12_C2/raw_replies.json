@@ -1,0 +1,32 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"major depressive disorder\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4152280}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4282316, \"max_levels\": 1}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4152280}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"major_depressive_disorder\",\n  \"entry_concept_sets\": [\"major_depressive_disorder\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"major_depressive_disorder\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"major_depressive_disorder\": {\n      \"name\": \"major_depressive_disorder\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of major depressive disorder\",\n      \"items\": [\n        {\"concept_id\": 4152280, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Primary concept for major depressive disorder\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

@@ -1,0 +1,217 @@
+{
+  "configuration_sha256": "33b953fb6992fb6c37079fd6d8446c362955f39a45d84d483bba9daabffb3198",
+  "configurations": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "created_at_utc": "2026-11-07T08:46:58.005385+00:00",
+  "design_freeze_input": {
+    "path": null,
+    "sha256": null
+  },
+  "experiment_id": "adn_qwen7b_20261107",
+  "freeze_manifest": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/freeze_manifest.json",
+    "sha256": "825e530d3ce861536028665ab84352272e8ae1b1d55b791630f9f8a91842f432"
+  },
+  "model_identity": {
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "endpoint_kind": "local_ollama",
+    "modified_at": "2026-10-26T10:25:38.292373069+05:30",
+    "requested_model": "qwen2.5:7b",
+    "resolved_tag": "qwen2.5:7b",
+    "size_bytes": 4683087332
+  },
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "reference_inputs": [
+    {
+      "cohort_id": "100",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/100.json",
+      "sha256": "d80353734b5bd7ad7d9dc249732ca40cfceabecff42d4cfcb860b875fdf08822",
+      "task_id": "A01",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "100",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/100.json",
+      "sha256": "d80353734b5bd7ad7d9dc249732ca40cfceabecff42d4cfcb860b875fdf08822",
+      "task_id": "A01",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "651",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/651.json",
+      "sha256": "cee2517ffb4a40e7bc89fa23dbb2e128711d01c5fe7c8d89b157ffdb56456db1",
+      "task_id": "A02",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "651",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/651.json",
+      "sha256": "cee2517ffb4a40e7bc89fa23dbb2e128711d01c5fe7c8d89b157ffdb56456db1",
+      "task_id": "A02",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "95",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/95.json",
+      "sha256": "568bcc6b80aaa54ec094c1182d9d2dd792341a1c6de25bba89631910ae60e3a8",
+      "task_id": "A03",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "95",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/95.json",
+      "sha256": "568bcc6b80aaa54ec094c1182d9d2dd792341a1c6de25bba89631910ae60e3a8",
+      "task_id": "A03",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "457",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/457.json",
+      "sha256": "fddde97a6b74acf3cf5b137ea6fc4335c34d5e7ad05fa22f8a9cbd33ac84fea3",
+      "task_id": "A04",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "457",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/457.json",
+      "sha256": "fddde97a6b74acf3cf5b137ea6fc4335c34d5e7ad05fa22f8a9cbd33ac84fea3",
+      "task_id": "A04",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1070",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/1070.json",
+      "sha256": "e8e9fb61eb587922696a96aa115f702a007f038d8f616b0926ac41b57fcff7ee",
+      "task_id": "A05",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1070",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/1070.json",
+      "sha256": "e8e9fb61eb587922696a96aa115f702a007f038d8f616b0926ac41b57fcff7ee",
+      "task_id": "A05",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "1069",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/1069.json",
+      "sha256": "e8e6e58fe1e3a66e61c8fb5fa9cbb997acf1ba4a10bbdbada0ca34e030c5071e",
+      "task_id": "A06",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "1069",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/1069.json",
+      "sha256": "e8e6e58fe1e3a66e61c8fb5fa9cbb997acf1ba4a10bbdbada0ca34e030c5071e",
+      "task_id": "A06",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "629",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/629.json",
+      "sha256": "ccf8ad475f50e55d08d3c4e2038fb314f03ddb7917120bc241f3c57b26f8ba06",
+      "task_id": "A07",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "629",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/629.json",
+      "sha256": "ccf8ad475f50e55d08d3c4e2038fb314f03ddb7917120bc241f3c57b26f8ba06",
+      "task_id": "A07",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "475",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/475.json",
+      "sha256": "b375be18043245aac2fc15a33ae7e003080d00f13d418c9e25c3e003abb7934f",
+      "task_id": "A08",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "475",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/475.json",
+      "sha256": "b375be18043245aac2fc15a33ae7e003080d00f13d418c9e25c3e003abb7934f",
+      "task_id": "A08",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "509",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/509.json",
+      "sha256": "ad6188c96c9c924b49ee1b55bf745ff7aaaf055cd32150042c26a65355d45595",
+      "task_id": "A09",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "509",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/509.json",
+      "sha256": "ad6188c96c9c924b49ee1b55bf745ff7aaaf055cd32150042c26a65355d45595",
+      "task_id": "A09",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "463",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/463.json",
+      "sha256": "9574c613d0cef0d841e879b980555928c72707bc39b3a5548a6feb67cfa01c6e",
+      "task_id": "A10",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "463",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/463.json",
+      "sha256": "9574c613d0cef0d841e879b980555928c72707bc39b3a5548a6feb67cfa01c6e",
+      "task_id": "A10",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "615",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/615.json",
+      "sha256": "d9947e185a04d3969dabaaeafbc6855789cb26fbc2fef802311b94b109aef160",
+      "task_id": "A11",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "615",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/615.json",
+      "sha256": "d9947e185a04d3969dabaaeafbc6855789cb26fbc2fef802311b94b109aef160",
+      "task_id": "A11",
+      "version": "v2"
+    },
+    {
+      "cohort_id": "699",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/699.json",
+      "sha256": "e9c4b11796de221d7aabd4b66c0d4dff45c762e9ee18c704db3d9f96c6368fa6",
+      "task_id": "A12",
+      "version": "v1"
+    },
+    {
+      "cohort_id": "699",
+      "path": "/home/bharathwaj/jbi/tasks/reference_adn/699.json",
+      "sha256": "e9c4b11796de221d7aabd4b66c0d4dff45c762e9ee18c704db3d9f96c6368fa6",
+      "task_id": "A12",
+      "version": "v2"
+    }
+  ],
+  "runtime_queue_initial": {
+    "path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/RUN_QUEUE.csv",
+    "sha256": "c175b8d25c9d826ee98f00c43d7855ee4d90fbd30698a82f5f86e9b3a776d9a0"
+  },
+  "schema_version": 1,
+  "semantics": {
+    "design_freeze_input": "design CSV hash; never interpreted as runtime queue hash",
+    "runtime_queue_initial": "exact initial runtime queue bytes; queue changes as statuses are checkpointed"
+  },
+  "task_file": {
+    "path": "/home/bharathwaj/jbi/tasks/adn/ad_neuroinflammation_questions.jsonl",
+    "sha256": "7b2d17d982ccf0d82f9287700f2d7ef8d1a6d464a314a7607667d39b3f69ca2b"
+  },
+  "track": "adn",
+  "vocabulary_source": {
+    "path": "/media/bharathwaj/HDD_Storage/project_jbi/data/vocab.duckdb",
+    "sha256": "34167ed891e1ff159ddc3ccb73f1bbad3c5364b9412e598a854f46cf11eae138"
+  }
+}

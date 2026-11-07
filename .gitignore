@@ -10,7 +10,3 @@ __pycache__/
 *doctor*
 *reconcil*
 *recovery*
-
-# ADN extension runs: published only after they finish
-results/codex_20261025/runs/adn_qwen7b_*/
-results/codex_20261025/runs/adn_qwen7b_*.log

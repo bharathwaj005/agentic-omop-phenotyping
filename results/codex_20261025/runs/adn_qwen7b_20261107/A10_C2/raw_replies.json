@@ -1,0 +1,32 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"sepsis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 132797, \"tool_call_id\": 2}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 132797}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 132797, \"tool_call_id\": 5}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"sepsis_diagnosis\",\n  \"entry_concept_sets\": [\"sepsis_diagnosis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"sepsis_diagnosis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"sepsis_diagnosis\": {\n      \"name\": \"sepsis_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients diagnosed with sepsis based on SNOMED diagnosis codes\",\n      \"items\": [\n        {\"concept_id\": 132797, \"include_descendants\": false, \"is_excluded\": false, \"rationale\": \"Primary sepsis diagnosis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

@@ -1,0 +1,177 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A02_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "651",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "dementia_concept_set",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "dementia_concept_set": {
+        "description": "Patients with any type of dementia based on diagnosis evidence.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4182210,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary concept for dementia diagnosis"
+          }
+        ],
+        "name": "dementia_concept_set"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "dementia_concept_set",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "dementia_concept_set",
+    "entry_concept_sets": [
+      "dementia_concept_set"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with dementia of any type based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 10318,
+  "llm_calls": 5,
+  "logical_run_id": "adn_A02_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "dementia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4182210\tDementia\tSNOMED\tDisorder\t215\n762497\tMild dementia\tSNOMED\tDisorder\t0\n36717598\tToxic dementia\tSNOMED\tDisorder\t6\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n765653\tSevere dementia\tSNOMED\tDisorder\t0\n4047748\tPatchy dementia\tSNOMED\tDisorder\t0\n4048875\tSenile dementia\tSNOMED\tDisorder\t18\n37204495\tABri amyloidosis\tSNOMED\tDisorder\t0\n37204554\tADan amyloidosis\tSNOMED\tDisorder\t0\n443605\tVascular dementia\tSNOMED\tDisorder\t24\n762704\tModerate dementia\tSNOMED\tDisorder\t0\n4046091\tSemantic dementia\tSNOMED\tDisorder\t0\n4244346\tDialysis dementia\tSNOMED\tDisorder\t0\n378125\tPresenile dementia\tSNOMED\tDisorder\t21\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4182210
+        },
+        "output": "total_descendants=215\nid\tname\tclass\tlevels\n762497\tMild dementia\tDisorder\t1\n36717598\tToxic dementia\tDisorder\t1\n4048875\tSenile dementia\tDisorder\t1\n765653\tSevere dementia\tDisorder\t1\n4047748\tPatchy dementia\tDisorder\t1\n4244346\tDialysis dementia\tDisorder\t1\n762704\tModerate dementia\tDisorder\t1\n378125\tPresenile dementia\tDisorder\t1\n374341\tHuntington's chorea\tDisorder\t1\n378419\tAlzheimer's disease\tDisorder\t1\n42538857\tSubcortical dementia\tDisorder\t1\n44782935\tDementia in remission\tDisorder\t1\n37166441\tPost-dialysis dementia\tDisorder\t1\n4043378\tFrontotemporal dementia\tDisorder\t1\n4047745\tTraumatic encephalopathy\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4182210,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n443432\tImpaired cognition\tClinical Finding\t1\n374009\tOrganic mental disorder\tDisorder\t1\n432586\tMental disorder\tDisorder\t2\n372887\tDisorder of brain\tDisorder\t2\n4162723\tCognitive function finding\tClinical Finding\t2",
+        "rows": 5
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4182210
+        },
+        "output": "id\tname\tdomain\tvocab\n4182210\tDementia\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 315,
+  "per_set": {
+    "dementia_concept_set": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 4182210,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary concept for dementia diagnosis"
+        }
+      ],
+      "resolved_count": 216
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "5a2db9cc86b9d2874ee5c44232f2a507f198ae1c0f14a852417bdf9035bc6ad2",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A02_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A02",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 10318,
+    "llm_calls": 5,
+    "llm_time_s": 119.65,
+    "output_tokens": 315,
+    "peak_ram_mb": 245.0,
+    "tool_calls": 4,
+    "total_tokens": 10633,
+    "validator_retries": 0,
+    "wall_seconds": 122.17901928599895,
+    "wall_time_s": 122.18
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A02_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 122.17901928599895
+}

@@ -1,0 +1,242 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A10_C2_attempt1",
+ "config": "C2",
+ "task_id": "A10",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with sepsis based on diagnosis evidence.",
+  "entry_concept_set": "sepsis_diagnosis",
+  "entry_concept_sets": [
+   "sepsis_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "sepsis_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "sepsis_diagnosis": {
+    "name": "sepsis_diagnosis",
+    "domain": "Condition",
+    "description": "Patients diagnosed with sepsis based on SNOMED diagnosis codes",
+    "items": [
+     {
+      "concept_id": 132797,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "Primary sepsis diagnosis"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 4,
+  "input_tokens": 10401,
+  "output_tokens": 321,
+  "total_tokens": 10722,
+  "wall_time_s": 121.27,
+  "llm_time_s": 120.99,
+  "peak_ram_mb": 269.8,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794049376.5394077,
+   "latency_s": 6.644,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1522,
+   "output_tokens": 26,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"sepsis\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794049383.183508,
+   "latency_s": 0.163,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "sepsis",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n132797\tSepsis\tSNOMED\tDisorder\t154\n196236\tSeptic shock\tSNOMED\tDisorder\t35\n37394658\tSevere sepsis\tSNOMED\tDisorder\t0\n4103655\tDental abscess\tSNOMED\tDisorder\t12\n44805136\tBiliary sepsis\tSNOMED\tDisorder\t0\n4029281\tSepsis syndrome\tSNOMED\tDisorder\t0\n4071063\tNeonatal sepsis\tSNOMED\tDisorder\t13\n4147065\tSeptic abortion\tSNOMED\tDisorder\t0\n40487101\tClinical sepsis\tSNOMED\tDisorder\t0\n46284902\tRed flag sepsis\tSNOMED\tDisorder\t0\n4000938\tBacterial sepsis\tSNOMED\tDisorder\t55\n4102318\tPuerperal sepsis\tSNOMED\tDisorder\t1\n37017557\tPerinatal sepsis\tSNOMED\tDisorder\t4\n37164448\tLemierre syndrome\tSNOMED\tDisorder\t0\n42690418\tAmber flag sepsis\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794049383.3465915,
+   "latency_s": 28.519,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1909,
+   "output_tokens": 32,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 132797, \"tool_call_id\": 2}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1794049411.8652375,
+   "latency_s": 0.08,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 132797,
+     "tool_call_id": 2
+    },
+    "rows": 16,
+    "output": "total_descendants=154\nid\tname\tclass\tlevels\n4179524\tPyemia\tDisorder\t1\n196236\tSeptic shock\tDisorder\t1\n37394658\tSevere sepsis\tDisorder\t1\n44805136\tBiliary sepsis\tDisorder\t1\n4071063\tNeonatal sepsis\tDisorder\t1\n46284902\tRed flag sepsis\tDisorder\t1\n37017557\tPerinatal sepsis\tDisorder\t1\n4000938\tBacterial sepsis\tDisorder\t1\n4102318\tPuerperal sepsis\tDisorder\t1\n42690418\tAmber flag sepsis\tDisorder\t1\n40484176\tNeutropenic sepsis\tDisorder\t1\n4009954\tSepsis during labor\tDisorder\t1\n44782822\tPostoperative sepsis\tDisorder\t1\n46284901\tUncomplicated sepsis\tDisorder\t1\n37163133\tGastritis with sepsis\tDisorder\t1"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794049411.9454114,
+   "latency_s": 24.844,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2255,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 132797}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1794049436.7898347,
+   "latency_s": 0.005,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 132797
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n132797\tSepsis\tCondition\tSNOMED\tDisorder\tS\tTrue\t154"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794049436.7950294,
+   "latency_s": 10.893,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2326,
+   "output_tokens": 32,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 132797, \"tool_call_id\": 5}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794049447.688238,
+   "latency_s": 0.016,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 132797,
+     "tool_call_id": 5
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n132797\tSepsis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794049447.7044792,
+   "latency_s": 50.094,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2389,
+   "output_tokens": 207,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"sepsis_diagnosis\",\n  \"entry_concept_sets\": [\"sepsis_diagnosis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"sepsis_diagnosis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"sepsis_diagnosis\": {\n      \"name\": \"sepsis_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients diagnosed with sepsis based on SNOMED diagnosis codes\",\n      \"items\": [\n        {\"concept_id\": 132797, \"include_descendants\": false, \"is_excluded\": false, \"rationale\": \"Primary sepsis diagnosis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794049497.8028307,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": [
+     {
+      "level": "warning",
+      "code": "possibly_too_narrow",
+      "message": "only one concept resolved and descendants were not requested; check whether the entry set is too narrow",
+      "concept_set": "sepsis_diagnosis",
+      "concept_id": null
+     },
+     {
+      "level": "warning",
+      "code": "entry_single_concept_no_descendants",
+      "message": "entry set resolves to one concept without descendants; check get_descendants to confirm whether broader coverage is intended",
+      "concept_set": "sepsis_diagnosis",
+      "concept_id": null
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A05_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "1070",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "rheumatoid_arthritis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "rheumatoid_arthritis": {
+        "description": "Patients with rheumatoid arthritis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 80809,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis of rheumatoid arthritis"
+          }
+        ],
+        "name": "rheumatoid_arthritis"
+      }
+    },
+    "criteria": [
+      {
+        "concept_set": "rheumatoid_arthritis",
+        "rule": "at_least_one",
+        "window_end_days": 0,
+        "window_start_days": -365
+      }
+    ],
+    "entry_arms": [
+      {
+        "concept_set": "rheumatoid_arthritis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "rheumatoid_arthritis",
+    "entry_concept_sets": [
+      "rheumatoid_arthritis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with rheumatoid arthritis who are new users of Janus kinase (JAK) inhibitors.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 31571,
+  "llm_calls": 11,
+  "logical_run_id": "adn_A05_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.0,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.694300518134715,
+        "jaccard": 0.5317460317460317,
+        "precision": 1.0,
+        "recall": 0.5317460317460317
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.0,
+        "jaccard": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "full": {
+        "f1": 0.694300518134715,
+        "jaccard": 0.5317460317460317,
+        "precision": 1.0,
+        "recall": 0.5317460317460317
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "rheumatoid arthritis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n80809\tRheumatoid arthritis\tSNOMED\tDisorder\t133\n81097\tFelty's syndrome\tSNOMED\tDisorder\t2\n4103516\tRheumatoid carditis\tSNOMED\tDisorder\t0\n4306357\tRheumatoid aortitis\tSNOMED\tDisorder\t0\n4243509\tRheumatoid scleritis\tSNOMED\tDisorder\t1\n4269880\tRheumatoid arteritis\tSNOMED\tDisorder\t1\n4296152\tRheumatoid pericarditis\tSNOMED\tDisorder\t0\n4300202\tRheumatoid episcleritis\tSNOMED\tDisorder\t0\n4030424\tRheumatoid osteoperiostitis\tSNOMED\tDisorder\t0\n4116150\tRheumatoid arthritis of hip\tSNOMED\tDisorder\t9\n4116151\tRheumatoid arthritis of knee\tSNOMED\tDisorder\t9\n4179378\tRheumatoid arthritis of foot\tSNOMED\tDisorder\t12\n4114444\tFlare of rheumatoid arthritis\tSNOMED\tDisorder\t0\n4116440\tRheumatoid arthritis of elbow\tSNOMED\tDisorder\t10\n4116441\tRheumatoid arthritis of wrist\tSNOMED\tDisorder\t10",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "JAK inhibitor"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 4,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "JAK"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1510585\tmenthol 5 MG [Jakemans]\tRxNorm\tBranded Drug Comp\t1\n40244484\truxolitinib 5 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n1317363\truxolitinib 11 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317368\truxolitinib 22 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317372\truxolitinib 33 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317376\truxolitinib 44 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317380\truxolitinib 55 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n40244468\truxolitinib 10 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n40244472\truxolitinib 15 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n40244476\truxolitinib 20 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n40244480\truxolitinib 25 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n1510586\tmenthol Oral Lozenge [Jakemans]\tRxNorm\tBranded Drug Form\t1\n40244486\truxolitinib Oral Tablet [Jakafi]\tRxNorm\tBranded Drug Form\t5\n1510589\tmenthol 5 MG Oral Lozenge [Jakemans]\tRxNorm\tBranded Drug\t0\n40244483\truxolitinib 5 MG Oral Tablet [Jakafi]\tRxNorm\tBranded Drug\t0",
+        "rows": 15
+      },
+      "step": 6,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "rheumatoid arthritis",
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n80809\tRheumatoid arthritis\tSNOMED\tDisorder\t133\n81097\tFelty's syndrome\tSNOMED\tDisorder\t2\n4103516\tRheumatoid carditis\tSNOMED\tDisorder\t0\n4306357\tRheumatoid aortitis\tSNOMED\tDisorder\t0\n4243509\tRheumatoid scleritis\tSNOMED\tDisorder\t1\n4269880\tRheumatoid arteritis\tSNOMED\tDisorder\t1\n4296152\tRheumatoid pericarditis\tSNOMED\tDisorder\t0\n4300202\tRheumatoid episcleritis\tSNOMED\tDisorder\t0\n4030424\tRheumatoid osteoperiostitis\tSNOMED\tDisorder\t0\n4116150\tRheumatoid arthritis of hip\tSNOMED\tDisorder\t9\n4116151\tRheumatoid arthritis of knee\tSNOMED\tDisorder\t9\n4179378\tRheumatoid arthritis of foot\tSNOMED\tDisorder\t12\n4114444\tFlare of rheumatoid arthritis\tSNOMED\tDisorder\t0\n4116440\tRheumatoid arthritis of elbow\tSNOMED\tDisorder\t10\n4116441\tRheumatoid arthritis of wrist\tSNOMED\tDisorder\t10",
+        "rows": 15
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "JAK inhibitor",
+          "vocabulary": "RxNorm"
+        },
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 12,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Drug",
+          "query": "JAK",
+          "vocabulary": "RxNorm"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n1510585\tmenthol 5 MG [Jakemans]\tRxNorm\tBranded Drug Comp\t1\n40244484\truxolitinib 5 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n1317363\truxolitinib 11 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317368\truxolitinib 22 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317372\truxolitinib 33 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317376\truxolitinib 44 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n1317380\truxolitinib 55 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t2\n40244468\truxolitinib 10 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n40244472\truxolitinib 15 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n40244476\truxolitinib 20 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n40244480\truxolitinib 25 MG [Jakafi]\tRxNorm\tBranded Drug Comp\t1\n1510586\tmenthol Oral Lozenge [Jakemans]\tRxNorm\tBranded Drug Form\t1\n40244486\truxolitinib Oral Tablet [Jakafi]\tRxNorm\tBranded Drug Form\t5\n1510589\tmenthol 5 MG Oral Lozenge [Jakemans]\tRxNorm\tBranded Drug\t0\n40244483\truxolitinib 5 MG Oral Tablet [Jakafi]\tRxNorm\tBranded Drug\t0",
+        "rows": 15
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 40244486,
+          "vocabulary": "RxNorm"
+        },
+        "output": "id\tname\tdomain\tvocab\n40244486\truxolitinib Oral Tablet [Jakafi]\tDrug\tRxNorm",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 80809,
+          "vocabulary": "SNOMED"
+        },
+        "output": "id\tname\tdomain\tvocab\n80809\tRheumatoid arthritis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 18,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 877,
+  "per_set": {
+    "rheumatoid_arthritis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 80809,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis of rheumatoid arthritis"
+        }
+      ],
+      "resolved_count": 134
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "b6efa64bbfe0f9ae4f4b332c9bb9f072925027339b9127a32878752fd4b9314f",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A05_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A05",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 31571,
+    "llm_calls": 11,
+    "llm_time_s": 353.88,
+    "output_tokens": 877,
+    "peak_ram_mb": 209.3,
+    "tool_calls": 8,
+    "total_tokens": 32448,
+    "validator_retries": 0,
+    "wall_seconds": 354.74677717000304,
+    "wall_time_s": 354.75
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A05_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 354.74677717000304
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"rheumatoid arthritis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 80809}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"ra_diagnosis\",\n  \"entry_concept_sets\": [\"ra_diagnosis\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"ra_diagnosis\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"ra_diagnosis\": {\n      \"name\": \"ra_diagnosis\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients diagnosed with rheumatoid arthritis\",\n      \"items\": [\n        {\"concept_id\": 80809, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Primary diagnosis for rheumatoid arthritis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

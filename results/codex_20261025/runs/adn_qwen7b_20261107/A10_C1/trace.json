@@ -1,0 +1,251 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A10_C1_attempt1",
+ "config": "C1",
+ "task_id": "A10",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with sepsis based on diagnosis evidence.",
+  "entry_concept_set": "sepsis_diagnosis",
+  "entry_concept_sets": [
+   "sepsis_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "sepsis_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "sepsis_diagnosis": {
+    "name": "sepsis_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of sepsis.",
+    "items": [
+     {
+      "concept_id": 132797,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The SNOMED concept 'Sepsis' (132797) accurately represents the clinical description of patients with a diagnosis of sepsis."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 6,
+  "tool_calls": 3,
+  "input_tokens": 7607,
+  "output_tokens": 397,
+  "total_tokens": 8004,
+  "wall_time_s": 121.31,
+  "llm_time_s": 120.95,
+  "peak_ram_mb": 254.1,
+  "critic_rounds": 1,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1794049255.1976943,
+   "latency_s": 38.099,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1019,
+   "output_tokens": 172,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"sepsis_diagnosis\",\n    \"entry_concept_sets\": [\"sepsis_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"sepsis_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"sepsis_diagnosis\": {\n        \"name\": \"sepsis_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of sepsis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794049293.297152,
+   "latency_s": 12.17,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1156,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "sepsis_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"sepsis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794049305.4672346,
+   "latency_s": 0.177,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "sepsis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "sepsis_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n132797\tSepsis\tSNOMED\tDisorder\t154\n196236\tSeptic shock\tSNOMED\tDisorder\t35\n37394658\tSevere sepsis\tSNOMED\tDisorder\t0\n4103655\tDental abscess\tSNOMED\tDisorder\t12\n44805136\tBiliary sepsis\tSNOMED\tDisorder\t0\n4029281\tSepsis syndrome\tSNOMED\tDisorder\t0\n4071063\tNeonatal sepsis\tSNOMED\tDisorder\t13\n4147065\tSeptic abortion\tSNOMED\tDisorder\t0\n40487101\tClinical sepsis\tSNOMED\tDisorder\t0\n46284902\tRed flag sepsis\tSNOMED\tDisorder\t0\n4000938\tBacterial sepsis\tSNOMED\tDisorder\t55\n4102318\tPuerperal sepsis\tSNOMED\tDisorder\t1\n37017557\tPerinatal sepsis\tSNOMED\tDisorder\t4\n37164448\tLemierre syndrome\tSNOMED\tDisorder\t0\n42690418\tAmber flag sepsis\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794049305.6440554,
+   "latency_s": 28.003,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1560,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "sepsis_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 132797\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1794049333.647537,
+   "latency_s": 0.011,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 132797
+    },
+    "concept_set": "sepsis_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n132797\tSepsis\tCondition\tSNOMED\tDisorder\tS\tTrue\t154"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794049333.6581128,
+   "latency_s": 10.208,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1639,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "sepsis_diagnosis",
+    "raw_text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 132797\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794049343.8666236,
+   "latency_s": 0.093,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 132797
+    },
+    "concept_set": "sepsis_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n132797\tSepsis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794049343.9601266,
+   "latency_s": 23.147,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1702,
+   "output_tokens": 96,
+   "detail": {
+    "concept_set": "sepsis_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 132797,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 'Sepsis' (132797) accurately represents the clinical description of patients with a diagnosis of sepsis.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1794049367.1073887,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "sepsis_diagnosis",
+    "items": 1,
+    "tool_calls": 3
+   }
+  },
+  {
+   "step": 10,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794049367.172529,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1794049367.172565,
+   "latency_s": 9.326,
+   "model": "qwen2.5:7b",
+   "input_tokens": 531,
+   "output_tokens": 22,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+   }
+  }
+ ]
+}

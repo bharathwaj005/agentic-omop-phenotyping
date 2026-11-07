@@ -1,0 +1,56 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"lupus\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"lupus\", \"domain\": \"Condition\", \"vocabulary\": \"SNOMED\", \"limit\": 100}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 255891}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 255891, \"max_levels\": 2}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 255891}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Systemic lupus erythematosus\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 257628}}"
+  },
+  {
+    "step": 15,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_concept\", \"args\": {\"concept_id\": 255891}}"
+  },
+  {
+    "step": 17,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"lupus_erythematosus\",\n  \"entry_concept_sets\": [\"lupus_erythematosus\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"lupus_erythematosus\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"lupus_erythematosus\": {\n      \"name\": \"lupus_erythematosus\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with a diagnosis of systemic lupus erythematosus.\",\n      \"items\": [\n        {\"concept_id\": 255891, \"include_descendants\": false, \"is_excluded\": false, \"rationale\": \"Primary concept for systemic lupus erythematosus diagnosis.\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

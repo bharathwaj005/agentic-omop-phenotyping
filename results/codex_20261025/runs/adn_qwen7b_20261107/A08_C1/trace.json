@@ -1,0 +1,219 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A08_C1_attempt1",
+ "config": "C1",
+ "task_id": "A08",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with psoriasis based on diagnosis evidence.",
+  "entry_concept_set": "psoriasis_diagnosis",
+  "entry_concept_sets": [
+   "psoriasis_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "psoriasis_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "psoriasis_diagnosis": {
+    "name": "psoriasis_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of psoriasis.",
+    "items": [
+     {
+      "concept_id": 140168,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The concept 'Psoriasis' (140168) in the SNOMED vocabulary is a valid standard concept that matches the clinical description of patients with a diagnosis of psoriasis."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 2,
+  "input_tokens": 5856,
+  "output_tokens": 364,
+  "total_tokens": 6220,
+  "wall_time_s": 112.85,
+  "llm_time_s": 110.56,
+  "peak_ram_mb": 259.7,
+  "critic_rounds": 1,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1794047650.2974257,
+   "latency_s": 36.609,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1018,
+   "output_tokens": 166,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"psoriasis_diagnosis\",\n    \"entry_concept_sets\": [\"psoriasis_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"psoriasis_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"psoriasis_diagnosis\": {\n        \"name\": \"psoriasis_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of psoriasis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047686.9063401,
+   "latency_s": 11.726,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1153,
+   "output_tokens": 42,
+   "detail": {
+    "concept_set": "psoriasis_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"psoriasis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047698.6322267,
+   "latency_s": 0.208,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "psoriasis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "psoriasis_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n140168\tPsoriasis\tSNOMED\tDisorder\t79\n320798\tParapsoriasis\tSNOMED\tDisorder\t9\n4031651\tK\u00f6bner psoriasis\tSNOMED\tDisorder\t0\n4063431\tPlaque psoriasis\tSNOMED\tDisorder\t6\n4066487\tPsoriasis gyrata\tSNOMED\tDisorder\t0\n4219879\tNevoid psoriasis\tSNOMED\tDisorder\t0\n4031649\tPsoriasis of nail\tSNOMED\tDisorder\t3\n4063432\tRupioid psoriasis\tSNOMED\tDisorder\t0\n4066485\tPsoriasis diffusa\tSNOMED\tDisorder\t0\n4284492\tGuttate psoriasis\tSNOMED\tDisorder\t2\n4297496\tPsoriasis of face\tSNOMED\tDisorder\t0\n4031141\tPsoriasis of scalp\tSNOMED\tDisorder\t1\n4031645\tFlexural psoriasis\tSNOMED\tDisorder\t0\n4031646\tUnstable psoriasis\tSNOMED\tDisorder\t0\n4063433\tPsoriasis palmaris\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047698.8407445,
+   "latency_s": 27.519,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1540,
+   "output_tokens": 32,
+   "detail": {
+    "concept_set": "psoriasis_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 140168\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1794047726.3602302,
+   "latency_s": 0.008,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168
+    },
+    "concept_set": "psoriasis_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n140168\tPsoriasis\tCondition\tSNOMED\tDisorder\tS\tTrue\t79"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047726.3687096,
+   "latency_s": 25.87,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1618,
+   "output_tokens": 102,
+   "detail": {
+    "concept_set": "psoriasis_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 140168,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The concept 'Psoriasis' (140168) in the SNOMED vocabulary is a valid standard concept that matches the clinical description of patients with a diagnosis of psoriasis.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1794047752.2390685,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "psoriasis_diagnosis",
+    "items": 1,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 8,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794047754.311675,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1794047754.3117092,
+   "latency_s": 8.833,
+   "model": "qwen2.5:7b",
+   "input_tokens": 527,
+   "output_tokens": 22,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+   }
+  }
+ ]
+}

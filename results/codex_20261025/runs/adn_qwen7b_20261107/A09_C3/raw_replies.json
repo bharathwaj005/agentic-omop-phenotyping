@@ -1,0 +1,32 @@
+[
+  {
+    "step": 1,
+    "actor": "planner",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"sle_diagnosis\",\n    \"entry_concept_sets\": [\"sle_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"sle_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"sle_diagnosis\": {\n        \"name\": \"sle_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of systemic lupus erythematosus.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+  },
+  {
+    "step": 2,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"systemic lupus erythematosus\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+  },
+  {
+    "step": 4,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 257628\n  }\n}"
+  },
+  {
+    "step": 6,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 257628\n  }\n}"
+  },
+  {
+    "step": 8,
+    "actor": "concept",
+    "model": "qwen2.5:7b",
+    "text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 257628,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 257628 'Systemic lupus erythematosus' accurately represents the clinical description of patients with a diagnosis of systemic lupus erythematosus.\"\n      }\n    ]\n  }\n}"
+  }
+]

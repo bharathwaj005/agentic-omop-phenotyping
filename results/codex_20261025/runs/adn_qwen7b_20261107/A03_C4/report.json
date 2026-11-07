@@ -1,0 +1,172 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A03_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "95",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "delirium_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "delirium_diagnosis": {
+        "description": "Patients with a diagnosis of delirium.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 373995,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 'Delirium' (373995) accurately represents the clinical description of patients with a diagnosis of delirium."
+          }
+        ],
+        "name": "delirium_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "delirium_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "delirium_diagnosis",
+    "entry_concept_sets": [
+      "delirium_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with an episode of delirium based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 7674,
+  "llm_calls": 6,
+  "logical_run_id": "adn_A03_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.03278688524590164,
+        "jaccard": 0.016666666666666666,
+        "precision": 1.0,
+        "recall": 0.016666666666666666
+      },
+      "full": {
+        "f1": 0.03278688524590164,
+        "jaccard": 0.016666666666666666,
+        "precision": 1.0,
+        "recall": 0.016666666666666666
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.03278688524590164,
+        "jaccard": 0.016666666666666666,
+        "precision": 1.0,
+        "recall": 0.016666666666666666
+      },
+      "full": {
+        "f1": 0.03278688524590164,
+        "jaccard": 0.016666666666666666,
+        "precision": 1.0,
+        "recall": 0.016666666666666666
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "delirium"
+        },
+        "concept_set": "delirium_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n373995\tDelirium\tSNOMED\tDisorder\t54\n379779\tSubacute delirium\tSNOMED\tDisorder\t5\n4177642\tPostseizure delirium\tSNOMED\tDisorder\t0\n44782944\tDelirium in remission\tSNOMED\tDisorder\t0\n36674302\tPostoperative delirium\tSNOMED\tDisorder\t3\n373449\tDelirium caused by drug\tSNOMED\tDisorder\t22\n4333669\tDelirium of mixed origin\tSNOMED\tDisorder\t0\n1448954\tDelirium caused by opioid\tSNOMED\tDisorder\t1\n1448952\tDelirium caused by cocaine\tSNOMED\tDisorder\t1\n377830\tAlcohol withdrawal delirium\tSNOMED\tDisorder\t0\n1448951\tDelirium caused by cannabis\tSNOMED\tDisorder\t1\n37110460\tDelirium caused by ketamine\tSNOMED\tDisorder\t0\n4199769\tOpioid intoxication delirium\tSNOMED\tDisorder\t0\n42538586\tDelirium caused by stimulant\tSNOMED\tDisorder\t7\n376946\tSenile dementia with delirium\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 373995
+        },
+        "concept_set": "delirium_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n373995\tDelirium\tCondition\tSNOMED\tDisorder\tS\tTrue\t54",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 373995
+        },
+        "concept_set": "delirium_diagnosis",
+        "output": "id\tname\tdomain\tvocab\n373995\tDelirium\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 397,
+  "per_set": {
+    "delirium_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 373995,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 'Delirium' (373995) accurately represents the clinical description of patients with a diagnosis of delirium."
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "4abd722b3de28fb670dd72d5b5baeec576b1071f34f226ef3a0b84b4dfa40e8f",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A03_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A03",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 7674,
+    "llm_calls": 6,
+    "llm_time_s": 115.22,
+    "output_tokens": 397,
+    "peak_ram_mb": 202.9,
+    "tool_calls": 3,
+    "total_tokens": 8071,
+    "validator_retries": 0,
+    "wall_seconds": 115.44859839999845,
+    "wall_time_s": 115.46
+  },
+  "tool_calls": 3,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A03_C4/trace.json",
+  "track": "adn",
+  "wall_seconds": 115.44859839999845
+}

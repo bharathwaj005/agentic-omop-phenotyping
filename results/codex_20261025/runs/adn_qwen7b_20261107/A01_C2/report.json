@@ -1,0 +1,223 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A01_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "100",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "alzheimers_disease",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "alzheimers_disease": {
+        "description": "Alzheimer's disease diagnosis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 378419,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Specific diagnosis of Alzheimer's disease"
+          }
+        ],
+        "name": "alzheimers_disease"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "alzheimers_disease",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "alzheimers_disease",
+    "entry_concept_sets": [
+      "alzheimers_disease"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with Alzheimer's disease based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 23478,
+  "llm_calls": 9,
+  "logical_run_id": "adn_A01_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.05555555555555556,
+        "jaccard": 0.02857142857142857,
+        "precision": 1.0,
+        "recall": 0.02857142857142857
+      },
+      "full": {
+        "f1": 0.05555555555555556,
+        "jaccard": 0.02857142857142857,
+        "precision": 1.0,
+        "recall": 0.02857142857142857
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.05555555555555556,
+        "jaccard": 0.02857142857142857,
+        "precision": 1.0,
+        "recall": 0.02857142857142857
+      },
+      "full": {
+        "f1": 0.05555555555555556,
+        "jaccard": 0.02857142857142857,
+        "precision": 1.0,
+        "recall": 0.02857142857142857
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "Alzheimer"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34\n4043377\tFocal Alzheimer's disease\tSNOMED\tDisorder\t0\n36716558\tNon-amnestic Alzheimer disease\tSNOMED\tDisorder\t2\n37395572\tAlzheimer's disease with delirium\tSNOMED\tDisorder\t0\n37166126\tAlzheimer's disease with psychosis\tSNOMED\tDisorder\t2\n44782726\tAlzheimer's disease with delusions\tSNOMED\tDisorder\t2\n4046085\tNon-Alzheimer's progressive dysphasia\tSNOMED\tDisorder\t0\n36717455\tFamilial Alzheimer-like prion disease\tSNOMED\tDisorder\t0\n44782727\tAlzheimer's disease with depressed mood\tSNOMED\tDisorder\t0\n37167043\tLogopenic non-amnestic Alzheimer disease\tSNOMED\tDisorder\t0\n44784643\tAlzheimer's disease with altered behavior\tSNOMED\tDisorder\t0\n4043243\tFamilial Alzheimer's disease of late onset\tSNOMED\tDisorder\t0\n4043241\tFamilial Alzheimer's disease of early onset\tSNOMED\tDisorder\t3\n4043379\tAlzheimer's disease with progressive aphasia\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "output": "total_descendants=34\nid\tname\tclass\tlevels\n43021816\tMixed dementia\tDisorder\t1\n4043377\tFocal Alzheimer's disease\tDisorder\t1\n36716558\tNon-amnestic Alzheimer disease\tDisorder\t1\n37395572\tAlzheimer's disease with delirium\tDisorder\t1\n44782726\tAlzheimer's disease with delusions\tDisorder\t1\n37166126\tAlzheimer's disease with psychosis\tDisorder\t1\n44782727\tAlzheimer's disease with depressed mood\tDisorder\t1\n44784643\tAlzheimer's disease with altered behavior\tDisorder\t1\n4043379\tAlzheimer's disease with progressive aphasia\tDisorder\t1\n43530664\tDementia of the Alzheimer type with behavioral disturbance\tDisorder\t1\n4220313\tPrimary degenerative dementia of the Alzheimer type, senile onset\tDisorder\t1\n4218017\tPrimary degenerative dementia of the Alzheimer type, presenile onset\tDisorder\t1\n37167043\tLogopenic non-amnestic Alzheimer disease\tDisorder\t2\n4043243\tFamilial Alzheimer's disease of late onset\tDisorder\t2\n4043241\tFamilial Alzheimer's disease of early onset\tDisorder\t2",
+        "rows": 16
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4182210\tDementia\tDisorder\t1\n4092747\tCerebral degeneration presenting primarily with dementia\tDisorder\t1\n443432\tImpaired cognition\tClinical Finding\t2\n4168666\tCerebral degeneration\tDisorder\t2\n374009\tOrganic mental disorder\tDisorder\t2",
+        "rows": 5
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 378419
+        },
+        "output": "id\tname\tdomain\tvocab\n378419\tAlzheimer's disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "dementia"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n4182210\tDementia\tSNOMED\tDisorder\t215\n762497\tMild dementia\tSNOMED\tDisorder\t0\n36717598\tToxic dementia\tSNOMED\tDisorder\t6\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n765653\tSevere dementia\tSNOMED\tDisorder\t0\n4047748\tPatchy dementia\tSNOMED\tDisorder\t0\n4048875\tSenile dementia\tSNOMED\tDisorder\t18\n37204495\tABri amyloidosis\tSNOMED\tDisorder\t0\n37204554\tADan amyloidosis\tSNOMED\tDisorder\t0\n443605\tVascular dementia\tSNOMED\tDisorder\t24\n762704\tModerate dementia\tSNOMED\tDisorder\t0\n4046091\tSemantic dementia\tSNOMED\tDisorder\t0\n4244346\tDialysis dementia\tSNOMED\tDisorder\t0\n378125\tPresenile dementia\tSNOMED\tDisorder\t21\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34",
+        "rows": 15
+      },
+      "step": 10,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4182210
+        },
+        "output": "total_descendants=215\nid\tname\tclass\tlevels\n762497\tMild dementia\tDisorder\t1\n36717598\tToxic dementia\tDisorder\t1\n4047748\tPatchy dementia\tDisorder\t1\n4048875\tSenile dementia\tDisorder\t1\n765653\tSevere dementia\tDisorder\t1\n4244346\tDialysis dementia\tDisorder\t1\n762704\tModerate dementia\tDisorder\t1\n378125\tPresenile dementia\tDisorder\t1\n374341\tHuntington's chorea\tDisorder\t1\n378419\tAlzheimer's disease\tDisorder\t1\n42538857\tSubcortical dementia\tDisorder\t1\n44782935\tDementia in remission\tDisorder\t1\n37166441\tPost-dialysis dementia\tDisorder\t1\n4043378\tFrontotemporal dementia\tDisorder\t1\n4047745\tTraumatic encephalopathy\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 12,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4182210,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n443432\tImpaired cognition\tClinical Finding\t1\n374009\tOrganic mental disorder\tDisorder\t1\n432586\tMental disorder\tDisorder\t2\n372887\tDisorder of brain\tDisorder\t2\n4162723\tCognitive function finding\tClinical Finding\t2",
+        "rows": 5
+      },
+      "step": 14,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4182210
+        },
+        "output": "id\tname\tdomain\tvocab\n4182210\tDementia\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 421,
+  "per_set": {
+    "alzheimers_disease": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 378419,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Specific diagnosis of Alzheimer's disease"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "5139dcf2e6c4f9907508688ce8997e02249562bd5a3f39da96d39e7c5f14ec6d",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A01_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A01",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 23478,
+    "llm_calls": 9,
+    "llm_time_s": 292.27,
+    "output_tokens": 421,
+    "peak_ram_mb": 278.9,
+    "tool_calls": 8,
+    "total_tokens": 23899,
+    "validator_retries": 0,
+    "wall_seconds": 298.1610227819983,
+    "wall_time_s": 298.17
+  },
+  "tool_calls": 8,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A01_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 298.1610227819983
+}

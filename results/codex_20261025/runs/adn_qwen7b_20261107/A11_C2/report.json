@@ -1,0 +1,177 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A11_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "615",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "herpes_simplex",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "herpes_simplex": {
+        "description": "Herpes simplex virus infection",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 444429,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Primary concept for herpes simplex"
+          }
+        ],
+        "name": "herpes_simplex"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "herpes_simplex",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "herpes_simplex",
+    "entry_concept_sets": [
+      "herpes_simplex"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with herpes simplex virus infection based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 9642,
+  "llm_calls": 5,
+  "logical_run_id": "adn_A11_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.012738853503184714,
+        "jaccard": 0.00641025641025641,
+        "precision": 1.0,
+        "recall": 0.00641025641025641
+      },
+      "full": {
+        "f1": 0.012738853503184714,
+        "jaccard": 0.00641025641025641,
+        "precision": 1.0,
+        "recall": 0.00641025641025641
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.012738853503184714,
+        "jaccard": 0.00641025641025641,
+        "precision": 1.0,
+        "recall": 0.00641025641025641
+      },
+      "full": {
+        "f1": 0.012738853503184714,
+        "jaccard": 0.00641025641025641,
+        "precision": 1.0,
+        "recall": 0.00641025641025641
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "herpes simplex"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n444429\tHerpes simplex\tSNOMED\tDisorder\t155\n4218022\tTORCH syndrome\tSNOMED\tDisorder\t0\n4033227\tHerpes labialis\tSNOMED\tDisorder\t2\n76034\tHerpetic whitlow\tSNOMED\tDisorder\t0\n4122759\tOral mucosal herpes\tSNOMED\tDisorder\t2\n4072340\tHerpes simplex iritis\tSNOMED\tDisorder\t7\n74855\tGenital herpes simplex\tSNOMED\tDisorder\t21\n4165265\tPrimary herpes simplex\tSNOMED\tDisorder\t8\n4345462\tChronic herpes simplex\tSNOMED\tDisorder\t1\n436630\tVisceral herpes simplex\tSNOMED\tDisorder\t0\n4051338\tHerpes simplex pneumonia\tSNOMED\tDisorder\t0\n4291634\tRecurrent herpes simplex\tSNOMED\tDisorder\t23\n4311484\tHerpes simplex keratitis\tSNOMED\tDisorder\t23\n37160817\tHerpes simplex retinitis\tSNOMED\tDisorder\t1\n373404\tOphthalmic herpes simplex\tSNOMED\tDisorder\t48",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4051338
+        },
+        "output": "total_descendants=0\n(none)",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4051338,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n444429\tHerpes simplex\tDisorder\t1\n261326\tViral pneumonia\tDisorder\t1\n4318404\tLung consolidation\tDisorder\t1\n255848\tPneumonia\tDisorder\t2\n257907\tDisorder of lung\tDisorder\t2\n4207187\tViral lower respiratory infection\tDisorder\t2\n4249437\tDisease caused by Alphaherpesvirinae\tDisorder\t2",
+        "rows": 7
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 444429
+        },
+        "output": "id\tname\tdomain\tvocab\n444429\tHerpes simplex\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 304,
+  "per_set": {
+    "herpes_simplex": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 444429,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Primary concept for herpes simplex"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "fb1c252f62caca84cb8b654b07338e7082a90fb64d523484bc1911dc2590b2ce",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A11_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A11",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 9642,
+    "llm_calls": 5,
+    "llm_time_s": 103.27,
+    "output_tokens": 304,
+    "peak_ram_mb": 265.9,
+    "tool_calls": 4,
+    "total_tokens": 9946,
+    "validator_retries": 0,
+    "wall_seconds": 103.90992325700063,
+    "wall_time_s": 103.91
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A11_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 103.90992325700063
+}

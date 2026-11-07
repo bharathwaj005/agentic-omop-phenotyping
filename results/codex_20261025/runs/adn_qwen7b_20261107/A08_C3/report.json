@@ -1,0 +1,58 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A08_C3_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "475",
+  "configuration": "C3",
+  "entry_arms": [],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": null,
+  "input_tokens": 0,
+  "llm_calls": 1,
+  "logical_run_id": "adn_A08_C3",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [],
+  "output_tokens": 0,
+  "per_set": {},
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "9f043fdb0f8d53e9149369934446b9c2f1d1eb9a7f61aad4ae14059eae76601c",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A08_C3/raw_replies.json",
+  "reason": "APIError: network error: [Errno 111] Connection refused",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "A08",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 0,
+    "llm_calls": 1,
+    "llm_time_s": 2.94,
+    "output_tokens": 0,
+    "peak_ram_mb": 247.2,
+    "tool_calls": 0,
+    "total_tokens": 0,
+    "validator_retries": 0,
+    "wall_seconds": 2.942132037002011,
+    "wall_time_s": 2.99
+  },
+  "tool_calls": 0,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A08_C3/trace.json",
+  "track": "adn",
+  "wall_seconds": 2.942132037002011
+}

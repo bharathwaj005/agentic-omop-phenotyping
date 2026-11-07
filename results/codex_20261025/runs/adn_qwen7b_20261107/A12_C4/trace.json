@@ -1,0 +1,205 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A12_C4_attempt1",
+ "config": "C4",
+ "task_id": "A12",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with major depressive disorder based on diagnosis evidence.",
+  "entry_concept_set": "major_depressive_disorder_diagnosis",
+  "entry_concept_sets": [
+   "major_depressive_disorder_diagnosis"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "major_depressive_disorder_diagnosis": {
+    "name": "major_depressive_disorder_diagnosis",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of major depressive disorder.",
+    "items": [
+     {
+      "concept_id": 4152280,
+      "include_descendants": false,
+      "is_excluded": false,
+      "rationale": "The SNOMED concept 'Major depressive disorder' (4152280) accurately represents the clinical description of patients with a diagnosis of major depressive disorder."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 2,
+  "input_tokens": 5991,
+  "output_tokens": 378,
+  "total_tokens": 6369,
+  "wall_time_s": 108.88,
+  "llm_time_s": 108.73,
+  "peak_ram_mb": 280.5,
+  "critic_rounds": 1,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1794050634.6728091,
+   "latency_s": 39.121,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1019,
+   "output_tokens": 182,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"major_depressive_disorder_diagnosis\",\n    \"entry_concept_sets\": [\"major_depressive_disorder_diagnosis\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"major_depressive_disorder_diagnosis\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"major_depressive_disorder_diagnosis\": {\n        \"name\": \"major_depressive_disorder_diagnosis\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of major depressive disorder.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794050673.7936468,
+   "latency_s": 9.371,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1158,
+   "output_tokens": 43,
+   "detail": {
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"major depressive disorder\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794050683.1644282,
+   "latency_s": 0.141,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "major depressive disorder",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4152280\tMajor depressive disorder\tSNOMED\tDisorder\t71\n4282316\tRecurrent major depression\tSNOMED\tDisorder\t30\n4282096\tMajor depression, single episode\tSNOMED\tDisorder\t21\n432285\tRecurrent major depressive episodes\tSNOMED\tDisorder\t7\n438998\tRecurrent major depressive episodes, mild\tSNOMED\tDisorder\t0\n4094358\tChronic recurrent major depressive disorder\tSNOMED\tDisorder\t0\n44805542\tRecurrent major depressive episodes, severe\tSNOMED\tDisorder\t0\n432883\tRecurrent major depressive episodes, moderate\tSNOMED\tDisorder\t0\n44805550\tSingle major depressive episode, in remission\tSNOMED\tDisorder\t0\n4031328\tChronic major depressive disorder, single episode\tSNOMED\tDisorder\t0\n44813499\tRecurrent major depressive episodes, in remission\tSNOMED\tDisorder\t1\n439259\tSingle major depressive episode, severe, with psychosis\tSNOMED\tDisorder\t1\n4037669\tBipolar II disorder, most recent episode major depressive\tSNOMED\tDisorder\t14\n4324959\tRecurrent major depressive disorder with postpartum onset\tSNOMED\tDisorder\t0\n44805549\tRecurrent major depressive episodes, in partial remission\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794050683.305306,
+   "latency_s": 30.588,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1599,
+   "output_tokens": 33,
+   "detail": {
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 4152280\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1794050713.892907,
+   "latency_s": 0.006,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4152280
+    },
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4152280\tMajor depressive disorder\tCondition\tSNOMED\tDisorder\tS\tTrue\t71"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794050713.898601,
+   "latency_s": 24.985,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1680,
+   "output_tokens": 98,
+   "detail": {
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 4152280,\n        \"include_descendants\": false,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 'Major depressive disorder' (4152280) accurately represents the clinical description of patients with a diagnosis of major depressive disorder.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1794050738.8836048,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "major_depressive_disorder_diagnosis",
+    "items": 1,
+    "tool_calls": 2
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1794050738.8878171,
+   "latency_s": 4.661,
+   "model": "qwen2.5:7b",
+   "input_tokens": 535,
+   "output_tokens": 22,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+   }
+  }
+ ]
+}

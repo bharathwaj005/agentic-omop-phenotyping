@@ -1,0 +1,103 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A08_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "475",
+  "configuration": "C2",
+  "entry_arms": [],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": null,
+  "input_tokens": 7974,
+  "llm_calls": 5,
+  "logical_run_id": "adn_A08_C2",
+  "metrics": {
+    "v1": {
+      "entry": null,
+      "full": null
+    },
+    "v2": {
+      "entry": null,
+      "full": null
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "psoriasis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n140168\tPsoriasis\tSNOMED\tDisorder\t79\n320798\tParapsoriasis\tSNOMED\tDisorder\t9\n4031651\tK\u00f6bner psoriasis\tSNOMED\tDisorder\t0\n4063431\tPlaque psoriasis\tSNOMED\tDisorder\t6\n4066487\tPsoriasis gyrata\tSNOMED\tDisorder\t0\n4219879\tNevoid psoriasis\tSNOMED\tDisorder\t0\n4031649\tPsoriasis of nail\tSNOMED\tDisorder\t3\n4063432\tRupioid psoriasis\tSNOMED\tDisorder\t0\n4066485\tPsoriasis diffusa\tSNOMED\tDisorder\t0\n4284492\tGuttate psoriasis\tSNOMED\tDisorder\t2\n4297496\tPsoriasis of face\tSNOMED\tDisorder\t0\n4031141\tPsoriasis of scalp\tSNOMED\tDisorder\t1\n4031645\tFlexural psoriasis\tSNOMED\tDisorder\t0\n4031646\tUnstable psoriasis\tSNOMED\tDisorder\t0\n4063433\tPsoriasis palmaris\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168
+        },
+        "output": "total_descendants=79\nid\tname\tclass\tlevels\n4066487\tPsoriasis gyrata\tDisorder\t1\n4063431\tPlaque psoriasis\tDisorder\t1\n4031651\tK\u00f6bner psoriasis\tDisorder\t1\n4066485\tPsoriasis diffusa\tDisorder\t1\n4031649\tPsoriasis of nail\tDisorder\t1\n4063432\tRupioid psoriasis\tDisorder\t1\n4297496\tPsoriasis of face\tDisorder\t1\n4284492\tGuttate psoriasis\tDisorder\t1\n4031645\tFlexural psoriasis\tDisorder\t1\n4063433\tPsoriasis palmaris\tDisorder\t1\n4031141\tPsoriasis of scalp\tDisorder\t1\n4066832\tPsoriasis punctata\tDisorder\t1\n4063434\tPustular psoriasis\tDisorder\t1\n4307925\tPsoriasis vulgaris\tDisorder\t1\n4031646\tUnstable psoriasis\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n4317258\tDisorder of skin\tDisorder\t1\n4141523\tCell-mediated cytotoxic disorder\tDisorder\t1\n141960\tSkin finding\tClinical Finding\t2\n200174\tDisorder of skin and/or subcutaneous tissue\tDisorder\t2\n4141833\tImmune hypersensitivity disorder by mechanism\tDisorder\t2",
+        "rows": 5
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168
+        },
+        "output": "id\tname\tdomain\tvocab\n140168\tPsoriasis\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 106,
+  "per_set": {},
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "9f043fdb0f8d53e9149369934446b9c2f1d1eb9a7f61aad4ae14059eae76601c",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A08_C2/raw_replies.json",
+  "reason": "RemoteDisconnected: Remote end closed connection without response",
+  "schema_version": 1,
+  "status": "failed",
+  "task_id": "A08",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 7974,
+    "llm_calls": 5,
+    "llm_time_s": 284.83,
+    "output_tokens": 106,
+    "peak_ram_mb": 244.5,
+    "tool_calls": 4,
+    "total_tokens": 8080,
+    "validator_retries": 0,
+    "wall_seconds": 285.2098212839992,
+    "wall_time_s": 285.24
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A08_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 285.2098212839992
+}

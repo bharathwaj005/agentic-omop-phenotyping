@@ -1,0 +1,348 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A07_C1_attempt1",
+ "config": "C1",
+ "task_id": "A07",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "planner": "1782943d30f3",
+  "concept": "6e8fc8740c1a",
+  "builder": "e0d33e94cd38",
+  "critic": "268b058e898a"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with inflammatory bowel disease, including Crohn's disease or ulcerative colitis, based on diagnosis evidence.",
+  "entry_concept_set": "inflammatory_bowel_disease",
+  "entry_concept_sets": [
+   "inflammatory_bowel_disease"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "inflammatory_bowel_disease",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "inflammatory_bowel_disease": {
+    "name": "inflammatory_bowel_disease",
+    "domain": "Condition",
+    "description": "Patients with a diagnosis of Crohn's disease or ulcerative colitis.",
+    "items": [
+     {
+      "concept_id": 4074815,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "The SNOMED concept 4074815 'Inflammatory bowel disease' accurately represents the clinical description of patients with a diagnosis of Crohn's disease or ulcerative colitis."
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 9,
+  "tool_calls": 5,
+  "input_tokens": 12968,
+  "output_tokens": 546,
+  "total_tokens": 13514,
+  "wall_time_s": 170.13,
+  "llm_time_s": 168.54,
+  "peak_ram_mb": 218.6,
+  "critic_rounds": 1,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "planner",
+   "started_at": 1794046984.152018,
+   "latency_s": 41.214,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1031,
+   "output_tokens": 183,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"entry_concept_set\": \"inflammatory_bowel_disease\",\n    \"entry_concept_sets\": [\"inflammatory_bowel_disease\"],\n    \"entry_arms\": [\n      {\n        \"concept_set\": \"inflammatory_bowel_disease\",\n        \"event_domain\": \"Condition\"\n      }\n    ],\n    \"first_occurrence_only\": false,\n    \"age_min\": null,\n    \"age_max\": null,\n    \"prior_observation_days\": 0,\n    \"concept_sets\": {\n      \"inflammatory_bowel_disease\": {\n        \"name\": \"inflammatory_bowel_disease\",\n        \"domain\": \"Condition\",\n        \"description\": \"Patients with a diagnosis of Crohn's disease or ulcerative colitis.\",\n        \"items\": []\n      }\n    },\n    \"criteria\": []\n  }\n}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047025.3664796,
+   "latency_s": 14.397,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1174,
+   "output_tokens": 48,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"Crohn's disease ulcerative colitis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047039.7639818,
+   "latency_s": 0.141,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "Crohn's disease ulcerative colitis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "inflammatory_bowel_disease",
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047039.905319,
+   "latency_s": 12.291,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1257,
+   "output_tokens": 46,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"Crohn ulcerative colitis\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047052.1962478,
+   "latency_s": 0.148,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "Crohn ulcerative colitis",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "inflammatory_bowel_disease",
+    "rows": 0,
+    "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047052.344724,
+   "latency_s": 11.935,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1338,
+   "output_tokens": 44,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"search_concepts\",\n  \"args\": {\n    \"query\": \"inflammatory bowel disease\",\n    \"domain\": \"Condition\",\n    \"limit\": 15\n  }\n}"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047064.2802427,
+   "latency_s": 0.154,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "inflammatory bowel disease",
+     "domain": "Condition",
+     "limit": 15
+    },
+    "concept_set": "inflammatory_bowel_disease",
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4074815\tInflammatory bowel disease\tSNOMED\tDisorder\t79\n1245349\tALPI-related inflammatory bowel disease\tSNOMED\tDisorder\t0\n4270915\tChronic inflammatory small bowel disease\tSNOMED\tDisorder\t8\n1245350\tTRIM22-related inflammatory bowel disease\tSNOMED\tDisorder\t0\n606414\tVasculitis due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n36676688\tNeonatal inflammatory skin and bowel disease\tSNOMED\tDisorder\t0\n37162756\tCombined immunodeficiency, enteropathy spectrum\tSNOMED\tDisorder\t0\n4079736\tJuvenile arthritis of inflammatory bowel disease\tSNOMED\tDisorder\t2\n37161069\tIL21-related infantile inflammatory bowel disease\tSNOMED\tDisorder\t0\n37312266\tIritis co-occurrent with inflammatory bowel disease\tSNOMED\tDisorder\t2\n37165949\tPyoderma gangrenosum due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n4035743\tSeronegative arthritis due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n1075206\tArthritis temporally related to inflammatory bowel disease\tSNOMED\tDisorder\t0\n37170948\tArthritis of joint of spine due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n37162096\tInfantile inflammatory bowel disease with neurological involvement\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047064.4341972,
+   "latency_s": 31.779,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1794,
+   "output_tokens": 33,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"get_concept\",\n  \"args\": {\n    \"concept_id\": 4074815\n  }\n}"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "tool",
+   "actor": "get_concept",
+   "started_at": 1794047096.2131646,
+   "latency_s": 0.366,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4074815
+    },
+    "concept_set": "inflammatory_bowel_disease",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4074815\tInflammatory bowel disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t79"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047096.5792484,
+   "latency_s": 10.82,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1875,
+   "output_tokens": 33,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 4074815\n  }\n}"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794047107.3993328,
+   "latency_s": 0.376,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4074815
+    },
+    "concept_set": "inflammatory_bowel_disease",
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n4074815\tInflammatory bowel disease\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047107.7754943,
+   "latency_s": 9.9,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1941,
+   "output_tokens": 33,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"map_to_standard\",\n  \"args\": {\n    \"concept_id\": 4074815\n  }\n}"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1794047117.675263,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "duplicate_tool_call": "map_to_standard",
+    "duplicate_retries": 1
+   }
+  },
+  {
+   "step": 14,
+   "kind": "llm",
+   "actor": "concept",
+   "started_at": 1794047117.6752698,
+   "latency_s": 26.147,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2009,
+   "output_tokens": 104,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "raw_text": "{\n  \"action\": \"final\",\n  \"result\": {\n    \"items\": [\n      {\n        \"concept_id\": 4074815,\n        \"include_descendants\": true,\n        \"is_excluded\": false,\n        \"rationale\": \"The SNOMED concept 4074815 'Inflammatory bowel disease' accurately represents the clinical description of patients with a diagnosis of Crohn's disease or ulcerative colitis.\"\n      }\n    ]\n  }\n}"
+   }
+  },
+  {
+   "step": 15,
+   "kind": "note",
+   "actor": "concept",
+   "started_at": 1794047143.822709,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "concept_set": "inflammatory_bowel_disease",
+    "items": 1,
+    "tool_calls": 5
+   }
+  },
+  {
+   "step": 16,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794047144.2102633,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  },
+  {
+   "step": 17,
+   "kind": "llm",
+   "actor": "critic",
+   "started_at": 1794047144.2102995,
+   "latency_s": 10.056,
+   "model": "qwen2.5:7b",
+   "input_tokens": 549,
+   "output_tokens": 22,
+   "detail": {
+    "attempt": 1,
+    "finish_reason": "stop",
+    "raw_text": "{\"action\": \"final\", \"result\": {\"verdict\": \"accept\", \"issues\": []}}"
+   }
+  }
+ ]
+}

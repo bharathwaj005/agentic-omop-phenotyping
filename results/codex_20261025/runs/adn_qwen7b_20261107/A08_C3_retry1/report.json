@@ -1,0 +1,159 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A08_C3_attempt2",
+  "attempt_number": 2,
+  "cohort_id": "475",
+  "configuration": "C3",
+  "entry_arms": [
+    {
+      "concept_set": "psoriasis_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "psoriasis_diagnosis": {
+        "description": "Patients with a diagnosis of psoriasis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 140168,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The concept 'Psoriasis' (concept_id: 140168) in the SNOMED vocabulary is a valid standard concept that matches the clinical description of patients with a diagnosis of psoriasis. It includes various subtypes of psoriasis, which aligns with the broad nature of the concept set."
+          }
+        ],
+        "name": "psoriasis_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "psoriasis_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "psoriasis_diagnosis",
+    "entry_concept_sets": [
+      "psoriasis_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with psoriasis based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5329,
+  "llm_calls": 4,
+  "logical_run_id": "adn_A08_C3",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "psoriasis"
+        },
+        "concept_set": "psoriasis_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n140168\tPsoriasis\tSNOMED\tDisorder\t79\n320798\tParapsoriasis\tSNOMED\tDisorder\t9\n4031651\tK\u00f6bner psoriasis\tSNOMED\tDisorder\t0\n4063431\tPlaque psoriasis\tSNOMED\tDisorder\t6\n4066487\tPsoriasis gyrata\tSNOMED\tDisorder\t0\n4219879\tNevoid psoriasis\tSNOMED\tDisorder\t0\n4031649\tPsoriasis of nail\tSNOMED\tDisorder\t3\n4063432\tRupioid psoriasis\tSNOMED\tDisorder\t0\n4066485\tPsoriasis diffusa\tSNOMED\tDisorder\t0\n4284492\tGuttate psoriasis\tSNOMED\tDisorder\t2\n4297496\tPsoriasis of face\tSNOMED\tDisorder\t0\n4031141\tPsoriasis of scalp\tSNOMED\tDisorder\t1\n4031645\tFlexural psoriasis\tSNOMED\tDisorder\t0\n4031646\tUnstable psoriasis\tSNOMED\tDisorder\t0\n4063433\tPsoriasis palmaris\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 140168
+        },
+        "concept_set": "psoriasis_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n140168\tPsoriasis\tCondition\tSNOMED\tDisorder\tS\tTrue\t79",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 367,
+  "per_set": {
+    "psoriasis_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 140168,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The concept 'Psoriasis' (concept_id: 140168) in the SNOMED vocabulary is a valid standard concept that matches the clinical description of patients with a diagnosis of psoriasis. It includes various subtypes of psoriasis, which aligns with the broad nature of the concept set."
+        }
+      ],
+      "resolved_count": 80
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "9f043fdb0f8d53e9149369934446b9c2f1d1eb9a7f61aad4ae14059eae76601c",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A08_C3_retry1/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A08",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5329,
+    "llm_calls": 4,
+    "llm_time_s": 229.91,
+    "output_tokens": 367,
+    "peak_ram_mb": 256.1,
+    "tool_calls": 2,
+    "total_tokens": 5696,
+    "validator_retries": 0,
+    "wall_seconds": 230.2249692399928,
+    "wall_time_s": 230.23
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A08_C3_retry1/trace.json",
+  "track": "adn",
+  "wall_seconds": 230.2249692399928
+}

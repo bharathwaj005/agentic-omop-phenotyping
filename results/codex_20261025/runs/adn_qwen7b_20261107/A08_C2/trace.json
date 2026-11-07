@@ -1,0 +1,179 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A08_C2_attempt1",
+ "config": "C2",
+ "task_id": "A08",
+ "repeat": 1,
+ "status": "failed",
+ "error": "RemoteDisconnected: Remote end closed connection without response",
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": null
+ },
+ "final_spec": null,
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 4,
+  "input_tokens": 7974,
+  "output_tokens": 106,
+  "total_tokens": 8080,
+  "wall_time_s": 285.28,
+  "llm_time_s": 284.83,
+  "peak_ram_mb": 245.4,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 0.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047763.1787205,
+   "latency_s": 6.424,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1521,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"psoriasis\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047769.6032505,
+   "latency_s": 0.116,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "psoriasis",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n140168\tPsoriasis\tSNOMED\tDisorder\t79\n320798\tParapsoriasis\tSNOMED\tDisorder\t9\n4031651\tK\u00f6bner psoriasis\tSNOMED\tDisorder\t0\n4063431\tPlaque psoriasis\tSNOMED\tDisorder\t6\n4066487\tPsoriasis gyrata\tSNOMED\tDisorder\t0\n4219879\tNevoid psoriasis\tSNOMED\tDisorder\t0\n4031649\tPsoriasis of nail\tSNOMED\tDisorder\t3\n4063432\tRupioid psoriasis\tSNOMED\tDisorder\t0\n4066485\tPsoriasis diffusa\tSNOMED\tDisorder\t0\n4284492\tGuttate psoriasis\tSNOMED\tDisorder\t2\n4297496\tPsoriasis of face\tSNOMED\tDisorder\t0\n4031141\tPsoriasis of scalp\tSNOMED\tDisorder\t1\n4031645\tFlexural psoriasis\tSNOMED\tDisorder\t0\n4031646\tUnstable psoriasis\tSNOMED\tDisorder\t0\n4063433\tPsoriasis palmaris\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047769.7197022,
+   "latency_s": 26.26,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1891,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 140168}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1794047795.979263,
+   "latency_s": 0.141,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168
+    },
+    "rows": 16,
+    "output": "total_descendants=79\nid\tname\tclass\tlevels\n4066487\tPsoriasis gyrata\tDisorder\t1\n4063431\tPlaque psoriasis\tDisorder\t1\n4031651\tK\u00f6bner psoriasis\tDisorder\t1\n4066485\tPsoriasis diffusa\tDisorder\t1\n4031649\tPsoriasis of nail\tDisorder\t1\n4063432\tRupioid psoriasis\tDisorder\t1\n4297496\tPsoriasis of face\tDisorder\t1\n4284492\tGuttate psoriasis\tDisorder\t1\n4031645\tFlexural psoriasis\tDisorder\t1\n4063433\tPsoriasis palmaris\tDisorder\t1\n4031141\tPsoriasis of scalp\tDisorder\t1\n4066832\tPsoriasis punctata\tDisorder\t1\n4063434\tPustular psoriasis\tDisorder\t1\n4307925\tPsoriasis vulgaris\tDisorder\t1\n4031646\tUnstable psoriasis\tDisorder\t1"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047796.1200585,
+   "latency_s": 25.678,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2209,
+   "output_tokens": 33,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 140168, \"max_levels\": 2}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1794047821.797693,
+   "latency_s": 0.073,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168,
+     "max_levels": 2
+    },
+    "rows": 5,
+    "output": "id\tname\tclass\tlevels\n4317258\tDisorder of skin\tDisorder\t1\n4141523\tCell-mediated cytotoxic disorder\tDisorder\t1\n141960\tSkin finding\tClinical Finding\t2\n200174\tDisorder of skin and/or subcutaneous tissue\tDisorder\t2\n4141833\tImmune hypersensitivity disorder by mechanism\tDisorder\t2"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047821.8702579,
+   "latency_s": 12.854,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2353,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 140168}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794047834.7242448,
+   "latency_s": 0.043,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 140168
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n140168\tPsoriasis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047834.7674375,
+   "latency_s": 213.615,
+   "model": "qwen2.5:7b",
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+   }
+  }
+ ]
+}

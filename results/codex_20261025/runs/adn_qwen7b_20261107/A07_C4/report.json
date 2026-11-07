@@ -1,0 +1,200 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A07_C4_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "629",
+  "configuration": "C4",
+  "entry_arms": [
+    {
+      "concept_set": "inflammatory_bowel_disease",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "inflammatory_bowel_disease": {
+        "description": "Patients with a diagnosis of Crohn's disease or ulcerative colitis.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 4074815,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 4074815 'Inflammatory bowel disease' accurately represents the clinical description of patients with a diagnosis of Crohn's disease or ulcerative colitis, as it encompasses both conditions."
+          }
+        ],
+        "name": "inflammatory_bowel_disease"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "inflammatory_bowel_disease",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "inflammatory_bowel_disease",
+    "entry_concept_sets": [
+      "inflammatory_bowel_disease"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with inflammatory bowel disease, including Crohn's disease or ulcerative colitis, based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 10959,
+  "llm_calls": 8,
+  "logical_run_id": "adn_A07_C4",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Crohn's disease ulcerative colitis"
+        },
+        "concept_set": "inflammatory_bowel_disease",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "Crohn ulcerative colitis"
+        },
+        "concept_set": "inflammatory_bowel_disease",
+        "output": "no matches in the requested domain and vocabulary filters; try a shorter, clinically justified query while preserving the domain and standard-concept constraint",
+        "rows": 0
+      },
+      "step": 5,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "inflammatory bowel disease"
+        },
+        "concept_set": "inflammatory_bowel_disease",
+        "output": "id\tname\tvocab\tclass\tn_desc\n4074815\tInflammatory bowel disease\tSNOMED\tDisorder\t79\n1245349\tALPI-related inflammatory bowel disease\tSNOMED\tDisorder\t0\n4270915\tChronic inflammatory small bowel disease\tSNOMED\tDisorder\t8\n1245350\tTRIM22-related inflammatory bowel disease\tSNOMED\tDisorder\t0\n606414\tVasculitis due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n36676688\tNeonatal inflammatory skin and bowel disease\tSNOMED\tDisorder\t0\n37162756\tCombined immunodeficiency, enteropathy spectrum\tSNOMED\tDisorder\t0\n4079736\tJuvenile arthritis of inflammatory bowel disease\tSNOMED\tDisorder\t2\n37161069\tIL21-related infantile inflammatory bowel disease\tSNOMED\tDisorder\t0\n37312266\tIritis co-occurrent with inflammatory bowel disease\tSNOMED\tDisorder\t2\n37165949\tPyoderma gangrenosum due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n4035743\tSeronegative arthritis due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n1075206\tArthritis temporally related to inflammatory bowel disease\tSNOMED\tDisorder\t0\n37170948\tArthritis of joint of spine due to inflammatory bowel disease\tSNOMED\tDisorder\t0\n37162096\tInfantile inflammatory bowel disease with neurological involvement\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 7,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4074815
+        },
+        "concept_set": "inflammatory_bowel_disease",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n4074815\tInflammatory bowel disease\tCondition\tSNOMED\tDisorder\tS\tTrue\t79",
+        "rows": 1
+      },
+      "step": 9,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 4074815
+        },
+        "concept_set": "inflammatory_bowel_disease",
+        "output": "id\tname\tdomain\tvocab\n4074815\tInflammatory bowel disease\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 11,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 519,
+  "per_set": {
+    "inflammatory_bowel_disease": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 4074815,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 4074815 'Inflammatory bowel disease' accurately represents the clinical description of patients with a diagnosis of Crohn's disease or ulcerative colitis, as it encompasses both conditions."
+        }
+      ],
+      "resolved_count": 80
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "f3f6f652b7d02375cb3a56edb86c7215fd08c2b80805af123540c59112630f50",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A07_C4/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A07",
+  "timings": {
+    "critic_rounds": 1,
+    "input_tokens": 10959,
+    "llm_calls": 8,
+    "llm_time_s": 148.97,
+    "output_tokens": 519,
+    "peak_ram_mb": 259.9,
+    "tool_calls": 5,
+    "total_tokens": 11478,
+    "validator_retries": 0,
+    "wall_seconds": 149.44822210400162,
+    "wall_time_s": 149.45
+  },
+  "tool_calls": 5,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A07_C4/trace.json",
+  "track": "adn",
+  "wall_seconds": 149.44822210400162
+}

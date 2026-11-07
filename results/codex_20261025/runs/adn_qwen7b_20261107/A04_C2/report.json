@@ -1,0 +1,154 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A04_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "457",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "ra_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "ra_diagnosis": {
+        "description": "Patients diagnosed with rheumatoid arthritis",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 80809,
+            "include_descendants": false,
+            "is_excluded": false,
+            "rationale": "Primary diagnosis for rheumatoid arthritis"
+          }
+        ],
+        "name": "ra_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "ra_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "ra_diagnosis",
+    "entry_concept_sets": [
+      "ra_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with rheumatoid arthritis based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 5448,
+  "llm_calls": 3,
+  "logical_run_id": "adn_A04_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.014814814814814815,
+        "jaccard": 0.007462686567164179,
+        "precision": 1.0,
+        "recall": 0.007462686567164179
+      },
+      "full": {
+        "f1": 0.014814814814814815,
+        "jaccard": 0.007462686567164179,
+        "precision": 1.0,
+        "recall": 0.007462686567164179
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.014814814814814815,
+        "jaccard": 0.007462686567164179,
+        "precision": 1.0,
+        "recall": 0.007462686567164179
+      },
+      "full": {
+        "f1": 0.014814814814814815,
+        "jaccard": 0.007462686567164179,
+        "precision": 1.0,
+        "recall": 0.007462686567164179
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "rheumatoid arthritis"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n80809\tRheumatoid arthritis\tSNOMED\tDisorder\t133\n81097\tFelty's syndrome\tSNOMED\tDisorder\t2\n4103516\tRheumatoid carditis\tSNOMED\tDisorder\t0\n4306357\tRheumatoid aortitis\tSNOMED\tDisorder\t0\n4243509\tRheumatoid scleritis\tSNOMED\tDisorder\t1\n4269880\tRheumatoid arteritis\tSNOMED\tDisorder\t1\n4296152\tRheumatoid pericarditis\tSNOMED\tDisorder\t0\n4300202\tRheumatoid episcleritis\tSNOMED\tDisorder\t0\n4030424\tRheumatoid osteoperiostitis\tSNOMED\tDisorder\t0\n4116150\tRheumatoid arthritis of hip\tSNOMED\tDisorder\t9\n4116151\tRheumatoid arthritis of knee\tSNOMED\tDisorder\t9\n4179378\tRheumatoid arthritis of foot\tSNOMED\tDisorder\t12\n4114444\tFlare of rheumatoid arthritis\tSNOMED\tDisorder\t0\n4116440\tRheumatoid arthritis of elbow\tSNOMED\tDisorder\t10\n4116441\tRheumatoid arthritis of wrist\tSNOMED\tDisorder\t10",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 80809
+        },
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n80809\tRheumatoid arthritis\tCondition\tSNOMED\tDisorder\tS\tTrue\t133",
+        "rows": 1
+      },
+      "step": 4,
+      "tool": "get_concept"
+    }
+  ],
+  "output_tokens": 244,
+  "per_set": {
+    "ra_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        false
+      ],
+      "items": [
+        {
+          "concept_id": 80809,
+          "include_descendants": false,
+          "is_excluded": false,
+          "rationale": "Primary diagnosis for rheumatoid arthritis"
+        }
+      ],
+      "resolved_count": 1
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "668798ed482aa9568111ce5b65186e2aeb6c63b68d49a9d36221e8c932150241",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A04_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A04",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 5448,
+    "llm_calls": 3,
+    "llm_time_s": 82.92,
+    "output_tokens": 244,
+    "peak_ram_mb": 202.5,
+    "tool_calls": 2,
+    "total_tokens": 5692,
+    "validator_retries": 0,
+    "wall_seconds": 83.08181993800099,
+    "wall_time_s": 83.08
+  },
+  "tool_calls": 2,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A04_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 83.08181993800099
+}

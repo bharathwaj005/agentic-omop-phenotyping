@@ -1,0 +1,222 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A09_C1_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "509",
+  "configuration": "C1",
+  "entry_arms": [
+    {
+      "concept_set": "sle_diagnosis",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "sle_diagnosis": {
+        "description": "Patients with a diagnosis of systemic lupus erythematosus.",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 257628,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "The SNOMED concept 257628 for 'Systemic lupus erythematosus' is the standard concept that encompasses all diagnoses of systemic lupus erythematosus, including its descendants, as required by the Planner's description."
+          }
+        ],
+        "name": "sle_diagnosis"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "sle_diagnosis",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "sle_diagnosis",
+    "entry_concept_sets": [
+      "sle_diagnosis"
+    ],
+    "first_occurrence_only": false,
+    "prior_observation_days": 0,
+    "question": "Identify patients with systemic lupus erythematosus based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 17589,
+  "llm_calls": 12,
+  "logical_run_id": "adn_A09_C1",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "full": {
+        "f1": 1.0,
+        "jaccard": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "systemic lupus erythematosus"
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n257628\tSystemic lupus erythematosus\tSNOMED\tDisorder\t32\n4285717\tSLE glomerulonephritis syndrome\tSNOMED\tDisorder\t6\n4295179\tAcute systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4319305\tRash of systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4346976\tBullous systemic lupus erythematosus\tSNOMED\tDisorder\t0\n36676444\tAutosomal systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4296502\tFulminating systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4063581\tDrug-induced systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4301051\tSystemic lupus erythematosus of childhood\tSNOMED\tDisorder\t0\n4318863\tSystemic lupus erythematosus encephalitis\tSNOMED\tDisorder\t0\n44784527\tSystemic lupus erythematosus in remission\tSNOMED\tDisorder\t0\n4044056\tChorea due to systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4178133\tSLE glomerulonephritis syndrome, WHO class V\tSNOMED\tDisorder\t0\n4250483\tSLE glomerulonephritis syndrome, WHO class I\tSNOMED\tDisorder\t0\n37166380\tDementia due to systemic lupus erythematosus\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 3,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 257628
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n257628\tSystemic lupus erythematosus\tCondition\tSNOMED\tDisorder\tS\tTrue\t32",
+        "rows": 1
+      },
+      "step": 5,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 257628
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "id\tname\tdomain\tvocab\n257628\tSystemic lupus erythematosus\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 7,
+      "tool": "map_to_standard"
+    },
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "limit": 15,
+          "query": "systemic lupus erythematosus"
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "id\tname\tvocab\tclass\tn_desc\n257628\tSystemic lupus erythematosus\tSNOMED\tDisorder\t32\n4285717\tSLE glomerulonephritis syndrome\tSNOMED\tDisorder\t6\n4295179\tAcute systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4319305\tRash of systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4346976\tBullous systemic lupus erythematosus\tSNOMED\tDisorder\t0\n36676444\tAutosomal systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4296502\tFulminating systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4063581\tDrug-induced systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4301051\tSystemic lupus erythematosus of childhood\tSNOMED\tDisorder\t0\n4318863\tSystemic lupus erythematosus encephalitis\tSNOMED\tDisorder\t0\n44784527\tSystemic lupus erythematosus in remission\tSNOMED\tDisorder\t0\n4044056\tChorea due to systemic lupus erythematosus\tSNOMED\tDisorder\t0\n4178133\tSLE glomerulonephritis syndrome, WHO class V\tSNOMED\tDisorder\t0\n4250483\tSLE glomerulonephritis syndrome, WHO class I\tSNOMED\tDisorder\t0\n37166380\tDementia due to systemic lupus erythematosus\tSNOMED\tDisorder\t0",
+        "rows": 15
+      },
+      "step": 14,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 257628
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "id\tname\tdomain\tvocab\tclass\tstandard\tvalid\tn_desc\n257628\tSystemic lupus erythematosus\tCondition\tSNOMED\tDisorder\tS\tTrue\t32",
+        "rows": 1
+      },
+      "step": 16,
+      "tool": "get_concept"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 257628
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "total_descendants=32\nid\tname\tclass\tlevels\n4057084\tLupus hepatitis\tDisorder\t1\n4344495\tLupus vasculitis\tDisorder\t1\n4344157\tLimited lupus erythematosus\tDisorder\t1\n4295179\tAcute systemic lupus erythematosus\tDisorder\t1\n4346976\tBullous systemic lupus erythematosus\tDisorder\t1\n4319305\tRash of systemic lupus erythematosus\tDisorder\t1\n36676444\tAutosomal systemic lupus erythematosus\tDisorder\t1\n4296502\tFulminating systemic lupus erythematosus\tDisorder\t1\n44784527\tSystemic lupus erythematosus in remission\tDisorder\t1\n4063581\tDrug-induced systemic lupus erythematosus\tDisorder\t1\n4301051\tSystemic lupus erythematosus of childhood\tDisorder\t1\n4055640\tLung disease with systemic lupus erythematosus\tDisorder\t1\n4101469\tPericarditis secondary to systemic lupus erythematosus\tDisorder\t1\n4344400\tSystemic lupus erythematosus with multisystem involvement\tDisorder\t1\n4344158\tSystemic lupus erythematosus with organ/system involvement\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 18,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 257628
+        },
+        "concept_set": "sle_diagnosis",
+        "output": "id\tname\tdomain\tvocab\n257628\tSystemic lupus erythematosus\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 20,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 751,
+  "per_set": {
+    "sle_diagnosis": {
+      "domain": "Condition",
+      "include_descendants": [
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 257628,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "The SNOMED concept 257628 for 'Systemic lupus erythematosus' is the standard concept that encompasses all diagnoses of systemic lupus erythematosus, including its descendants, as required by the Planner's description."
+        }
+      ],
+      "resolved_count": 33
+    }
+  },
+  "prompt_hashes": {
+    "builder": "e0d33e94cd38",
+    "concept": "6e8fc8740c1a",
+    "critic": "268b058e898a",
+    "planner": "1782943d30f3"
+  },
+  "question_text_sha256": "b3b621d3b243649dda57df526505bad338dad754cb2ce12816b552242fee50bf",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A09_C1/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A09",
+  "timings": {
+    "critic_rounds": 2,
+    "input_tokens": 17589,
+    "llm_calls": 12,
+    "llm_time_s": 265.52,
+    "output_tokens": 751,
+    "peak_ram_mb": 251.4,
+    "tool_calls": 7,
+    "total_tokens": 18340,
+    "validator_retries": 0,
+    "wall_seconds": 268.42022467500647,
+    "wall_time_s": 268.42
+  },
+  "tool_calls": 7,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A09_C1/trace.json",
+  "track": "adn",
+  "wall_seconds": 268.42022467500647
+}

@@ -1,0 +1,226 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A02_C2_attempt1",
+ "config": "C2",
+ "task_id": "A02",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with dementia of any type based on diagnosis evidence.",
+  "entry_concept_set": "dementia_concept_set",
+  "entry_concept_sets": [
+   "dementia_concept_set"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "dementia_concept_set",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "dementia_concept_set": {
+    "name": "dementia_concept_set",
+    "domain": "Condition",
+    "description": "Patients with any type of dementia based on diagnosis evidence.",
+    "items": [
+     {
+      "concept_id": 4182210,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "Primary concept for dementia diagnosis"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 5,
+  "tool_calls": 4,
+  "input_tokens": 10318,
+  "output_tokens": 315,
+  "total_tokens": 10633,
+  "wall_time_s": 122.19,
+  "llm_time_s": 119.65,
+  "peak_ram_mb": 245.0,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794042145.5435276,
+   "latency_s": 6.977,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1523,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"dementia\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794042152.5202353,
+   "latency_s": 0.16,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "dementia",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n4182210\tDementia\tSNOMED\tDisorder\t215\n762497\tMild dementia\tSNOMED\tDisorder\t0\n36717598\tToxic dementia\tSNOMED\tDisorder\t6\n43021816\tMixed dementia\tSNOMED\tDisorder\t0\n765653\tSevere dementia\tSNOMED\tDisorder\t0\n4047748\tPatchy dementia\tSNOMED\tDisorder\t0\n4048875\tSenile dementia\tSNOMED\tDisorder\t18\n37204495\tABri amyloidosis\tSNOMED\tDisorder\t0\n37204554\tADan amyloidosis\tSNOMED\tDisorder\t0\n443605\tVascular dementia\tSNOMED\tDisorder\t24\n762704\tModerate dementia\tSNOMED\tDisorder\t0\n4046091\tSemantic dementia\tSNOMED\tDisorder\t0\n4244346\tDialysis dementia\tSNOMED\tDisorder\t0\n378125\tPresenile dementia\tSNOMED\tDisorder\t21\n378419\tAlzheimer's disease\tSNOMED\tDisorder\t34"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794042152.6805124,
+   "latency_s": 25.378,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1884,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4182210}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1794042178.0590422,
+   "latency_s": 0.227,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4182210
+    },
+    "rows": 16,
+    "output": "total_descendants=215\nid\tname\tclass\tlevels\n762497\tMild dementia\tDisorder\t1\n36717598\tToxic dementia\tDisorder\t1\n4048875\tSenile dementia\tDisorder\t1\n765653\tSevere dementia\tDisorder\t1\n4047748\tPatchy dementia\tDisorder\t1\n4244346\tDialysis dementia\tDisorder\t1\n762704\tModerate dementia\tDisorder\t1\n378125\tPresenile dementia\tDisorder\t1\n374341\tHuntington's chorea\tDisorder\t1\n378419\tAlzheimer's disease\tDisorder\t1\n42538857\tSubcortical dementia\tDisorder\t1\n44782935\tDementia in remission\tDisorder\t1\n37166441\tPost-dialysis dementia\tDisorder\t1\n4043378\tFrontotemporal dementia\tDisorder\t1\n4047745\tTraumatic encephalopathy\tDisorder\t1"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794042178.2864308,
+   "latency_s": 25.09,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2197,
+   "output_tokens": 34,
+   "detail": {
+    "raw_text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4182210, \"max_levels\": 2}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_ancestors",
+   "started_at": 1794042203.3771145,
+   "latency_s": 0.062,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4182210,
+     "max_levels": 2
+    },
+    "rows": 5,
+    "output": "id\tname\tclass\tlevels\n443432\tImpaired cognition\tClinical Finding\t1\n374009\tOrganic mental disorder\tDisorder\t1\n432586\tMental disorder\tDisorder\t2\n372887\tDisorder of brain\tDisorder\t2\n4162723\tCognitive function finding\tClinical Finding\t2"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794042203.43915,
+   "latency_s": 12.464,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2329,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 4182210}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794042215.9032304,
+   "latency_s": 0.026,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 4182210
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n4182210\tDementia\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794042215.9291856,
+   "latency_s": 49.741,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2385,
+   "output_tokens": 206,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"dementia_concept_set\",\n  \"entry_concept_sets\": [\"dementia_concept_set\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"dementia_concept_set\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"dementia_concept_set\": {\n      \"name\": \"dementia_concept_set\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with any type of dementia based on diagnosis evidence.\",\n      \"items\": [\n        {\"concept_id\": 4182210, \"include_descendants\": true,\n         \"is_excluded\": false, \"rationale\": \"Primary concept for dementia diagnosis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794042267.7225113,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}

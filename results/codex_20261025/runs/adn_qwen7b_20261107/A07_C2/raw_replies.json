@@ -1,0 +1,44 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Crohn\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ulcerative colitis\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 201606}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 81893}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 201606}}"
+  },
+  {
+    "step": 11,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 81893}}"
+  },
+  {
+    "step": 13,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"inflammatory_bowel_disease\",\n  \"entry_concept_sets\": [\"inflammatory_bowel_disease\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"inflammatory_bowel_disease\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"inflammatory_bowel_disease\": {\n      \"name\": \"inflammatory_bowel_disease\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with Crohn's disease or ulcerative colitis based on diagnosis evidence.\",\n      \"items\": [\n        {\"concept_id\": 201606, \"include_descendants\": true, \"is_excluded\": false, \"rationale\": \"Primary concept for Crohn's disease\"},\n        {\"concept_id\": 81893, \"include_descendants\": true, \"is_excluded\": false, \"rationale\": \"Primary concept for ulcerative colitis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

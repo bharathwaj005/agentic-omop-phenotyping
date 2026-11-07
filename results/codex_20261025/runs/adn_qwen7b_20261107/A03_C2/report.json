@@ -1,0 +1,190 @@
+{
+  "attempt_id": "adn_qwen7b_20261107_adn_A03_C2_attempt1",
+  "attempt_number": 1,
+  "cohort_id": "95",
+  "configuration": "C2",
+  "entry_arms": [
+    {
+      "concept_set": "delirium",
+      "event_domain": "Condition"
+    }
+  ],
+  "experiment_id": "adn_qwen7b_20261107",
+  "final_spec": {
+    "age_max": null,
+    "age_min": null,
+    "concept_sets": {
+      "delirium": {
+        "description": "Patients with a diagnosis of delirium",
+        "domain": "Condition",
+        "items": [
+          {
+            "concept_id": 373995,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Primary delirium diagnosis"
+          },
+          {
+            "concept_id": 373449,
+            "include_descendants": true,
+            "is_excluded": false,
+            "rationale": "Delirium caused by drug"
+          }
+        ],
+        "name": "delirium"
+      }
+    },
+    "criteria": [],
+    "entry_arms": [
+      {
+        "concept_set": "delirium",
+        "event_domain": "Condition"
+      }
+    ],
+    "entry_concept_set": "delirium",
+    "entry_concept_sets": [
+      "delirium"
+    ],
+    "first_occurrence_only": true,
+    "prior_observation_days": 0,
+    "question": "Identify patients with an episode of delirium based on diagnosis evidence.",
+    "spec_version": "1.1"
+  },
+  "input_tokens": 13251,
+  "llm_calls": 6,
+  "logical_run_id": "adn_A03_C2",
+  "metrics": {
+    "v1": {
+      "entry": {
+        "f1": 0.9565217391304348,
+        "jaccard": 0.9166666666666666,
+        "precision": 1.0,
+        "recall": 0.9166666666666666
+      },
+      "full": {
+        "f1": 0.9565217391304348,
+        "jaccard": 0.9166666666666666,
+        "precision": 1.0,
+        "recall": 0.9166666666666666
+      }
+    },
+    "v2": {
+      "entry": {
+        "f1": 0.9565217391304348,
+        "jaccard": 0.9166666666666666,
+        "precision": 1.0,
+        "recall": 0.9166666666666666
+      },
+      "full": {
+        "f1": 0.9565217391304348,
+        "jaccard": 0.9166666666666666,
+        "precision": 1.0,
+        "recall": 0.9166666666666666
+      }
+    }
+  },
+  "model_names_used": [
+    "qwen2.5:7b"
+  ],
+  "model_requested": "qwen2.5:7b",
+  "ollama_num_ctx": 8192,
+  "ordered_tool_calls": [
+    {
+      "args": {
+        "args": {
+          "domain": "Condition",
+          "query": "delirium"
+        },
+        "output": "id\tname\tvocab\tclass\tn_desc\n373995\tDelirium\tSNOMED\tDisorder\t54\n379779\tSubacute delirium\tSNOMED\tDisorder\t5\n4177642\tPostseizure delirium\tSNOMED\tDisorder\t0\n44782944\tDelirium in remission\tSNOMED\tDisorder\t0\n36674302\tPostoperative delirium\tSNOMED\tDisorder\t3\n373449\tDelirium caused by drug\tSNOMED\tDisorder\t22\n4333669\tDelirium of mixed origin\tSNOMED\tDisorder\t0\n1448954\tDelirium caused by opioid\tSNOMED\tDisorder\t1\n1448952\tDelirium caused by cocaine\tSNOMED\tDisorder\t1\n377830\tAlcohol withdrawal delirium\tSNOMED\tDisorder\t0\n1448951\tDelirium caused by cannabis\tSNOMED\tDisorder\t1\n37110460\tDelirium caused by ketamine\tSNOMED\tDisorder\t0\n4199769\tOpioid intoxication delirium\tSNOMED\tDisorder\t0\n42538586\tDelirium caused by stimulant\tSNOMED\tDisorder\t7\n376946\tSenile dementia with delirium\tSNOMED\tDisorder\t1",
+        "rows": 15
+      },
+      "step": 2,
+      "tool": "search_concepts"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 373995
+        },
+        "output": "total_descendants=54\nid\tname\tclass\tlevels\n379779\tSubacute delirium\tDisorder\t1\n4177642\tPostseizure delirium\tDisorder\t1\n44782944\tDelirium in remission\tDisorder\t1\n36674302\tPostoperative delirium\tDisorder\t1\n4333668\tToxic confusional state\tDisorder\t1\n373449\tDelirium caused by drug\tDisorder\t1\n4333669\tDelirium of mixed origin\tDisorder\t1\n37395572\tAlzheimer's disease with delirium\tDisorder\t1\n4312487\tAcute non-psychotic brain syndrome\tDisorder\t1\n37111242\tDelirium co-occurrent with dementia\tDisorder\t1\n444091\tMulti-infarct dementia with delirium\tDisorder\t1\n37309681\tDelirium due to substance withdrawal\tDisorder\t1\n1246027\tDelirium due to hepatic encephalopathy\tDisorder\t1\n4101145\tAcute confusional state, post-traumatic\tDisorder\t1\n37117216\tDelirium due to multiple etiological factors\tDisorder\t1",
+        "rows": 16
+      },
+      "step": 4,
+      "tool": "get_descendants"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 37395572,
+          "max_levels": 2
+        },
+        "output": "id\tname\tclass\tlevels\n373995\tDelirium\tDisorder\t1\n378419\tAlzheimer's disease\tDisorder\t1\n4182210\tDementia\tDisorder\t2\n381273\tConfusional state\tDisorder\t2\n4092747\tCerebral degeneration presenting primarily with dementia\tDisorder\t2",
+        "rows": 5
+      },
+      "step": 6,
+      "tool": "get_ancestors"
+    },
+    {
+      "args": {
+        "args": {
+          "concept_id": 37395572
+        },
+        "output": "id\tname\tdomain\tvocab\n37395572\tAlzheimer's disease with delirium\tCondition\tSNOMED",
+        "rows": 1
+      },
+      "step": 8,
+      "tool": "map_to_standard"
+    }
+  ],
+  "output_tokens": 366,
+  "per_set": {
+    "delirium": {
+      "domain": "Condition",
+      "include_descendants": [
+        true,
+        true
+      ],
+      "items": [
+        {
+          "concept_id": 373995,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Primary delirium diagnosis"
+        },
+        {
+          "concept_id": 373449,
+          "include_descendants": true,
+          "is_excluded": false,
+          "rationale": "Delirium caused by drug"
+        }
+      ],
+      "resolved_count": 55
+    }
+  },
+  "prompt_hashes": {
+    "single_agent": "e13951da3574"
+  },
+  "question_text_sha256": "4abd722b3de28fb670dd72d5b5baeec576b1071f34f226ef3a0b84b4dfa40e8f",
+  "raw_replies_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A03_C2/raw_replies.json",
+  "reason": null,
+  "schema_version": 1,
+  "status": "success",
+  "task_id": "A03",
+  "timings": {
+    "critic_rounds": 0,
+    "input_tokens": 13251,
+    "llm_calls": 6,
+    "llm_time_s": 152.77,
+    "output_tokens": 366,
+    "peak_ram_mb": 248.2,
+    "tool_calls": 4,
+    "total_tokens": 13617,
+    "validator_retries": 0,
+    "wall_seconds": 154.20805489699706,
+    "wall_time_s": 154.22
+  },
+  "tool_calls": 4,
+  "trace_path": "/home/bharathwaj/jbi/results/codex_20261025/runs/adn_qwen7b_20261107/A03_C2/trace.json",
+  "track": "adn",
+  "wall_seconds": 154.20805489699706
+}

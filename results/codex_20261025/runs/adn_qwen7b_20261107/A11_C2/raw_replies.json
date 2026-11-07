@@ -1,0 +1,32 @@
+[
+  {
+    "step": 1,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"herpes simplex\", \"domain\": \"Condition\"}}"
+  },
+  {
+    "step": 3,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 4051338}}"
+  },
+  {
+    "step": 5,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"get_ancestors\", \"args\": {\"concept_id\": 4051338, \"max_levels\": 2}}"
+  },
+  {
+    "step": 7,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 444429}}"
+  },
+  {
+    "step": 9,
+    "actor": "single_agent",
+    "model": "qwen2.5:7b",
+    "text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"herpes_simplex\",\n  \"entry_concept_sets\": [\"herpes_simplex\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"herpes_simplex\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"herpes_simplex\": {\n      \"name\": \"herpes_simplex\",\n      \"domain\": \"Condition\",\n      \"description\": \"Herpes simplex virus infection\",\n      \"items\": [\n        {\"concept_id\": 444429, \"include_descendants\": false,\n         \"is_excluded\": false, \"rationale\": \"Primary concept for herpes simplex\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+  }
+]

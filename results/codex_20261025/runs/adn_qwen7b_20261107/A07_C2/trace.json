@@ -1,0 +1,292 @@
+{
+ "run_id": "adn_qwen7b_20261107_adn_A07_C2_attempt1",
+ "config": "C2",
+ "task_id": "A07",
+ "repeat": 1,
+ "status": "success",
+ "error": null,
+ "models": {
+  "model": "qwen2.5:7b"
+ },
+ "prompt_hashes": {
+  "single_agent": "e13951da3574"
+ },
+ "caps": {
+  "max_llm_calls": 30,
+  "max_tokens": 150000,
+  "concept_agent_tool_calls": 6,
+  "single_agent_tool_calls": 18,
+  "validator_retries": 3,
+  "critic_rounds": 2
+ },
+ "environment": {
+  "git_sha": "0748a09",
+  "python": "3.12.3",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+  "spec_version": "1.1"
+ },
+ "final_spec": {
+  "spec_version": "1.1",
+  "question": "Identify patients with inflammatory bowel disease, including Crohn's disease or ulcerative colitis, based on diagnosis evidence.",
+  "entry_concept_set": "inflammatory_bowel_disease",
+  "entry_concept_sets": [
+   "inflammatory_bowel_disease"
+  ],
+  "entry_arms": [
+   {
+    "concept_set": "inflammatory_bowel_disease",
+    "event_domain": "Condition"
+   }
+  ],
+  "first_occurrence_only": false,
+  "age_min": null,
+  "age_max": null,
+  "prior_observation_days": 0,
+  "criteria": [],
+  "concept_sets": {
+   "inflammatory_bowel_disease": {
+    "name": "inflammatory_bowel_disease",
+    "domain": "Condition",
+    "description": "Patients with Crohn's disease or ulcerative colitis based on diagnosis evidence.",
+    "items": [
+     {
+      "concept_id": 201606,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "Primary concept for Crohn's disease"
+     },
+     {
+      "concept_id": 81893,
+      "include_descendants": true,
+      "is_excluded": false,
+      "rationale": "Primary concept for ulcerative colitis"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "llm_calls": 7,
+  "tool_calls": 6,
+  "input_tokens": 18053,
+  "output_tokens": 402,
+  "total_tokens": 18455,
+  "wall_time_s": 201.32,
+  "llm_time_s": 199.59,
+  "peak_ram_mb": 244.3,
+  "critic_rounds": 0,
+  "validator_retries": 0
+ },
+ "auditability": 1.0,
+ "events": [
+  {
+   "step": 1,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047154.307131,
+   "latency_s": 7.811,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1534,
+   "output_tokens": 25,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"Crohn\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 2,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047162.118239,
+   "latency_s": 0.229,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "Crohn",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n201606\tCrohn's disease\tSNOMED\tDisorder\t38\n4290835\tCrohn's disease of skin\tSNOMED\tDisorder\t5\n37111373\tExtraintestinal Crohn's\tSNOMED\tDisorder\t10\n4177488\tCrohn's disease of colon\tSNOMED\tDisorder\t2\n4244235\tCrohn's disease of ileum\tSNOMED\tDisorder\t2\n4297643\tCrohn's disease of vulva\tSNOMED\tDisorder\t0\n4299294\tCrohn's disease of penis\tSNOMED\tDisorder\t0\n4340812\tPerianal Crohn's disease\tSNOMED\tDisorder\t0\n37162889\tColorectal Crohn disease\tSNOMED\tDisorder\t0\n4242392\tCrohn's disease of rectum\tSNOMED\tDisorder\t2\n37116446\tCrohn disease of appendix\tSNOMED\tDisorder\t0\n37162890\tIleojejunal Crohn disease\tSNOMED\tDisorder\t0\n4131542\tCrohn's stricture of colon\tSNOMED\tDisorder\t0\n4239382\tCrohn's disease of jejunum\tSNOMED\tDisorder\t1\n4266370\tCrohn's disease of pylorus\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 3,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047162.3472211,
+   "latency_s": 29.822,
+   "model": "qwen2.5:7b",
+   "input_tokens": 1946,
+   "output_tokens": 28,
+   "detail": {
+    "raw_text": "{\"action\": \"search_concepts\", \"args\": {\"query\": \"ulcerative colitis\", \"domain\": \"Condition\"}}"
+   }
+  },
+  {
+   "step": 4,
+   "kind": "tool",
+   "actor": "search_concepts",
+   "started_at": 1794047192.169267,
+   "latency_s": 0.161,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "query": "ulcerative colitis",
+     "domain": "Condition"
+    },
+    "rows": 15,
+    "output": "id\tname\tvocab\tclass\tn_desc\n81893\tUlcerative colitis\tSNOMED\tDisorder\t30\n40479839\tUlcerative pancolitis\tSNOMED\tDisorder\t4\n4025853\tUlcerative ileocolitis\tSNOMED\tDisorder\t1\n4029372\tAcute ulcerative colitis\tSNOMED\tDisorder\t3\n4166480\tUlcerative proctocolitis\tSNOMED\tDisorder\t4\n4342656\tUlcerative enterocolitis\tSNOMED\tDisorder\t3\n40479837\tChronic ulcerative colitis\tSNOMED\tDisorder\t11\n602593\tAcute ulcerative pancolitis\tSNOMED\tDisorder\t0\n75580\tChronic ulcerative proctitis\tSNOMED\tDisorder\t5\n40482241\tChronic ulcerative pancolitis\tSNOMED\tDisorder\t1\n40482865\tLeft sided ulcerative colitis\tSNOMED\tDisorder\t7\n78799\tChronic ulcerative ileocolitis\tSNOMED\tDisorder\t0\n4259504\tIritis with ulcerative colitis\tSNOMED\tDisorder\t0\n4086978\tEosinophilic ulcerative colitis\tSNOMED\tDisorder\t0\n4301738\tMild chronic ulcerative colitis\tSNOMED\tDisorder\t0"
+   }
+  },
+  {
+   "step": 5,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047192.3300014,
+   "latency_s": 28.964,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2355,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 201606}}"
+   }
+  },
+  {
+   "step": 6,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1794047221.2942286,
+   "latency_s": 0.541,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 201606
+    },
+    "rows": 16,
+    "output": "total_descendants=38\nid\tname\tclass\tlevels\n4253620\tIritis with Crohn's disease\tDisorder\t1\n4142544\tCrohn's disease in remission\tDisorder\t1\n4264850\tGastrointestinal Crohn's disease\tDisorder\t1\n4055884\tCrohn's disease of oral soft tissues\tDisorder\t1\n36716986\tArthritis co-occurrent and due to Crohn's disease\tDisorder\t1\n4122617\tCrohn's disease of gingivae\tDisorder\t2\n36715915\tCrohn disease of anal canal\tDisorder\t2\n4246693\tCrohn's disease of intestine\tDisorder\t2\n37172426\tCrohn disease of colon in remission\tDisorder\t2\n4115377\tJuvenile arthritis in Crohn disease\tDisorder\t2\n37170088\tCrohn disease of rectum in remission\tDisorder\t2\n37170274\tCrohn disease of small intestine in remission\tDisorder\t2\n42537666\tCrohn disease of upper gastrointestinal tract\tDisorder\t2\n36716695\tCrohn's disease of gastrointestinal anastomosis\tDisorder\t2\n4342643\tCrohn's disease of stomach\tDisorder\t3"
+   }
+  },
+  {
+   "step": 7,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047221.8354053,
+   "latency_s": 27.64,
+   "model": "qwen2.5:7b",
+   "input_tokens": 2733,
+   "output_tokens": 23,
+   "detail": {
+    "raw_text": "{\"action\": \"get_descendants\", \"args\": {\"concept_id\": 81893}}"
+   }
+  },
+  {
+   "step": 8,
+   "kind": "tool",
+   "actor": "get_descendants",
+   "started_at": 1794047249.475118,
+   "latency_s": 0.382,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 81893
+    },
+    "rows": 16,
+    "output": "total_descendants=30\nid\tname\tclass\tlevels\n40479839\tUlcerative pancolitis\tDisorder\t1\n4029372\tAcute ulcerative colitis\tDisorder\t1\n4342656\tUlcerative enterocolitis\tDisorder\t1\n4166480\tUlcerative proctocolitis\tDisorder\t1\n40479837\tChronic ulcerative colitis\tDisorder\t1\n40482865\tLeft sided ulcerative colitis\tDisorder\t1\n4259504\tIritis with ulcerative colitis\tDisorder\t1\n4086978\tEosinophilic ulcerative colitis\tDisorder\t1\n44783784\tUlcerative colitis in remission\tDisorder\t1\n4187900\tExacerbation of ulcerative colitis\tDisorder\t1\n4114447\tJuvenile arthritis in ulcerative colitis\tDisorder\t1\n4225691\tToxic megacolon due to ulcerative colitis\tDisorder\t1\n46269951\tAbscess of intestine co-occurrent and due to ulcerative colitis\tDisorder\t1\n4025853\tUlcerative ileocolitis\tDisorder\t2\n602593\tAcute ulcerative pancolitis\tDisorder\t2"
+   }
+  },
+  {
+   "step": 9,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047249.8575263,
+   "latency_s": 28.573,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3105,
+   "output_tokens": 24,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 201606}}"
+   }
+  },
+  {
+   "step": 10,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794047278.4305446,
+   "latency_s": 0.018,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 201606
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n201606\tCrohn's disease\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 11,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047278.4490266,
+   "latency_s": 9.308,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3162,
+   "output_tokens": 23,
+   "detail": {
+    "raw_text": "{\"action\": \"map_to_standard\", \"args\": {\"concept_id\": 81893}}"
+   }
+  },
+  {
+   "step": 12,
+   "kind": "tool",
+   "actor": "map_to_standard",
+   "started_at": 1794047287.7571952,
+   "latency_s": 0.016,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "args": {
+     "concept_id": 81893
+    },
+    "rows": 1,
+    "output": "id\tname\tdomain\tvocab\n81893\tUlcerative colitis\tCondition\tSNOMED"
+   }
+  },
+  {
+   "step": 13,
+   "kind": "llm",
+   "actor": "single_agent",
+   "started_at": 1794047287.7736456,
+   "latency_s": 67.469,
+   "model": "qwen2.5:7b",
+   "input_tokens": 3218,
+   "output_tokens": 255,
+   "detail": {
+    "raw_text": "{\"action\": \"final\", \"result\": {\n  \"entry_concept_set\": \"inflammatory_bowel_disease\",\n  \"entry_concept_sets\": [\"inflammatory_bowel_disease\"],\n  \"entry_arms\": [\n    {\"concept_set\": \"inflammatory_bowel_disease\", \"event_domain\": \"Condition\"}\n  ],\n  \"first_occurrence_only\": false,\n  \"age_min\": null,\n  \"age_max\": null,\n  \"prior_observation_days\": 0,\n  \"concept_sets\": {\n    \"inflammatory_bowel_disease\": {\n      \"name\": \"inflammatory_bowel_disease\",\n      \"domain\": \"Condition\",\n      \"description\": \"Patients with Crohn's disease or ulcerative colitis based on diagnosis evidence.\",\n      \"items\": [\n        {\"concept_id\": 201606, \"include_descendants\": true, \"is_excluded\": false, \"rationale\": \"Primary concept for Crohn's disease\"},\n        {\"concept_id\": 81893, \"include_descendants\": true, \"is_excluded\": false, \"rationale\": \"Primary concept for ulcerative colitis\"}\n      ]\n    }\n  },\n  \"criteria\": []\n}}"
+   }
+  },
+  {
+   "step": 14,
+   "kind": "note",
+   "actor": "validator",
+   "started_at": 1794047355.625946,
+   "latency_s": 0.0,
+   "model": null,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "detail": {
+    "passed": true,
+    "issues": []
+   }
+  }
+ ]
+}
