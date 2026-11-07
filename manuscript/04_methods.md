@@ -23,19 +23,26 @@ Defined in `src/runner/experiment.py`:
 - **Read-Only Database Access:** Databases mounted strictly read-only (`data/vocab.duckdb`, `data/eunomia.duckdb`).
 
 ## Benchmark Construction and Multi-Arm Reference Correction
-- **Core Benchmark Track (V5.3):** 20 diverse cohort tasks (T01–T20) from OHDSI Phenotype Library (`results/benchmark_design/V5_3_FREEZE/`).
+- **Core Benchmark Track (V5.3):** 20 diverse cohort tasks (T01–T20) from the OHDSI Phenotype Library (`results/benchmark_design/V5_3_FREEZE/`).
 - **Neurological Phenotype Track:** 12 targeted cohorts (N01–N12) covering neurodegenerative and neuroinflammatory conditions (`results/benchmark_design/NEURO_FREEZE/`).
 - **Reference v2:** 11 of 20 core V5.3 tasks feature disjunctive multi-arm entry criteria. Reference v2 (`tasks/reference_v2/`) establishes the ground-truth concept set as the union of all valid entry arms, reducing artificial pairwise entry overlap from 0.722 in v1 to 0.139 in v2.
+- **Freezing:** task lists, questions, references and code were frozen with SHA-256 manifests before the official runs (`results/codex_20261025/freeze_manifest_OFFICIAL.json`).
 
 ## Reference Correction for Task T10
 During the final audit we found that task T10 (attention-deficit hyperactivity disorder based on condition or procedure evidence) had been linked to OHDSI Phenotype Library cohort 967 (4-point MACE) instead of cohort 1025 (first event of ADHD disorder or procedure) because of a cohort-identifier transcription error. The T10 reference was rebuilt from cohort 1025 and the stored T10 outputs were re-scored with the same resolver and metric code, without re-running any model; re-resolution reproduced every stored concept-set size exactly. The superseded reference and the re-scoring record (`results/analysis_tier1_20261028/rescore_overrides_T10.json`) are retained in the repository.
 
 ## Quantitative Evaluation Metrics
-- **Concept matching:** exact OMOP `concept_id` agreement between the union of all resolved predicted concept sets and the Reference v2 concept set (`results/analysis_tier1_20261028/METRICS_DEFINITIONS.md`).
+- **Concept matching:** exact OMOP `concept_id` agreement between the union of all resolved predicted concept sets (restricted to standard concepts) and the Reference v2 concept set (`results/analysis_tier1_20261028/METRICS_DEFINITIONS.md`).
 - **Scored runs:** a run is scored when it produced a resolvable concept specification. Scored runs whose predictions share no concept with the reference receive precision = recall = F1 = 0. Failed, timed-out or unparsable runs are unscored.
 - **Dual-denominator reporting:** mean F1 over scored runs, and intention-to-evaluate mean F1 over all tasks with unscored runs set to 0 (All=0).
 - **Retries:** runs stopped by an infrastructure fault (memory preflight stop) were re-executed once (T05, T11 and T17); all other runs use the first attempt. Remaining infrastructure failures are counted as failures. System logs show the local inference server was terminated by the operating system's out-of-memory killer within five minutes of two of these failed retries (T11 and T17).
 - **Paired comparisons:** C1 versus each alternative on tasks scored by both configurations; two-sided Wilcoxon signed-rank tests with zero differences dropped; Holm–Bonferroni adjustment across the three comparisons within each track; percentile bootstrap 95% CIs of the mean paired difference (10,000 resamples of paired differences, seed `20261028`).
 
+## Secondary Analyses
+- **Hierarchy-aware matching:** For a tolerance of k levels, a predicted concept counts as a hit if it lies within k levels of any reference concept in the OMOP `concept_ancestor` table (as ancestor or descendant, by `min_levels_of_separation`), and a reference concept counts as recalled if it lies within k levels of any predicted concept. Predictions are restricted to standard concepts exactly as in the primary scorer; k = 0 reproduces the primary F1 of every scored run (maximum absolute difference 1.1 × 10⁻¹⁶). Because adjacent concepts are not clinically equivalent, these scores describe the nature of errors and are not used for inference (`scripts/hierarchy_aware_metrics.py`).
+- **Alzheimer's neuroinflammation (ADN) extension track:** To examine error mechanisms in the phenotypes that AD neuroinflammation research depends on, we built 12 further tasks (A01–A12; Appendix Table A1) from OHDSI Phenotype Library cohorts: AD and dementia outcomes; delirium; chronic inflammatory and autoimmune exposures (rheumatoid arthritis, inflammatory bowel disease, psoriasis, systemic lupus erythematosus); acute infection and inflammation (sepsis, herpes simplex); major depressive disorder; and anti-inflammatory treatment (new users of JAK inhibitors in rheumatoid arthritis and of TNFα inhibitors in Crohn's disease). The track was designed after the primary analysis and frozen with its own manifest before any run (`results/codex_20261025/freeze_manifest_ADN.json`); references, configurations, settings, scoring, retry rules and tests were identical to the primary tracks. Generated definitions were inspected for four tasks (A01, A04, A10, A12), and the tool-call logs of all 48 runs were checked for any access to cohort definitions.
+
 ## Hardware and Local Inference
 Acer One Z14-55N (Intel Core i3-N305, 8 cores / 8 threads, 8 GB DDR5 RAM, CPU only, Linux Mint). Model: quantized `qwen2.5:7b` [13] (Q4_K_M GGUF format via Ollama).
+
+---

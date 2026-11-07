@@ -13,3 +13,4 @@
 11. Overhage JM, Ryan PB, Reich CG, Hartzema AG, Stang PE. Validation of a common data model for active safety surveillance research. *Journal of the American Medical Informatics Association*. 2012;19(1):54-60. doi:10.1136/amiajnl-2011-000376.
 12. Hripcsak G, Duke JD, Shah NH, et al. Observational Health Data Sciences and Informatics (OHDSI): opportunities for observational researchers. *Studies in Health Technology and Informatics*. 2015;216:574-578.
 13. Qwen Team. Qwen2.5 technical report. *arXiv preprint arXiv:2412.15115*. 2024.
+14. Desai RJ, Varma VR, Gerhard T, et al. Comparative risk of Alzheimer disease and related dementia among Medicare beneficiaries with rheumatoid arthritis treated with targeted disease-modifying antirheumatic agents. *JAMA Network Open*. 2022;5(4):e226567. doi:10.1001/jamanetworkopen.2022.6567.
