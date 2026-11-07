@@ -38,7 +38,7 @@ The main benchmark already contains:
 ```bash
 .venv/bin/python scripts/build_adn_track.py     # builds tasks/adn/ and tasks/reference_adn/ (prints a sanity sample per task)
 bash scripts/run_adn_track.sh                    # 48 runs; several hours; resumable with --resume
-.venv/bin/python scripts/analyze_adn_track.py results/adn_runs/<run_dir>
+.venv/bin/python scripts/analyze_adn_track.py results/codex_20261025/runs/adn_qwen7b_<date>
 ```
 
 ## Tasks that need expert-built references

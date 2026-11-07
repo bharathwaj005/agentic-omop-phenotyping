@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Summarise an ADN-track run directory with the same dual-denominator rules as the paper.
 
-    python scripts/analyze_adn_track.py results/adn_runs/qwen7b_YYYYMMDD
+    python scripts/analyze_adn_track.py results/codex_20261025/runs/adn_qwen7b_YYYYMMDD
 """
 import json
 import sys

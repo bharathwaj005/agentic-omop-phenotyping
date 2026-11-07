@@ -24,6 +24,14 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.tools.resolver import open_vocab, resolve_items
 
+import inspect as _inspect
+from src.tools.resolver import restrict_to_standard as _rts
+def _std(con, ids, s):
+    """Same standard-concept restriction the official scorer and reference builder apply."""
+    params = list(_inspect.signature(_rts).parameters)
+    kw = {p: s.get("domain") for p in params[2:] if "domain" in p}
+    return set(_rts(con, ids, **kw))
+
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "results" / "analysis_tier1_20261028"
 
@@ -55,7 +63,7 @@ def main() -> None:
             rep = json.loads((ROOT / r.chosen_report).read_text())
             pred = set()
             for s in (rep.get("per_set") or {}).values():
-                pred |= resolve_items(con, s.get("items", []))
+                pred |= _std(con, resolve_items(con, s.get("items", [])), s)
             cohort = "1025" if (r.track == "v53" and r.task_id == "T10") else str(rep.get("cohort_id"))
             ref = set(json.loads((ROOT / "tasks" / "reference_v2" / f"{cohort}.json").read_text())["all_concept_ids"])
             groups = [("MATCHED", sorted(pred & ref)[: a.max_matched]),

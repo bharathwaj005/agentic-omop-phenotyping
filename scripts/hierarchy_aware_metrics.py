@@ -25,6 +25,14 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.tools.resolver import open_vocab, resolve_items
 
+import inspect as _inspect
+from src.tools.resolver import restrict_to_standard as _rts
+def _std(con, ids, s):
+    """Same standard-concept restriction the official scorer and reference builder apply."""
+    params = list(_inspect.signature(_rts).parameters)
+    kw = {p: s.get("domain") for p in params[2:] if "domain" in p}
+    return set(_rts(con, ids, **kw))
+
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "results" / "analysis_tier1_20261028"
 LEVELS = (0, 1, 2)
@@ -73,7 +81,7 @@ def main() -> int:
             sets = rep.get("per_set") or {}
             pred: set[int] = set()
             for s in sets.values():
-                pred |= resolve_items(con, s.get("items", []))
+                pred |= _std(con, resolve_items(con, s.get("items", [])), s)
             cohort = str(rep.get("cohort_id"))
             if row.track == "v53" and row.task_id == "T10":
                 cohort = T10_CORRECTED_COHORT

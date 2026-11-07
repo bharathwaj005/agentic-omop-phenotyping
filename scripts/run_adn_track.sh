@@ -9,7 +9,7 @@ set -a && . ./.env && set +a
 export PYTHONPATH=.
 export JBI_RUN_DEADLINE_S=1200
 export JBI_HTTP_TIMEOUT_S=600
-OUT="${ADN_OUT:-results/adn_runs/qwen7b_$(date +%Y%m%d)}"
+OUT="${ADN_OUT:-results/codex_20261025/runs/adn_qwen7b_$(date +%Y%m%d)}"
 mkdir -p "$(dirname "$OUT")"
 echo "[$(date -Is)] ADN track -> $OUT"
 python scripts/run_benchmark.py \
@@ -17,5 +17,5 @@ python scripts/run_benchmark.py \
   --questions tasks/adn/ad_neuroinflammation_questions.jsonl \
   --model qwen2.5:7b \
   --out "$OUT" \
-  --configs C1,C2,C3,C4 "$@" 2>&1 | tee "$OUT.log"
+  --configs C1,C2,C3,C4 --freeze-manifest "${ADN_FREEZE:-results/codex_20261025/freeze_manifest_ADN.json}" "$@" 2>&1 | tee "$OUT.log"
 python scripts/analyze_adn_track.py "$OUT"
