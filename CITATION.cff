@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software or benchmark, please cite it as below."
+title: "Agentic OMOP Phenotyping: code, benchmark and frozen results"
+version: v1.0-jbi-submission
+date-released: 2026-11-07
+license: MIT
+repository-code: "https://github.com/bharathwaj005/agentic-omop-phenotyping"
+authors:
+  - name: "Bharathwaj"
+    affiliation: "Department of Biotechnology"
+keywords:
+  - OMOP Common Data Model
+  - computable phenotyping
+  - agentic AI
+  - large language models
+  - real-world evidence
+  - OHDSI
+preferred-citation:
+  type: article
+  title: "How Faithfully Do Agentic AI Systems Generate OMOP Cohort Definitions? A Controlled, Low-Resource Evaluation of Multi-Agent Phenotyping"
+  authors:
+    - name: "Bharathwaj"
+  journal: "Journal of Biomedical Informatics (submitted)"
+  year: 2026

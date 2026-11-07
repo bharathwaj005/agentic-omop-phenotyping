@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-cd /home/bharathwaj/jbi
+cd "$(dirname "$0")/.."
 source .venv/bin/activate
 set -a && . ./.env && set +a
 export PYTHONPATH=.

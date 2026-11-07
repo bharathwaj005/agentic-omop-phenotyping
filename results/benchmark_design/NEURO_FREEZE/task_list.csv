@@ -1,0 +1,13 @@
+task_id,cohort_id,cohort_name,complexity,entry_domains,number_of_entry_arms,eunomia_entry_person_count,patient_evaluable
+N01,255,"Alzheimer's disease (based on Imfeld, 2013)",complex,Condition|Drug,3,136,true
+N02,863,"Cognitive impairment, incident",simple,Condition,1,0,false
+N03,552,Parkinson's disease,simple,Condition,1,0,false
+N04,1026,Earliest Event of Multiple Sclerosis,simple,Condition,1,0,false
+N05,287,Transverse myelitis includes Myelitis Unspecified and neuromyelitis optica,complex,Condition,4,3,true
+N06,535,Acute disseminated encephalomyelitis,simple,Condition,1,0,false
+N07,1079,Encephalomyelitis,medium,Condition,1,0,false
+N08,544,Encephalitis,simple,Condition,1,0,false
+N09,235,Guillain Barre syndrome inpatient,medium,Condition,1,0,false
+N10,550,Chronic inflammatory demyelinating polyradiculoneuropathy,simple,Condition,1,0,false
+N11,229,Progressive multifocal leukoencephalopathy,simple,Condition,1,0,false
+N12,1066,New users of Tumor Necrosis Factor alpha (TNFa) inhibitors nested in Rheumatoid arthritis,medium,Drug,1,0,false

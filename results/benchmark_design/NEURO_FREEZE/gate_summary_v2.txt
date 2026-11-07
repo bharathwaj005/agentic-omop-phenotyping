@@ -1,0 +1,8 @@
+V2 entry concept Jaccard gate
+Pairs evaluated: 561
+Threshold: 0.90
+Maximum: 1.000000 (cohorts 235 and 1080; Neuro_vs_Neuro)
+Frozen v1 maximum: 0.722222; v2 change: +0.277778
+Pairs >= threshold: 2
+Neuro_vs_V5.3: 33 vs 864 = 0.906504
+Neuro_vs_Neuro: 235 vs 1080 = 1.000000

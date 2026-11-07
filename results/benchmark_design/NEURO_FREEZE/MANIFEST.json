@@ -1,0 +1,43 @@
+{
+  "eunomia_person_count": 2694,
+  "external_draft_question_files": {
+    "tasks/neuro_questions_DRAFT.jsonl": "5ba07532be3e2fb428f9ad08a7c3b591cd892d88944ca151d410c381bf7025d3",
+    "tasks/neuro_questions_DRAFT_README.txt": "c77781e0aed269a2110677b143d94ae36c9adf6c0d649d25bf09d560ba939530"
+  },
+  "files": {
+    "README.txt": "f7b4825ef036127c27167c366c186e74e53679e60d7db59b2107a5bed44475b1",
+    "exclusion_log.csv": "905365c2dfa1b04ec5bc1776328dca38355dffc16a07167ca3681ada9b977f23",
+    "gate_summary_v2.txt": "37188681ea042ac5350d36df1ff0d3ef3f6979aec75d7e29b5c3120e18349028",
+    "task_list.csv": "4d85e1b0da591c4d96ff94977f0da30eda28d8102e8764f7484fb767ef1c8f9d"
+  },
+  "reference_v2_files": {
+    "tasks/reference_v2/1026.json": "fb46ef688252efedb0c981b2a0eb43fbe7e59adc83c418732ba47018b0135f74",
+    "tasks/reference_v2/1066.json": "40ed5789249ce42a5182d06613810bccffe62b16f8781853791ad33c1021b35a",
+    "tasks/reference_v2/1079.json": "1f7c149f46ec147b23afa2c389f189c9cf8481bf2003b8e4ca46907798160c27",
+    "tasks/reference_v2/229.json": "97f768bedf002fa7992ce086e1747254fa62e2657c56b1c974306d285ad39933",
+    "tasks/reference_v2/235.json": "d9a4aac52c33751e053b8b99755c08e0fd9da22517aec229a3a6a2e29477f657",
+    "tasks/reference_v2/255.json": "4a8725c2ddf5ffd870f7e56a054d6f8f89e5932a7bd30348183f55e447c3b245",
+    "tasks/reference_v2/287.json": "e7a9ac89d88068ceb5a3e4a9bb007a5190550c8c0983a1f0722a92e216580155",
+    "tasks/reference_v2/535.json": "5162fe4298fdf085826c6f5a81d24764e66fc67854f66889f0e6c2341ff15124",
+    "tasks/reference_v2/544.json": "4ba381d3ddb510ed799c206a69bac2b9506b1614882d1220298a4099fdfb7e6d",
+    "tasks/reference_v2/550.json": "9fc72a7cba8c11fa50975c4710ec8ae7d3713f5b172526f87ddfba9396a29fab",
+    "tasks/reference_v2/552.json": "91e557f158d421282ffca7d1bdc71e212a377b758732c2aaa6210e475d801006",
+    "tasks/reference_v2/863.json": "76dac82bcbf837db8b6acbedc7cc01f61900024544ed347a5425b8056c2f27fc"
+  },
+  "reference_v2_manifest_sha256": "4f807ba055ed1a71d5ded423fab5bd27041efdb1cd27ea4f32ccaf6afaf688bb",
+  "selected_cohort_ids": [
+    255,
+    863,
+    552,
+    1026,
+    287,
+    535,
+    1079,
+    544,
+    235,
+    550,
+    229,
+    1066
+  ],
+  "track": "Neuro"
+}

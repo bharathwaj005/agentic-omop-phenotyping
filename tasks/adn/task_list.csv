@@ -1,0 +1,13 @@
+task_id,cohort_id,cohort_name,role
+A01,100,[P][R] Alzheimer's disease,outcome
+A02,651,[P][R] Dementia,outcome
+A03,95,[P] Delirium,acute brain dysfunction
+A04,457,[P][R] Rheumatoid arthritis,inflammatory exposure
+A05,1070,[P] New users of JAK inhibitors nested in Rheumatoid arthritis,anti-inflammatory treatment
+A06,1069,[P] New users of TNFa inhibitors nested in Crohns disease,anti-inflammatory treatment
+A07,629,[P][R] Inflammatory bowel disease,inflammatory exposure
+A08,475,[P][R] Psoriasis,inflammatory exposure
+A09,509,[P][R] Systemic lupus erythematosus,autoimmune exposure
+A10,463,[P][R] Sepsis,systemic inflammation
+A11,615,[P][R] Herpes simplex,infection (viral hypothesis)
+A12,699,[P][R] Major Depressive Disorder,neuropsychiatric comorbidity

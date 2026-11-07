@@ -41,7 +41,7 @@ RUNS_ROOT = ROOT / "results/codex_20261025/runs"
 MIN_AVAILABLE_MEMORY_BYTES = 3 * 1024**3
 MIN_FREE_DISK_BYTES = 1 * 1024**3
 MAX_RUN_DEADLINE_S = 3600
-REFERENCE_V2_SHA256 = "4f807ba055ed1a71d5ded423fab5bd27041efdb1cd27ea4f32ccaf6afaf688bb"
+REFERENCE_V2_SHA256 = "3f083090c913e01ef34872c93c2bd59169dfb1aa6ba63804fbcfc6b91ba78264"  # corrected T10 reference (docs/ERRATA.md)
 FROZEN_HASHES = {
     "results/benchmark_design/V5_3_FREEZE/BENCHMARK_FINAL20_V5_3_FINAL.csv": "205e4f69c4d43b89719c4291446d11b760b939b2610999e43c2a11dc4377e0f2",
     "results/benchmark_design/V5_3_FREEZE/BENCHMARK_V5_3_FINAL_ENTRY_JACCARD_190_PAIRS.csv": "0dcdd9b3c99eda1c92dde3fec8914a8cf2280416147cfcab9f974fe7cb78c1b1",
@@ -50,7 +50,7 @@ FROZEN_HASHES = {
     "tasks/reference/134.json": "a9ded2583ada1e552702595e3a80b132ce5a1d4dbebaf3ceef972492a4248c2c",
     "/media/bharathwaj/HDD_Storage/project_jbi/results/benchmark_runs/V5_3_REAL_RUN/RUN_QUEUE.csv": "ac668c67c85ad69d061476c071f17c55ef24b0b4c913cebd42184687ddea6a66",
 }
-V53 = [134, 219, 290, 334, 373, 588, 785, 862, 864, 967, 1048, 1064,
+V53 = [134, 219, 290, 334, 373, 588, 785, 862, 864, 1025, 1048, 1064,
        1073, 1183, 1184, 1188, 1261, 1263, 1285, 1301]
 CONFIGS = {"C1": C1, "C2": "C2", "C3": C3, "C4": C4}
 COMPLETE_STATUSES = {"success", "failed", "timeout", "budget_exhausted",
@@ -111,6 +111,8 @@ def _verify_frozen() -> None:
     errors = []
     for raw, expected in FROZEN_HASHES.items():
         path = Path(raw) if raw.startswith("/") else ROOT / raw
+        if raw.startswith("/") and not path.exists():
+            continue  # machine-specific provenance file; not shipped with the repository
         if not path.is_file() or sha256(path) != expected:
             errors.append(raw)
     if errors:
@@ -122,7 +124,7 @@ def _verify_frozen() -> None:
 
 def _load_questions(path: Path, track: str, task_filter: set[str] | None) -> list[dict]:
     rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
-    expected = "T" if track == "v53" else "N"
+    expected = {"v53": "T", "neuro": "N", "adn": "A"}[track]
     rows = [r for r in rows if str(r.get("task_id", "")).startswith(expected)]
     if len({str(r.get("task_id")) for r in rows}) != len(rows):
         raise ValueError("question file contains duplicate task_id values")
@@ -144,7 +146,7 @@ def _load_questions(path: Path, track: str, task_filter: set[str] | None) -> lis
 def _cohort_map(track: str) -> dict[str, str]:
     if track == "v53":
         return {f"T{i:02d}": str(cid) for i, cid in enumerate(V53, 1)}
-    path = ROOT / "results/benchmark_design/NEURO_FREEZE/task_list.csv"
+    path = ROOT / ("tasks/adn/task_list.csv" if track == "adn" else "results/benchmark_design/NEURO_FREEZE/task_list.csv")
     if not path.is_file():
         raise FileNotFoundError("Neuro freeze task_list.csv is missing")
     with path.open(newline="") as stream:
@@ -203,11 +205,11 @@ def _write_run_manifest(out: Path, *, track: str, questions: Path,
                                  "configurations": configs,
                                  "ollama_num_ctx": ollama_num_ctx}, sort_keys=True)
     reference_inputs = []
-    v1_folder = "reference" if track == "v53" else "reference_neuro"
+    v1_folder = {"v53": "reference", "neuro": "reference_neuro", "adn": "reference_adn"}[track]
     for task in question_rows:
         task_id = str(task["task_id"])
         cohort = cohort_map[task_id]
-        for version, folder in (("v1", v1_folder), ("v2", "reference_v2")):
+        for version, folder in (("v1", v1_folder), ("v2", "reference_adn" if track == "adn" else "reference_v2")):
             path = ROOT / "tasks" / folder / f"{cohort}.json"
             reference_inputs.append({"task_id": task_id, "cohort_id": cohort,
                                      "version": version, "path": str(path.resolve()),
@@ -253,7 +255,9 @@ def _classify_infrastructure(reason: str) -> bool:
 
 
 def _reference(track: str, cohort: str, version: str) -> dict:
-    if version == "v2":
+    if track == "adn":
+        folder = "reference_adn"
+    elif version == "v2":
         folder = "reference_v2"
     else:
         folder = "reference" if track == "v53" else "reference_neuro"
@@ -585,7 +589,7 @@ def run_benchmark(track: str, questions: Path, model: str, out: Path,
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--track", required=True, choices=["v53", "neuro"])
+    parser.add_argument("--track", required=True, choices=["v53", "neuro", "adn"])
     parser.add_argument("--questions", required=True, type=Path)
     parser.add_argument("--model", required=True)
     parser.add_argument("--out", required=True, type=Path)

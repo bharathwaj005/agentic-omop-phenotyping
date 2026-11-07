@@ -1,0 +1,12 @@
+{"task_id": "A01", "question": "Identify patients with Alzheimer's disease based on diagnosis evidence."}
+{"task_id": "A02", "question": "Identify patients with dementia of any type based on diagnosis evidence."}
+{"task_id": "A03", "question": "Identify patients with an episode of delirium based on diagnosis evidence."}
+{"task_id": "A04", "question": "Identify patients with rheumatoid arthritis based on diagnosis evidence."}
+{"task_id": "A05", "question": "Identify patients with rheumatoid arthritis who are new users of Janus kinase (JAK) inhibitors."}
+{"task_id": "A06", "question": "Identify patients with Crohn's disease who are new users of tumor necrosis factor alpha inhibitors."}
+{"task_id": "A07", "question": "Identify patients with inflammatory bowel disease, including Crohn's disease or ulcerative colitis, based on diagnosis evidence."}
+{"task_id": "A08", "question": "Identify patients with psoriasis based on diagnosis evidence."}
+{"task_id": "A09", "question": "Identify patients with systemic lupus erythematosus based on diagnosis evidence."}
+{"task_id": "A10", "question": "Identify patients with sepsis based on diagnosis evidence."}
+{"task_id": "A11", "question": "Identify patients with herpes simplex virus infection based on diagnosis evidence."}
+{"task_id": "A12", "question": "Identify patients with major depressive disorder based on diagnosis evidence."}

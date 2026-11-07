@@ -1,0 +1,32 @@
+V5.3 REVISED REDUNDANCY AUDIT
+================================================================================
+
+REMOVED
+[100, 1044, 1074]
+
+ADDED
+[219, 785, 1184]
+
+FINAL IDS
+[134, 219, 290, 334, 373, 588, 785, 862, 864, 967, 1048, 1064, 1073, 1183, 1184, 1188, 1261, 1263, 1285, 1301]
+
+ENTRY-JACCARD
+pairs = 190
+max = 0.722222
+mean = 0.005936
+median = 0.000000
+>=0.30 = 1
+>=0.50 = 1
+>=0.70 = 1
+>=0.90 = 0
+
+PAIRS >= 0.90
+Empty DataFrame
+Columns: [cohort_a, cohort_b, entry_jaccard, intersection, union, entry_a, entry_b]
+Index: []
+
+OLD COMPOSITION
+{'n': 20, 'complexity': {'complex': 11, 'medium': 5, 'simple': 4}, 'domain': {'Condition': 15, 'Drug': 5}, 'compiler': {True: 11, False: 9}}
+
+NEW COMPOSITION
+{'n': 20, 'complexity': {'complex': 13, 'medium': 4, 'simple': 3}, 'domain': {'Condition': 16, 'Drug': 4}, 'compiler': {False: 11, True: 9}}

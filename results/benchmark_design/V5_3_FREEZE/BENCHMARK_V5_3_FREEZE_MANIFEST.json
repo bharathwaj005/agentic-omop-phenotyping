@@ -1,0 +1,230 @@
+{
+  "freeze_status": "FROZEN_CANDIDATE",
+  "freeze_timestamp_utc": "2026-10-04T09:47:40.115525+00:00",
+  "benchmark_version": "V5.3",
+  "source_selection_file": "results/benchmark_design/BENCHMARK_FINAL20_PROPOSAL_V5_3_REVISED.csv",
+  "final_task_count": 20,
+  "final_cohort_ids": [
+    134,
+    219,
+    290,
+    334,
+    373,
+    588,
+    785,
+    862,
+    864,
+    967,
+    1048,
+    1064,
+    1073,
+    1183,
+    1184,
+    1188,
+    1261,
+    1263,
+    1285,
+    1301
+  ],
+  "change_log_from_V5_2": {
+    "removed": [
+      100,
+      1025,
+      1044,
+      1074
+    ],
+    "added": [
+      219,
+      785,
+      967,
+      1184
+    ],
+    "replacements": {
+      "1025": 967,
+      "100": 219,
+      "1044": 785,
+      "1074": 1184
+    }
+  },
+  "integrity": {
+    "unique_cohort_ids": true,
+    "v4_overlap_count": 0,
+    "missing_reference_count": 0,
+    "pairwise_comparison_count": 190
+  },
+  "entry_jaccard_gate": {
+    "definition": "J(A,B) = |A intersection B| / |A union B| using Athena-resolved entry_concept_ids",
+    "redundancy_threshold": 0.9,
+    "maximum": 0.7222222222222222,
+    "mean": 0.005935950111565888,
+    "median": 0.0,
+    "count_ge_0_30": 1,
+    "count_ge_0_50": 1,
+    "count_ge_0_70": 1,
+    "count_ge_0_90": 0,
+    "gate_pass": true
+  },
+  "composition": {
+    "complexity": {
+      "complex": 13,
+      "medium": 4,
+      "simple": 3
+    },
+    "entry_domain": {
+      "Condition": 16,
+      "Drug": 4
+    },
+    "compiler_supported": {
+      "False": 11,
+      "True": 9
+    },
+    "eunomia_evaluable": {
+      "True": 20
+    },
+    "temporal_signal": {
+      "True": 20
+    },
+    "redundancy_family_signal": {
+      "other": 14,
+      "adhd": 3,
+      "drug_new_user": 2,
+      "alzheimer": 1
+    }
+  },
+  "freeze_artifacts": {
+    "final_csv": {
+      "path": "results/benchmark_design/V5_3_FREEZE/BENCHMARK_FINAL20_V5_3_FINAL.csv",
+      "sha256": "205e4f69c4d43b89719c4291446d11b760b939b2610999e43c2a11dc4377e0f2"
+    },
+    "pairwise_jaccard_csv": {
+      "path": "results/benchmark_design/V5_3_FREEZE/BENCHMARK_V5_3_FINAL_ENTRY_JACCARD_190_PAIRS.csv",
+      "sha256": "0dcdd9b3c99eda1c92dde3fec8914a8cf2280416147cfcab9f974fe7cb78c1b1"
+    },
+    "redundancy_audit": {
+      "path": "results/benchmark_design/V5_3_FREEZE/BENCHMARK_V5_3_FINAL_REDUNDANCY_AUDIT.txt",
+      "sha256": "095e4b3fce262f29ab926e3e5a12dc60898dacfd73363b7cf5ed83581db83c67"
+    }
+  },
+  "athena_resolved_references": {
+    "134": {
+      "path": "tasks/reference/134.json",
+      "sha256": "a9ded2583ada1e552702595e3a80b132ce5a1d4dbebaf3ceef972492a4248c2c",
+      "entry_concept_count": 18,
+      "all_concept_count": 889
+    },
+    "219": {
+      "path": "tasks/reference/219.json",
+      "sha256": "975d95b9f8f6b4b9d42c879218e9ffc6cd5d9a9bf3a66d84bb4255fc657d78de",
+      "entry_concept_count": 68,
+      "all_concept_count": 74
+    },
+    "290": {
+      "path": "tasks/reference/290.json",
+      "sha256": "3db8934a25bd005b88a32247de9726d3b70e452f865891fe2cff3093487a511f",
+      "entry_concept_count": 82,
+      "all_concept_count": 755
+    },
+    "334": {
+      "path": "tasks/reference/334.json",
+      "sha256": "50e6a15ca40030f906803e3a094f66198647d115ca64997500115fcd5c4a0da4",
+      "entry_concept_count": 633,
+      "all_concept_count": 770
+    },
+    "373": {
+      "path": "tasks/reference/373.json",
+      "sha256": "eeed76ee8b46afd1f2f22a9bd0150eec3ff5a318f0c1236b298b82706348131c",
+      "entry_concept_count": 69,
+      "all_concept_count": 121
+    },
+    "588": {
+      "path": "tasks/reference/588.json",
+      "sha256": "1a192b36ea5ffc842e43b39186422dec7003ed2c849bd474124deed9213e5b91",
+      "entry_concept_count": 13,
+      "all_concept_count": 13
+    },
+    "785": {
+      "path": "tasks/reference/785.json",
+      "sha256": "0c0999d0ab58dffcbe42749ed84315ad616243cb8feec1f5762ab87bddfc71e0",
+      "entry_concept_count": 1017,
+      "all_concept_count": 1095
+    },
+    "862": {
+      "path": "tasks/reference/862.json",
+      "sha256": "dcdec02fc1147b5cd501cdd3590f93ca27acafea34c7176ec9a2b3cb41f97df8",
+      "entry_concept_count": 35,
+      "all_concept_count": 1303
+    },
+    "864": {
+      "path": "tasks/reference/864.json",
+      "sha256": "4848376c2076b4c6c2eefbe7c65a8efe0b1cbf45327cecae7f213252188a967b",
+      "entry_concept_count": 244,
+      "all_concept_count": 244
+    },
+    "967": {
+      "path": "tasks/reference/967.json",
+      "sha256": "cdcf8b5df80495636f40abe09909eb06e82ed16931f563f8bab5086701032e56",
+      "entry_concept_count": 122,
+      "all_concept_count": 382
+    },
+    "1048": {
+      "path": "tasks/reference/1048.json",
+      "sha256": "ce2141d9142f9545727753df6ab9741c64c20cce454b1115697be493fadb3df4",
+      "entry_concept_count": 685,
+      "all_concept_count": 685
+    },
+    "1064": {
+      "path": "tasks/reference/1064.json",
+      "sha256": "de6bd2ac8809343bab055d6ffe29152bbbdc3895ca47a6a95b1d5c31ea3831a3",
+      "entry_concept_count": 904,
+      "all_concept_count": 1160
+    },
+    "1073": {
+      "path": "tasks/reference/1073.json",
+      "sha256": "48c4567123911bfc7a096007d48ca5e8162240af8ab8afe77faeea327a9ae3e6",
+      "entry_concept_count": 1829,
+      "all_concept_count": 3995
+    },
+    "1183": {
+      "path": "tasks/reference/1183.json",
+      "sha256": "c3ece2e3afd86895c9ebac57ffad063ba4afa3ce1bad7fb33c349ba60ca765f4",
+      "entry_concept_count": 2009,
+      "all_concept_count": 2009
+    },
+    "1184": {
+      "path": "tasks/reference/1184.json",
+      "sha256": "4672a52f6f10b2865c410a987de0b73020122b3a2efd0a2a560ff946678b25db",
+      "entry_concept_count": 181,
+      "all_concept_count": 181
+    },
+    "1188": {
+      "path": "tasks/reference/1188.json",
+      "sha256": "6ec1d4755fe58c5b88f8e735fc75ec633765352ac8d3c78080b1538acc5ee036",
+      "entry_concept_count": 170,
+      "all_concept_count": 226
+    },
+    "1261": {
+      "path": "tasks/reference/1261.json",
+      "sha256": "4725ef9feddb8fa69ae84789cd0edf882a7e8d8e5eaf2058b5ff3ea7ce738a1b",
+      "entry_concept_count": 156,
+      "all_concept_count": 256
+    },
+    "1263": {
+      "path": "tasks/reference/1263.json",
+      "sha256": "1c04655f5ae59b938aede46d8f77bdebf40ede8c95b1ce2d8aa84e366dc48d48",
+      "entry_concept_count": 49,
+      "all_concept_count": 345
+    },
+    "1285": {
+      "path": "tasks/reference/1285.json",
+      "sha256": "ec01a2a1c17b418df7c4cf07fdd65cc1b8de480fb942cb816a8b694c7cfa42ea",
+      "entry_concept_count": 107,
+      "all_concept_count": 107
+    },
+    "1301": {
+      "path": "tasks/reference/1301.json",
+      "sha256": "05bf367a1da924d81dd8b28ca1a356d52b3e0a567a8dfdb6eff10b867eab5b18",
+      "entry_concept_count": 159,
+      "all_concept_count": 159
+    }
+  }
+}

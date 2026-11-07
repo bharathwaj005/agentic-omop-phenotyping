@@ -1,0 +1,3 @@
+cohort_id,reason
+33,Excluded by the v2 entry Jaccard gate: 0.9065 versus V5.3 cohort 864 (threshold 0.90).
+1080,Excluded by the v2 entry Jaccard gate: 1.0000 versus Neuro cohort 235 (threshold 0.90).
