@@ -12,6 +12,8 @@ python3 -m venv .venv
 .venv/bin/python -m src.db.load_vocab                # builds data/vocab.duckdb from the Athena CSVs
 ```
 
+The test suite runs without `.env`: missing settings get safe test defaults (`PROJECT_ROOT` = this folder, storage roots under a git-ignored `.local/` folder, model names as labels for the fake LLM). To re-run models, create `.env` from `.env.example`.
+
 ## 1. Regenerate all tables and figures from the frozen runs (no model calls)
 
 ```bash

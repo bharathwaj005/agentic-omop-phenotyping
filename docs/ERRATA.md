@@ -24,3 +24,17 @@ All corrections below were made after the 128 official runs and **without re-run
 ## E5 — Runner portability
 
 `scripts/run_benchmark.py` required a file on the original author's external drive and pinned the pre-correction reference-manifest hash. Missing machine-specific files are now skipped and the hash is pinned to the corrected manifest.
+
+## Post-freeze file changes
+
+A reproducibility audit of a fresh clone (9 Nov 2026) compared every file hashed in `results/codex_20261025/freeze_manifest_OFFICIAL.json` with the released repository: 236 entries match exactly and five files differ. All five are the corrections disclosed in the manuscript; none changes any model output, and all affected scores were recomputed from the stored run outputs.
+
+| File | Change | Reason | Effect on official runs |
+| --- | --- | --- | --- |
+| `src/eval/build_reference_v2.py` | T10 reference built from cohort 1025 instead of 967 | T10 cohort-identifier transcription error | Reference only; T10 re-scored |
+| `tasks/reference_v2/MANIFEST.json` | 1025 added, 967 moved to `superseded/`, erratum note | Same correction | Reference only |
+| `src/metrics/evaluation.py` | F1 = 0 when precision + recall = 0 | Zero-overlap scoring rule | Scoring only; no run changed |
+| `tests/test_scientific_validation.py` | Disjoint sets now expect F1 = 0.0 | Matches the scoring rule | Tests only |
+| `scripts/run_benchmark.py` | T10 cohort 1025; reference-manifest hash pin; portable preflight; `adn` track option | Correction, portability, ADN extension | None; official runs were complete before the change |
+
+Entries reported as "not in repository" refer to files outside the release (draft question files and local paths), which the manifest recorded for provenance.

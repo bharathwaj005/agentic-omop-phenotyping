@@ -10,3 +10,4 @@ __pycache__/
 *doctor*
 *reconcil*
 *recovery*
+.local/
